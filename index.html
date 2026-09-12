@@ -140,6 +140,14 @@ button.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line
 @media (max-width: 540px) {
   .device.iphone { width: 168px; }
 }
+@media print {
+  .who-bar { position: static; }
+  nav.toc, .sticky { display: none !important; }
+  .card { break-inside: avoid; box-shadow: none; }
+  .device.iphone { width: 150px; }
+  textarea { min-height: 3rem; overflow: visible !important; height: auto !important; }
+  body { background: #fff; }
+}
 </style>
 </head>
 <body>
@@ -460,6 +468,7 @@ button.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line
   <button type="submit" class="primary">Submit mix</button>
   <button type="button" class="ghost" id="copyBtn">Copy mix</button>
   <button type="button" class="ghost" id="dlBtn">Download mix.txt</button>
+  <button type="button" class="ghost" id="printBtn">Print / Save PDF</button>
   <span class="status" id="status"></span>
 </div>
 </form>
@@ -507,6 +516,83 @@ function mixLine() {
   return line;
 }
 function syncHidden() { document.getElementById('mix_line').value = mixLine(); }
+function draftKey(who) { return 'sweet-ux-draft-v1:' + (who || 'anon'); }
+function collectDraft() {
+  const data = {};
+  new FormData(document.getElementById('mixform')).forEach(function (v, k) {
+    if (k !== 'mix_line') data[k] = v;
+  });
+  return data;
+}
+function restoreDraft(data) {
+  if (!data) return;
+  const form = document.getElementById('mixform');
+  Object.keys(data).forEach(function (k) {
+    const els = form.querySelectorAll('[name="'+k+'"]');
+    els.forEach(function (el) {
+      if (el.type === 'radio') el.checked = (el.value === data[k]);
+      else el.value = data[k];
+    });
+  });
+}
+function showSaved() {
+  const t = new Date();
+  const hh = String(t.getHours()).padStart(2,'0');
+  const mm = String(t.getMinutes()).padStart(2,'0');
+  const ss = String(t.getSeconds()).padStart(2,'0');
+  document.getElementById('status').textContent = 'Draft saved on this device at ' + hh + ':' + mm + ':' + ss;
+}
+function saveDraft() {
+  try {
+    const who = val('who') || 'anon';
+    localStorage.setItem(draftKey(who), JSON.stringify({ savedAt: Date.now(), data: collectDraft() }));
+    localStorage.setItem('sweet-ux-draft-who', who);
+    showSaved();
+  } catch (err) {
+    document.getElementById('status').textContent = 'Could not auto-save in this browser. Use Download.';
+  }
+}
+function loadDraftFor(who) {
+  try {
+    const raw = localStorage.getItem(draftKey(who));
+    if (!raw) return;
+    const parsed = JSON.parse(raw);
+    restoreDraft(parsed.data || parsed);
+  } catch (err) {}
+}
+function downloadMix() {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([mixLine()], {type: 'text/plain'}));
+  a.download = (val('who') || 'mix') + '-Sweet-UX-MIX.txt';
+  a.click();
+}
+var saveTimer = null;
+function scheduleSave() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(saveDraft, 900);
+}
+document.getElementById('mixform').addEventListener('input', scheduleSave);
+document.getElementById('mixform').addEventListener('change', function (e) {
+  if (e.target && e.target.name === 'who') {
+    const prev = localStorage.getItem('sweet-ux-draft-who');
+    if (prev && prev !== val('who')) {
+      try {
+        localStorage.setItem(draftKey(prev), JSON.stringify({ savedAt: Date.now(), data: Object.assign(collectDraft(), { who: prev }) }));
+      } catch (err) {}
+    }
+    loadDraftFor(val('who'));
+  }
+  saveDraft();
+});
+window.addEventListener('beforeunload', saveDraft);
+document.addEventListener('visibilitychange', function () {
+  if (document.visibilityState === 'hidden') saveDraft();
+});
+(function initDraft() {
+  const last = localStorage.getItem('sweet-ux-draft-who');
+  if (last) loadDraftFor(last);
+  else if (val('who')) loadDraftFor(val('who'));
+})();
 document.getElementById('mixform').addEventListener('submit', async function (e) {
   if (!val('who')) {
     e.preventDefault();
@@ -515,41 +601,47 @@ document.getElementById('mixform').addEventListener('submit', async function (e)
     return;
   }
   syncHidden();
+  saveDraft();
+  downloadMix();
   const local = location.hostname === '127.0.0.1' || location.hostname === 'localhost';
   if (local) return;
   e.preventDefault();
   const status = document.getElementById('status');
-  status.textContent = 'Sending…';
+  status.textContent = 'Sending… (also downloaded a backup file)';
   const body = new FormData(this);
+  body.append('_subject', 'Sweet UX mix from ' + val('who'));
   try {
-    const res = await fetch('https://formsubmit.co/ajax/salim@habash.net', {
+    const res = await fetch('https://formsubmit.co/ajax/23322cc0514fb928fe0d089afa12512a', {
       method: 'POST',
       headers: { Accept: 'application/json' },
       body
     });
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    status.textContent = 'Sent. Thank you — Salim’s Grok will pick this up.';
+    const payload = await res.json().catch(function () { return {}; });
+    if (!res.ok || payload.success === 'false' || payload.success === false) {
+      throw new Error(payload.message || ('HTTP ' + res.status));
+    }
+    status.textContent = 'Submitted. A backup file also downloaded. Draft kept on this device.';
   } catch (err) {
-    status.textContent = 'Send failed. Use Download and email the file.';
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([mixLine()], {type: 'text/plain'}));
-    a.download = (val('who') || 'mix') + '-Sweet-UX-MIX.txt';
-    a.click();
+    status.textContent = 'Online send failed. Your backup file downloaded — email that to Salim. Draft is still on this device.';
   }
 });
 document.getElementById('copyBtn').addEventListener('click', async () => {
+  saveDraft();
   try {
     await navigator.clipboard.writeText(mixLine());
-    document.getElementById('status').textContent = 'Copied.';
+    document.getElementById('status').textContent = 'Copied. Draft also saved on this device.';
   } catch (err) {
     document.getElementById('status').textContent = 'Copy failed — use Download.';
   }
 });
-document.getElementById('dlBtn').addEventListener('click', () => {
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([mixLine()], {type: 'text/plain'}));
-  a.download = (val('who') || 'mix') + '-Sweet-UX-MIX.txt';
-  a.click();
+document.getElementById('dlBtn').addEventListener('click', function () {
+  saveDraft();
+  downloadMix();
+  document.getElementById('status').textContent = 'Downloaded mix.txt. Draft also saved on this device.';
+});
+document.getElementById('printBtn').addEventListener('click', function () {
+  saveDraft();
+  window.print();
 });
 </script>
 </body>
