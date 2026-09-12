@@ -177,7 +177,7 @@ button.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line
 </nav>
 
 <div class="intro">
-  <p><span class="chip lock">Starting picks</span> Face result 4–8 heroes · tabs Home / Health / History · Skin 0–100 is not the result · History Samples out of Release · no Swift until this mix. You can still comment on all of them.</p>
+  <p><span class="chip lock">Starting picks</span> Face result 4–8 heroes · tabs Home / Health / History · Skin 0–100 is not the result · History Samples out of Release · no Swift until these answers. You can still comment on all of them.</p>
 </div>
 
 <article class="card" id="home">
@@ -465,9 +465,9 @@ button.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line
 
 <input type="hidden" name="mix_line" id="mix_line">
 <div class="sticky">
-  <button type="submit" class="primary">Submit mix</button>
-  <button type="button" class="ghost" id="copyBtn">Copy mix</button>
-  <button type="button" class="ghost" id="dlBtn">Download mix.txt</button>
+  <button type="submit" class="primary">Submit answers</button>
+  <button type="button" class="ghost" id="copyBtn">Copy answers</button>
+  <button type="button" class="ghost" id="dlBtn">Download answers</button>
   <button type="button" class="ghost" id="printBtn">Print / Save PDF</button>
   <span class="status" id="status"></span>
 </div>
@@ -510,7 +510,7 @@ function mixLine() {
     pair('HRV copy', 'ranya_hrv', 'ranya_hrv_notes'),
     pair('Green oval', 'ranya_ring', 'ranya_ring_notes')
   ];
-  let line = 'WHO: ' + who + '\nMIX:\n' + chunks.filter(Boolean).join('\n');
+  let line = 'WHO: ' + who + '\nANSWERS:\n' + chunks.filter(Boolean).join('\n');
   const notes = text('notes');
   if (notes) line += '\nOVERALL NOTES: ' + notes.replace(/\n/g, '\n  ');
   return line;
@@ -563,7 +563,7 @@ function loadDraftFor(who) {
 function downloadMix() {
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([mixLine()], {type: 'text/plain'}));
-  a.download = (val('who') || 'mix') + '-Sweet-UX-MIX.txt';
+  a.download = (val('who') || 'answers') + '-Sweet-UX-answers.txt';
   a.click();
 }
 var saveTimer = null;
@@ -609,7 +609,7 @@ document.getElementById('mixform').addEventListener('submit', async function (e)
   const status = document.getElementById('status');
   status.textContent = 'Sending… (also downloaded a backup file)';
   const body = new FormData(this);
-  body.append('_subject', 'Sweet UX mix from ' + val('who'));
+  body.append('_subject', 'Sweet UX answers from ' + val('who'));
   try {
     const res = await fetch('https://formsubmit.co/ajax/23322cc0514fb928fe0d089afa12512a', {
       method: 'POST',
@@ -637,7 +637,7 @@ document.getElementById('copyBtn').addEventListener('click', async () => {
 document.getElementById('dlBtn').addEventListener('click', function () {
   saveDraft();
   downloadMix();
-  document.getElementById('status').textContent = 'Downloaded mix.txt. Draft also saved on this device.';
+  document.getElementById('status').textContent = 'Downloaded answers. Draft also saved on this device.';
 });
 document.getElementById('printBtn').addEventListener('click', function () {
   saveDraft();
