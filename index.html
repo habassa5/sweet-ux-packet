@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sweet — founder UX packet</title>
+<style>
+:root {
+  --paper: #F6F1E8;
+  --ink: #1C1915;
+  --muted: #6B6157;
+  --line: #E2D9CE;
+  --teal: #0F766E;
+  --teal-deep: #115E59;
+  --magenta: #C0267A;
+  --card: #FFFcf7;
+  --ranya: #6D28D9;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.45 "Iowan Old Style", Palatino, Georgia, serif;
+}
+.who-bar {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(246,241,232,.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  padding: .7rem 1.25rem;
+  display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; align-items: center;
+}
+.who-bar .kicker { margin: 0; }
+.who-bar label { font: 650 14px/1.2 system-ui; cursor: pointer; }
+.kicker {
+  font: 650 11px/1 system-ui, sans-serif;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--magenta);
+}
+header.hero, nav.toc, .wrap { max-width: 58rem; margin: 0 auto; padding: 0 1.25rem; }
+header.hero { padding-top: 1.75rem; padding-bottom: 1rem; }
+h1 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); line-height: 1.12; margin: .35rem 0 .7rem; }
+.lede { color: var(--muted); max-width: 38rem; }
+nav.toc { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 auto 1.5rem; }
+nav.toc a {
+  font: 650 12px/1 system-ui; color: var(--teal-deep);
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 999px; padding: .4rem .7rem; text-decoration: none;
+}
+.chip {
+  display: inline-block; font: 700 10px/1 system-ui;
+  letter-spacing: .08em; text-transform: uppercase;
+  border-radius: 999px; padding: .25rem .5rem; vertical-align: middle;
+}
+.chip.lock { background: #D1FAE5; color: #065F46; }
+.chip.open { background: #FFEDD5; color: #9A3412; }
+.chip.ranya { background: #EDE9FE; color: #5B21B6; }
+.card {
+  max-width: 58rem; margin: 0 auto 1.75rem; padding: 1.25rem 1.25rem 1.4rem;
+  background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+}
+.card h2 { font-size: 1.45rem; margin: 0 0 .4rem; }
+.card .why { color: var(--muted); margin: 0 0 .75rem; }
+.phones {
+  display: flex; flex-wrap: wrap; gap: 1rem 1.15rem;
+  align-items: flex-start; margin: .2rem 0 .55rem;
+}
+.device { flex: 0 0 auto; }
+.device.iphone { width: 220px; }
+.device.iphone .frame {
+  background: #1A1714; border-radius: 32px; padding: 9px 8px 10px;
+  box-shadow: 0 10px 28px rgba(28,25,21,.14);
+}
+.device.iphone img {
+  width: 100%; display: block; border-radius: 24px; background: #eee;
+}
+.device.board { width: min(400px, 100%); }
+.device.board img {
+  width: 100%; display: block; border-radius: 12px; border: 1px solid var(--line);
+}
+.device figcaption {
+  font: 500 12.5px/1.35 system-ui; color: var(--muted);
+  padding: .45rem .15rem 0; margin: 0; max-width: 400px;
+}
+.band {
+  font: 700 12.5px/1.35 system-ui;
+  color: var(--teal-deep); background: #D1FAE5;
+  border-radius: 8px; padding: .5rem .75rem; margin: 0 0 .85rem;
+}
+.rec {
+  background: #ECFDF5; border-radius: 10px; padding: .65rem .85rem; margin: 0 0 .85rem;
+  font: 400 15px/1.4 system-ui;
+}
+.rec strong { color: var(--teal-deep); }
+fieldset {
+  border: 1px solid var(--line); border-radius: 14px;
+  padding: .85rem 1rem 1rem; margin: 0;
+  background: #FFFEFB;
+}
+legend {
+  font: 700 12px/1 system-ui; letter-spacing: .06em; text-transform: uppercase; padding: 0 .35rem;
+}
+label.opt { display: block; padding: .38rem .15rem; cursor: pointer; font: 400 15.5px/1.35 system-ui; }
+label.opt input { margin-right: .45rem; }
+label.opt.more {
+  margin-top: .45rem; padding-top: .55rem;
+  border-top: 1px dashed var(--line); color: var(--teal-deep); font-weight: 650;
+}
+.steer { margin-top: .7rem; padding-top: .65rem; border-top: 1px solid var(--line); }
+.steer label {
+  display: block; font: 700 12px/1.3 system-ui; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--teal-deep); margin-bottom: .35rem;
+}
+textarea {
+  width: 100%; font: 16px/1.4 system-ui; padding: .7rem .8rem;
+  border-radius: 10px; border: 1px solid var(--line); background: #fff; min-height: 6rem; resize: vertical;
+}
+blockquote {
+  margin: .5rem 0 .8rem; padding: .7rem .85rem; border-left: 4px solid var(--ranya);
+  background: #F5F3FF; font-size: 1rem;
+}
+blockquote cite { display: block; margin-top: .35rem; font: 650 11px/1.3 system-ui; color: var(--ranya); }
+ul.plain { padding-left: 1.15rem; margin: .4rem 0; }
+li { margin: .2rem 0; }
+.sticky {
+  position: sticky; bottom: 0; z-index: 20;
+  background: rgba(246,241,232,.95); backdrop-filter: blur(10px);
+  border-top: 1px solid var(--line);
+  padding: .75rem 1.25rem; display: flex; gap: .6rem; flex-wrap: wrap; justify-content: center;
+}
+button {
+  font: 700 14px/1 system-ui; border: 0; border-radius: 999px;
+  padding: .8rem 1.2rem; cursor: pointer;
+}
+button.primary { background: var(--teal); color: #fff; }
+button.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+.status { font: 600 13px/1.3 system-ui; color: var(--muted); align-self: center; }
+.intro { max-width: 58rem; margin: 0 auto 1.25rem; padding: 0 1.25rem; }
+@media (max-width: 540px) {
+  .device.iphone { width: 168px; }
+}
+</style>
+</head>
+<body>
+<form id="mixform" action="/submit" method="post">
+<div class="who-bar">
+  <p class="kicker">Sweet UX packet</p>
+  <span style="font:650 13px/1 system-ui">Who is filling this?</span>
+  <label><input type="radio" name="who" value="Salim" required> Salim</label>
+  <label><input type="radio" name="who" value="Ranya" required> Ranya</label>
+</div>
+
+<header class="hero">
+  <h1>Look at the phones, then answer that question.</h1>
+  <p class="lede">Each card is one decision: screens first (iPhone-sized), a green bar that says those screens belong to the box below, then radios, then your comments. Radios are a start — “mock another round” means show more directions. Nothing here ships the app.</p>
+</header>
+<nav class="toc">
+  <a href="#home">Home</a>
+  <a href="#face-capture">Face capture</a>
+  <a href="#face-result">Face result</a>
+  <a href="#skin-capture">Skin capture</a>
+  <a href="#skin-result">Skin result</a>
+  <a href="#gut">Gut</a>
+  <a href="#history">History</a>
+  <a href="#tabs">Tabs</a>
+  <a href="#meaning">Numbers</a>
+  <a href="#ranya">Ranya notes</a>
+</nav>
+
+<div class="intro">
+  <p><span class="chip lock">Starting picks</span> Face result 4–8 heroes · tabs Home / Health / History · Skin 0–100 is not the result · History Samples out of Release · no Swift until this mix. You can still comment on all of them.</p>
+</div>
+
+<article class="card" id="home">
+  <h2>Home <span class="chip open">Open</span></h2>
+  <p class="why">What is the one thing you tap first? Gut must be a check that runs, not Bristol school.</p>
+  <div class="phones">
+    <figure class="device iphone"><div class="frame"><img src="assets/home-codex.png" alt="Codex Home"></div><figcaption><strong>Codex.</strong> Equal Face / Skin / Gut rows. Spiral as a side mark. Demos listed. No giant teal button.</figcaption></figure>
+    <figure class="device board"><img src="assets/home-fable.png" alt="Fable Home A and B"><figcaption><strong>Fable A / B</strong> (board). Face hero + big Start. Demos collapsed (A) or listed (B).</figcaption></figure>
+    <figure class="device iphone"><div class="frame"><img src="assets/ranya-home-bristol.jpg" alt="Ranya Home Bristol card"></div><figcaption><strong>Ranya, build 14.</strong> Featured Gut is a textbook: book icon, huge “See the Bristol scale.”</figcaption></figure>
+  </div>
+  <p class="band">The comment box below is for these Home screens — not the next section.</p>
+  <div class="rec"><strong>Recommendation.</strong> Don’t keep the book CTA. Codex matches your tab bar. Fable is clearer “tap Face.”</div>
+  <fieldset>
+    <legend>Home first glance</legend>
+    <label class="opt"><input type="radio" name="home" value="codex-rows"> Codex restrained rows</label>
+    <label class="opt"><input type="radio" name="home" value="fable-hero"> Fable A — Face hero + big Start; demos collapsed</label>
+    <label class="opt"><input type="radio" name="home" value="fable-list"> Fable B — Face Start large; demos listed</label>
+    <label class="opt"><input type="radio" name="home" value="hybrid"> Hybrid: Codex rows + Start only on Face</label>
+    <label class="opt more"><input type="radio" name="home" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer">
+      <label for="home_notes">Your comments on the Home screens above</label>
+      <textarea id="home_notes" name="home_notes" placeholder="Spiral size, Gut as a real check, demos, teal button…"></textarea>
+    </div>
+  </fieldset>
+</article>
+
+<article class="card" id="face-capture">
+  <h2>Face capture <span class="chip open">Open</span></h2>
+  <p class="why">One oval = position, lock, progress, signal. STOP only. 4–8 heroes is the <em>result</em>, not this screen.</p>
+  <div class="phones">
+    <figure class="device board"><img src="assets/face-capture-fable.png" alt="Fable Face oval states"><figcaption><strong>Fable.</strong> Oval states: too far → hold still → measuring → finish. Timeout should coach.</figcaption></figure>
+    <figure class="device iphone"><div class="frame"><img src="assets/face-capture-codex.png" alt="Codex Face oval"></div><figcaption><strong>Codex.</strong> Same one-oval idea, simpler.</figcaption></figure>
+    <figure class="device iphone"><div class="frame"><img src="assets/ranya-timeout.jpg" alt="Timeout list"></div><figcaption><strong>Ranya timeout.</strong> Grey ring. 16 empty “Needs another check” rows.</figcaption></figure>
+  </div>
+  <p class="band">The comment box below is for Face capture (these phones) — oval height, blur, green ring, timeout. Not the result tiles.</p>
+  <fieldset>
+    <legend>Face capture</legend>
+    <label class="opt"><input type="radio" name="face_capture_choice" value="fable-oval"> Fable one-oval states as the start</label>
+    <label class="opt"><input type="radio" name="face_capture_choice" value="codex-oval"> Codex simpler oval as the start</label>
+    <label class="opt more"><input type="radio" name="face_capture_choice" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer">
+      <label for="face_capture_notes">Your comments on the Face capture screens above</label>
+      <textarea id="face_capture_notes" name="face_capture_notes" rows="6" placeholder="e.g. oval higher on the screen; blur the background; green progress not grey…"></textarea>
+    </div>
+  </fieldset>
+</article>
+
+<article class="card" id="face-result">
+  <h2>Face result <span class="chip lock">Starting pick: 4–8 heroes</span></h2>
+  <p class="why">Not heart-rate-only. Several tiles on the first glance, then the rest grouped. Still steerable.</p>
+  <div class="phones">
+    <figure class="device board"><img src="assets/face-result-fable.png" alt="Fable Face result A vs B"><figcaption><strong>Fable A / B.</strong> A = four equal tiles (the idea you picked). B = HR hero (out).</figcaption></figure>
+  </div>
+  <p class="band">The comment box below is for Face <em>result</em> (this board) — not capture.</p>
+  <fieldset>
+    <legend>Face result</legend>
+    <label class="opt"><input type="radio" name="face_result" value="fable-4-8" checked> Keep 4–8 hero tiles, not HR-only</label>
+    <label class="opt"><input type="radio" name="face_result" value="hr-hero"> Change: HR as the single hero</label>
+    <label class="opt more"><input type="radio" name="face_result" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer">
+      <label for="face_result_notes">Your comments on the Face result screens above</label>
+      <textarea id="face_result_notes" name="face_result_notes" placeholder="Which tiles, order, size…"></textarea>
+    </div>
+  </fieldset>
+  <fieldset style="margin-top:1rem">
+    <legend>How a Face number becomes useful</legend>
+    <label class="opt"><input type="radio" name="face_meaning" value="gut-grammar"> What it is + so-what + when to check in. Real ranges only.</label>
+    <label class="opt"><input type="radio" name="face_meaning" value="distribution-if-data"> Age / distribution only when we have the data</label>
+    <label class="opt"><input type="radio" name="face_meaning" value="no-band"> Number + short sentence only</label>
+    <label class="opt more"><input type="radio" name="face_meaning" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer">
+      <label for="face_meaning_notes">Your comments on Face meaning</label>
+      <textarea id="face_meaning_notes" name="face_meaning_notes" placeholder="HRV, BP, breathing — what should a normal person understand?"></textarea>
+    </div>
+  </fieldset>
+</article>
+
+<article class="card" id="skin-capture">
+  <h2>Skin capture <span class="chip open">Open</span></h2>
+  <p class="why">Inner oval should teach “fill the shape” without eight bullets.</p>
+  <div class="phones">
+    <figure class="device board"><img src="assets/skin-capture-fable.png" alt="Fable Skin fill guide"><figcaption><strong>Fable.</strong> Inner oval, come closer, shutter. Close-up selfie.</figcaption></figure>
+  </div>
+  <p class="band">The comment box below is for Skin <em>capture</em> (this board) — not the 0–100 result list.</p>
+  <fieldset>
+    <legend>Skin capture</legend>
+    <label class="opt"><input type="radio" name="skin_capture_choice" value="fable-fill"> Fable fill-guide as the start</label>
+    <label class="opt more"><input type="radio" name="skin_capture_choice" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer">
+      <label for="skin_capture_notes">Your comments on the Skin capture screens above</label>
+      <textarea id="skin_capture_notes" name="skin_capture_notes" placeholder="Hairline marks, come-closer, shutter…"></textarea>
+    </div>
+  </fieldset>
+</article>
+
+<article class="card" id="skin-result">
+  <h2>Skin result <span class="chip ranya">0–100 fails</span></h2>
+  <p class="why">A vs B only sorts the same useless numbers. You and Ranya both said 0–100 is not a result.</p>
+  <div class="phones">
+    <figure class="device iphone"><div class="frame"><img src="assets/skin-result-codex.png" alt="Codex skin bars"></div><figcaption><strong>Codex.</strong> Two 0–100 bars. The meaningless version.</figcaption></figure>
+    <figure class="device board"><img src="assets/skin-result-fable.png" alt="Fable Skin A vs B"><figcaption><strong>Fable A / B.</strong> A = sorted glance. B = walk the face, no ranking.</figcaption></figure>
+    <figure class="device iphone"><div class="frame"><img src="assets/ranya-skin-scores.jpg" alt="Ranya skin scores"></div><figcaption><strong>Ranya.</strong> “Higher scores are better.” Zero context.</figcaption></figure>
+    <figure class="device iphone"><div class="frame"><img src="assets/ranya-ask-ugh.jpg" alt="Ask failed"></div><figcaption><strong>“Ugh.”</strong> Ask died when she asked what the numbers mean.</figcaption></figure>
+  </div>
+  <p class="band">The comment box below is for Skin <em>result</em> (these phones) — meaning, not the capture oval.</p>
+  <div class="rec"><strong>Recommendation.</strong> Mock meaning-first (what / may help / when to check in). Don’t invent Botox cutoffs.</div>
+  <fieldset>
+    <legend>Skin result layout</legend>
+    <label class="opt"><input type="radio" name="skin_result" value="meaning-first"> Skip A/B. Mock meaning-first, then I’ll pick</label>
+    <label class="opt"><input type="radio" name="skin_result" value="a-sorted"> Fable A — sorted glance for now</label>
+    <label class="opt"><input type="radio" name="skin_result" value="b-areas"> Fable B — by area only</label>
+    <label class="opt more"><input type="radio" name="skin_result" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer">
+      <label for="skin_result_notes">Your comments on the Skin result screens above</label>
+      <textarea id="skin_result_notes" name="skin_result_notes" placeholder="What must be above the fold…"></textarea>
+    </div>
+  </fieldset>
+  <fieldset style="margin-top:1rem">
+    <legend>Skin meaning</legend>
+    <label class="opt"><input type="radio" name="skin_meaning" value="gut-grammar"> Same three-part stack as Gut. No 0–100 as the headline</label>
+    <label class="opt"><input type="radio" name="skin_meaning" value="wait-vendor"> Hide numbers until Perfect Corp ranges exist</label>
+    <label class="opt"><input type="radio" name="skin_meaning" value="keep-numbers-plus-sentence"> Keep 0–100 but always pair with a human sentence</label>
+    <label class="opt more"><input type="radio" name="skin_meaning" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer">
+      <label for="skin_meaning_notes">Your comments on Skin meaning</label>
+      <textarea id="skin_meaning_notes" name="skin_meaning_notes" placeholder="Dermatologist / Botox as check-in, not diagnosis. What is allowed?"></textarea>
+    </div>
+  </fieldset>
+</article>
+
+<article class="card" id="gut">
+  <h2>Gut <span class="chip lock">Grammar: three-part stack</span></h2>
+  <p class="why">Horizontal Bristol 1–7 (3/4/5 green, 2/6 orange, 1/7 nearer red). What this means / What may help / When to check in with a clinician. Never “Red flags.”</p>
+  <div class="phones">
+    <figure class="device board"><img src="assets/gut-result-fable.png" alt="Fable Gut"><figcaption><strong>Fable.</strong> Seven types on one row. Clinician card fully visible.</figcaption></figure>
+    <figure class="device iphone"><div class="frame"><img src="assets/gut-result-codex.png" alt="Codex Gut"></div><figcaption><strong>Codex.</strong> Same hierarchy; Ask clips the clinician block. Don’t ship that.</figcaption></figure>
+  </div>
+  <p class="band">The comment box below is for these Gut result screens.</p>
+  <fieldset>
+    <legend>Gut result</legend>
+    <label class="opt"><input type="radio" name="gut_result" value="fable-full-stack" checked> Fable: full row + stack fully visible</label>
+    <label class="opt"><input type="radio" name="gut_result" value="codex-fix-clip"> Codex hierarchy, never clip clinician</label>
+    <label class="opt more"><input type="radio" name="gut_result" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer">
+      <label for="gut_notes">Your comments on the Gut screens above</label>
+      <textarea id="gut_notes" name="gut_notes" placeholder="Viewfinder, Bristol on Home vs result, clinician wording…"></textarea>
+    </div>
+  </fieldset>
+</article>
+
+<article class="card" id="history">
+  <h2>History</h2>
+  <p class="why"><strong>Samples are not your photos.</strong> Your checks = you ran them. Samples = factory/tester stills. Fable drops Samples from Release.</p>
+  <div class="phones">
+    <figure class="device iphone"><div class="frame"><img src="assets/history-codex.png" alt="Codex History"></div><figcaption><strong>Codex.</strong> Still has Your checks / Samples.</figcaption></figure>
+    <figure class="device board"><img src="assets/history-fable.png" alt="Fable History"><figcaption><strong>Fable.</strong> No Samples. Headline reading in the row.</figcaption></figure>
+  </div>
+  <p class="band">The comment box below is for these History screens.</p>
+  <fieldset>
+    <legend>History Samples</legend>
+    <label class="opt"><input type="radio" name="history_samples" value="drop" checked> Drop Samples from Release (Debug only)</label>
+    <label class="opt"><input type="radio" name="history_samples" value="keep"> Keep Samples in Release</label>
+    <label class="opt more"><input type="radio" name="history_samples" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer">
+      <label for="history_notes">Your comments on the History screens above</label>
+      <textarea id="history_notes" name="history_notes" placeholder="Trends, compare two Face checks, empty state…"></textarea>
+    </div>
+  </fieldset>
+</article>
+
+<article class="card" id="tabs">
+  <h2>Tabs &amp; settings <span class="chip open">Open</span></h2>
+  <p class="why">Starting pick: Home · Health · History. “You” is out. August Living Spiral had a fourth tab, Learn. Settings often live as a gear top-right, not a tab.</p>
+  <p class="band">No phones in this card — comments are for chrome, not a screenshot above or below.</p>
+  <fieldset>
+    <legend>Tab bar</legend>
+    <label class="opt"><input type="radio" name="tabs" value="home-health-history" checked> Home · Health · History</label>
+    <label class="opt"><input type="radio" name="tabs" value="home-history-settings"> Home · History · Settings</label>
+    <label class="opt"><input type="radio" name="tabs" value="home-history-learn-profile"> Four tabs: Home · History · Learn · Profile</label>
+    <label class="opt more"><input type="radio" name="tabs" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer">
+      <label for="tabs_notes">Your comments on the tab bar</label>
+      <textarea id="tabs_notes" name="tabs_notes" placeholder="What Health means. Labels."></textarea>
+    </div>
+  </fieldset>
+  <fieldset style="margin-top:1rem">
+    <legend>Where settings live</legend>
+    <label class="opt"><input type="radio" name="settings" value="top-right"> Gear top-right on Home</label>
+    <label class="opt"><input type="radio" name="settings" value="top-left"> Top-left</label>
+    <label class="opt"><input type="radio" name="settings" value="in-health"> A row inside Health</label>
+    <label class="opt"><input type="radio" name="settings" value="tab"> Its own tab</label>
+    <label class="opt more"><input type="radio" name="settings" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer">
+      <label for="settings_notes">Your comments on settings placement</label>
+      <textarea id="settings_notes" name="settings_notes"></textarea>
+    </div>
+  </fieldset>
+  <fieldset style="margin-top:1rem">
+    <legend>Fourth tab / Learn</legend>
+    <label class="opt"><input type="radio" name="fourth_tab" value="none"> No fourth tab. Demos stay on Home.</label>
+    <label class="opt"><input type="radio" name="fourth_tab" value="learn"> Add Learn (not as the Gut hero)</label>
+    <label class="opt"><input type="radio" name="fourth_tab" value="later"> Decide after this TestFlight</label>
+    <label class="opt more"><input type="radio" name="fourth_tab" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer">
+      <label for="fourth_tab_notes">Your comments on a fourth tab</label>
+      <textarea id="fourth_tab_notes" name="fourth_tab_notes" placeholder="What you remember from the Ranya thread…"></textarea>
+    </div>
+  </fieldset>
+</article>
+
+<article class="card" id="meaning">
+  <h2>Make every number useful</h2>
+  <p class="why">A 78 does not tell a person what to do. No fake bell curve without data. Steal Gut’s stack. Clinician language is allowed as check-in, not diagnosis.</p>
+  <div class="phones">
+    <figure class="device iphone"><div class="frame"><img src="assets/ranya-wellness.jpg" alt="Wellness score"></div><figcaption>60.9756 + four disclaimer sentences. “Tells me nothing.”</figcaption></figure>
+    <figure class="device iphone"><div class="frame"><img src="assets/ranya-hrv.jpg" alt="HRV detail"></div><figcaption>HRV 15.95 ms, dictionary definition, no range.</figcaption></figure>
+    <figure class="device iphone"><div class="frame"><img src="assets/ranya-height.jpg" alt="Height in cm"></div><figcaption>167 cm only. Ranya wants inches and pounds too.</figcaption></figure>
+  </div>
+  <p class="band">The comment box below is for these “number with no so-what” screens.</p>
+  <fieldset>
+    <legend>How numbers become useful</legend>
+    <label class="opt more"><input type="radio" name="meaning_choice" value="mock-another-round"> Mock another round — show more directions for meaning</label>
+    <div class="steer">
+      <label for="meaning_notes">Your comments on the screens above</label>
+      <textarea id="meaning_notes" name="meaning_notes" rows="6" placeholder="Bell curves vs sentences. Botox / dermatologist as check-in…"></textarea>
+    </div>
+  </fieldset>
+</article>
+
+<article class="card" id="ranya">
+  <h2>Ranya’s TestFlight notes <span class="chip ranya">Bind unless you override</span></h2>
+  <blockquote>“Why is See Bristol Scale so big?? And why is it before the actual check?? Also why is the logo a book??”<cite>Home · rgh21</cite></blockquote>
+  <blockquote>“Must explain results in simple terms… part of every result by default. Then Ask if need further info… One simple statement.”<cite>Shen detail</cite></blockquote>
+  <blockquote>HRV: “a higher resting heart rate variability (HRV) is considered healthy. It means that your heart is more flexible to the changing needs of your body.”</blockquote>
+  <p class="band">Each pair below is its own question. Comments apply to that pair, not the quotes above.</p>
+  <fieldset>
+    <legend>Gut on Home</legend>
+    <label class="opt"><input type="radio" name="ranya_bristol" value="yes" checked> Gut on Home is a check, not Bristol school</label>
+    <label class="opt"><input type="radio" name="ranya_bristol" value="no"> Keep featured Bristol card</label>
+    <label class="opt more"><input type="radio" name="ranya_bristol" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer"><label for="ranya_bristol_notes">Your comments on this</label><textarea id="ranya_bristol_notes" name="ranya_bristol_notes"></textarea></div>
+  </fieldset>
+  <fieldset style="margin-top:1rem">
+    <legend>Explain results by default</legend>
+    <label class="opt"><input type="radio" name="ranya_explain" value="yes" checked> Explain every result by default; Ask is further info</label>
+    <label class="opt"><input type="radio" name="ranya_explain" value="no"> Keep Ask as where meaning lives</label>
+    <label class="opt more"><input type="radio" name="ranya_explain" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer"><label for="ranya_explain_notes">Your comments on this</label><textarea id="ranya_explain_notes" name="ranya_explain_notes"></textarea></div>
+  </fieldset>
+  <fieldset style="margin-top:1rem">
+    <legend>Disclaimers</legend>
+    <label class="opt"><input type="radio" name="ranya_disclaimer" value="yes" checked> One quiet honesty line, not a stack</label>
+    <label class="opt"><input type="radio" name="ranya_disclaimer" value="no"> Keep per-screen disclaimer blocks</label>
+    <label class="opt more"><input type="radio" name="ranya_disclaimer" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer"><label for="ranya_disclaimer_notes">Your comments on this</label><textarea id="ranya_disclaimer_notes" name="ranya_disclaimer_notes"></textarea></div>
+  </fieldset>
+  <fieldset style="margin-top:1rem">
+    <legend>Units</legend>
+    <label class="opt"><input type="radio" name="ranya_units" value="yes" checked> Locale: lb and in; BMI/BCI follow</label>
+    <label class="opt"><input type="radio" name="ranya_units" value="no"> Keep cm/kg only</label>
+    <label class="opt more"><input type="radio" name="ranya_units" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer"><label for="ranya_units_notes">Your comments on this</label><textarea id="ranya_units_notes" name="ranya_units_notes"></textarea></div>
+  </fieldset>
+  <fieldset style="margin-top:1rem">
+    <legend>HRV copy</legend>
+    <label class="opt"><input type="radio" name="ranya_hrv" value="yes" checked> Use her HRV so-what sentence</label>
+    <label class="opt"><input type="radio" name="ranya_hrv" value="no"> Write different HRV copy later</label>
+    <label class="opt more"><input type="radio" name="ranya_hrv" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer"><label for="ranya_hrv_notes">Your comments on this</label><textarea id="ranya_hrv_notes" name="ranya_hrv_notes"></textarea></div>
+  </fieldset>
+  <fieldset style="margin-top:1rem">
+    <legend>Face oval / timeout</legend>
+    <label class="opt"><input type="radio" name="ranya_ring" value="yes" checked> Green progress; timeout coaches, no 16 empty rows</label>
+    <label class="opt"><input type="radio" name="ranya_ring" value="no"> Leave capture chrome as shipped</label>
+    <label class="opt more"><input type="radio" name="ranya_ring" value="mock-another-round"> Mock another round — show more directions</label>
+    <div class="steer"><label for="ranya_ring_notes">Your comments on this</label><textarea id="ranya_ring_notes" name="ranya_ring_notes"></textarea></div>
+  </fieldset>
+</article>
+
+<article class="card" id="else">
+  <h2>Anything else</h2>
+  <p class="why">Catch-all if it didn’t fit a card above.</p>
+  <textarea name="notes" id="notes" rows="5" placeholder="Anything else for the designers…"></textarea>
+</article>
+
+<input type="hidden" name="mix_line" id="mix_line">
+<div class="sticky">
+  <button type="submit" class="primary">Submit mix</button>
+  <button type="button" class="ghost" id="copyBtn">Copy mix</button>
+  <button type="button" class="ghost" id="dlBtn">Download mix.txt</button>
+  <span class="status" id="status"></span>
+</div>
+</form>
+<script>
+function val(name) {
+  const el = document.querySelector('[name="'+name+'"]:checked');
+  return el ? el.value : '';
+}
+function text(name) {
+  const el = document.querySelector('[name="'+name+'"]');
+  return el ? (el.value || '').trim() : '';
+}
+function pair(label, radioName, notesName) {
+  const n = notesName ? text(notesName) : '';
+  const steer = n ? '\n  STEER: ' + n.replace(/\n/g, '\n  ') : '';
+  if (!radioName) return n ? (label + steer) : '';
+  return label + '=' + (val(radioName) || 'UNDECIDED') + steer;
+}
+function mixLine() {
+  const who = val('who') || 'UNDECIDED';
+  const chunks = [
+    pair('Home', 'home', 'home_notes'),
+    pair('Face capture', 'face_capture_choice', 'face_capture_notes'),
+    pair('Face result', 'face_result', 'face_result_notes'),
+    pair('Face meaning', 'face_meaning', 'face_meaning_notes'),
+    pair('Skin capture', 'skin_capture_choice', 'skin_capture_notes'),
+    pair('Skin result', 'skin_result', 'skin_result_notes'),
+    pair('Skin meaning', 'skin_meaning', 'skin_meaning_notes'),
+    pair('Gut result', 'gut_result', 'gut_notes'),
+    pair('History samples', 'history_samples', 'history_notes'),
+    pair('Tabs', 'tabs', 'tabs_notes'),
+    pair('Settings', 'settings', 'settings_notes'),
+    pair('Fourth tab', 'fourth_tab', 'fourth_tab_notes'),
+    pair('Meaning of numbers', 'meaning_choice', 'meaning_notes'),
+    pair('Ranya Bristol home', 'ranya_bristol', 'ranya_bristol_notes'),
+    pair('Explain by default', 'ranya_explain', 'ranya_explain_notes'),
+    pair('One disclaimer', 'ranya_disclaimer', 'ranya_disclaimer_notes'),
+    pair('Units lb/in', 'ranya_units', 'ranya_units_notes'),
+    pair('HRV copy', 'ranya_hrv', 'ranya_hrv_notes'),
+    pair('Green oval', 'ranya_ring', 'ranya_ring_notes')
+  ];
+  let line = 'WHO: ' + who + '\nMIX:\n' + chunks.filter(Boolean).join('\n');
+  const notes = text('notes');
+  if (notes) line += '\nOVERALL NOTES: ' + notes.replace(/\n/g, '\n  ');
+  return line;
+}
+function syncHidden() { document.getElementById('mix_line').value = mixLine(); }
+document.getElementById('mixform').addEventListener('submit', async function (e) {
+  if (!val('who')) {
+    e.preventDefault();
+    document.getElementById('status').textContent = 'Pick Salim or Ranya at the top first.';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
+  syncHidden();
+  const local = location.hostname === '127.0.0.1' || location.hostname === 'localhost';
+  if (local) return;
+  e.preventDefault();
+  const status = document.getElementById('status');
+  status.textContent = 'Sending…';
+  const body = new FormData(this);
+  try {
+    const res = await fetch('https://formsubmit.co/ajax/salim@habash.net', {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    status.textContent = 'Sent. Thank you — Salim’s Grok will pick this up.';
+  } catch (err) {
+    status.textContent = 'Send failed. Use Download and email the file.';
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([mixLine()], {type: 'text/plain'}));
+    a.download = (val('who') || 'mix') + '-Sweet-UX-MIX.txt';
+    a.click();
+  }
+});
+document.getElementById('copyBtn').addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(mixLine());
+    document.getElementById('status').textContent = 'Copied.';
+  } catch (err) {
+    document.getElementById('status').textContent = 'Copy failed — use Download.';
+  }
+});
+document.getElementById('dlBtn').addEventListener('click', () => {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([mixLine()], {type: 'text/plain'}));
+  a.download = (val('who') || 'mix') + '-Sweet-UX-MIX.txt';
+  a.click();
+});
+</script>
+</body>
+</html>
