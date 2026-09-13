@@ -102,11 +102,40 @@ h1 { font-size: clamp(1.85rem, 3.4vw, 2.55rem); line-height: 1.1; margin: .2rem 
   margin: 0 0 1.15rem; align-items: flex-start;
 }
 .cell { flex: 0 0 402px; width: 402px; }
-.cell h3 {
-  font: 700 13px/1.3 system-ui; margin: 0 0 .45rem;
+.who-tag {
+  display: inline-block;
+  font: 800 15px/1 system-ui;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .42rem .7rem;
+  border-radius: 8px;
+  margin: 0 0 .45rem;
 }
-.cell.f h3 { color: var(--fable); }
-.cell.c h3 { color: var(--codex); }
+.who-tag.fable { background: var(--fable); color: #fff; }
+.who-tag.codex { background: var(--codex); color: #fff; }
+.cell h3 {
+  font: 650 16px/1.3 system-ui;
+  color: var(--ink);
+  margin: 0 0 .5rem;
+}
+.rec-pill {
+  display: inline-block;
+  font: 800 10px/1 system-ui;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: #F5D76E;
+  color: #3A2A00;
+  padding: .22rem .42rem;
+  border-radius: 6px;
+  vertical-align: 2px;
+  margin-left: .3rem;
+}
+.cap {
+  font: 400 13.5px/1.5 system-ui;
+  color: var(--ink);
+  margin: .6rem 0 0;
+  max-width: 402px;
+}
 .phone-clip {
   width: 402px;
   height: 874px;
@@ -116,13 +145,14 @@ h1 { font-size: clamp(1.85rem, 3.4vw, 2.55rem); line-height: 1.1; margin: .2rem 
   box-shadow: 0 12px 30px rgba(26,22,18,.16);
   position: relative;
 }
-.phone-clip iframe {
+.phone-clip iframe, .phone-clip img {
   display: block;
   width: 402px;
   height: 874px;
   border: 0;
   background: #fff;
 }
+.phone-clip img { object-fit: cover; }
 .tools { display: flex; gap: .4rem; margin-top: .45rem; }
 .pin {
   font: 650 11px/1 system-ui; border: 1px solid var(--line); background: #fff;
@@ -208,7 +238,7 @@ textarea {
     <a href="#skin-res">Skin result</a>
     <a href="#gut">Gut</a>
     <a href="#history">History</a>
-    <a href="#settings">Settings</a>
+    <a href="#settings">Settings L vs R</a>
     <a href="#health">Health / Ask</a>
     <a href="../round2/index.html">Round 2 packet</a>
     <a href="../">Round 1 packet</a>
@@ -234,12 +264,55 @@ textarea {
     <div class="c"><strong>Codex rec</strong> C · candy keepsakes, whole row tappable, gear top-right</div>
   </div>
   <div class="pair">
-    <div class="cell f"><h3>A · Candy cards + go-coin</h3><div class="phone-clip" data-src="fable/home.html?solo=0" data-title="Fable Home A"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Home A">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>A · Warm editorial</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-a" data-title="Codex Home A"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Home A">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>B · Bloom tiles</h3><div class="phone-clip" data-src="fable/home.html?solo=1" data-title="Fable Home B"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Home B">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>B · Rose note</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-b" data-title="Codex Home B"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Home B">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>C · Lens band + Start</h3><div class="phone-clip" data-src="fable/home.html?solo=2" data-title="Fable Home C"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Home C">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>C · Candy keepsakes (rec)</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-c" data-title="Codex Home C"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Home C">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable A</div>
+      <h3>Candy cards + go-coin <span class="rec-pill">Fable rec</span></h3>
+      <div class="phone-clip" data-src="fable/home.html?solo=0" data-title="Fable A Home"></div>
+      <p class="cap">Why it reads as tappable: the card fill lifts each check off the paper, the tinted icon tile gives it a colour, and the trailing coin with an arrow is a “go” cue, not an iOS disclosure chevron. Nothing is a giant button; the whole card is the target. The latest-check strip appears only once a record exists and speaks in baseline grammar (“within your usual”), never a verdict. Demo rows keep Codex’s placement but drop the chevron.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable A Home">Pin Fable A</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex A</div>
+      <h3>Warm editorial</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-a" data-title="Codex A Home"></div>
+      <p class="cap">Warm paper, a soft serif moment, sculpted check icons, and explicit action verbs. Settings at top-right.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex A Home">Pin Codex A</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable B</div>
+      <h3>Bloom tiles</h3>
+      <div class="phone-clip" data-src="fable/home.html?solo=1" data-title="Fable B Home"></div>
+      <p class="cap">Why it reads as tappable: a coloured tile with a verb inside it is a button by convention (Fitness, Headspace). Face gets the wide tile because it is the check that runs most; Skin and Gut sit as a pair. The word “Start” inside each tile is the only control text. Cost: the pastel gradients are a new surface treatment (DESIGN.md has flat fills only) and would need a bounded adoption.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable B Home">Pin Fable B</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex B</div>
+      <h3>Rose note</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-b" data-title="Codex B Home"></div>
+      <p class="cap">A stronger rose greeting and tiny verb capsules. More romantic; a little less quiet.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex B Home">Pin Codex B</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable C</div>
+      <h3>Lens band + Start</h3>
+      <div class="phone-clip" data-src="fable/home.html?solo=2" data-title="Fable C Home"></div>
+      <p class="cap">Why it reads as tappable: a teal “Start” word at the trailing edge is a verb, not a chevron, and rows stay on the paper so the page is the calmest of the three. The dark band is Sweet Lens used once, as the brand moment. Cost: one-hue icons are quieter than A’s tints; the dark band makes the top heavier than “clean, uncluttered” may want.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable C Home">Pin Fable C</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex C</div>
+      <h3>Candy keepsakes <span class="rec-pill">Codex rec</span></h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-c" data-title="Codex C Home"></div>
+      <p class="cap">Recommended. Each check gets a tinted surface: more playful while keeping the rows compact. Whole row is tappable. No giant teal CTA, no row chevron.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex C Home">Pin Codex C</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex · demos</div>
+      <h3>Explore demos (from Home)</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=demos" data-title="Codex demos"></div>
+      <p class="cap">Example journeys to explore. These don’t run a check. Demos stay on Home — no fourth tab.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex demos">Pin Codex demos</button></div>
+    </div>
   </div>
   <p class="band">Comment on these Home phones — not Face.</p>
   <fieldset>
@@ -264,19 +337,78 @@ textarea {
     <div class="c"><strong>Codex rec</strong> Three quiet dots; unbordered X stays</div>
   </div>
   <div class="pair">
-    <div class="cell f"><h3>Too far · amber · X visible</h3><div class="phone-clip" data-src="fable/face-capture.html?solo=0" data-title="Fable Face too far"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face too far">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Reposition</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-adjust" data-title="Codex Face reposition"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Face reposition">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>Ready · teal oval · coach above</h3><div class="phone-clip" data-src="fable/face-capture.html?solo=1" data-title="Fable Face ready"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face ready">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Ready · high green oval</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-ready" data-title="Codex Face ready"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Face ready">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>Measuring · heart + wave · X hidden (rec)</h3><div class="phone-clip" data-src="fable/face-capture.html?solo=2" data-title="Fable Face measuring"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face measuring">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Working · three dots</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-scan" data-title="Codex Face working"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Face working">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable 1</div>
+      <h3>Positioning — too far</h3>
+      <div class="phone-clip" data-src="fable/face-capture.html?solo=0" data-title="Fable Face 1 too far"></div>
+      <p class="cap">Blur outside the oval keeps the room private and points the eye at the one instrument. The X is the only control. Coach line is the shipped cue text, placed above the oval so the eyes stay up.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable Face 1">Pin Fable 1</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 03</div>
+      <h3>Reposition</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-adjust" data-title="Codex Face reposition"></div>
+      <p class="cap">One coach line changes in place. The dashed green oval stays fixed while the illustrated face moves; resume would follow valid positioning, without another button.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Face reposition">Pin Codex 03</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable 2</div>
+      <h3>Ready — teal oval, coach above</h3>
+      <div class="phone-clip" data-src="fable/face-capture.html?solo=1" data-title="Fable Face 2 ready"></div>
+      <p class="cap">The stroke going solid teal is the whole announcement; the SDK starts on its own. The two lines are the only coaching the vendor’s preparation page supports: stable position, no talking, no change of expression. They fade after two seconds.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable Face 2">Pin Fable 2</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 01</div>
+      <h3>Ready — high green oval</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-ready" data-title="Codex Face ready"></div>
+      <p class="cap">Unbordered Instagram-style X. Guidance sits above a higher green oval; only the inside of the oval stays clear.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Face ready">Pin Codex 01</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable 3</div>
+      <h3>Measuring — heart + wave, X hidden <span class="rec-pill">Fable rec</span></h3>
+      <div class="phone-clip" data-src="fable/face-capture.html?solo=2" data-title="Fable Face 3 measuring"></div>
+      <p class="cap">The same stroke becomes the progress arc. Under the oval a small heart beats on each detected heartbeat and a thin waveform drifts past: engaging, silent, and slow enough not to change how anyone breathes. No number. The X is hidden while the signal is good; a swipe down still stops the check.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable Face 3">Pin Fable 3</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 02</div>
+      <h3>Working — three dots <span class="rec-pill">Codex rec</span></h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-scan" data-title="Codex Face working"></div>
+      <p class="cap">Three quiet dots near the top of the oval. One top coach line; no pulse trace or invented progress. No disclaimer on capture.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Face working">Pin Codex 02</button></div>
+    </div>
   </div>
-  <p class="why" style="margin-top:.2rem">Only on one side — still the same phone size.</p>
   <div class="solo-row">
-    <div class="cell f"><h3>Fable 3b · live bpm (alt, not rec)</h3><div class="phone-clip" data-src="fable/face-capture.html?solo=3" data-title="Fable Face live bpm"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face live bpm">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>Fable · signal dropped · X returns</h3><div class="phone-clip" data-src="fable/face-capture.html?solo=4" data-title="Fable Face signal dropped"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face signal dropped">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>Fable · finishing</h3><div class="phone-clip" data-src="fable/face-capture.html?solo=5" data-title="Fable Face finishing"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face finishing">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>Fable · camera off</h3><div class="phone-clip" data-src="fable/face-capture.html?solo=6" data-title="Fable Face camera off"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face camera off">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable 3b</div>
+      <h3>Measuring with a live pulse figure</h3>
+      <div class="phone-clip" data-src="fable/face-capture.html?solo=3" data-title="Fable Face 3b bpm"></div>
+      <p class="cap">Same as 3, with the SDK’s realtime 10-second heart rate beside the heart (You(th) did this). Named alternative; not recommended, because a moving number invites people to watch it and hold their breath.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable Face 3b">Pin Fable 3b</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable 4</div>
+      <h3>Signal dropped — X returns</h3>
+      <div class="phone-clip" data-src="fable/face-capture.html?solo=4" data-title="Fable Face 4 dropped"></div>
+      <p class="cap">Maps to the SDK’s “signal bad / device unstable” state. The arc holds where it was (nothing is lost), the stroke turns amber, the heart dims, one imperative appears above the oval.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable Face 4">Pin Fable 4</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable 5</div>
+      <h3>Finishing</h3>
+      <div class="phone-clip" data-src="fable/face-capture.html?solo=5" data-title="Fable Face 5 finishing"></div>
+      <p class="cap">The arc completes in neutral, never the good hue: results are not durable yet. Heart and wave fade out. The result pushes in with one soft haptic.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable Face 5">Pin Fable 5</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable 6</div>
+      <h3>Camera access off</h3>
+      <div class="phone-clip" data-src="fable/face-capture.html?solo=6" data-title="Fable Face 6 camera off"></div>
+      <p class="cap">The existing typed refusal drawn where the oval would be. One recovery verb. The X closes.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable Face 6">Pin Fable 6</button></div>
+    </div>
   </div>
   <p class="band">Comment on Face <em>capture</em> — oval, blur, X, working graphic. Not the result tiles.</p>
   <fieldset>
@@ -298,15 +430,55 @@ textarea {
     <div class="c"><strong>Codex rec</strong> Six meaning tiles; number is not the headline</div>
   </div>
   <div class="pair">
-    <div class="cell f"><h3>A · Six tiles + captions (rec)</h3><div class="phone-clip" data-src="fable/face-result.html?solo=0" data-title="Fable Face result A"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face result A">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Six meaning tiles</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-result" data-title="Codex Face result"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Face result">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>B · First check · four tiles, no numbers</h3><div class="phone-clip" data-src="fable/face-result.html?solo=1" data-title="Fable Face first check"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face first check">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Before a baseline</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-baseline-empty" data-title="Codex Face no baseline"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Face no baseline">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>C · HRV so-what sheet</h3><div class="phone-clip" data-src="fable/face-result.html?solo=2" data-title="Fable HRV sheet"></div><div class="tools"><button type="button" class="pin" data-pin="Fable HRV sheet">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>HRV detail · rMSSD + range</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-detail" data-title="Codex HRV detail"></div><div class="tools"><button type="button" class="pin" data-pin="Codex HRV detail">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-  </div>
-  <div class="solo-row">
-    <div class="cell c"><h3>Codex · every reading</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-all" data-title="Codex Face all readings"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Face all readings">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable A</div>
+      <h3>Six tiles, meaning first, number as caption <span class="rec-pill">Fable rec</span></h3>
+      <div class="phone-clip" data-src="fable/face-result.html?solo=0" data-title="Fable A Face result"></div>
+      <p class="cap">Tiles answer “so what?” in four words; the number and the person’s usual range are a caption for those who want them. Green dot = within or a favourable side of the usual range; amber = outside it. Colour never carries the meaning alone. Height and weight print in ft/in and lb. Risk models stay named as models with no vendor name.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable A Face result">Pin Fable A</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 04</div>
+      <h3>Six meaning tiles <span class="rec-pill">Codex rec</span></h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-result" data-title="Codex Face result"></div>
+      <p class="cap">Six hero tiles describe meaning. No value is the headline. Stress gets one short callout; supporting data stays a tap away.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Face result">Pin Codex 04</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable B</div>
+      <h3>First check — four tiles, no numbers on the face</h3>
+      <div class="phone-clip" data-src="fable/face-result.html?solo=1" data-title="Fable B Face first check"></div>
+      <p class="cap">The honest first-day screen. Four tiles because there is nothing to compare yet. Numbers are one tap away, not hidden. Salim can choose A’s captions or B’s tap-to-see for the steady state.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable B Face first check">Pin Fable B</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 06</div>
+      <h3>Before a baseline</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-baseline-empty" data-title="Codex Face no baseline"></div>
+      <p class="cap">A reading can exist before a baseline does. No invented trend or countdown to certainty.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Face no baseline">Pin Codex 06</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable C</div>
+      <h3>Tap a tile — HRV so-what sheet</h3>
+      <div class="phone-clip" data-src="fable/face-result.html?solo=2" data-title="Fable C HRV sheet"></div>
+      <p class="cap">Ranya’s question was “so what?”. The sheet answers it in two short paragraphs, shows the person’s own range as a shape, and names the method once in a caption (rMSSD, not “SDNN 42 ms is bad”).</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable C HRV sheet">Pin Fable C</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 05</div>
+      <h3>HRV detail — rMSSD + range</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-detail" data-title="Codex HRV detail"></div>
+      <p class="cap">rMSSD only. Personal baseline with a labeled range, one method, and comparable morning checks. HRV sentence is a draft pending the exact Ranya wording.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex HRV detail">Pin Codex 05</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 07</div>
+      <h3>Every reading</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-all" data-title="Codex Face all readings"></div>
+      <p class="cap">Full supporting readings and typed absences. Licensed output is retained; presentation priority is not an adapter allowlist.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Face all">Pin Codex 07</button></div>
+    </div>
   </div>
   <p class="band">Comment on Face <em>result</em> — not capture.</p>
   <fieldset>
@@ -328,15 +500,55 @@ textarea {
     <div class="c"><strong>Codex rec</strong> Wider close-up oval; one coach; shutter</div>
   </div>
   <div class="pair">
-    <div class="cell f"><h3>Far · the gap is the instruction</h3><div class="phone-clip" data-src="fable/skin-capture.html?solo=0" data-title="Fable Skin far"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Skin far">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Ready · fill the oval</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-ready" data-title="Codex Skin ready"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Skin ready">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>Filled · stroke solid</h3><div class="phone-clip" data-src="fable/skin-capture.html?solo=1" data-title="Fable Skin filled"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Skin filled">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Photo too small · recovery</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-error" data-title="Codex Skin too small"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Skin too small">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>Review · use or retake</h3><div class="phone-clip" data-src="fable/skin-capture.html?solo=2" data-title="Fable Skin review"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Skin review">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Review · use or retake</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-review" data-title="Codex Skin review"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Skin review">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-  </div>
-  <div class="solo-row">
-    <div class="cell f"><h3>Fable · sending</h3><div class="phone-clip" data-src="fable/skin-capture.html?solo=3" data-title="Fable Skin sending"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Skin sending">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable 1</div>
+      <h3>Far — the gap is the instruction</h3>
+      <div class="phone-clip" data-src="fable/skin-capture.html?solo=0" data-title="Fable Skin 1 far"></div>
+      <p class="cap">The outside is dimmed, not blurred: the whole still is what gets analysed, and a blur would suggest otherwise. The coach is one line with three two-word reminders under it; nothing else to read. The shutter is live from the start.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable Skin 1">Pin Fable 1</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 08</div>
+      <h3>Skin capture — fill the oval <span class="rec-pill">Codex rec</span></h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-ready" data-title="Codex Skin ready"></div>
+      <p class="cap">One top coach line, high 316 px green oval, and a clear shutter. The guide teaches framing; it does not claim local quality detection.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Skin ready">Pin Codex 08</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable 2</div>
+      <h3>Filled — stroke solid <span class="rec-pill">Fable rec</span></h3>
+      <div class="phone-clip" data-src="fable/skin-capture.html?solo=1" data-title="Fable Skin 2 filled"></div>
+      <p class="cap">Recommended: Apple’s on-device face rectangle (no vendor call, no upload) flips the stroke to teal and shortens the line when the face fills the shape. If that is declined, frame 1’s words stay static and the shape alone does the teaching. A tiny warmth in the copy (“Lovely.”) is the smile the founder asked for.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable Skin 2">Pin Fable 2</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 13</div>
+      <h3>Photo too small — recovery</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-error" data-title="Codex Skin too small"></div>
+      <p class="cap">The documented rejection becomes useful recovery copy. One action gets back to the larger guide.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Skin too small">Pin Codex 13</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable 3</div>
+      <h3>Review — one look, one decision</h3>
+      <div class="phone-clip" data-src="fable/skin-capture.html?solo=2" data-title="Fable Skin 3 review"></div>
+      <p class="cap">The still fills the screen so the person judges the actual photo. Two verbs. Consent was given once before the camera opened; nothing asks again here.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable Skin 3">Pin Fable 3</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 09</div>
+      <h3>Use or retake</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-review" data-title="Codex Skin review"></div>
+      <p class="cap">One still, one review decision. The illustration represents the unfiltered photo; UI blur never changes analysis pixels.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Skin review">Pin Codex 09</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable 4</div>
+      <h3>Sending</h3>
+      <div class="phone-clip" data-src="fable/skin-capture.html?solo=3" data-title="Fable Skin 4 sending"></div>
+      <p class="cap">Indeterminate ring, one sentence, the X still cancels. No invented percent.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable Skin 4">Pin Fable 4</button></div>
+    </div>
   </div>
   <p class="band">Comment on Skin <em>capture</em> — guide size, coach, X. Not the result cards.</p>
   <fieldset>
@@ -357,12 +569,48 @@ textarea {
     <div class="c"><strong>Codex rec</strong> Highlight, care priority, watch — scores on tap</div>
   </div>
   <div class="pair">
-    <div class="cell f"><h3>A · Highlights and lowlights (rec)</h3><div class="phone-clip" data-src="fable/skin-result.html?solo=0" data-title="Fable Skin result A"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Skin result A">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Meaning-first Skin</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-result" data-title="Codex Skin result"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Skin result">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>B · Glance bar + dots</h3><div class="phone-clip" data-src="fable/skin-result.html?solo=1" data-title="Fable Skin glance bar"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Skin glance bar">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Score detail</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-detail" data-title="Codex Skin detail"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Skin detail">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>C · Tap a reading</h3><div class="phone-clip" data-src="fable/skin-result.html?solo=2" data-title="Fable Skin tap reading"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Skin tap reading">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>All observations</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-all" data-title="Codex Skin all"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Skin all">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable A</div>
+      <h3>Highlights and lowlights <span class="rec-pill">Fable rec</span></h3>
+      <div class="phone-clip" data-src="fable/skin-result.html?solo=0" data-title="Fable A Skin result"></div>
+      <p class="cap">Three groups, in the order a professional speaks: what’s good first, then two or three things to watch, then anything that needs care. The “why” lines are Sweet’s plain-English reading of the vendor’s zone scores, never a symptom claim. “When to check in” can suggest a professional; it does not name a condition, a threshold, or a treatment.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable A Skin result">Pin Fable A</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 10</div>
+      <h3>Meaning-first Skin <span class="rec-pill">Codex rec</span></h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-result" data-title="Codex Skin result"></div>
+      <p class="cap">A highlight, a care priority, and something to watch. No raw-number wall. Tap a card for its score.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Skin result">Pin Codex 10</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable B</div>
+      <h3>Glance bar first, then dots</h3>
+      <div class="phone-clip" data-src="fable/skin-result.html?solo=1" data-title="Fable B Skin glance"></div>
+      <p class="cap">Everything in one glance: a proportional bar, then all fifteen as dots by area, no numbers. Faster than A for a returning person, less warm for a first-timer because there is no sentence. Named alternative.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable B Skin glance">Pin Fable B</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 11</div>
+      <h3>Skin score detail</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-detail" data-title="Codex Skin detail"></div>
+      <p class="cap">Photo-analysis score first; adjusted presentation score in a disclosure. Public documentation says 1–100, not 0–100.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Skin detail">Pin Codex 11</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable C</div>
+      <h3>Tap a reading — number, zones, one explanation</h3>
+      <div class="phone-clip" data-src="fable/skin-result.html?solo=2" data-title="Fable C Skin tap"></div>
+      <p class="cap">The number arrives with its zones and the polarity spelled out, so “41” cannot be misread. The scale is described as the analysis’s own without naming the vendor.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable C Skin tap">Pin Fable C</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 12</div>
+      <h3>All observations</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-all" data-title="Codex Skin all"></div>
+      <p class="cap">Progressive disclosure preserves access to returned scores, skin type, model scores, regions and missing fields.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Skin all">Pin Codex 12</button></div>
+    </div>
   </div>
   <p class="band">Comment on Skin <em>result</em>.</p>
   <fieldset>
@@ -384,10 +632,48 @@ textarea {
     <div class="c"><strong>Codex rec</strong> Same contract, independently painted</div>
   </div>
   <div class="pair">
-    <div class="cell f"><h3>Type 4 · You on green</h3><div class="phone-clip" data-src="fable/gut-result.html?solo=0" data-title="Fable Gut type 4"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Gut type 4">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Gut result</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=gut-result" data-title="Codex Gut result"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Gut result">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>Type 6 · You on orange</h3><div class="phone-clip" data-src="fable/gut-result.html?solo=1" data-title="Fable Gut type 6"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Gut type 6">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Gut photo (before the result)</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=gut-capture" data-title="Codex Gut capture"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Gut capture">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable · type 4</div>
+      <h3>“You” on a green tile <span class="rec-pill">Fable rec</span></h3>
+      <div class="phone-clip" data-src="fable/gut-result.html?solo=0" data-title="Fable Gut type 4"></div>
+      <p class="cap">The tiles have no border; the band fill is the whole decoration. “You” gets a 2-pt ink outline, and the hero’s rounded surround takes the same green so the answer and the row agree. The clinician section keeps the shipped heading and all seven symptoms in the scrolling document — never a clipped overlay.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable Gut type 4">Pin Fable type 4</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 15</div>
+      <h3>Gut result <span class="rec-pill">Codex rec</span></h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=gut-result" data-title="Codex Gut result"></div>
+      <p class="cap">You marks the result. Harder and Looser explain the compact scale. Short meaning, useful next step, and one honesty line. Stool stays brown; only the surround is tinted. Scroll the phone to reach the full clinician block.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Gut result">Pin Codex 15</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable · type 6</div>
+      <h3>“You” on an orange tile</h3>
+      <div class="phone-clip" data-src="fable/gut-result.html?solo=1" data-title="Fable Gut type 6"></div>
+      <p class="cap">Same page, softer form: the surround is soft orange, the words stay the shipped ones, and the tint never becomes a verdict (“softer form”, not “abnormal”).</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable Gut type 6">Pin Fable type 6</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 14</div>
+      <h3>Gut photo (before the result)</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=gut-capture" data-title="Codex Gut capture"></div>
+      <p class="cap">The frame teaches what needs to be in view. A single capture action, no Bristol lesson before the check.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Gut capture">Pin Codex 14</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 15 scrolled</div>
+      <h3>Clinician block fully in view</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/captures/gut-result-bottom.png" data-title="Codex Gut clinician"></div>
+      <p class="cap">This is the bottom of Codex’s Gut result — the clinician section in the scrolling document, never a clipped overlay. Compare with Fable type 4, where that block is also in the scroll.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Gut clinician">Pin Codex clinician</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 16</div>
+      <h3>Ask to dig (from Gut)</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=ask&amp;context=gut" data-title="Codex Ask from Gut"></div>
+      <p class="cap">A short contextual answer and one follow-up. Example replies are local; a new typed question receives an explicit unconnected-mock response.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Ask Gut">Pin Codex 16</button></div>
+    </div>
   </div>
   <p class="band">Comment on these Gut screens.</p>
   <fieldset>
@@ -409,19 +695,83 @@ textarea {
     <div class="c"><strong>Codex rec</strong> Filters, explicit two-check select, matched vs different-time compare</div>
   </div>
   <div class="pair">
-    <div class="cell f"><h3>List · filters + meaning</h3><div class="phone-clip" data-src="fable/history.html?solo=0" data-title="Fable History list"></div><div class="tools"><button type="button" class="pin" data-pin="Fable History list">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>All checks</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=history" data-title="Codex History"></div><div class="tools"><button type="button" class="pin" data-pin="Codex History">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>Compare two · in words</h3><div class="phone-clip" data-src="fable/history.html?solo=1" data-title="Fable History compare"></div><div class="tools"><button type="button" class="pin" data-pin="Fable History compare">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Face comparison</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=compare" data-title="Codex compare"></div><div class="tools"><button type="button" class="pin" data-pin="Codex compare">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>Trend · usual as a band</h3><div class="phone-clip" data-src="fable/history.html?solo=2" data-title="Fable History trend"></div><div class="tools"><button type="button" class="pin" data-pin="Fable History trend">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Choose two</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=compare-select" data-title="Codex compare select"></div><div class="tools"><button type="button" class="pin" data-pin="Codex compare select">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>Empty</h3><div class="phone-clip" data-src="fable/history.html?solo=3" data-title="Fable History empty"></div><div class="tools"><button type="button" class="pin" data-pin="Fable History empty">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Empty</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=history-empty" data-title="Codex History empty"></div><div class="tools"><button type="button" class="pin" data-pin="Codex History empty">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-  </div>
-  <div class="solo-row">
-    <div class="cell c"><h3>Codex · Face filter</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=history-face" data-title="Codex History Face filter"></div><div class="tools"><button type="button" class="pin" data-pin="Codex History Face filter">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Codex · different time of day</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=compare-limited" data-title="Codex compare limited"></div><div class="tools"><button type="button" class="pin" data-pin="Codex compare limited">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Codex · saved Face check</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=saved-check&record=f06" data-title="Codex saved Face"></div><div class="tools"><button type="button" class="pin" data-pin="Codex saved Face">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable 1</div>
+      <h3>The list — filters, meaning in every row</h3>
+      <div class="phone-clip" data-src="fable/history.html?solo=0" data-title="Fable History 1 list"></div>
+      <p class="cap">Same icon tiles as Home so the kinds are recognisable at a glance. The meaning line uses the dots from the result screens. Chips hide until the person has more than one kind. No chevrons: rows are the target; the compare card has the go coin. No Samples.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable History 1">Pin Fable 1</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 17</div>
+      <h3>All checks</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=history" data-title="Codex History"></div>
+      <p class="cap">Each row has a date, a recognizable check, and a meaningful summary. All / Face / Skin / Gut. No Samples filter.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex History">Pin Codex 17</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable 2</div>
+      <h3>Compare — two checks side by side, in words</h3>
+      <div class="phone-clip" data-src="fable/history.html?solo=1" data-title="Fable History 2 compare"></div>
+      <p class="cap">This is the one screen where numbers lead, because comparing is what numbers are for; each pair still gets a word. “About the same” is Sweet’s phrase for a difference smaller than check-to-check wobble. No arrows, no green-up/red-down: direction is not a verdict.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable History 2">Pin Fable 2</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 20</div>
+      <h3>Face comparison</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=compare" data-title="Codex compare"></div>
+      <p class="cap">Two dates, the same units and method, and a short statement of what changed. More is not automatically better.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex compare">Pin Codex 20</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable 3</div>
+      <h3>Trend — usual as a band</h3>
+      <div class="phone-clip" data-src="fable/history.html?solo=2" data-title="Fable History 3 trend"></div>
+      <p class="cap">Single series, so no legend; the title names it. The band is the person’s own usual (14-day middle range), not a population range. The headline counts, it does not grade. Metric chips switch the series; there is never a composite.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable History 3">Pin Fable 3</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 19</div>
+      <h3>Choose two</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=compare-select" data-title="Codex compare select"></div>
+      <p class="cap">Explicit selection and a disabled-until-ready action. A third check cannot silently replace a selected check.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex compare select">Pin Codex 19</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable 4</div>
+      <h3>Empty</h3>
+      <div class="phone-clip" data-src="fable/history.html?solo=3" data-title="Fable History 4 empty"></div>
+      <p class="cap">One sentence, one action. No Samples segment, no “About saved checks”.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable History 4">Pin Fable 4</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 22</div>
+      <h3>Empty history</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=history-empty" data-title="Codex History empty"></div>
+      <p class="cap">A clear route to the first check. No fake samples mixed into the person’s timeline.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex History empty">Pin Codex 22</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 18</div>
+      <h3>Face filter</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=history-face" data-title="Codex History Face filter"></div>
+      <p class="cap">Narrow the timeline without entering another navigation hierarchy.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex History Face filter">Pin Codex 18</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 21</div>
+      <h3>Different time of day</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=compare-limited" data-title="Codex compare limited"></div>
+      <p class="cap">Morning and evening remain visible side by side, without a trend judgment.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex compare limited">Pin Codex 21</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 22b</div>
+      <h3>The saved moment</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=saved-check&amp;record=f06" data-title="Codex saved Face"></div>
+      <p class="cap">Reopening an older entry preserves its date, time, readings and missing fields. Back keeps the chosen History filter.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex saved Face">Pin Codex 22b</button></div>
+    </div>
   </div>
   <p class="band">Comment on these History screens.</p>
   <fieldset>
@@ -435,27 +785,64 @@ textarea {
 </article>
 
 <article class="surface" id="settings">
-  <h2>Settings placement</h2>
-  <p class="why">Mocked top-left and top-right. Pick with the rest of the look. No fourth tab.</p>
+  <h2>Decision: Settings — top-left vs top-right</h2>
+  <p class="why">This is a real pick, same as Home A/B/C. Mocked both corners. No fourth tab. Both lanes recommend top-right so the wordmark can lead.</p>
   <div class="recs">
-    <div class="f"><strong>Fable rec</strong> Top-right (wordmark leads)</div>
-    <div class="c"><strong>Codex rec</strong> Top-right (wordmark keeps its reading position)</div>
+    <div class="f"><strong>Fable rec</strong> Top-right — wordmark keeps the leading spot (Apple Health, Instagram, Oura)</div>
+    <div class="c"><strong>Codex rec</strong> Top-right — same reason; top-left is supplied as a true alternate on Home A</div>
   </div>
   <div class="pair">
-    <div class="cell f"><h3>L · gear top-left</h3><div class="phone-clip" data-src="fable/settings-placement.html?solo=0" data-title="Fable Settings left"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Settings left">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Home A · gear top-left</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-left" data-title="Codex Home left gear"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Home left gear">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>R · gear top-right (rec)</h3><div class="phone-clip" data-src="fable/settings-placement.html?solo=1" data-title="Fable Settings right"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Settings right">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Settings from the right</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=settings-right" data-title="Codex Settings right"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Settings right">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>The sheet it opens</h3><div class="phone-clip" data-src="fable/settings-placement.html?solo=2" data-title="Fable Settings sheet"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Settings sheet">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Settings from the left</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=settings-left" data-title="Codex Settings left"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Settings left">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable L</div>
+      <h3>Gear top-left, wordmark beside it</h3>
+      <div class="phone-clip" data-src="fable/settings-placement.html?solo=0" data-title="Fable Settings L"></div>
+      <p class="cap">Left is where iOS puts navigation, so a gear here reads slightly as “back”. Reachable with the left thumb. The wordmark loses its leading position.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable Settings L">Pin Fable L</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 24</div>
+      <h3>Home A with Settings at top-left</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-left" data-title="Codex Home left gear"></div>
+      <p class="cap">The exact Codex A Home with the alternate Settings position. Compare with Codex A at the top of this page (gear on the right).</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Home left">Pin Codex 24</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable R</div>
+      <h3>Wordmark leading, gear top-right <span class="rec-pill">Fable rec</span></h3>
+      <div class="phone-clip" data-src="fable/settings-placement.html?solo=1" data-title="Fable Settings R"></div>
+      <p class="cap">Trailing is where iOS and most consumer apps put profile and settings; the wordmark keeps the leading spot. A 44-pt target either way. If accounts arrive, the gear becomes an initials avatar in the same spot.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable Settings R">Pin Fable R</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 26</div>
+      <h3>Settings sheet from the right <span class="rec-pill">Codex rec</span></h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=settings-right" data-title="Codex Settings right"></div>
+      <p class="cap">Back returns to the right-entry Home. Both entries reach the same settings structure. Profile units are lb and in.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Settings right">Pin Codex 26</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable · sheet</div>
+      <h3>What the gear opens — one Settings sheet</h3>
+      <div class="phone-clip" data-src="fable/settings-placement.html?solo=2" data-title="Fable Settings sheet"></div>
+      <p class="cap">Units default to lb and in in the US; BMI and the Face height/weight rows follow the choice. Everything that used to sit in the Health tab as “settings” lives here, so the Health tab can be about the person’s readings and connections only.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Fable Settings sheet">Pin Fable sheet</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 25</div>
+      <h3>Settings sheet from the left</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=settings-left" data-title="Codex Settings left"></div>
+      <p class="cap">Back returns to the left-entry Home. Profile units are lb and in. Same sheet as Codex 26 — only the entry corner changes.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Settings left">Pin Codex 25</button></div>
+    </div>
   </div>
-  <p class="band">Comment on Settings placement — not History.</p>
+  <p class="band">This card is the Settings decision — left vs right. Not History.</p>
   <fieldset>
-    <legend>Settings gear</legend>
-    <label class="opt"><input type="radio" name="settings" value="right"> Top-right</label>
+    <legend>Settings gear — pick one</legend>
+    <label class="opt"><input type="radio" name="settings" value="right"> Top-right (Fable rec and Codex rec)</label>
     <label class="opt"><input type="radio" name="settings" value="left"> Top-left</label>
+    <label class="opt"><input type="radio" name="settings" value="mix"> Mix — write how below</label>
     <label class="opt more"><input type="radio" name="settings" value="mock-another-round"> Mock another round</label>
-    <div class="steer"><label for="settings_notes">Comments</label><textarea id="settings_notes" name="settings_notes"></textarea></div>
+    <div class="steer"><label for="settings_notes">Comments on Settings L vs R</label><textarea id="settings_notes" name="settings_notes" placeholder="e.g. top-right like Fable R, sheet contents like Codex 26…"></textarea></div>
   </fieldset>
 </article>
 
@@ -463,9 +850,25 @@ textarea {
   <h2>Health tab and Ask</h2>
   <p class="why">Fable did not mock a Health tab or Ask screen this round. Codex did. Same phone size. Optional pick — skip if you do not care yet.</p>
   <div class="solo-row">
-    <div class="cell c"><h3>Codex · Health</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=health" data-title="Codex Health"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Health">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell c"><h3>Codex · Ask (from Gut)</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=ask&context=gut" data-title="Codex Ask"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Ask">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
-    <div class="cell f"><h3>Fable</h3><div class="missing">No Health or Ask mock in this Fable round.</div></div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 23</div>
+      <h3>Health tab</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=health" data-title="Codex Health"></div>
+      <p class="cap">A personal pattern is the main story. No invented general health score; returned models would have their own explanation. Home · Health · History throughout the main shell.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Health">Pin Codex 23</button></div>
+    </div>
+    <div class="cell c">
+      <div class="who-tag codex">Codex 16</div>
+      <h3>Ask (also shown under Gut)</h3>
+      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=ask&amp;context=gut" data-title="Codex Ask"></div>
+      <p class="cap">Ask stays contextual to the current result, not a fourth tab. Short explanation on the result by default; Ask only to dig.</p>
+      <div class="tools"><button type="button" class="pin" data-pin="Codex Ask">Pin Codex Ask</button></div>
+    </div>
+    <div class="cell f">
+      <div class="who-tag fable">Fable</div>
+      <h3>No Health or Ask mock this round</h3>
+      <div class="missing">Fable did not draw a Health tab or Ask screen in round 2. Codex 23 and 16 are the only mocks for those surfaces.</div>
+    </div>
   </div>
   <fieldset>
     <legend>Health / Ask (optional)</legend>
@@ -578,6 +981,15 @@ function mountPhones() {
   document.querySelectorAll(".phone-clip[data-src]").forEach(function (clip) {
     const src = clip.getAttribute("data-src");
     const title = clip.getAttribute("data-title") || "Mock";
+    if (/\.png(\?|$)/i.test(src)) {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = title;
+      img.width = 402;
+      img.height = 874;
+      clip.appendChild(img);
+      return;
+    }
     const iframe = document.createElement("iframe");
     iframe.loading = "lazy";
     iframe.title = title;
