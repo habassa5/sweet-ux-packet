@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Sweet — Settings on Home: top-left vs top-right</title>
+<link rel="stylesheet" href="sweet2.css">
+<style>
+.brandrow { display:flex; align-items:center; justify-content:space-between; height:44px; margin-top:6px; }
+.brandrow.left { justify-content:flex-start; gap:12px; }
+.hero { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:14px; }
+.hero .display { max-width:250px; }
+.hero img { width:118px; height:118px; transform: rotate(10deg); }
+.hero .sub { font:400 17px/1.35 var(--font); color:var(--ink-muted); margin-top:8px; }
+.ccard { display:flex; align-items:center; gap:14px; background:var(--card); border-radius:20px; padding:14px; }
+.ccard + .ccard { margin-top:10px; }
+.ccard .t { font:600 19px/1.2 var(--font); letter-spacing:-.01em; }
+.ccard .d { font:400 14px/1.3 var(--font); color:var(--ink-muted); margin-top:4px; }
+.ccard .main { flex:1; min-width:0; }
+.avatar { width:34px; height:34px; border-radius:50%; background:var(--tint-face); color:var(--ink-face); display:flex; align-items:center; justify-content:center; font:700 14px/1 var(--font); }
+.slist .rowitem { min-height:56px; }
+</style></head>
+<body class="gallery">
+<h1>Settings on Home — top-left or top-right</h1>
+<p class="lead">Same Home (direction A). The only difference is where the settings control sits. There is no fourth tab. The control opens one sheet: Apple Health, units (lb / in), reminders, account, your data, about. Below, a third frame shows that sheet so the two placements are judged against what they open.</p>
+
+<div class="row">
+
+<!-- LEFT -->
+<div class="variant">
+<div class="label">L · Gear top-left, wordmark beside it</div>
+<div class="phone">
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="scroll with-tabs">
+    <div class="brandrow left">
+      <svg class="gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+      <div class="brand">Sweet</div>
+    </div>
+    <div class="hero">
+      <div><div class="display">A moment<br>for you.</div><div class="sub">Pick a check. About a minute.</div></div>
+      <img src="brand/living-spiral-mark-composited-light.png" alt="">
+    </div>
+    <div style="margin-top:18px">
+      <div class="ccard"><div class="tile-ico face"><svg viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="12.5" fill="#fff" stroke="currentColor" stroke-width="2"/><path d="M11.5 14.2c.6-1 1.6-1 2.2 0M20.3 14.2c.6-1 1.6-1 2.2 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 20.2c1.4 2 3.1 2.9 5 2.9s3.6-.9 5-2.9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="main"><div class="t">Face check</div><div class="d">Pulse, breathing &amp; recovery</div></div><div class="go face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div></div>
+      <div class="ccard"><div class="tile-ico skin"><svg viewBox="0 0 34 34" fill="none"><path d="M17 5.5c3.8 5 7.5 9 7.5 13.2A7.5 7.5 0 0 1 9.5 18.7C9.5 14.5 13.2 10.5 17 5.5z" fill="#fff" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M27 6.5v4M25 8.5h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="main"><div class="t">Skin check</div><div class="d">A closer look at your skin</div></div><div class="go skin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div></div>
+      <div class="ccard"><div class="tile-ico gut"><svg viewBox="0 0 34 34" fill="none"><path d="M9 10.5c0-2.5 2-4 4.5-4h7c2.5 0 4.5 1.5 4.5 4s-2 4-4.5 4h-7c-2.5 0-4.5 1.5-4.5 4s2 4 4.5 4h7c2.5 0 4.5 1.5 4.5 4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/><circle cx="25" cy="27" r="2.2" fill="currentColor"/></svg></div><div class="main"><div class="t">Gut check</div><div class="d">Understand your stool’s form</div></div><div class="go gut"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div></div>
+    </div>
+  </div>
+  <div class="tabbar">
+    <div class="tab on"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4v-5H9v5H5a1 1 0 0 1-1-1z"/></svg>Home</div>
+    <div class="tab"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M6 12h3l1.5-3 2 6 1.5-3h4"/></svg>Health</div>
+    <div class="tab"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3.5 12a8.5 8.5 0 1 0 2.5-6"/><path d="M3 4v4.5h4.5"/><path d="M12 8v4.5l3 1.8"/></svg>History</div>
+  </div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">Left is where iOS puts navigation, so a gear here reads slightly as "back". Reachable with the left thumb. The wordmark loses its leading position.</div>
+</div>
+
+<!-- RIGHT -->
+<div class="variant">
+<div class="label">R · Wordmark leading, gear top-right (recommended)</div>
+<div class="phone">
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="scroll with-tabs">
+    <div class="brandrow">
+      <div class="brand">Sweet</div>
+      <svg class="gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+    </div>
+    <div class="hero">
+      <div><div class="display">A moment<br>for you.</div><div class="sub">Pick a check. About a minute.</div></div>
+      <img src="brand/living-spiral-mark-composited-light.png" alt="">
+    </div>
+    <div style="margin-top:18px">
+      <div class="ccard"><div class="tile-ico face"><svg viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="12.5" fill="#fff" stroke="currentColor" stroke-width="2"/><path d="M11.5 14.2c.6-1 1.6-1 2.2 0M20.3 14.2c.6-1 1.6-1 2.2 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 20.2c1.4 2 3.1 2.9 5 2.9s3.6-.9 5-2.9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="main"><div class="t">Face check</div><div class="d">Pulse, breathing &amp; recovery</div></div><div class="go face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div></div>
+      <div class="ccard"><div class="tile-ico skin"><svg viewBox="0 0 34 34" fill="none"><path d="M17 5.5c3.8 5 7.5 9 7.5 13.2A7.5 7.5 0 0 1 9.5 18.7C9.5 14.5 13.2 10.5 17 5.5z" fill="#fff" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M27 6.5v4M25 8.5h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="main"><div class="t">Skin check</div><div class="d">A closer look at your skin</div></div><div class="go skin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div></div>
+      <div class="ccard"><div class="tile-ico gut"><svg viewBox="0 0 34 34" fill="none"><path d="M9 10.5c0-2.5 2-4 4.5-4h7c2.5 0 4.5 1.5 4.5 4s-2 4-4.5 4h-7c-2.5 0-4.5 1.5-4.5 4s2 4 4.5 4h7c2.5 0 4.5 1.5 4.5 4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/><circle cx="25" cy="27" r="2.2" fill="currentColor"/></svg></div><div class="main"><div class="t">Gut check</div><div class="d">Understand your stool’s form</div></div><div class="go gut"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div></div>
+    </div>
+  </div>
+  <div class="tabbar">
+    <div class="tab on"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4v-5H9v5H5a1 1 0 0 1-1-1z"/></svg>Home</div>
+    <div class="tab"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M6 12h3l1.5-3 2 6 1.5-3h4"/></svg>Health</div>
+    <div class="tab"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3.5 12a8.5 8.5 0 1 0 2.5-6"/><path d="M3 4v4.5h4.5"/><path d="M12 8v4.5l3 1.8"/></svg>History</div>
+  </div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">Trailing is where iOS and most consumer apps (Apple Health, Instagram, Oura) put profile and settings; the wordmark keeps the leading spot. A 44-pt target either way. If accounts arrive, the gear becomes an initials avatar in the same spot.</div>
+</div>
+
+<!-- SHEET -->
+<div class="variant">
+<div class="label">What it opens — one Settings sheet</div>
+<div class="phone">
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="scroll" style="filter:blur(0)">
+    <div class="brandrow"><div class="brand">Sweet</div><svg class="gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></div>
+    <div class="hero"><div><div class="display">A moment<br>for you.</div></div></div>
+  </div>
+  <div class="dim"></div>
+  <div class="sheet" style="padding-bottom:30px">
+    <div class="grab"></div>
+    <div style="display:flex; align-items:center; justify-content:space-between"><div class="title">Settings</div><div class="btn tertiary">Done</div></div>
+    <div class="slist" style="margin-top:6px">
+      <div class="rowitem"><div class="main"><div class="t">Apple Health</div><div class="d">Age, height, weight and blood pressure help the Face models</div></div><div class="trail">On</div></div>
+      <div class="rowitem"><div class="main"><div class="t">Units</div><div class="d">Height and weight</div></div><div class="trail"><span class="pill on">lb · in</span><span class="pill">kg · cm</span></div></div>
+      <div class="rowitem"><div class="main"><div class="t">Reminders</div><div class="d">A nudge to check in</div></div><div class="trail">Off</div></div>
+      <div class="rowitem"><div class="main"><div class="t">Account</div><div class="d">Optional. Checks stay on this iPhone.</div></div><div class="trail">Not signed in</div></div>
+      <div class="rowitem"><div class="main"><div class="t">Your data</div><div class="d">Export, delete one check, delete everything</div></div><div class="trail"></div></div>
+      <div class="rowitem"><div class="main"><div class="t">About Sweet</div><div class="d">How checks work · what they are not</div></div><div class="trail"></div></div>
+    </div>
+  </div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">Units default to lb and in in the US; BMI and the Face height/weight rows follow the choice. Everything that used to sit in the Health tab as "settings" lives here, so the Health tab can be about the person's readings and connections only.</div>
+</div>
+
+</div>
+</body></html>

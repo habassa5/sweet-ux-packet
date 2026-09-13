@@ -1,0 +1,601 @@
+{
+  "screens": [
+    {
+      "screen": "home-a",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 734,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 0,
+      "visibleVendorText": false,
+      "h1": "A little check.\nA little care."
+    },
+    {
+      "screen": "home-b",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 731,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 0,
+      "visibleVendorText": false,
+      "h1": "A little care.\nA little you."
+    },
+    {
+      "screen": "home-c",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 729,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 0,
+      "visibleVendorText": false,
+      "h1": "Your day.\nA little sweeter."
+    },
+    {
+      "screen": "home-left",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 734,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 0,
+      "visibleVendorText": false,
+      "h1": "A little check.\nA little care."
+    },
+    {
+      "screen": "face-ready",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "tabs": [],
+      "honestyLines": 0,
+      "visibleVendorText": false
+    },
+    {
+      "screen": "face-scan",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "tabs": [],
+      "honestyLines": 0,
+      "visibleVendorText": false
+    },
+    {
+      "screen": "face-adjust",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "tabs": [],
+      "honestyLines": 0,
+      "visibleVendorText": false
+    },
+    {
+      "screen": "face-result",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 866,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 1,
+      "visibleVendorText": false,
+      "h1": "Mostly familiar.\nOne change."
+    },
+    {
+      "screen": "face-detail",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 920,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 1,
+      "visibleVendorText": false,
+      "h1": "HRV"
+    },
+    {
+      "screen": "face-baseline-empty",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 744,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 1,
+      "visibleVendorText": false,
+      "h1": "HRV"
+    },
+    {
+      "screen": "face-all",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 949,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 1,
+      "visibleVendorText": false,
+      "h1": "Every reading.\nRoom for detail."
+    },
+    {
+      "screen": "skin-ready",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "tabs": [],
+      "honestyLines": 0,
+      "visibleVendorText": false
+    },
+    {
+      "screen": "skin-review",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 791,
+      "viewport": 791,
+      "tabs": [],
+      "honestyLines": 0,
+      "visibleVendorText": false,
+      "h1": "Ready for a\ncloser look?"
+    },
+    {
+      "screen": "skin-result",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 827,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 1,
+      "visibleVendorText": false,
+      "h1": "A little attention.\nIn the right places."
+    },
+    {
+      "screen": "skin-detail",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 800,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 1,
+      "visibleVendorText": false,
+      "h1": "Moisture"
+    },
+    {
+      "screen": "skin-all",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 1232,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 1,
+      "visibleVendorText": false,
+      "h1": "Your skin,\nin more detail."
+    },
+    {
+      "screen": "skin-error",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 729,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 0,
+      "visibleVendorText": false,
+      "h1": "Let’s try\na clearer photo."
+    },
+    {
+      "screen": "gut-capture",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "tabs": [],
+      "honestyLines": 0,
+      "visibleVendorText": false
+    },
+    {
+      "screen": "gut-result",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 861,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 1,
+      "visibleVendorText": false,
+      "h1": "Soft.\nWell formed."
+    },
+    {
+      "screen": "ask&context=gut",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 791,
+      "viewport": 791,
+      "tabs": [],
+      "honestyLines": 1,
+      "visibleVendorText": false,
+      "h1": "A little more\nunderstanding."
+    },
+    {
+      "screen": "history",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 3227,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 0,
+      "visibleVendorText": false,
+      "h1": "History"
+    },
+    {
+      "screen": "history-face",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 3045,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 0,
+      "visibleVendorText": false,
+      "h1": "History"
+    },
+    {
+      "screen": "compare-select",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 3026,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 0,
+      "visibleVendorText": false,
+      "h1": "Compare checks"
+    },
+    {
+      "screen": "compare",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 969,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 1,
+      "visibleVendorText": false,
+      "h1": "A week apart.\nStill your pattern."
+    },
+    {
+      "screen": "compare-limited",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 969,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 1,
+      "visibleVendorText": false,
+      "h1": "Different moments.\nDifferent context."
+    },
+    {
+      "screen": "history-empty",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 729,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 0,
+      "visibleVendorText": false,
+      "h1": "Your story\nstarts here."
+    },
+    {
+      "screen": "saved-check&record=f06",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 729,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 1,
+      "visibleVendorText": false,
+      "h1": "Your saved moment."
+    },
+    {
+      "screen": "health",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 911,
+      "viewport": 729,
+      "tabs": [
+        "Home",
+        "Health",
+        "History"
+      ],
+      "honestyLines": 0,
+      "visibleVendorText": false,
+      "h1": "Getting to\nknow you."
+    },
+    {
+      "screen": "settings-left",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 832,
+      "viewport": 791,
+      "tabs": [],
+      "honestyLines": 0,
+      "visibleVendorText": false,
+      "h1": "Make yourself\nat home."
+    },
+    {
+      "screen": "settings-right",
+      "phone": [
+        402,
+        874
+      ],
+      "overflowX": false,
+      "scrollHeight": 832,
+      "viewport": 791,
+      "tabs": [],
+      "honestyLines": 0,
+      "visibleVendorText": false,
+      "h1": "Make yourself\nat home."
+    }
+  ],
+  "interactions": [
+    {
+      "name": "Home Face row enters capture",
+      "passed": true
+    },
+    {
+      "name": "Start enters synthetic scan",
+      "passed": true
+    },
+    {
+      "name": "Synthetic scan completes into six hero tiles",
+      "passed": true
+    },
+    {
+      "name": "X leaves camera",
+      "passed": true
+    },
+    {
+      "name": "Skin shutter opens still review",
+      "passed": true
+    },
+    {
+      "name": "Retake returns to Skin guide",
+      "passed": true
+    },
+    {
+      "name": "History filter Face",
+      "passed": true
+    },
+    {
+      "name": "History filter Skin",
+      "passed": true
+    },
+    {
+      "name": "History filter Gut",
+      "passed": true
+    },
+    {
+      "name": "History filter All",
+      "passed": true
+    },
+    {
+      "name": "Older History entry preserves its date and HRV",
+      "passed": true
+    },
+    {
+      "name": "Back preserves Face filter",
+      "passed": true
+    },
+    {
+      "name": "Compare starts disabled",
+      "passed": true
+    },
+    {
+      "name": "Two selections enable comparison",
+      "passed": true
+    },
+    {
+      "name": "Third selection does not replace first two",
+      "passed": true
+    },
+    {
+      "name": "Selected checks reach comparison",
+      "passed": true
+    },
+    {
+      "name": "Ask follow-up responds",
+      "passed": true
+    },
+    {
+      "name": "History retains all 21 baseline mornings plus one evening",
+      "passed": true
+    },
+    {
+      "name": "Arbitrary selected pair gets its actual interval and difference",
+      "passed": true
+    },
+    {
+      "name": "Baseline Back returns to the chosen comparison",
+      "passed": true
+    },
+    {
+      "name": "Capture X preserves chosen Home treatment",
+      "passed": true
+    },
+    {
+      "name": "Reposition keeps a fixed clipping guide and has no manual resume",
+      "passed": true
+    },
+    {
+      "name": "Only one visible scan instruction; neutral working symbol",
+      "passed": true
+    },
+    {
+      "name": "Profile units and local preview save",
+      "passed": true
+    },
+    {
+      "name": "Gut clinician section fully reachable above navigation",
+      "passed": true
+    },
+    {
+      "name": "Reduce motion stops working glyph animation",
+      "passed": true
+    }
+  ],
+  "exceptions": [],
+  "checkedAtEastern": "9/13/2026, 11:57:55 AM EDT"
+}

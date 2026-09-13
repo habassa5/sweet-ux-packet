@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Sweet — Face capture, round 2 (states)</title>
+<link rel="stylesheet" href="sweet2.css">
+<style>
+/* Oval sits high so the eyes are near the front camera: centre y = 345 of 874 (round 1 was 385). */
+.face-hl { top: 345px; }
+.face-hl.small { width: 165px; height: 215px; top: 352px; }
+.coach.top { top: 96px; }
+.pulse-row { top: 574px; }
+.wave { top: 606px; }
+</style></head>
+<body class="gallery">
+<h1>Face capture — one oval, higher, guidance on top, Instagram X, a heartbeat that does not shout</h1>
+<p class="lead">What changed from round 1 on Salim's notes: the oval moved up so the eyes sit near the camera; the coach line moved <b>above</b> the oval; the camera is full-bleed with everything outside the oval blurred; the only chrome is an Instagram-style X at top-left, which hides while the measurement is running well and comes back the moment the person needs it; a light heartbeat graphic runs under the oval during the scan; and there is <b>no</b> wellness disclaimer on capture. Coaching is short and plain, and every line maps to a state the SDK actually reports (see RESEARCH.md §Shen).</p>
+
+<div class="row">
+
+<!-- 1 -->
+<div class="variant">
+<div class="label">1 · Positioning — too far (X visible, amber dashes)</div>
+<div class="phone on-dark">
+  <div class="camera"></div>
+  <div class="face-hl small"></div>
+  <div class="blur-out" style="-webkit-mask: radial-gradient(ellipse 149px 194px at 201px 345px, transparent 99%, #000 100%); mask: radial-gradient(ellipse 149px 194px at 201px 345px, transparent 99%, #000 100%);"></div>
+  <svg class="oval-svg" viewBox="0 0 402 874"><ellipse cx="201" cy="345" rx="149" ry="194" fill="none" stroke="#F2AD4D" stroke-width="4" stroke-linecap="round" stroke-dasharray="14 9"/></svg>
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="xbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
+  <div class="coach top">Come a little closer.</div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">Blur outside the oval keeps the room private and points the eye at the one instrument. The X is the only control. Coach line is the shipped cue text ("Move a little closer" → shortened) placed above the oval so the eyes stay up.</div>
+</div>
+
+<!-- 2 -->
+<div class="variant">
+<div class="label">2 · Ready — one inhale, teal, the short coaching that Shen supports</div>
+<div class="phone on-dark">
+  <div class="camera"></div>
+  <div class="face-hl"></div>
+  <div class="blur-out" style="-webkit-mask: radial-gradient(ellipse 149px 194px at 201px 345px, transparent 99%, #000 100%); mask: radial-gradient(ellipse 149px 194px at 201px 345px, transparent 99%, #000 100%);"></div>
+  <svg class="oval-svg" viewBox="0 0 402 874"><ellipse cx="201" cy="345" rx="149" ry="194" fill="none" stroke="#05857D" stroke-width="4"/></svg>
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="xbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
+  <div class="coach top">Hold still. No talking.<small>Relax your face. Breathe normally.</small></div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">The stroke going solid teal is the whole announcement; the SDK starts on its own. The two lines are the only coaching the vendor's own preparation page supports: stable position, no talking, no change of expression. They fade after two seconds.</div>
+</div>
+
+<!-- 3 -->
+<div class="variant">
+<div class="label">3 · Measuring — progress on the stroke, a soft heartbeat under the oval, X hidden</div>
+<div class="phone on-dark">
+  <div class="camera"></div>
+  <div class="face-hl"></div>
+  <div class="blur-out" style="-webkit-mask: radial-gradient(ellipse 149px 194px at 201px 345px, transparent 99%, #000 100%); mask: radial-gradient(ellipse 149px 194px at 201px 345px, transparent 99%, #000 100%);"></div>
+  <svg class="oval-svg" viewBox="0 0 402 874">
+    <ellipse cx="201" cy="345" rx="149" ry="194" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="4"/>
+    <ellipse cx="201" cy="345" rx="149" ry="194" fill="none" stroke="#05857D" stroke-width="5" stroke-linecap="round" pathLength="100" stroke-dasharray="62 100" transform="rotate(-90 201 345)"/>
+  </svg>
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="pulse-row"><svg class="heart live" viewBox="0 0 24 24" fill="#FF6B8A"><path d="M12 21s-7.5-4.6-9.5-9A5.3 5.3 0 0 1 12 6.2 5.3 5.3 0 0 1 21.5 12c-2 4.4-9.5 9-9.5 9z"/></svg></div>
+  <svg class="wave" viewBox="0 0 402 40" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M40 22h60l8-10 8 20 8-22 8 12h30l10-8 8 16 8-18 8 10h30l8-10 8 20 8-22 8 12h50"/></svg>
+  <div class="home-ind"></div>
+</div>
+<div class="note">The same stroke becomes the progress arc (SDK progress, 62 %). Under the oval a small heart beats on each detected heartbeat and a thin waveform drifts past: engaging, silent, and slow enough not to change how anyone breathes. No number. The X is hidden while the signal is good; a swipe down still stops the check.</div>
+</div>
+
+<!-- 3b -->
+<div class="variant">
+<div class="label">3b · Measuring with a live pulse figure (alternative)</div>
+<div class="phone on-dark">
+  <div class="camera"></div>
+  <div class="face-hl"></div>
+  <div class="blur-out" style="-webkit-mask: radial-gradient(ellipse 149px 194px at 201px 345px, transparent 99%, #000 100%); mask: radial-gradient(ellipse 149px 194px at 201px 345px, transparent 99%, #000 100%);"></div>
+  <svg class="oval-svg" viewBox="0 0 402 874">
+    <ellipse cx="201" cy="345" rx="149" ry="194" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="4"/>
+    <ellipse cx="201" cy="345" rx="149" ry="194" fill="none" stroke="#05857D" stroke-width="5" stroke-linecap="round" pathLength="100" stroke-dasharray="62 100" transform="rotate(-90 201 345)"/>
+  </svg>
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="pulse-row"><svg class="heart live" viewBox="0 0 24 24" fill="#FF6B8A"><path d="M12 21s-7.5-4.6-9.5-9A5.3 5.3 0 0 1 12 6.2 5.3 5.3 0 0 1 21.5 12c-2 4.4-9.5 9-9.5 9z"/></svg><span class="bpm">68</span></div>
+  <svg class="wave" viewBox="0 0 402 40" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M40 22h60l8-10 8 20 8-22 8 12h30l10-8 8 16 8-18 8 10h30l8-10 8 20 8-22 8 12h50"/></svg>
+  <div class="home-ind"></div>
+</div>
+<div class="note">Same, with the SDK's realtime 10-second heart rate beside the heart (You(th) did this). Named alternative; not recommended, because a moving number invites people to watch it and hold their breath. Salim picks.</div>
+</div>
+
+<!-- 4 -->
+<div class="variant">
+<div class="label">4 · Signal dropped — amber, coach returns on top, X returns</div>
+<div class="phone on-dark">
+  <div class="camera"></div>
+  <div class="face-hl" style="left:56%"></div>
+  <div class="blur-out" style="-webkit-mask: radial-gradient(ellipse 149px 194px at 201px 345px, transparent 99%, #000 100%); mask: radial-gradient(ellipse 149px 194px at 201px 345px, transparent 99%, #000 100%);"></div>
+  <svg class="oval-svg" viewBox="0 0 402 874">
+    <ellipse cx="201" cy="345" rx="149" ry="194" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="4"/>
+    <ellipse cx="201" cy="345" rx="149" ry="194" fill="none" stroke="#F2AD4D" stroke-width="5" stroke-linecap="round" pathLength="100" stroke-dasharray="62 100" transform="rotate(-90 201 345)"/>
+  </svg>
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="xbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
+  <div class="coach top">Hold the phone still.</div>
+  <div class="pulse-row" style="opacity:.5"><svg class="heart" viewBox="0 0 24 24" fill="#FF6B8A"><path d="M12 21s-7.5-4.6-9.5-9A5.3 5.3 0 0 1 12 6.2 5.3 5.3 0 0 1 21.5 12c-2 4.4-9.5 9-9.5 9z"/></svg></div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">Maps to the SDK's "signal bad / device unstable" state. The arc holds where it was (nothing is lost), the stroke turns amber, the heart dims, one imperative appears above the oval. If the face leaves the oval the line is "Bring your face back into the oval."</div>
+</div>
+
+<!-- 5 -->
+<div class="variant">
+<div class="label">5 · Finishing — neutral ink, then the result</div>
+<div class="phone on-dark">
+  <div class="camera"></div>
+  <div class="face-hl"></div>
+  <div class="blur-out" style="-webkit-mask: radial-gradient(ellipse 149px 194px at 201px 345px, transparent 99%, #000 100%); mask: radial-gradient(ellipse 149px 194px at 201px 345px, transparent 99%, #000 100%);"></div>
+  <svg class="oval-svg" viewBox="0 0 402 874"><ellipse cx="201" cy="345" rx="149" ry="194" fill="none" stroke="#C9C2B8" stroke-width="5"/></svg>
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="coach top">Almost done.</div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">The arc completes in neutral, never the good hue: results are not durable yet. Heart and wave fade out. The result pushes in with one soft haptic.</div>
+</div>
+
+<!-- 6 -->
+<div class="variant">
+<div class="label">6 · Camera access off — recovery in place</div>
+<div class="phone">
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="xbtn" style="color:var(--ink)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" style="filter:none"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
+  <svg class="oval-svg" viewBox="0 0 402 874"><ellipse cx="201" cy="345" rx="149" ry="194" fill="none" stroke="#DED6CC" stroke-width="3" stroke-dasharray="6 8"/></svg>
+  <div style="position:absolute; left:40px; right:40px; top:270px; text-align:center">
+    <div class="title">Camera access is off.</div>
+    <div class="body-s muted" style="margin-top:8px">Sweet needs the front camera to read your face. Nothing was recorded.</div>
+  </div>
+  <div class="btn primary" style="position:absolute; left:16px; right:16px; top:600px">Open Settings</div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">The existing typed refusal drawn where the oval would be. One recovery verb. The X closes.</div>
+</div>
+
+</div>
+
+<h2>The X: visible or hidden?</h2>
+<p class="lead">Salim offered two rules: always an Instagram X at top-left, or hide it until the person is out of position. The frames above use the second: <b>X visible while positioning and whenever the signal drops; hidden while the measurement is running well; the whole screen still accepts a swipe-down to stop</b>. A visible X during a good run is one more thing to look at, and the person's eyes should be on the camera. If Salim prefers always-visible, frame 3 gains the X of frame 1 and nothing else changes.</p>
+</body></html>

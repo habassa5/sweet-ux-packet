@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Sweet — Face result, round 2 (meaning first)</title>
+<link rel="stylesheet" href="sweet2.css">
+<style>
+.hdr { display:flex; align-items:flex-start; justify-content:space-between; margin-top:4px; }
+.summary { margin-top:14px; font:600 20px/1.3 var(--font); letter-spacing:-.01em; }
+.summary small { display:block; font:400 14px/1.4 var(--font); color:var(--ink-muted); margin-top:4px; }
+.more { margin-top:8px; }
+.more .rowitem { min-height:52px; padding:9px 0; }
+.more .rowitem .main .t { font:500 16px/1.3 var(--font); }
+.more .trail .v { font:600 15px/1 var(--font); color:var(--ink); font-variant-numeric: tabular-nums; }
+.askrow { display:flex; align-items:center; gap:12px; padding:14px 0; border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline); margin-top:18px; }
+.askrow .t { font:600 17px/1.3 var(--font); }
+.askrow .d { font:400 13px/1.3 var(--font); color:var(--ink-muted); }
+.term { display:flex; gap:10px; margin-top:18px; }
+.term .btn.primary { flex:1; }
+.term .btn.secondary { flex:0 0 auto; padding:0 20px; }
+.sheet .v { font:600 34px/1 var(--font-rounded); font-variant-numeric: tabular-nums; }
+.sheet p { font:400 15px/1.45 var(--font); margin:10px 0 0; }
+.range { display:flex; align-items:center; gap:10px; margin-top:12px; }
+.range .bar { flex:1; height:8px; border-radius:4px; background:var(--neutral-fill); position:relative; }
+.range .bar .usual { position:absolute; left:28%; width:36%; top:0; bottom:0; border-radius:4px; background:var(--good-fill); border:1px solid var(--good-line); }
+.range .bar .you { position:absolute; left:72%; top:-4px; width:16px; height:16px; border-radius:50%; background:var(--ink); border:3px solid var(--card); transform:translateX(-50%); }
+.range .lbl { font:400 12px/1 var(--font); color:var(--ink-muted); }
+</style></head>
+<body class="gallery">
+<h1>Face result — four to eight hero tiles that say what a reading means</h1>
+<p class="lead">Round 1 put four numbers in tiles. Salim's note: keep the tiles, make them prettier, and stop leading with raw numbers. The grammar here is the one Oura and WHOOP use for HRV and the one the Gut result already uses for form: <b>a reading is compared with the person's own usual</b>, never with a population threshold, and the sentence comes first. The 7/14-day "usual" is built from the person's saved checks; until there are enough, the tiles say "Your starting point" (see B). HRV shows rMSSD only; SDNN stays in the saved record and out of the screen. No vendor names anywhere. One quiet honesty line at the end, not a stack.</p>
+
+<div class="row">
+
+<!-- A -->
+<div class="variant">
+<div class="label">A · Six tiles, meaning first, the number as a small caption (recommended)</div>
+<div class="phone">
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="scroll pad-bottom">
+    <div class="hdr"><div><div class="eyebrow">Face check</div><div class="title" style="margin-top:2px">Today, 4:28 PM</div></div><div class="btn tertiary" style="margin-top:-6px">Close</div></div>
+    <div class="summary">Everything sat within your usual today.<small>Compared with your last 14 days of checks.</small></div>
+
+    <div class="tiles2" style="margin-top:14px">
+      <div class="tile">
+        <div class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-9.5-9A5.3 5.3 0 0 1 12 6.2 5.3 5.3 0 0 1 21.5 12c-2 4.4-9.5 9-9.5 9z"/></svg>Heart rate</div>
+        <div><div class="dotline"><span class="dot good"></span><div class="m">Within your usual</div></div><div class="n">72 bpm · usual 66–76</div></div>
+      </div>
+      <div class="tile">
+        <div class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 14c3-6 5-6 8 0s5 6 8 0"/></svg>Blood pressure</div>
+        <div><div class="dotline"><span class="dot good"></span><div class="m">Within your usual</div></div><div class="n">118/76 · usual 114–122/72–80</div></div>
+      </div>
+      <div class="tile">
+        <div class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12h5l2-5 3 10 2-5h4"/></svg>Breathing</div>
+        <div><div class="dotline"><span class="dot good"></span><div class="m">Within your usual</div></div><div class="n">16 breaths/min · usual 14–17</div></div>
+      </div>
+      <div class="tile">
+        <div class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12h3l2-6 3 12 3-9 2 3h5"/></svg>HRV · recovery</div>
+        <div><div class="dotline"><span class="dot good"></span><div class="m">Above your usual</div></div><div class="n">46 ms · usual 34–42</div></div>
+      </div>
+      <div class="tile">
+        <div class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Stress</div>
+        <div><div class="dotline"><span class="dot good"></span><div class="m">Lower than usual</div></div><div class="n">index 2.1 · usual 2.6–3.4</div></div>
+      </div>
+      <div class="tile">
+        <div class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="4.5"/></svg>Recovery</div>
+        <div><div class="dotline"><span class="dot good"></span><div class="m">Within your usual</div></div><div class="n">58 % · usual 52–63</div></div>
+      </div>
+    </div>
+
+    <div class="sec-h">More from this check</div>
+    <div class="more">
+      <div class="rowitem"><div class="main"><div class="t">Cardiac workload</div></div><div class="trail"><span class="dot good"></span>Within your usual</div></div>
+      <div class="rowitem"><div class="main"><div class="t">Estimated age</div></div><div class="trail"><span class="v">38</span> years</div></div>
+      <div class="rowitem"><div class="main"><div class="t">Estimated height &amp; weight</div></div><div class="trail"><span class="v">5 ft 9 in · 165 lb</span></div></div>
+      <div class="rowitem"><div class="main"><div class="t">Body mass index</div><div class="d">From the estimates above</div></div><div class="trail"><span class="v">24.4</span></div></div>
+    </div>
+
+    <div class="sec-h">Risk models <span class="caption" style="font-weight:400">· from your readings and Apple Health</span></div>
+    <div class="more">
+      <div class="rowitem"><div class="main"><div class="t">Wellness score</div></div><div class="trail"><span class="v">74</span></div></div>
+      <div class="rowitem"><div class="main"><div class="t">Vascular age</div></div><div class="trail"><span class="v">39</span> years</div></div>
+      <div class="rowitem"><div class="main"><div class="t">Hypertension risk</div></div><div class="trail"><span class="v">Low</span></div></div>
+      <div class="rowitem"><div class="main"><div class="t">22 models not reported</div><div class="d">They need Apple Health inputs you have not shared.</div></div><div class="trail">Why</div></div>
+    </div>
+
+    <div class="askrow"><div class="tile-ico sm" style="background:var(--tint-teal); color:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4z"/></svg></div><div style="flex:1"><div class="t">Ask about this check</div><div class="d">Your question and this result, nothing else.</div></div></div>
+    <div class="term"><div class="btn primary">Done</div><div class="btn secondary">Run again</div></div>
+    <div class="lastline">Wellness estimates from a camera, kept on this iPhone. Not a diagnosis.</div>
+  </div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">Tiles answer "so what?" in four words; the number and the person's usual range are a caption for those who want them. Green dot = within or a favourable side of the usual range; amber (see the Skin page) = outside it. Colour never carries the meaning alone. Height and weight print in ft/in and lb; BMI follows. The risk models stay named as models with no vendor name; missing ones say why in one row.</div>
+</div>
+
+<!-- B -->
+<div class="variant">
+<div class="label">B · First check — four tiles, no numbers on the face of them</div>
+<div class="phone">
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="scroll pad-bottom">
+    <div class="hdr"><div><div class="eyebrow">Face check</div><div class="title" style="margin-top:2px">Today, 4:28 PM</div></div><div class="btn tertiary" style="margin-top:-6px">Close</div></div>
+    <div class="summary">Your starting point.<small>Check on a few more days and Sweet will show what's usual for you, and when a reading sits above or below it.</small></div>
+
+    <div class="tiles2" style="margin-top:14px">
+      <div class="tile">
+        <div class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-9.5-9A5.3 5.3 0 0 1 12 6.2 5.3 5.3 0 0 1 21.5 12c-2 4.4-9.5 9-9.5 9z"/></svg>Heart rate</div>
+        <div><div class="dotline"><span class="dot none"></span><div class="m">First reading</div></div><div class="n">Tap to see the number</div></div>
+      </div>
+      <div class="tile">
+        <div class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 14c3-6 5-6 8 0s5 6 8 0"/></svg>Blood pressure</div>
+        <div><div class="dotline"><span class="dot none"></span><div class="m">First reading</div></div><div class="n">Tap to see the number</div></div>
+      </div>
+      <div class="tile">
+        <div class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 12h5l2-5 3 10 2-5h4"/></svg>Breathing</div>
+        <div><div class="dotline"><span class="dot none"></span><div class="m">First reading</div></div><div class="n">Tap to see the number</div></div>
+      </div>
+      <div class="tile">
+        <div class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12h3l2-6 3 12 3-9 2 3h5"/></svg>HRV · recovery</div>
+        <div><div class="dotline"><span class="dot none"></span><div class="m">First reading</div></div><div class="n">Tap to see the number</div></div>
+      </div>
+    </div>
+
+    <div class="sec-h">More from this check</div>
+    <div class="more">
+      <div class="rowitem"><div class="main"><div class="t">Stress</div></div><div class="trail">First reading</div></div>
+      <div class="rowitem"><div class="main"><div class="t">Recovery</div></div><div class="trail">First reading</div></div>
+      <div class="rowitem"><div class="main"><div class="t">Estimated age · height · weight</div></div><div class="trail"><span class="v">38 · 5 ft 9 in · 165 lb</span></div></div>
+    </div>
+
+    <div class="askrow"><div class="tile-ico sm" style="background:var(--tint-teal); color:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4z"/></svg></div><div style="flex:1"><div class="t">Ask about this check</div><div class="d">Your question and this result, nothing else.</div></div></div>
+    <div class="term"><div class="btn primary">Done</div><div class="btn secondary">Run again</div></div>
+    <div class="lastline">Wellness estimates from a camera, kept on this iPhone. Not a diagnosis.</div>
+  </div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">The honest first-day screen. Four tiles because there is nothing to compare yet; the two "recovery" readings drop into the list until a baseline exists. Numbers are one tap away, not hidden. This variant also shows what "not raw numbers" looks like taken to its end; Salim can choose A's captions or B's tap-to-see for the steady state.</div>
+</div>
+
+<!-- C -->
+<div class="variant">
+<div class="label">C · Tap a tile — "why you got this", the HRV so-what</div>
+<div class="phone">
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="scroll" style="filter:blur(0)">
+    <div class="hdr"><div><div class="eyebrow">Face check</div><div class="title" style="margin-top:2px">Today, 4:28 PM</div></div><div class="btn tertiary" style="margin-top:-6px">Close</div></div>
+    <div class="summary">Everything sat within your usual today.<small>Compared with your last 14 days of checks.</small></div>
+    <div class="tiles2" style="margin-top:14px">
+      <div class="tile"><div class="k">Heart rate</div><div><div class="dotline"><span class="dot good"></span><div class="m">Within your usual</div></div><div class="n">72 bpm · usual 66–76</div></div></div>
+      <div class="tile"><div class="k">Blood pressure</div><div><div class="dotline"><span class="dot good"></span><div class="m">Within your usual</div></div><div class="n">118/76</div></div></div>
+    </div>
+  </div>
+  <div class="dim"></div>
+  <div class="sheet">
+    <div class="grab"></div>
+    <div class="eyebrow">HRV · recovery signal</div>
+    <div style="display:flex; align-items:baseline; gap:10px; margin-top:6px"><div class="v">46 <span class="unit">ms</span></div><span class="band good">Above your usual</span></div>
+    <div class="range"><span class="lbl">20</span><div class="bar"><div class="usual"></div><div class="you"></div></div><span class="lbl">70</span></div>
+    <div class="caption" style="margin-top:6px">Your usual, last 14 days: 34–42 ms. Today's dot sits above it.</div>
+    <p><b>What it is.</b> HRV is how much the gap between your heartbeats changes. It rises and falls with rest, stress and illness, and it is personal: only your own usual is a fair comparison.</p>
+    <p><b>So what.</b> A reading above your usual often follows good rest. Below it often follows a hard day, short sleep, or fighting something off. One check is one moment; the pattern over weeks is what matters.</p>
+    <p class="caption" style="margin-top:12px">Measured as rMSSD from a one-minute face video. Your usual updates with each check.</p>
+  </div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">Ranya's question was "so what?". The sheet answers it in two short paragraphs, shows the person's own range as a shape, and names the method once in a caption (rMSSD, not "SDNN 42 ms is bad"). The sheet has no honesty line of its own; the screen beneath already carries the one line.</div>
+</div>
+
+</div>
+</body></html>

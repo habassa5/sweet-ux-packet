@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Sweet — Gut result, round 2 (Codex layout, Fable tints, brown drawings)</title>
+<link rel="stylesheet" href="sweet2.css">
+<style>
+.back { display:flex; align-items:center; gap:6px; font:400 17px/1 var(--font); color:var(--ink); margin-top:8px; }
+.back svg { width:20px; height:20px; }
+.title-lg { font:700 30px/1.15 var(--font); letter-spacing:-.015em; margin-top:16px; }
+.stat { font:400 15px/1.3 var(--font); color:var(--ink-muted); margin-top:6px; }
+.hero { display:flex; align-items:center; gap:16px; margin-top:20px; }
+.hero .art { width:104px; height:104px; border-radius:24px; display:flex; align-items:center; justify-content:center; flex:none; }
+.hero .art img { width:88px; height:88px; }
+.hero .art.good { background:var(--good-fill); } .hero .art.attn { background:var(--attn-fill); } .hero .art.care { background:var(--care-fill); }
+.hero .eb { font:600 13px/1 var(--font); color:var(--ink-muted); letter-spacing:.02em; }
+.hero .big { font:700 30px/1.1 var(--font); letter-spacing:-.015em; margin-top:6px; }
+.hero .sub { font:400 15px/1.35 var(--font); color:var(--ink-muted); margin-top:6px; }
+.gut-row { margin-top:22px; }
+.sec { margin-top:22px; padding-top:18px; border-top:1px solid var(--hairline); }
+.sec h3 { font:600 20px/1.25 var(--font); margin:0 0 8px; }
+.sec p { font:400 17px/1.4 var(--font); margin:0; }
+.sec p + p { margin-top:8px; }
+.sec .b { font:400 16px/1.4 var(--font); padding:3px 0 3px 16px; position:relative; }
+.sec .b::before { content:"•"; position:absolute; left:2px; }
+.sec .lead-in { font:600 16px/1.4 var(--font); margin-top:8px; }
+.dock { position:absolute; left:16px; right:16px; bottom:34px; z-index:5; }
+.dock .btn { background:var(--card); border:1px solid var(--hairline); color:var(--ink); }
+.fade { position:absolute; left:0; right:0; bottom:0; height:120px; background:linear-gradient(rgba(250,245,237,0), var(--surface) 55%); z-index:4; }
+</style></head>
+<body class="gallery">
+<h1>Gut result — Codex's layout, Fable's tints, the drawings stay brown</h1>
+<p class="lead">Salim's pick: Codex's page (Back, "Your gut check", the hero with the classified type, seven forms in one row with "Harder forms ← → Looser forms", then What this means / What may help / When to check in with a clinician, Ask docked) plus Fable's band tints: 3/4/5 green, 2/6 soft orange, 1/7 nearer red, the person's form outlined and labelled "You". The tint is on the <b>surround</b>, borderless; the stool drawings are Sweet's own shipped brown illustrations and are never recoloured. Two frames show how the hero's surround takes the band of the classified type.</p>
+
+<div class="row">
+
+<!-- Type 4 -->
+<div class="variant">
+<div class="label">Type 4 · "You" on a green tile, green surround on the hero</div>
+<div class="phone">
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="scroll">
+    <div class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14 5-7 7 7 7"/></svg>Back</div>
+    <div class="title-lg">Your gut check</div>
+    <div class="stat">Today, 8:12 AM · One photo</div>
+
+    <div class="hero">
+      <div class="art good"><img src="bristol/bristol-type-4-composited.png" alt=""></div>
+      <div><div class="eb">Bristol type 4</div><div class="big">Smooth<br>&amp; formed</div><div class="sub">A commonly expected shape</div></div>
+    </div>
+
+    <div class="gut-row">
+      <div class="gut-tile care"><img src="bristol/bristol-type-1-composited.png" alt=""><div class="n">1</div></div>
+      <div class="gut-tile attn"><img src="bristol/bristol-type-2-composited.png" alt=""><div class="n">2</div></div>
+      <div class="gut-tile good"><img src="bristol/bristol-type-3-composited.png" alt=""><div class="n">3</div></div>
+      <div class="gut-tile good you"><img src="bristol/bristol-type-4-composited.png" alt=""><div class="n">4</div><div class="yl">You</div></div>
+      <div class="gut-tile good"><img src="bristol/bristol-type-5-composited.png" alt=""><div class="n">5</div></div>
+      <div class="gut-tile attn"><img src="bristol/bristol-type-6-composited.png" alt=""><div class="n">6</div></div>
+      <div class="gut-tile care"><img src="bristol/bristol-type-7-composited.png" alt=""><div class="n">7</div></div>
+    </div>
+    <div class="scale-lbl"><span>Harder forms</span><span>Looser forms</span></div>
+
+    <div class="sec"><h3>What this means</h3><p>Smooth, formed shapes are commonly expected. How you feel matters more than one photo.</p></div>
+    <div class="sec"><h3>What may help</h3><p>If you feel well, keep your usual routine, fluids and fiber.</p></div>
+    <div class="sec">
+      <h3>When to check in with a clinician</h3>
+      <p class="caption">This app cannot see symptoms in a photo. Based on how you feel, watch for these:</p>
+      <div class="lead-in">Get urgent medical help for any of these:</div>
+      <div class="b">Blood in your stool, or stool that looks black or tarry</div>
+      <div class="b">Severe belly pain or rectal pain</div>
+      <div class="b">Vomiting that keeps happening</div>
+      <div class="b">Signs of dehydration, such as a very dry mouth, little or no urine, or feeling dizzy</div>
+    </div>
+  </div>
+  <div class="fade"></div>
+  <div class="dock"><div class="btn"><svg class="sym" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4z"/></svg>Ask about this check</div></div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">The tiles have no border; the band fill is the whole decoration. "You" gets a 2-pt ink outline and a 10 % scale, and the hero's rounded surround takes the same green so the answer and the row agree. Tapping any tile opens that type's description. The clinician section keeps the shipped heading and all seven symptoms; the scroll continues with the last three, the closing line ("These are about your own symptoms, not anything the photo or app found"), and the one honesty line ("One photo is one snapshot, not a trend or a verdict about you.").</div>
+</div>
+
+<!-- Type 6 -->
+<div class="variant">
+<div class="label">Type 6 · "You" on an orange tile; the hero follows</div>
+<div class="phone">
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="scroll">
+    <div class="back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14 5-7 7 7 7"/></svg>Back</div>
+    <div class="title-lg">Your gut check</div>
+    <div class="stat">Today, 8:12 AM · One photo</div>
+
+    <div class="hero">
+      <div class="art attn"><img src="bristol/bristol-type-6-composited.png" alt=""></div>
+      <div><div class="eb">Bristol type 6</div><div class="big">Fluffy,<br>mushy pieces</div><div class="sub">A softer form</div></div>
+    </div>
+
+    <div class="gut-row">
+      <div class="gut-tile care"><img src="bristol/bristol-type-1-composited.png" alt=""><div class="n">1</div></div>
+      <div class="gut-tile attn"><img src="bristol/bristol-type-2-composited.png" alt=""><div class="n">2</div></div>
+      <div class="gut-tile good"><img src="bristol/bristol-type-3-composited.png" alt=""><div class="n">3</div></div>
+      <div class="gut-tile good"><img src="bristol/bristol-type-4-composited.png" alt=""><div class="n">4</div></div>
+      <div class="gut-tile good"><img src="bristol/bristol-type-5-composited.png" alt=""><div class="n">5</div></div>
+      <div class="gut-tile attn you"><img src="bristol/bristol-type-6-composited.png" alt=""><div class="n">6</div><div class="yl">You</div></div>
+      <div class="gut-tile care"><img src="bristol/bristol-type-7-composited.png" alt=""><div class="n">7</div></div>
+    </div>
+    <div class="scale-lbl"><span>Harder forms</span><span>Looser forms</span></div>
+
+    <div class="sec"><h3>What this means</h3><p>Softer forms can happen for many everyday reasons. The form alone cannot show how concerning this is; how you feel and whether it keeps happening matter more.</p></div>
+    <div class="sec"><h3>What may help</h3><p>Sip fluids steadily so you stay hydrated. Notice how you feel over the day.</p></div>
+    <div class="sec">
+      <h3>When to check in with a clinician</h3>
+      <p class="caption">This app cannot see symptoms in a photo. Based on how you feel, watch for these:</p>
+      <div class="lead-in">Get urgent medical help for any of these:</div>
+      <div class="b">Blood in your stool, or stool that looks black or tarry</div>
+      <div class="b">Severe belly pain or rectal pain</div>
+      <div class="b">Vomiting that keeps happening</div>
+    </div>
+  </div>
+  <div class="fade"></div>
+  <div class="dock"><div class="btn"><svg class="sym" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4z"/></svg>Ask about this check</div></div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">Same page, softer form: the surround is soft orange, the words stay the shipped ones, and the tint never becomes a verdict ("softer form", not "abnormal"). The Ask dock is Codex's; Done lives on Back because a Gut result has no run-again from the same photo.</div>
+</div>
+
+</div>
+</body></html>

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Sweet — Skin result, round 2 (meaning first)</title>
+<link rel="stylesheet" href="sweet2.css">
+<style>
+.hdr { display:flex; align-items:flex-start; justify-content:space-between; margin-top:4px; }
+.typecard { display:flex; align-items:center; gap:14px; margin-top:14px; }
+.typecard .t { font:600 20px/1.2 var(--font); letter-spacing:-.01em; }
+.typecard .d { font:400 14px/1.35 var(--font); color:var(--ink-muted); margin-top:3px; }
+.grp { margin-top:18px; }
+.grp .gh { display:flex; align-items:center; gap:8px; font:600 17px/1.3 var(--font); }
+.grp .gh .cnt { font:400 13px/1 var(--font); color:var(--ink-muted); }
+.frow { display:flex; align-items:center; gap:12px; padding:11px 0; }
+.frow + .frow { border-top:1px solid var(--hairline); }
+.frow .name { font:600 16px/1.3 var(--font); }
+.frow .why { font:400 14px/1.3 var(--font); color:var(--ink-muted); margin-top:2px; }
+.frow .main { flex:1; }
+.clin { margin-top:20px; background:var(--card); border-radius:var(--r-soft); padding:14px 16px; }
+.clin .h { font:600 17px/1.3 var(--font); }
+.clin p { font:400 15px/1.4 var(--font); margin:8px 0 0; }
+.askrow { display:flex; align-items:center; gap:12px; padding:14px 0; border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline); margin-top:18px; }
+.askrow .t { font:600 17px/1.3 var(--font); }
+.askrow .d { font:400 13px/1.3 var(--font); color:var(--ink-muted); }
+.term { display:flex; gap:10px; margin-top:18px; }
+.term .btn.primary { flex:1; } .term .btn.secondary { flex:0 0 auto; padding:0 20px; }
+.summ { display:flex; gap:6px; margin-top:14px; height:10px; border-radius:5px; overflow:hidden; }
+.summ span { display:block; height:100%; }
+.legend { display:flex; gap:14px; margin-top:8px; font:500 13px/1 var(--font); color:var(--ink-muted); }
+.legend span { display:inline-flex; align-items:center; gap:6px; }
+.dgrid { display:grid; grid-template-columns:1fr 1fr; gap:6px 14px; margin-top:8px; }
+.dgrid .it { display:flex; align-items:center; gap:8px; font:500 15px/1.3 var(--font); padding:7px 0; }
+.dgrid .it small { color:var(--ink-muted); font-weight:400; }
+.sheet .v { font:600 34px/1 var(--font-rounded); font-variant-numeric: tabular-nums; }
+.sheet p { font:400 15px/1.45 var(--font); margin:10px 0 0; }
+.zones { display:flex; gap:8px; margin-top:12px; }
+.zone { flex:1; background:var(--surface); border-radius:12px; padding:10px; text-align:center; }
+.zone .zn { font:400 12px/1 var(--font); color:var(--ink-muted); }
+.zone .zv { font:600 18px/1.2 var(--font-rounded); margin-top:4px; font-variant-numeric: tabular-nums; }
+</style></head>
+<body class="gallery">
+<h1>Skin result — what an esthetician would say, not a seventy-number dump</h1>
+<p class="lead">The licensed analysis returns fifteen concerns, zone scores for pores and wrinkles, a skin type with T-zone and U-zone, and a skin age, on a 1–100 scale where <b>higher is better</b> (vendor doc, RESEARCH.md §Skin). A person in a treatment room does not hear fifteen numbers; they hear what looks good, the two or three things worth attention, and when to see someone. That is the first screen. Every number is one tap away. Green / amber / red are Sweet-defined presentation bands on the vendor's own scale (proposal in RESEARCH.md), each always beside a word. "When to check in" names who to see for what, without naming a treatment or a diagnosis.</p>
+
+<div class="row">
+
+<!-- A -->
+<div class="variant">
+<div class="label">A · Highlights and lowlights (recommended)</div>
+<div class="phone">
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="scroll pad-bottom">
+    <div class="hdr"><div><div class="eyebrow">Skin check</div><div class="title" style="margin-top:2px">Today, 4:31 PM</div></div><div class="btn tertiary" style="margin-top:-6px">Close</div></div>
+
+    <div class="typecard card">
+      <div class="tile-ico skin"><svg viewBox="0 0 34 34" fill="none"><path d="M17 5.5c3.8 5 7.5 9 7.5 13.2A7.5 7.5 0 0 1 9.5 18.7C9.5 14.5 13.2 10.5 17 5.5z" fill="#fff" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M27 6.5v4M25 8.5h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+      <div><div class="t">Combination skin</div><div class="d">Oilier through the T-zone, normal on the cheeks. Skin age reads a touch under your age.</div></div>
+    </div>
+
+    <div class="grp">
+      <div class="gh"><span class="dot good"></span>Doing well <span class="cnt">· 10 areas</span></div>
+      <div class="frow"><div class="main"><div class="name">Radiance</div><div class="why">Bright and even across the face.</div></div></div>
+      <div class="frow"><div class="main"><div class="name">Firmness</div><div class="why">Good bounce along the jaw and cheeks.</div></div></div>
+      <div class="frow"><div class="main"><div class="name">Breakouts</div><div class="why">Clear today.</div></div></div>
+      <div class="frow"><div class="main"><div class="why" style="margin:0">Also: texture, redness, age spots, eye bags, tear troughs, upper and lower eyelids.</div></div></div>
+    </div>
+
+    <div class="grp">
+      <div class="gh"><span class="dot attn"></span>Worth attention <span class="cnt">· 2 areas</span></div>
+      <div class="frow"><div class="main"><div class="name">Pores</div><div class="why">More visible around the nose than elsewhere.</div></div></div>
+      <div class="frow"><div class="main"><div class="name">Dark circles</div><div class="why">Some shadow under the eyes today.</div></div></div>
+    </div>
+
+    <div class="grp">
+      <div class="gh"><span class="dot care"></span>Needs care <span class="cnt">· 1 area</span></div>
+      <div class="frow"><div class="main"><div class="name">Moisture</div><div class="why">Reads dry. Water, a gentler cleanser and a moisturiser usually show up here first.</div></div></div>
+    </div>
+
+    <div class="btn tertiary" style="margin-top:6px">See all 15 readings</div>
+
+    <div class="clin">
+      <div class="h">When to check in</div>
+      <p>A dermatologist is the person for a spot that changes, redness that stays, or breakouts that aren't settling. For lines and firmness, a licensed esthetician or a dermatologist can talk through options with you.</p>
+    </div>
+
+    <div class="askrow"><div class="tile-ico sm" style="background:var(--tint-teal); color:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4z"/></svg></div><div style="flex:1"><div class="t">Ask about this check</div><div class="d">"What helps with pores around the nose?"</div></div></div>
+    <div class="term"><div class="btn primary">Done</div><div class="btn secondary">Run again</div></div>
+    <div class="lastline">A wellness look at one photo, kept on this iPhone. Not a diagnosis.</div>
+  </div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">Three groups, in the order a professional speaks: what's good first, then two or three things to watch, then anything that needs care. The "why" lines are Sweet's plain-English reading of the vendor's zone scores (pores by zone, for example), never a symptom claim. The "Doing well" group collapses its tail into one line so the page stays short. "When to check in" follows the 2026 FDA wellness guidance: it can suggest a professional, it does not name a condition, a threshold, or a treatment.</div>
+</div>
+
+<!-- B -->
+<div class="variant">
+<div class="label">B · The glance bar first, then everything as dots</div>
+<div class="phone">
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="scroll pad-bottom">
+    <div class="hdr"><div><div class="eyebrow">Skin check</div><div class="title" style="margin-top:2px">Today, 4:31 PM</div></div><div class="btn tertiary" style="margin-top:-6px">Close</div></div>
+    <div class="summ"><span style="flex:10; background:var(--good-line)"></span><span style="flex:2; background:var(--attn-line)"></span><span style="flex:1; background:var(--care-line)"></span></div>
+    <div class="legend"><span><span class="dot good"></span>10 doing well</span><span><span class="dot attn"></span>2 worth attention</span><span><span class="dot care"></span>1 needs care</span></div>
+
+    <div class="typecard card" style="margin-top:16px">
+      <div class="tile-ico skin sm"><svg viewBox="0 0 34 34" fill="none"><path d="M17 5.5c3.8 5 7.5 9 7.5 13.2A7.5 7.5 0 0 1 9.5 18.7C9.5 14.5 13.2 10.5 17 5.5z" fill="#fff" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+      <div><div class="t" style="font-size:18px">Combination</div><div class="d">Oilier T-zone, normal cheeks.</div></div>
+    </div>
+
+    <div class="sec-h">Face</div>
+    <div class="dgrid">
+      <div class="it"><span class="dot good"></span>Radiance</div>
+      <div class="it"><span class="dot good"></span>Texture</div>
+      <div class="it"><span class="dot good"></span>Firmness</div>
+      <div class="it"><span class="dot good"></span>Redness</div>
+      <div class="it"><span class="dot good"></span>Breakouts</div>
+      <div class="it"><span class="dot good"></span>Age spots</div>
+      <div class="it"><span class="dot attn"></span>Pores <small>· nose</small></div>
+      <div class="it"><span class="dot care"></span>Moisture</div>
+      <div class="it"><span class="dot good"></span>Oiliness</div>
+      <div class="it"><span class="dot good"></span>Wrinkles</div>
+    </div>
+    <div class="sec-h">Eyes</div>
+    <div class="dgrid">
+      <div class="it"><span class="dot attn"></span>Dark circles</div>
+      <div class="it"><span class="dot good"></span>Eye bags</div>
+      <div class="it"><span class="dot good"></span>Tear troughs</div>
+      <div class="it"><span class="dot good"></span>Upper eyelids</div>
+      <div class="it"><span class="dot good"></span>Lower eyelids</div>
+    </div>
+
+    <div class="clin">
+      <div class="h">When to check in</div>
+      <p>A dermatologist is the person for a spot that changes, redness that stays, or breakouts that aren't settling. For lines and firmness, a licensed esthetician or a dermatologist can talk through options with you.</p>
+    </div>
+    <div class="askrow"><div class="tile-ico sm" style="background:var(--tint-teal); color:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4z"/></svg></div><div style="flex:1"><div class="t">Ask about this check</div><div class="d">Your question and this result, nothing else.</div></div></div>
+    <div class="term"><div class="btn primary">Done</div><div class="btn secondary">Run again</div></div>
+    <div class="lastline">A wellness look at one photo, kept on this iPhone. Not a diagnosis.</div>
+  </div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">Everything in one glance: a proportional bar, then all fifteen as dots by area, no numbers. Faster than A for a returning person, less warm for a first-timer because there is no sentence. Named alternative.</div>
+</div>
+
+<!-- C -->
+<div class="variant">
+<div class="label">C · Tap a reading — the number, the zones, one explanation</div>
+<div class="phone">
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="scroll">
+    <div class="hdr"><div><div class="eyebrow">Skin check</div><div class="title" style="margin-top:2px">Today, 4:31 PM</div></div><div class="btn tertiary" style="margin-top:-6px">Close</div></div>
+    <div class="typecard card"><div class="tile-ico skin sm"><svg viewBox="0 0 34 34" fill="none"><path d="M17 5.5c3.8 5 7.5 9 7.5 13.2A7.5 7.5 0 0 1 9.5 18.7C9.5 14.5 13.2 10.5 17 5.5z" fill="#fff" stroke="currentColor" stroke-width="2"/></svg></div><div><div class="t" style="font-size:18px">Combination</div><div class="d">Oilier T-zone, normal cheeks.</div></div></div>
+    <div class="grp"><div class="gh"><span class="dot attn"></span>Worth attention</div><div class="frow"><div class="main"><div class="name">Pores</div><div class="why">More visible around the nose than elsewhere.</div></div></div></div>
+  </div>
+  <div class="dim"></div>
+  <div class="sheet">
+    <div class="grab"></div>
+    <div class="eyebrow">Pores</div>
+    <div style="display:flex; align-items:baseline; gap:10px; margin-top:6px"><div class="v">54 <span class="unit">/ 100</span></div><span class="band attn">Worth attention</span></div>
+    <div class="zones"><div class="zone"><div class="zn">Forehead</div><div class="zv">66</div></div><div class="zone"><div class="zn">Nose</div><div class="zv">41</div></div><div class="zone"><div class="zn">Cheeks</div><div class="zv">61</div></div></div>
+    <p><b>How to read it.</b> Higher is better; 100 would be pores the analysis can barely see. The nose is where they show most for you today, which is common: it is the oiliest part of the T-zone.</p>
+    <p><b>What tends to help.</b> Gentle cleansing, not scrubbing; sunscreen; and giving a new routine a few weeks before judging it.</p>
+    <p class="caption" style="margin-top:12px">Scores come from one photo in one light. Compare only with your own earlier checks, in similar light.</p>
+  </div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">The number arrives with its zones and the polarity spelled out, so "41" cannot be misread. The scale is described as the analysis's own without naming the vendor.</div>
+</div>
+
+</div>
+</body></html>

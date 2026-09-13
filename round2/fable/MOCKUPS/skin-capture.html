@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Sweet — Skin capture, round 2</title>
+<link rel="stylesheet" href="sweet2.css">
+<style>
+/* The inner face guide: 85 % of the width, sitting high. Perfect Corp's still guidance is "let the face fill most of the width". */
+.face-hl { top: 372px; }
+.face-hl.small { width: 150px; height: 195px; top: 380px; }
+.face-hl.big { width: 300px; height: 392px; top: 372px; }
+.coach.top { top: 96px; }
+.dimout { position:absolute; inset:0; background: rgba(20,14,12,.38); }
+.review-photo { position:absolute; inset:0; }
+.review-bar { position:absolute; left:16px; right:16px; bottom:40px; display:flex; flex-direction:column; gap:8px; z-index:5; }
+.review-bar .btn.tertiary { color:#fff; align-self:center; }
+.ring { position:absolute; left:50%; top:372px; width:64px; height:64px; margin:-32px 0 0 -32px; border-radius:50%; border:5px solid rgba(255,255,255,.35); border-top-color:#fff; z-index:5; }
+</style></head>
+<body class="gallery">
+<h1>Skin capture — the shape teaches "come closer"; one coach line; Instagram X</h1>
+<p class="lead">Round 1 already replaced the eight bullets with an inner face guide. Round 2 on Salim's notes: guidance moves to the <b>top</b>; the oval sits <b>higher</b> and <b>wider</b> (85 % of the width, because the vendor's own guidance is "let the face fill most of the width"); "fill the shape" and "even light, glasses off" are <b>one</b> coach; and the X is Instagram's, top-left, no chrome. Sweet runs no vendor face detection before the shot, so the recommended cue changes come from Apple's on-device face rectangle (see RESEARCH.md §Skin capture) and only ever change the words and the stroke, never block the shutter.</p>
+
+<div class="row">
+
+<!-- 1 -->
+<div class="variant">
+<div class="label">1 · Far — the gap between face and shape is the instruction</div>
+<div class="phone on-dark">
+  <div class="camera skin"></div>
+  <div class="face-hl small"></div>
+  <div class="dimout" style="-webkit-mask: radial-gradient(ellipse 170px 222px at 201px 372px, transparent 99%, #000 100%); mask: radial-gradient(ellipse 170px 222px at 201px 372px, transparent 99%, #000 100%);"></div>
+  <svg class="oval-svg" viewBox="0 0 402 874"><ellipse cx="201" cy="372" rx="170" ry="222" fill="none" stroke="rgba(255,255,255,.92)" stroke-width="3.5" stroke-dasharray="12 9" stroke-linecap="round"/></svg>
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="xbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
+  <div class="coach top">Fill the shape with your face.<small>Even light · glasses off · relaxed face</small></div>
+  <div class="shutter"></div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">The outside is dimmed, not blurred: the whole still is what gets analysed, and a blur would suggest otherwise. The coach is one line with three two-word reminders under it; nothing else to read. The shutter is live from the start.</div>
+</div>
+
+<!-- 2 -->
+<div class="variant">
+<div class="label">2 · Filled — stroke goes solid, the line changes, shutter is the same</div>
+<div class="phone on-dark">
+  <div class="camera skin"></div>
+  <div class="face-hl big"></div>
+  <div class="dimout" style="-webkit-mask: radial-gradient(ellipse 170px 222px at 201px 372px, transparent 99%, #000 100%); mask: radial-gradient(ellipse 170px 222px at 201px 372px, transparent 99%, #000 100%);"></div>
+  <svg class="oval-svg" viewBox="0 0 402 874"><ellipse cx="201" cy="372" rx="170" ry="222" fill="none" stroke="#05857D" stroke-width="4"/></svg>
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="xbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
+  <div class="coach top">Lovely. Hold still and tap.</div>
+  <div class="shutter"></div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">Recommended: Apple's on-device face rectangle (no vendor call, no upload) flips the stroke to teal and shortens the line when the face fills the shape. If Salim declines that, frame 1's words stay static and the shape alone does the teaching, which still works. A tiny warmth in the copy ("Lovely.") is the smile the founder asked for.</div>
+</div>
+
+<!-- 3 -->
+<div class="variant">
+<div class="label">3 · Review — one look, one decision</div>
+<div class="phone on-dark">
+  <div class="camera skin review-photo"></div>
+  <div class="face-hl big"></div>
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="xbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
+  <div class="coach top">Clear and in focus?</div>
+  <div class="review-bar"><div class="btn primary">Use this photo</div><div class="btn tertiary">Retake</div></div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">The still fills the screen so the person judges the actual photo. Two verbs. Consent was given once before the camera opened; nothing asks again here.</div>
+</div>
+
+<!-- 4 -->
+<div class="variant">
+<div class="label">4 · Sending — the shape stays, the words are calm</div>
+<div class="phone on-dark">
+  <div class="camera skin review-photo" style="filter:saturate(.6) brightness(.7)"></div>
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="xbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></div>
+  <div class="ring"></div>
+  <div class="coach" style="top:430px">Looking at your skin…<small>About ten seconds.</small></div>
+  <div class="home-ind"></div>
+</div>
+<div class="note">Indeterminate ring, one sentence, the X still cancels. No invented percent.</div>
+</div>
+
+</div>
+</body></html>
