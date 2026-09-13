@@ -1,1157 +1,1001 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sweet — round 3 comparison bench</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Sweet · packet 3 · choose a look</title>
 <style>
 :root {
-  --paper: #F3EEE4;
-  --ink: #1A1612;
-  --muted: #6A6158;
-  --line: #DDD3C6;
-  --card: #FFFCF6;
-  --fable: #0E6B63;
-  --fable-soft: #D7EFEB;
-  --codex: #A12D58;
-  --codex-soft: #F8E3EA;
-  --teal: #0F766E;
+  --paper: #f4f5f5;
+  --ink: #1a2021;
+  --muted: #566164;
+  --line: #b8c1c2;
+  --card: #fff;
+  --fable: #0e6b63;
+  --fable-soft: #d7efeb;
+  --codex: #a12d58;
+  --codex-soft: #f8e3ea;
+  --teal: #0f766e;
   --phone-w: 402px;
   --phone-h: 874px;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 118px; }
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font: 16.5px/1.45 "Iowan Old Style", Palatino, Georgia, serif;
-}
-button, input, textarea, select, label, .chip, nav a, .pin, .zoom {
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
-}
-.top {
-  position: sticky; top: 0; z-index: 40;
-  background: rgba(243,238,228,.96);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
-}
-.top-row {
-  margin: 0;
-  padding: .65rem 1.5rem .5rem;
-  display: flex; flex-wrap: wrap; gap: .55rem 1rem; align-items: center;
-}
-.kicker { font: 700 11px/1 system-ui; letter-spacing: .14em; text-transform: uppercase; color: var(--codex); }
-.who label { font: 650 13px/1.2 system-ui; cursor: pointer; margin-right: .7rem; }
-.progress { font: 650 12px/1.2 system-ui; color: var(--muted); margin-left: auto; }
-.toc {
-  margin: 0;
-  padding: 0 1.5rem .55rem;
-  display: flex; flex-wrap: wrap; gap: .35rem;
-}
-.toc a {
-  font: 650 12px/1 system-ui; color: var(--ink);
-  background: var(--card); border: 1px solid var(--line);
-  border-radius: 999px; padding: .38rem .7rem; text-decoration: none;
-}
-.toc a:hover { border-color: var(--ink); }
-.wrap { max-width: none; margin: 0; padding: 1.1rem 1.5rem 7rem; }
-h1 { font-size: clamp(1.85rem, 3.4vw, 2.55rem); line-height: 1.1; margin: .2rem 0 .6rem; letter-spacing: -.02em; }
-.lede { color: var(--muted); max-width: 42rem; }
-.lede a { color: var(--teal); }
-.lock {
-  margin: 1.1rem 0 1.4rem; padding: .8rem 1rem;
-  background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-  font: 400 13.5px/1.45 system-ui; color: var(--muted);
-}
-.lock strong { color: var(--ink); }
-.lanes {
-  display: flex; flex-wrap: wrap; gap: 8px;
-  margin: 0 0 1rem;
-  padding: 0;
-}
-.lane {
-  font: 800 11px/1 system-ui; letter-spacing: .12em; text-transform: uppercase;
-  padding: .45rem .7rem; border-radius: 10px; text-align: center;
-}
-.lane.f { background: var(--fable-soft); color: var(--fable); }
-.lane.c { background: var(--codex-soft); color: var(--codex); }
-.surface {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  padding: 1.15rem 1.15rem 1.3rem;
-  margin: 0 0 1.5rem;
-  scroll-margin-top: 118px;
-}
-.surface h2 { font-size: 1.45rem; margin: 0 0 .35rem; }
-.why { color: var(--muted); margin: 0 0 .7rem; }
-.recs {
-  display: flex; flex-wrap: wrap; gap: 8px;
-  margin: 0 0 1rem; font: 400 13.5px/1.4 system-ui;
-  max-width: 860px;
-}
-.recs div { flex: 1 1 280px; border-radius: 12px; padding: .55rem .75rem; }
-.recs .f { background: var(--fable-soft); }
-.recs .c { background: var(--codex-soft); }
-.recs strong { display: block; font: 800 10px/1 system-ui; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .25rem; }
-.recs .f strong { color: var(--fable); }
-.recs .c strong { color: var(--codex); }
-.pair, .solo-row {
-  display: flex; flex-wrap: wrap; gap: 20px 28px;
-  margin: 0 0 1.15rem; align-items: flex-start;
-}
-.cell { flex: 0 0 402px; width: 402px; }
-
-.model-row { margin: 0 0 1.35rem; padding: .85rem 0 0; }
-.model-row.fable-row { border-top: 3px solid var(--fable); }
-.model-row.codex-row { border-top: 3px solid var(--codex); }
-.row-label {
-  font: 800 13px/1 system-ui; letter-spacing: .12em; text-transform: uppercase;
-  margin: 0 0 .75rem;
-}
+html { scroll-padding-top: 16px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.45 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+button, input, textarea { font: inherit; }
+a { color: #075f66; text-underline-offset: 3px; }
+button, label.opt, .who label { cursor: pointer; }
+button, .opt, .who label, .toc a { min-height: 40px; }
+button:disabled { cursor: wait; opacity: .65; }
+:focus-visible { outline: 3px solid #155fba; outline-offset: 4px; }
+input[type="radio"] { width: 17px; height: 17px; margin: 0; accent-color: var(--teal); flex-shrink: 0; }
+.skip-link { position: absolute; left: 12px; top: -100px; z-index: 10; padding: 12px; background: #fff; }
+.skip-link:focus { top: 12px; }
+.top { padding: 20px 24px; border-bottom: 1px solid var(--line); }
+.packet-title { color: var(--ink); font-size: 17px; font-weight: 750; text-decoration: none; }
+.who { display: flex; gap: 16px; padding: 0; margin: 12px 0 4px; border: 0; }
+.who legend { padding: 0; font-size: 12px; font-weight: 700; }
+.who label { display: inline-flex; align-items: center; gap: 7px; }
+.progress { font-weight: 700; margin: 8px 0 3px; }
+.save-status, .previous { color: var(--muted); font-size: 12px; margin: 4px 0 12px; }
+.toc { display: flex; flex-wrap: wrap; gap: 3px 8px; }
+.toc a { display: flex; align-items: center; padding: 6px 8px; color: var(--ink); text-decoration: none; border-radius: 5px; }
+.toc a:hover { background: #e5e9e9; }
+.toc a[aria-current="location"] { background: #dce9e7; font-weight: 750; box-shadow: inset 3px 0 var(--teal); }
+.toc a.decided::after { content: "✓"; margin-left: auto; padding-left: 8px; }
+.wrap { min-width: 0; padding: 20px 24px 40px; }
+.intro { margin-bottom: 20px; }
+h1 { font-size: 25px; line-height: 1.2; margin: 0 0 8px; letter-spacing: -.02em; }
+.intro p { max-width: 950px; margin: 0; color: var(--muted); }
+.surface { border-top: 1px solid var(--line); padding: 16px 0 0; margin: 0 0 32px; scroll-margin-top: 16px; }
+.surface h2 { font-size: 21px; margin: 0 0 6px; }
+.why { color: var(--muted); margin: 0 0 14px; max-width: 1100px; }
+.context-link { margin: -6px 0 14px; font-size: 13px; }
+.model-row { margin: 0 0 24px; scroll-margin-top: 16px; max-width: 1254px; }
+.row-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 3px solid; padding-top: 9px; margin-bottom: 12px; }
+.fable-row .row-head { border-color: var(--fable); }
+.codex-row .row-head { border-color: var(--codex); }
+.row-label { margin: 0; font-size: 14px; }
 .row-label.fable { color: var(--fable); }
 .row-label.codex { color: var(--codex); }
-
-.who-tag {
-  display: inline-block;
-  font: 800 15px/1 system-ui;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  padding: .42rem .7rem;
-  border-radius: 8px;
-  margin: 0 0 .45rem;
-}
+.row-head a, .notes-link { font-size: 13px; }
+.pair { display: grid; grid-template-columns: repeat(3, var(--phone-w)); gap: 24px; align-items: start; }
+.cell { width: var(--phone-w); }
+.supporting-row { max-width: none; }
+.supporting-row .pair { display: flex; flex-wrap: wrap; }
+.supporting-row .choicebar { max-width: 1254px; }
+.who-tag { display: inline-block; font-size: 14px; font-weight: 750; line-height: 1.2; padding: 5px 9px; border-radius: 5px; margin-bottom: 7px; }
 .who-tag.fable { background: var(--fable); color: #fff; }
 .who-tag.codex { background: var(--codex); color: #fff; }
-.cell h3 {
-  font: 650 16px/1.3 system-ui;
-  color: var(--ink);
-  margin: 0 0 .5rem;
+.cell h4 { font-size: 15px; font-weight: 600; line-height: 21px; min-height: 42px; margin: 0 0 8px; }
+.rec-pill { display: inline-block; background: #f5d76e; color: #3a2a00; border-radius: 4px; font-size: 10px; line-height: 16px; padding: 0 4px; margin-left: 4px; white-space: nowrap; }
+.cap { font-size: 13px; line-height: 19px; min-height: 57px; margin: 10px 0 0; }
+.phone-clip { width: var(--phone-w); height: var(--phone-h); border-radius: 42px; background: #e4e9e8; box-shadow: 0 3px 12px #1a20211c; position: relative; }
+.phone-clip iframe, .phone-clip img { display: block; width: var(--phone-w); height: var(--phone-h); border: 0; border-radius: inherit; background: #fff; position: relative; }
+.phone-clip img { object-fit: contain; }
+.phone-loading { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 30px; text-align: center; color: var(--muted); }
+.phone-clip:not(.is-ready) iframe, .phone-clip:not(.is-ready) img { visibility: hidden; }
+.is-ready .phone-loading { display: none; }
+.phone-loading button { background: #fff; border: 1px solid var(--line); border-radius: 5px; padding: 8px 14px; }
+.choicebar { border: 1px solid var(--line); background: var(--card); border-radius: 6px; padding: 8px 12px 10px; margin: 12px 0 0; }
+.choicebar legend { font-size: 12px; font-weight: 700; padding: 0 5px; }
+.options { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+label.opt { display: inline-flex; align-items: center; gap: 7px; border: 1px solid transparent; border-radius: 5px; padding: 7px 9px; font-size: 13px; }
+label.opt:has(input:checked) { background: #e1f0eb; border-color: var(--teal); font-weight: 700; }
+label.opt:hover { background: #f0f4f3; }
+.steer { max-width: 1254px; }
+.steer label, #else > label { display: block; font-size: 13px; font-weight: 650; margin-bottom: 7px; }
+textarea { display: block; width: 100%; max-width: 1254px; min-height: 66px; resize: vertical; padding: 10px 12px; border: 1px solid #859496; border-radius: 5px; background: #fff; font-size: 14px; }
+textarea::placeholder { color: #626d70; }
+.answers { max-width: 1254px; }
+#answer-summary { margin: 16px 0; }
+.answer-row { display: grid; grid-template-columns: 180px 1fr auto; gap: 5px 18px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.answer-row strong { font-size: 14px; }
+.answer-row p { grid-column: 2 / -1; white-space: pre-wrap; margin: 0; color: var(--muted); }
+.answer-row a { font-size: 13px; }
+#legacy-pins { white-space: pre-wrap; color: var(--muted); }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.actions button { padding: 10px 14px; border: 1px solid #859496; border-radius: 5px; background: #fff; color: var(--ink); font-weight: 650; font-size: 13px; }
+.actions .primary { background: var(--teal); color: #fff; border-color: var(--teal); }
+.status { min-height: 22px; font-size: 13px; }
+.print-context, .print-warning { display: none; }
+@media (min-width: 1550px) {
+  #mixform { display: grid; grid-template-columns: 196px minmax(0, 1fr); align-items: start; }
+  .top { position: sticky; top: 0; padding: 20px 16px; border: 0; max-height: 100vh; overflow-y: auto; }
+  .toc { display: grid; gap: 2px; }
+  .who { gap: 10px; }
+  .who label { font-size: 13px; }
+  .wrap { border-left: 1px solid var(--line); }
 }
-.rec-pill {
-  display: inline-block;
-  font: 800 10px/1 system-ui;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  background: #F5D76E;
-  color: #3A2A00;
-  padding: .22rem .42rem;
-  border-radius: 6px;
-  vertical-align: 2px;
-  margin-left: .3rem;
+@media (max-width: 1319px) {
+  .pair { grid-template-columns: repeat(2, var(--phone-w)); }
+  .model-row { max-width: 828px; }
 }
-.cap {
-  font: 400 13.5px/1.5 system-ui;
-  color: var(--ink);
-  margin: .6rem 0 0;
-  max-width: 402px;
+@media (max-width: 899px) {
+  .wrap, .top { padding: 16px; }
+  .pair { grid-template-columns: var(--phone-w); }
+  .model-row { width: var(--phone-w); }
+  .choicebar { max-width: var(--phone-w); }
+  .answer-row { grid-template-columns: 130px 1fr auto; }
 }
-.phone-clip {
-  width: 402px;
-  height: 874px;
-  overflow: hidden;
-  border-radius: 42px;
-  background: #161310;
-  box-shadow: 0 12px 30px rgba(26,22,18,.16);
-  position: relative;
-}
-.phone-clip iframe, .phone-clip img {
-  display: block;
-  width: 402px;
-  height: 874px;
-  border: 0;
-  background: #fff;
-}
-.phone-clip img { object-fit: cover; }
-.tools { display: flex; gap: .4rem; margin-top: .45rem; }
-.pin {
-  font: 650 11px/1 system-ui; border: 1px solid var(--line); background: #fff;
-  border-radius: 999px; padding: .35rem .6rem; cursor: pointer; color: var(--ink);
-}
-.pin.on { background: var(--ink); color: #fff; border-color: var(--ink); }
-.zoom { display: none !important; }
-.band {
-  font: 700 12px/1.35 system-ui; color: var(--teal);
-  background: #D7F3EA; border-radius: 8px; padding: .45rem .7rem; margin: 0 0 .8rem;
-}
-fieldset {
-  border: 1px solid var(--line); border-radius: 14px;
-  padding: .8rem 1rem 1rem; margin: 0; background: #FFFEFB;
-}
-legend { font: 800 11px/1 system-ui; letter-spacing: .08em; text-transform: uppercase; padding: 0 .3rem; }
-label.opt { display: block; padding: .32rem 0; cursor: pointer; font: 400 14.5px/1.35 system-ui; }
-label.opt.more { margin-top: .4rem; padding-top: .5rem; border-top: 1px dashed var(--line); color: var(--teal); font-weight: 650; }
-.steer { margin-top: .7rem; padding-top: .6rem; border-top: 1px solid var(--line); }
-.steer label { display: block; font: 700 11px/1.3 system-ui; letter-spacing: .04em; text-transform: uppercase; color: var(--teal); margin-bottom: .35rem; }
-textarea {
-  width: 100%; min-height: 5.2rem; font: 15px/1.4 system-ui;
-  padding: .65rem .75rem; border-radius: 10px; border: 1px solid var(--line); background: #fff; resize: vertical;
-}
-.missing {
-  width: 402px; height: 874px;
-  border: 1px dashed var(--line); border-radius: 42px;
-  display: flex; align-items: center; justify-content: center; text-align: center;
-  padding: 1.5rem; color: var(--muted); font: 400 15px/1.4 system-ui; background: #f7f2ea;
-}
-.sticky {
-  position: sticky; bottom: 0; z-index: 30;
-  background: rgba(243,238,228,.96); backdrop-filter: blur(12px);
-  border-top: 1px solid var(--line);
-  padding: .7rem 1.1rem .85rem;
-}
-.sticky-inner { margin: 0; }
-#mix-tray {
-  display: flex; flex-wrap: wrap; gap: .35rem; min-height: 0; margin: 0 0 .5rem;
-}
-#mix-tray:empty { display: none; }
-#mix-tray .chip {
-  font: 650 11px/1 system-ui; border-radius: 999px; padding: .35rem .55rem;
-  background: #fff; border: 1px solid var(--line);
-}
-#mix-tray .chip.f { border-color: var(--fable); color: var(--fable); }
-#mix-tray .chip.c { border-color: var(--codex); color: var(--codex); }
-.actions { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
-.actions button {
-  font: 700 13px/1 system-ui; border: 0; border-radius: 999px;
-  padding: .7rem 1.05rem; cursor: pointer;
-}
-.actions .primary { background: var(--teal); color: #fff; }
-.actions .ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); }
-.status { font: 600 12.5px/1.3 system-ui; color: var(--muted); }
-#lite { display: none !important; }
+@page { size: A4 portrait; margin: 10mm; }
 @media print {
-  .top, .lanes, .sticky, .tools { display: none !important; }
-  .surface { break-inside: avoid; box-shadow: none; }
+  body { background: #fff; font-size: 12px; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  #mixform { display: block; }
+  .top, .skip-link, .intro, .why, .context-link, .row-head, .choicebar, .steer, #else, .actions, .status, noscript { display: none !important; }
+  .wrap, .surface, .model-row { padding: 0; margin: 0; border: 0; max-width: none; }
+  .surface > h2 { display: none; }
+  .pair, .supporting-row .pair { display: block; }
+  .cell { break-inside: avoid; break-after: page; }
+  .cell h4 { min-height: 0; font-size: 13px; line-height: 17px; margin-bottom: 6px; }
+  .print-context { display: block; margin: 0 0 4px; font-weight: 700; }
+  .who-tag { font-size: 12px; padding: 3px 7px; margin-bottom: 4px; }
+  .cap { font-size: 12px; line-height: 16px; min-height: 0; margin-top: 6px; }
   .phone-clip { box-shadow: none; }
-  body { background: #fff; }
-  textarea { min-height: 3rem; }
+  .answers { break-before: page; }
+  .answers > h2 { display: block; }
+  .answer-row { break-inside: avoid; }
+  .answer-row a { display: none; }
+  body:not(.print-ready) .print-warning { display: block; border: 2px solid; padding: 12px; }
 }
 </style>
 </head>
 <body>
-<form id="mixform">
-<div class="top">
-  <div class="top-row">
-    <span class="kicker">Sweet UX · packet 3</span>
-    <span class="who">
-      Who
-      <label><input type="radio" name="who" value="Salim" required> Salim</label>
-      <label><input type="radio" name="who" value="Ranya"> Ranya</label>
-    </span>
-    <span class="progress" id="progress">0 of 8 decided</span>
-  </div>
-  <nav class="toc">
-    <a href="#home">Home</a>
-    <a href="#face-cap">Face capture</a>
-    <a href="#face-res">Face result</a>
-    <a href="#skin-cap">Skin capture</a>
-    <a href="#skin-res">Skin result</a>
-    <a href="#gut">Gut</a>
-    <a href="#history">History</a>
-    <a href="#settings">Settings L vs R</a>
-    <a href="#health">Health / Ask</a>
-    <a href="../round2/index.html">Round 2 packet</a>
-    <a href="../">Round 1 packet</a>
-  </nav>
-</div>
-<div class="lanes" aria-hidden="true">
-  <div class="lane f">Fable A B C in one row</div>
-  <div class="lane c">Codex A B C in the next row</div>
-</div>
-
-<div class="wrap">
-<header>
-  <h1>Whole phones, full size. Nothing hidden behind a click.</h1>
-  <p class="lede">This is a <strong>new</strong> page. Round 2 is still at <a href="../round2/index.html">/round2/</a> and was not changed. Every mock is the real 402×874 phone — Fable and Codex the same size, no crop, no zoom step. Each surface shows Fable’s variants in one row, then Codex’s in the next — compare within a model, then across. Widen the window. Scroll a phone if that screen has more inside it. Pin what you want to steal, then pick or mix.</p>
-</header>
-<div class="lock"><strong>Already decided (round 1).</strong> Home rows as IA · Gut Codex layout + Fable tints · drop Samples · tabs Home · Health · History · Instagram X · oval higher · blur outside oval · no disclaimer on capture · meaning-first · no Shen · lb/in · rMSSD only · short explain, Ask to dig. This page is the visual pass.</div>
-
+<a class="skip-link" href="#home">Skip to the phones</a><form id="mixform">
+<aside aria-label="Packet navigation" class="top">
+<a class="packet-title" href="#start">Sweet · packet 3</a>
+<fieldset class="who"><legend>Reviewer</legend><label><input name="who" required="" type="radio" value="Salim"/> Salim</label><label><input name="who" type="radio" value="Ranya"/> Ranya</label></fieldset>
+<p class="progress" id="progress">0 of 8 decided</p><p class="save-status" id="save-status" role="status">Drafts save on this device.</p>
+<nav aria-label="Decisions" class="toc">
+<a href="#home">Home</a><a href="#settings">Settings · L vs R</a><a href="#face-cap">Face capture</a><a href="#face-res">Face result</a><a href="#skin-cap">Skin capture</a><a href="#skin-res">Skin result</a><a href="#gut">Gut result</a><a href="#history">History</a><a href="#health">Health · optional</a><a href="#ask">Ask · optional</a><a href="#answers">Review &amp; send</a></nav>
+<p class="previous"><a href="../round2/index.html">Round 2</a> · <a href="../">Round 1</a></p>
+</aside>
+<main class="wrap" id="start" tabindex="-1">
+<noscript><p>This comparison needs JavaScript to display the phones and save answers. Enable JavaScript and reload.</p></noscript><header class="intro"><h1>Choose Sweet’s next look</h1><p>Compare Fable’s row, then Codex’s. Pick under either row; use Mix for pieces of both. Phones are full size (402 × 874); longer screens scroll inside.</p></header>
 <article class="surface" id="home">
-  <h2>Home</h2>
-  <p class="why">Same IA. The question is how each check feels tappable without a giant teal button or a lame chevron — beauty, care, whimsy, still clean.</p>
-  <div class="recs">
-    <div class="f"><strong>Fable rec</strong> A · candy cards + go-coin, gear top-right</div>
-    <div class="c"><strong>Codex rec</strong> C · candy keepsakes, whole row tappable, gear top-right</div>
-  </div>
-  
-  <div class="model-row fable-row">
-    <div class="row-label fable">Fable — this lane’s directions</div>
-    <div class="pair">
-<div class="cell f">
-      <div class="who-tag fable">Fable A</div>
-      <h3>Candy cards + go-coin <span class="rec-pill">Fable rec</span></h3>
-      <div class="phone-clip" data-src="fable/home.html?solo=0" data-title="Fable A Home"></div>
-      <p class="cap">Why it reads as tappable: the card fill lifts each check off the paper, the tinted icon tile gives it a colour, and the trailing coin with an arrow is a “go” cue, not an iOS disclosure chevron. Nothing is a giant button; the whole card is the target. The latest-check strip appears only once a record exists and speaks in baseline grammar (“within your usual”), never a verdict. Demo rows keep Codex’s placement but drop the chevron.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable A Home">Pin Fable A</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable B</div>
-      <h3>Bloom tiles</h3>
-      <div class="phone-clip" data-src="fable/home.html?solo=1" data-title="Fable B Home"></div>
-      <p class="cap">Why it reads as tappable: a coloured tile with a verb inside it is a button by convention (Fitness, Headspace). Face gets the wide tile because it is the check that runs most; Skin and Gut sit as a pair. The word “Start” inside each tile is the only control text. Cost: the pastel gradients are a new surface treatment (DESIGN.md has flat fills only) and would need a bounded adoption.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable B Home">Pin Fable B</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable C</div>
-      <h3>Lens band + Start</h3>
-      <div class="phone-clip" data-src="fable/home.html?solo=2" data-title="Fable C Home"></div>
-      <p class="cap">Why it reads as tappable: a teal “Start” word at the trailing edge is a verb, not a chevron, and rows stay on the paper so the page is the calmest of the three. The dark band is Sweet Lens used once, as the brand moment. Cost: one-hue icons are quieter than A’s tints; the dark band makes the top heavier than “clean, uncluttered” may want.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable C Home">Pin Fable C</button></div>
-    </div>
-    </div>
-  </div>
-
-  <div class="model-row codex-row">
-    <div class="row-label codex">Codex — this lane’s directions</div>
-    <div class="pair">
-<div class="cell c">
-      <div class="who-tag codex">Codex A</div>
-      <h3>Warm editorial</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-a" data-title="Codex A Home"></div>
-      <p class="cap">Warm paper, a soft serif moment, sculpted check icons, and explicit action verbs. Settings at top-right.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex A Home">Pin Codex A</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex B</div>
-      <h3>Rose note</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-b" data-title="Codex B Home"></div>
-      <p class="cap">A stronger rose greeting and tiny verb capsules. More romantic; a little less quiet.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex B Home">Pin Codex B</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex C</div>
-      <h3>Candy keepsakes <span class="rec-pill">Codex rec</span></h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-c" data-title="Codex C Home"></div>
-      <p class="cap">Recommended. Each check gets a tinted surface: more playful while keeping the rows compact. Whole row is tappable. No giant teal CTA, no row chevron.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex C Home">Pin Codex C</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex · demos</div>
-      <h3>Explore demos (from Home)</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=demos" data-title="Codex demos"></div>
-      <p class="cap">Example journeys to explore. These don’t run a check. Demos stay on Home — no fourth tab.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex demos">Pin Codex demos</button></div>
-    </div>
-    </div>
-  </div>
-<p class="band">Comment on these Home phones — not Face.</p>
-  <fieldset>
-    <legend>Home look</legend>
-    <label class="opt"><input type="radio" name="home" value="fable-a"> Fable A — candy cards + go coin</label>
-    <label class="opt"><input type="radio" name="home" value="fable-b"> Fable B — bloom tiles</label>
-    <label class="opt"><input type="radio" name="home" value="fable-c"> Fable C — Lens band</label>
-    <label class="opt"><input type="radio" name="home" value="codex-a"> Codex A — warm editorial</label>
-    <label class="opt"><input type="radio" name="home" value="codex-b"> Codex B — rose note</label>
-    <label class="opt"><input type="radio" name="home" value="codex-c"> Codex C — candy keepsakes</label>
-    <label class="opt"><input type="radio" name="home" value="mix"> Mix — steal pieces, write how below</label>
-    <label class="opt more"><input type="radio" name="home" value="mock-another-round"> Mock another round</label>
-    <div class="steer"><label for="home_notes">Steal from Fable / steal from Codex / anything else</label><textarea id="home_notes" name="home_notes" placeholder="e.g. Codex C rows + Fable spiral hero + go-coin…"></textarea></div>
-  </fieldset>
-</article>
-
+<h2>Home</h2>
+<p class="why">Choose the Home look: candy cards, tiles, or quiet rows. Settings placement is the next decision.</p>
+<div class="model-row fable-row" id="home-fable" tabindex="-1"><div class="row-head"><h3 class="row-label fable">Fable · A · B · C</h3><a href="#home-codex">Compare Codex ↓</a></div>
+<div class="pair">
+<div class="cell f"><p class="print-context">Home</p>
+<div class="who-tag fable">Fable A</div>
+<h4>Candy cards + go-coin <span class="rec-pill">Fable rec</span></h4>
+<div class="phone-clip" data-src="fable/home.html?solo=0" data-title="Fable A Home"></div>
+<p class="cap">Tinted cards and an arrow coin signal a tappable row. A recent-check strip appears above the checks.</p>
+</div>
+<div class="cell f"><p class="print-context">Home</p>
+<div class="who-tag fable">Fable B</div>
+<h4>Bloom tiles</h4>
+<div class="phone-clip" data-src="fable/home.html?solo=1" data-title="Fable B Home"></div>
+<p class="cap">A large Face tile sits above Skin and Gut. Pastel gradients and “Start” labels make the actions explicit.</p>
+</div>
+<div class="cell f"><p class="print-context">Home</p>
+<div class="who-tag fable">Fable C</div>
+<h4>Lens band + Start</h4>
+<div class="phone-clip" data-src="fable/home.html?solo=2" data-title="Fable C Home"></div>
+<p class="cap">Paper rows use a teal “Start” label. The dark Lens band gives the top more visual weight.</p>
+</div>
+</div>
+<fieldset class="choicebar" data-decision="home"><legend>Home look</legend><div class="options"><label class="opt"><input data-choice="home" name="ui_home_0" type="radio" value="fable-a"/> Fable A</label><label class="opt"><input data-choice="home" name="ui_home_0" type="radio" value="fable-b"/> Fable B</label><label class="opt"><input data-choice="home" name="ui_home_0" type="radio" value="fable-c"/> Fable C</label><label class="opt"><input data-choice="home" name="ui_home_0" type="radio" value="codex-a"/> Codex A</label><label class="opt"><input data-choice="home" name="ui_home_0" type="radio" value="codex-b"/> Codex B</label><label class="opt"><input data-choice="home" name="ui_home_0" type="radio" value="codex-c"/> Codex C</label><label class="opt"><input data-choice="home" name="ui_home_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="home" name="ui_home_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#home_notes">Add notes</a></fieldset></div>
+<div class="model-row codex-row" id="home-codex" tabindex="-1"><div class="row-head"><h3 class="row-label codex">Codex · A · B · C</h3><a href="#home-fable">Compare Fable ↑</a></div>
+<div class="pair">
+<div class="cell c"><p class="print-context">Home</p>
+<div class="who-tag codex">Codex A</div>
+<h4>Warm editorial</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-a" data-title="Codex A Home"></div>
+<p class="cap">Warm paper, a soft serif moment, sculpted check icons, and explicit action verbs. Settings at top-right.</p>
+</div>
+<div class="cell c"><p class="print-context">Home</p>
+<div class="who-tag codex">Codex B</div>
+<h4>Rose note</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-b" data-title="Codex B Home"></div>
+<p class="cap">A stronger rose greeting and tiny verb capsules. More romantic; a little less quiet.</p>
+</div>
+<div class="cell c"><p class="print-context">Home</p>
+<div class="who-tag codex">Codex C</div>
+<h4>Candy keepsakes <span class="rec-pill">Codex rec</span></h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-c" data-title="Codex C Home"></div>
+<p class="cap">Tinted, compact rows with the whole row tappable. No large CTA or disclosure chevron.</p>
+</div>
+</div>
+<fieldset class="choicebar" data-decision="home"><legend>Home look</legend><div class="options"><label class="opt"><input data-choice="home" name="ui_home_1" type="radio" value="fable-a"/> Fable A</label><label class="opt"><input data-choice="home" name="ui_home_1" type="radio" value="fable-b"/> Fable B</label><label class="opt"><input data-choice="home" name="ui_home_1" type="radio" value="fable-c"/> Fable C</label><label class="opt"><input data-choice="home" name="ui_home_1" type="radio" value="codex-a"/> Codex A</label><label class="opt"><input data-choice="home" name="ui_home_1" type="radio" value="codex-b"/> Codex B</label><label class="opt"><input data-choice="home" name="ui_home_1" type="radio" value="codex-c"/> Codex C</label><label class="opt"><input data-choice="home" name="ui_home_1" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="home" name="ui_home_1" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#home_notes">Add notes</a></fieldset></div>
+<input name="home" type="hidden" value=""/><div class="model-row codex-row supporting-row" id="home-codex-2" tabindex="-1"><div class="row-head"><h3 class="row-label codex">Codex · supporting screens</h3><a href="#home-fable">Back to Fable ↑</a></div><div class="pair"><div class="cell c"><p class="print-context">Home</p>
+<div class="who-tag codex">Codex · demos</div>
+<h4>Explore demos (from Home)</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=demos" data-title="Codex demos"></div>
+<p class="cap">Example journeys to explore. These don’t run a check. Demos stay on Home — no fourth tab.</p>
+</div></div><fieldset class="choicebar" data-decision="home"><legend>Home look</legend><div class="options"><label class="opt"><input data-choice="home" name="ui_home_2" type="radio" value="fable-a"/> Fable A</label><label class="opt"><input data-choice="home" name="ui_home_2" type="radio" value="fable-b"/> Fable B</label><label class="opt"><input data-choice="home" name="ui_home_2" type="radio" value="fable-c"/> Fable C</label><label class="opt"><input data-choice="home" name="ui_home_2" type="radio" value="codex-a"/> Codex A</label><label class="opt"><input data-choice="home" name="ui_home_2" type="radio" value="codex-b"/> Codex B</label><label class="opt"><input data-choice="home" name="ui_home_2" type="radio" value="codex-c"/> Codex C</label><label class="opt"><input data-choice="home" name="ui_home_2" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="home" name="ui_home_2" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#home_notes">Add notes</a></fieldset></div><div class="steer"><label for="home_notes">Home notes (optional)</label><textarea id="home_notes" name="home_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div></article><article class="surface" id="settings">
+<h2>Settings · left or right?</h2>
+<p class="why">Compare the same Home with its gear on the left or right. Both models recommend right. The sheet shows what the gear opens.</p>
+<div class="model-row fable-row" id="settings-fable" tabindex="-1"><div class="row-head"><h3 class="row-label fable">Fable · screens</h3><a href="#settings-codex">Compare Codex ↓</a></div>
+<div class="pair">
+<div class="cell f"><p class="print-context">Settings · left or right?</p>
+<div class="who-tag fable">Fable L</div>
+<h4>Home · gear top-left</h4>
+<div class="phone-clip" data-src="fable/settings-placement.html?solo=0" data-title="Fable Settings L"></div>
+<p class="cap">The gear takes the leading position, followed by the wordmark. Compare the same Home with Fable R.</p>
+</div>
+<div class="cell f"><p class="print-context">Settings · left or right?</p>
+<div class="who-tag fable">Fable R</div>
+<h4>Home · gear top-right <span class="rec-pill">Fable rec</span></h4>
+<div class="phone-clip" data-src="fable/settings-placement.html?solo=1" data-title="Fable Settings R"></div>
+<p class="cap">The wordmark leads and the gear sits at the right. The gear opens the same Settings sheet.</p>
+</div>
+<div class="cell f"><p class="print-context">Settings · left or right?</p>
+<div class="who-tag fable">Fable · sheet</div>
+<h4>Settings sheet</h4>
+<div class="phone-clip" data-src="fable/settings-placement.html?solo=2" data-title="Fable Settings sheet"></div>
+<p class="cap">Supporting screen: units and preferences live here. Health stays focused on readings and connections.</p>
+</div>
+</div>
+<fieldset class="choicebar" data-decision="settings"><legend>Settings position · one choice</legend><div class="options"><label class="opt"><input data-choice="settings" name="ui_settings_0" type="radio" value="right"/> Right</label><label class="opt"><input data-choice="settings" name="ui_settings_0" type="radio" value="left"/> Left</label><label class="opt"><input data-choice="settings" name="ui_settings_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="settings" name="ui_settings_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#settings_notes">Add notes</a></fieldset></div>
+<div class="model-row codex-row" id="settings-codex" tabindex="-1"><div class="row-head"><h3 class="row-label codex">Codex · screens</h3><a href="#settings-fable">Compare Fable ↑</a></div>
+<div class="pair">
+<div class="cell c"><p class="print-context">Settings · left or right?</p>
+<div class="who-tag codex">Codex L</div>
+<h4>Home A · gear top-left</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-left" data-title="Codex Home left gear"></div>
+<p class="cap">The same Home A with its gear at the left. Codex R beside it shows the right-entry alternative.</p>
+</div><div class="cell c"><p class="print-context">Settings · left or right?</p>
+<div class="who-tag codex">Codex R</div>
+<h4>Home A · gear top-right</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-a" data-title="Codex Settings R"></div>
+<p class="cap">The same Home A with its gear at the right. Compare the entry corner with Codex L.</p>
+</div>
+<div class="cell c"><p class="print-context">Settings · left or right?</p>
+<div class="who-tag codex">Codex · sheet</div>
+<h4>Settings sheet from the right <span class="rec-pill">Codex rec</span></h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=settings-right" data-title="Codex Settings right"></div>
+<p class="cap">Supporting screen: both entry corners lead to this Settings structure. The unit choices are lb and in.</p>
+</div>
+</div>
+<fieldset class="choicebar" data-decision="settings"><legend>Settings position · one choice</legend><div class="options"><label class="opt"><input data-choice="settings" name="ui_settings_1" type="radio" value="right"/> Right</label><label class="opt"><input data-choice="settings" name="ui_settings_1" type="radio" value="left"/> Left</label><label class="opt"><input data-choice="settings" name="ui_settings_1" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="settings" name="ui_settings_1" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#settings_notes">Add notes</a></fieldset></div>
+<input name="settings" type="hidden" value=""/><div class="steer"><label for="settings_notes">Settings notes (optional)</label><textarea id="settings_notes" name="settings_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div></article>
 <article class="surface" id="face-cap">
-  <h2>Face capture</h2>
-  <p class="why">Locked: Instagram X, oval higher, full-bleed + blur outside, guidance above, no disclaimer. Open: working graphic, whether X hides when the signal is good.</p>
-  <div class="recs">
-    <div class="f"><strong>Fable rec</strong> Heart + waveform; X hides while the run is good</div>
-    <div class="c"><strong>Codex rec</strong> Three quiet dots; unbordered X stays</div>
-  </div>
-  
-  <div class="model-row fable-row">
-    <div class="row-label fable">Fable — this lane’s directions</div>
-    <div class="pair">
-<div class="cell f">
-      <div class="who-tag fable">Fable 1</div>
-      <h3>Positioning — too far</h3>
-      <div class="phone-clip" data-src="fable/face-capture.html?solo=0" data-title="Fable Face 1 too far"></div>
-      <p class="cap">Blur outside the oval keeps the room private and points the eye at the one instrument. The X is the only control. Coach line is the shipped cue text, placed above the oval so the eyes stay up.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable Face 1">Pin Fable 1</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable 2</div>
-      <h3>Ready — teal oval, coach above</h3>
-      <div class="phone-clip" data-src="fable/face-capture.html?solo=1" data-title="Fable Face 2 ready"></div>
-      <p class="cap">The stroke going solid teal is the whole announcement; the SDK starts on its own. The two lines are the only coaching the vendor’s preparation page supports: stable position, no talking, no change of expression. They fade after two seconds.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable Face 2">Pin Fable 2</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable 3</div>
-      <h3>Measuring — heart + wave, X hidden <span class="rec-pill">Fable rec</span></h3>
-      <div class="phone-clip" data-src="fable/face-capture.html?solo=2" data-title="Fable Face 3 measuring"></div>
-      <p class="cap">The same stroke becomes the progress arc. Under the oval a small heart beats on each detected heartbeat and a thin waveform drifts past: engaging, silent, and slow enough not to change how anyone breathes. No number. The X is hidden while the signal is good; a swipe down still stops the check.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable Face 3">Pin Fable 3</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable 3b</div>
-      <h3>Measuring with a live pulse figure</h3>
-      <div class="phone-clip" data-src="fable/face-capture.html?solo=3" data-title="Fable Face 3b bpm"></div>
-      <p class="cap">Same as 3, with the SDK’s realtime 10-second heart rate beside the heart (You(th) did this). Named alternative; not recommended, because a moving number invites people to watch it and hold their breath.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable Face 3b">Pin Fable 3b</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable 4</div>
-      <h3>Signal dropped — X returns</h3>
-      <div class="phone-clip" data-src="fable/face-capture.html?solo=4" data-title="Fable Face 4 dropped"></div>
-      <p class="cap">Maps to the SDK’s “signal bad / device unstable” state. The arc holds where it was (nothing is lost), the stroke turns amber, the heart dims, one imperative appears above the oval.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable Face 4">Pin Fable 4</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable 5</div>
-      <h3>Finishing</h3>
-      <div class="phone-clip" data-src="fable/face-capture.html?solo=5" data-title="Fable Face 5 finishing"></div>
-      <p class="cap">The arc completes in neutral, never the good hue: results are not durable yet. Heart and wave fade out. The result pushes in with one soft haptic.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable Face 5">Pin Fable 5</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable 6</div>
-      <h3>Camera access off</h3>
-      <div class="phone-clip" data-src="fable/face-capture.html?solo=6" data-title="Fable Face 6 camera off"></div>
-      <p class="cap">The existing typed refusal drawn where the oval would be. One recovery verb. The X closes.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable Face 6">Pin Fable 6</button></div>
-    </div>
-    </div>
-  </div>
-
-  <div class="model-row codex-row">
-    <div class="row-label codex">Codex — this lane’s directions</div>
-    <div class="pair">
-<div class="cell c">
-      <div class="who-tag codex">Codex 01</div>
-      <h3>Ready — high green oval</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-ready" data-title="Codex Face ready"></div>
-      <p class="cap">Unbordered Instagram-style X. Guidance sits above a higher green oval; only the inside of the oval stays clear.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Face ready">Pin Codex 01</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 02</div>
-      <h3>Working — three dots <span class="rec-pill">Codex rec</span></h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-scan" data-title="Codex Face working"></div>
-      <p class="cap">Three quiet dots near the top of the oval. One top coach line; no pulse trace or invented progress. No disclaimer on capture.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Face working">Pin Codex 02</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 03</div>
-      <h3>Reposition</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-adjust" data-title="Codex Face reposition"></div>
-      <p class="cap">One coach line changes in place. The dashed green oval stays fixed while the illustrated face moves; resume would follow valid positioning, without another button.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Face reposition">Pin Codex 03</button></div>
-    </div>
-    </div>
-  </div>
-<p class="band">Comment on Face <em>capture</em> — oval, blur, X, working graphic. Not the result tiles.</p>
-  <fieldset>
-    <legend>Face capture</legend>
-    <label class="opt"><input type="radio" name="face_capture" value="fable"> Fable (heart + wave; X hides when good)</label>
-    <label class="opt"><input type="radio" name="face_capture" value="codex"> Codex (three dots; X stays)</label>
-    <label class="opt"><input type="radio" name="face_capture" value="fable-bpm"> Fable 3b — heart + live bpm</label>
-    <label class="opt"><input type="radio" name="face_capture" value="mix"> Mix — write how below</label>
-    <label class="opt more"><input type="radio" name="face_capture" value="mock-another-round"> Mock another round</label>
-    <div class="steer"><label for="face_capture_notes">Steal from Fable / steal from Codex</label><textarea id="face_capture_notes" name="face_capture_notes" placeholder="e.g. Codex oval + Fable hidden X + Codex dots…"></textarea></div>
-  </fieldset>
-</article>
-
+<h2>Face capture</h2>
+<p class="why">Choose the measuring graphic and X behavior. Positioning, recovery, and finishing are supporting states.</p>
+<div class="model-row fable-row" id="face-cap-fable" tabindex="-1"><div class="row-head"><h3 class="row-label fable">Fable · screens</h3><a href="#face-cap-codex">Compare Codex ↓</a></div>
+<div class="pair">
+<div class="cell f"><p class="print-context">Face capture</p>
+<div class="who-tag fable">Fable 1</div>
+<h4>Positioning — too far</h4>
+<div class="phone-clip" data-src="fable/face-capture.html?solo=0" data-title="Fable Face 1 too far"></div>
+<p class="cap">Blur outside the oval emphasizes framing. Coaching sits above the oval; X remains visible.</p>
+</div>
+<div class="cell f"><p class="print-context">Face capture</p>
+<div class="who-tag fable">Fable 2</div>
+<h4>Ready — teal oval, coach above</h4>
+<div class="phone-clip" data-src="fable/face-capture.html?solo=1" data-title="Fable Face 2 ready"></div>
+<p class="cap">A solid teal oval signals readiness. Coaching fades after two seconds as measurement starts.</p>
+</div>
+<div class="cell f"><p class="print-context">Face capture</p>
+<div class="who-tag fable">Fable 3</div>
+<h4>Measuring · heart + wave, X hidden <span class="rec-pill">Fable rec</span></h4>
+<div class="phone-clip" data-src="fable/face-capture.html?solo=2" data-title="Fable Face 3 measuring"></div>
+<p class="cap">A heart and waveform sit under the progress arc. X hides during a good signal; swipe down is the proposed exit.</p>
+</div>
+</div>
+<fieldset class="choicebar" data-decision="face_capture"><legend>Face capture</legend><div class="options"><label class="opt"><input data-choice="face_capture" name="ui_face_capture_0" type="radio" value="fable"/> Fable · heart + wave</label><label class="opt"><input data-choice="face_capture" name="ui_face_capture_0" type="radio" value="codex"/> Codex · dots</label><label class="opt"><input data-choice="face_capture" name="ui_face_capture_0" type="radio" value="fable-bpm"/> Fable 3b · live pulse</label><label class="opt"><input data-choice="face_capture" name="ui_face_capture_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="face_capture" name="ui_face_capture_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#face_capture_notes">Add notes</a></fieldset></div>
+<div class="model-row codex-row" id="face-cap-codex" tabindex="-1"><div class="row-head"><h3 class="row-label codex">Codex · screens</h3><a href="#face-cap-fable">Compare Fable ↑</a></div>
+<div class="pair">
+<div class="cell c"><p class="print-context">Face capture</p>
+<div class="who-tag codex">Codex 01</div>
+<h4>Ready — high green oval</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-ready" data-title="Codex Face ready"></div>
+<p class="cap">Unbordered Instagram-style X. Guidance sits above a higher green oval; only the inside of the oval stays clear.</p>
+</div>
+<div class="cell c"><p class="print-context">Face capture</p>
+<div class="who-tag codex">Codex 02</div>
+<h4>Working — three dots <span class="rec-pill">Codex rec</span></h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-scan" data-title="Codex Face working"></div>
+<p class="cap">Three quiet dots near the top of the oval. One top coach line; no pulse trace or invented progress. No disclaimer on capture.</p>
+</div>
+<div class="cell c"><p class="print-context">Face capture</p>
+<div class="who-tag codex">Codex 03</div>
+<h4>Reposition</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-adjust" data-title="Codex Face reposition"></div>
+<p class="cap">One coach line changes in place. The dashed green oval stays fixed while the illustrated face moves; resume would follow valid positioning, without another button.</p>
+</div>
+</div>
+<fieldset class="choicebar" data-decision="face_capture"><legend>Face capture</legend><div class="options"><label class="opt"><input data-choice="face_capture" name="ui_face_capture_1" type="radio" value="fable"/> Fable · heart + wave</label><label class="opt"><input data-choice="face_capture" name="ui_face_capture_1" type="radio" value="codex"/> Codex · dots</label><label class="opt"><input data-choice="face_capture" name="ui_face_capture_1" type="radio" value="fable-bpm"/> Fable 3b · live pulse</label><label class="opt"><input data-choice="face_capture" name="ui_face_capture_1" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="face_capture" name="ui_face_capture_1" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#face_capture_notes">Add notes</a></fieldset></div>
+<input name="face_capture" type="hidden" value=""/><div class="model-row fable-row supporting-row" id="face-cap-fable-2" tabindex="-1"><div class="row-head"><h3 class="row-label fable">Fable · supporting screens</h3><a href="#face-cap-codex">Back to Codex ↑</a></div><div class="pair"><div class="cell f"><p class="print-context">Face capture</p>
+<div class="who-tag fable">Fable 3b</div>
+<h4>Measuring · live pulse number</h4>
+<div class="phone-clip" data-src="fable/face-capture.html?solo=3" data-title="Fable Face 3b bpm"></div>
+<p class="cap">The measuring state adds a live pulse number. More feedback, but more movement to watch during capture.</p>
+</div><div class="cell f"><p class="print-context">Face capture</p>
+<div class="who-tag fable">Fable 4</div>
+<h4>Signal dropped — X returns</h4>
+<div class="phone-clip" data-src="fable/face-capture.html?solo=4" data-title="Fable Face 4 dropped"></div>
+<p class="cap">The arc pauses, the oval turns amber, and X returns. One coaching line explains how to reposition.</p>
+</div><div class="cell f"><p class="print-context">Face capture</p>
+<div class="who-tag fable">Fable 5</div>
+<h4>Finishing</h4>
+<div class="phone-clip" data-src="fable/face-capture.html?solo=5" data-title="Fable Face 5 finishing"></div>
+<p class="cap">A neutral completed arc marks finishing. The heart and waveform fade before the result appears.</p>
+</div><div class="cell f"><p class="print-context">Face capture</p>
+<div class="who-tag fable">Fable 6</div>
+<h4>Camera access off</h4>
+<div class="phone-clip" data-src="fable/face-capture.html?solo=6" data-title="Fable Face 6 camera off"></div>
+<p class="cap">Camera access is off. One recovery action replaces the oval; X closes the screen.</p>
+</div></div><fieldset class="choicebar" data-decision="face_capture"><legend>Face capture</legend><div class="options"><label class="opt"><input data-choice="face_capture" name="ui_face_capture_2" type="radio" value="fable"/> Fable · heart + wave</label><label class="opt"><input data-choice="face_capture" name="ui_face_capture_2" type="radio" value="codex"/> Codex · dots</label><label class="opt"><input data-choice="face_capture" name="ui_face_capture_2" type="radio" value="fable-bpm"/> Fable 3b · live pulse</label><label class="opt"><input data-choice="face_capture" name="ui_face_capture_2" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="face_capture" name="ui_face_capture_2" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#face_capture_notes">Add notes</a></fieldset></div><div class="steer"><label for="face_capture_notes">Face capture notes (optional)</label><textarea id="face_capture_notes" name="face_capture_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div></article>
 <article class="surface" id="face-res">
-  <h2>Face result</h2>
-  <p class="why">4–8 hero tiles, prettier, not raw numbers, meaning-first. Remaining pick: captions on the tile vs tap-to-see.</p>
-  <div class="recs">
-    <div class="f"><strong>Fable rec</strong> Six tiles, meaning first, number as a small caption</div>
-    <div class="c"><strong>Codex rec</strong> Six meaning tiles; number is not the headline</div>
-  </div>
-  
-  <div class="model-row fable-row">
-    <div class="row-label fable">Fable — this lane’s directions</div>
-    <div class="pair">
-<div class="cell f">
-      <div class="who-tag fable">Fable A</div>
-      <h3>Six tiles, meaning first, number as caption <span class="rec-pill">Fable rec</span></h3>
-      <div class="phone-clip" data-src="fable/face-result.html?solo=0" data-title="Fable A Face result"></div>
-      <p class="cap">Tiles answer “so what?” in four words; the number and the person’s usual range are a caption for those who want them. Green dot = within or a favourable side of the usual range; amber = outside it. Colour never carries the meaning alone. Height and weight print in ft/in and lb. Risk models stay named as models with no vendor name.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable A Face result">Pin Fable A</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable B</div>
-      <h3>First check — four tiles, no numbers on the face</h3>
-      <div class="phone-clip" data-src="fable/face-result.html?solo=1" data-title="Fable B Face first check"></div>
-      <p class="cap">The honest first-day screen. Four tiles because there is nothing to compare yet. Numbers are one tap away, not hidden. Salim can choose A’s captions or B’s tap-to-see for the steady state.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable B Face first check">Pin Fable B</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable C</div>
-      <h3>Tap a tile — HRV so-what sheet</h3>
-      <div class="phone-clip" data-src="fable/face-result.html?solo=2" data-title="Fable C HRV sheet"></div>
-      <p class="cap">Ranya’s question was “so what?”. The sheet answers it in two short paragraphs, shows the person’s own range as a shape, and names the method once in a caption (rMSSD, not “SDNN 42 ms is bad”).</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable C HRV sheet">Pin Fable C</button></div>
-    </div>
-    </div>
-  </div>
-
-  <div class="model-row codex-row">
-    <div class="row-label codex">Codex — this lane’s directions</div>
-    <div class="pair">
-<div class="cell c">
-      <div class="who-tag codex">Codex 04</div>
-      <h3>Six meaning tiles <span class="rec-pill">Codex rec</span></h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-result" data-title="Codex Face result"></div>
-      <p class="cap">Six hero tiles describe meaning. No value is the headline. Stress gets one short callout; supporting data stays a tap away.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Face result">Pin Codex 04</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 06</div>
-      <h3>Before a baseline</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-baseline-empty" data-title="Codex Face no baseline"></div>
-      <p class="cap">A reading can exist before a baseline does. No invented trend or countdown to certainty.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Face no baseline">Pin Codex 06</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 05</div>
-      <h3>HRV detail — rMSSD + range</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-detail" data-title="Codex HRV detail"></div>
-      <p class="cap">rMSSD only. Personal baseline with a labeled range, one method, and comparable morning checks. HRV sentence is a draft pending the exact Ranya wording.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex HRV detail">Pin Codex 05</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 07</div>
-      <h3>Every reading</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-all" data-title="Codex Face all readings"></div>
-      <p class="cap">Full supporting readings and typed absences. Licensed output is retained; presentation priority is not an adapter allowlist.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Face all">Pin Codex 07</button></div>
-    </div>
-    </div>
-  </div>
-<p class="band">Comment on Face <em>result</em> — not capture.</p>
-  <fieldset>
-    <legend>Face result</legend>
-    <label class="opt"><input type="radio" name="face_result" value="fable-a"> Fable A — six tiles + captions</label>
-    <label class="opt"><input type="radio" name="face_result" value="fable-b"> Fable B — first-check four tiles</label>
-    <label class="opt"><input type="radio" name="face_result" value="codex"> Codex six tiles</label>
-    <label class="opt"><input type="radio" name="face_result" value="mix"> Mix — write how below</label>
-    <label class="opt more"><input type="radio" name="face_result" value="mock-another-round"> Mock another round</label>
-    <div class="steer"><label for="face_result_notes">Steal from Fable / steal from Codex</label><textarea id="face_result_notes" name="face_result_notes"></textarea></div>
-  </fieldset>
-</article>
-
+<h2>Face result</h2>
+<p class="why">Choose the result presentation: six tiles with captions, four first-check tiles, or Codex’s meaning tiles. Detail screens show what opens next.</p>
+<div class="model-row fable-row" id="face-res-fable" tabindex="-1"><div class="row-head"><h3 class="row-label fable">Fable · screens</h3><a href="#face-res-codex">Compare Codex ↓</a></div>
+<div class="pair">
+<div class="cell f"><p class="print-context">Face result</p>
+<div class="who-tag fable">Fable A</div>
+<h4>Six tiles · numbers as captions <span class="rec-pill">Fable rec</span></h4>
+<div class="phone-clip" data-src="fable/face-result.html?solo=0" data-title="Fable A Face result"></div>
+<p class="cap">Six meaning-first tiles keep numbers and usual ranges visible as captions. Text explains the colored dots.</p>
+</div>
+<div class="cell f"><p class="print-context">Face result</p>
+<div class="who-tag fable">Fable B</div>
+<h4>First check · four tiles</h4>
+<div class="phone-clip" data-src="fable/face-result.html?solo=1" data-title="Fable B Face first check"></div>
+<p class="cap">Four first-check tiles omit numbers from the overview. Values are available on tap; there is no baseline comparison yet.</p>
+</div>
+<div class="cell f"><p class="print-context">Face result</p>
+<div class="who-tag fable">Fable C</div>
+<h4>HRV detail sheet</h4>
+<div class="phone-clip" data-src="fable/face-result.html?solo=2" data-title="Fable C HRV sheet"></div>
+<p class="cap">Detail state, not a separate overview. A short explanation and personal range give the HRV number context.</p>
+</div>
+</div>
+<fieldset class="choicebar" data-decision="face_result"><legend>Face result</legend><div class="options"><label class="opt"><input data-choice="face_result" name="ui_face_result_0" type="radio" value="fable-a"/> Fable A · captions</label><label class="opt"><input data-choice="face_result" name="ui_face_result_0" type="radio" value="fable-b"/> Fable B · first check</label><label class="opt"><input data-choice="face_result" name="ui_face_result_0" type="radio" value="codex"/> Codex A · meaning tiles</label><label class="opt"><input data-choice="face_result" name="ui_face_result_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="face_result" name="ui_face_result_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#face_result_notes">Add notes</a></fieldset></div>
+<div class="model-row codex-row" id="face-res-codex" tabindex="-1"><div class="row-head"><h3 class="row-label codex">Codex · screens</h3><a href="#face-res-fable">Compare Fable ↑</a></div>
+<div class="pair">
+<div class="cell c"><p class="print-context">Face result</p>
+<div class="who-tag codex">Codex A</div>
+<h4>Six meaning tiles <span class="rec-pill">Codex rec</span></h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-result" data-title="Codex Face result"></div>
+<p class="cap">Six hero tiles describe meaning. No value is the headline. Stress gets one short callout; supporting data stays a tap away.</p>
+</div>
+<div class="cell c"><p class="print-context">Face result</p>
+<div class="who-tag codex">Codex B</div>
+<h4>Before a baseline</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-baseline-empty" data-title="Codex Face no baseline"></div>
+<p class="cap">A reading can exist before a baseline does. No invented trend or countdown to certainty.</p>
+</div>
+<div class="cell c"><p class="print-context">Face result</p>
+<div class="who-tag codex">Codex C</div>
+<h4>HRV detail — rMSSD + range</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-detail" data-title="Codex HRV detail"></div>
+<p class="cap">rMSSD only. Personal baseline with a labeled range, one method, and comparable morning checks. HRV sentence is a draft pending the exact Ranya wording.</p>
+</div>
+</div>
+<fieldset class="choicebar" data-decision="face_result"><legend>Face result</legend><div class="options"><label class="opt"><input data-choice="face_result" name="ui_face_result_1" type="radio" value="fable-a"/> Fable A · captions</label><label class="opt"><input data-choice="face_result" name="ui_face_result_1" type="radio" value="fable-b"/> Fable B · first check</label><label class="opt"><input data-choice="face_result" name="ui_face_result_1" type="radio" value="codex"/> Codex A · meaning tiles</label><label class="opt"><input data-choice="face_result" name="ui_face_result_1" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="face_result" name="ui_face_result_1" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#face_result_notes">Add notes</a></fieldset></div>
+<input name="face_result" type="hidden" value=""/><div class="model-row codex-row supporting-row" id="face-res-codex-2" tabindex="-1"><div class="row-head"><h3 class="row-label codex">Codex · supporting screens</h3><a href="#face-res-fable">Back to Fable ↑</a></div><div class="pair"><div class="cell c"><p class="print-context">Face result</p>
+<div class="who-tag codex">Codex 07</div>
+<h4>Every reading</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-all" data-title="Codex Face all readings"></div>
+<p class="cap">Supporting screen: all readings and unavailable values remain accessible after the overview.</p>
+</div></div><fieldset class="choicebar" data-decision="face_result"><legend>Face result</legend><div class="options"><label class="opt"><input data-choice="face_result" name="ui_face_result_2" type="radio" value="fable-a"/> Fable A · captions</label><label class="opt"><input data-choice="face_result" name="ui_face_result_2" type="radio" value="fable-b"/> Fable B · first check</label><label class="opt"><input data-choice="face_result" name="ui_face_result_2" type="radio" value="codex"/> Codex A · meaning tiles</label><label class="opt"><input data-choice="face_result" name="ui_face_result_2" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="face_result" name="ui_face_result_2" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#face_result_notes">Add notes</a></fieldset></div><div class="steer"><label for="face_result_notes">Face result notes (optional)</label><textarea id="face_result_notes" name="face_result_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div></article>
 <article class="surface" id="skin-cap">
-  <h2>Skin capture</h2>
-  <p class="why">One coach, oval higher/maybe bigger (fill-most-of-width), Instagram X.</p>
-  <div class="recs">
-    <div class="f"><strong>Fable rec</strong> Wider higher guide; one coach line; dim outside (the whole still is sent)</div>
-    <div class="c"><strong>Codex rec</strong> Wider close-up oval; one coach; shutter</div>
-  </div>
-  
-  <div class="model-row fable-row">
-    <div class="row-label fable">Fable — this lane’s directions</div>
-    <div class="pair">
-<div class="cell f">
-      <div class="who-tag fable">Fable 1</div>
-      <h3>Far — the gap is the instruction</h3>
-      <div class="phone-clip" data-src="fable/skin-capture.html?solo=0" data-title="Fable Skin 1 far"></div>
-      <p class="cap">The outside is dimmed, not blurred: the whole still is what gets analysed, and a blur would suggest otherwise. The coach is one line with three two-word reminders under it; nothing else to read. The shutter is live from the start.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable Skin 1">Pin Fable 1</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable 2</div>
-      <h3>Filled — stroke solid <span class="rec-pill">Fable rec</span></h3>
-      <div class="phone-clip" data-src="fable/skin-capture.html?solo=1" data-title="Fable Skin 2 filled"></div>
-      <p class="cap">Recommended: Apple’s on-device face rectangle (no vendor call, no upload) flips the stroke to teal and shortens the line when the face fills the shape. If that is declined, frame 1’s words stay static and the shape alone does the teaching. A tiny warmth in the copy (“Lovely.”) is the smile the founder asked for.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable Skin 2">Pin Fable 2</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable 3</div>
-      <h3>Review — one look, one decision</h3>
-      <div class="phone-clip" data-src="fable/skin-capture.html?solo=2" data-title="Fable Skin 3 review"></div>
-      <p class="cap">The still fills the screen so the person judges the actual photo. Two verbs. Consent was given once before the camera opened; nothing asks again here.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable Skin 3">Pin Fable 3</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable 4</div>
-      <h3>Sending</h3>
-      <div class="phone-clip" data-src="fable/skin-capture.html?solo=3" data-title="Fable Skin 4 sending"></div>
-      <p class="cap">Indeterminate ring, one sentence, the X still cancels. No invented percent.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable Skin 4">Pin Fable 4</button></div>
-    </div>
-    </div>
-  </div>
-
-  <div class="model-row codex-row">
-    <div class="row-label codex">Codex — this lane’s directions</div>
-    <div class="pair">
-<div class="cell c">
-      <div class="who-tag codex">Codex 08</div>
-      <h3>Skin capture — fill the oval <span class="rec-pill">Codex rec</span></h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-ready" data-title="Codex Skin ready"></div>
-      <p class="cap">One top coach line, high 316 px green oval, and a clear shutter. The guide teaches framing; it does not claim local quality detection.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Skin ready">Pin Codex 08</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 13</div>
-      <h3>Photo too small — recovery</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-error" data-title="Codex Skin too small"></div>
-      <p class="cap">The documented rejection becomes useful recovery copy. One action gets back to the larger guide.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Skin too small">Pin Codex 13</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 09</div>
-      <h3>Use or retake</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-review" data-title="Codex Skin review"></div>
-      <p class="cap">One still, one review decision. The illustration represents the unfiltered photo; UI blur never changes analysis pixels.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Skin review">Pin Codex 09</button></div>
-    </div>
-    </div>
-  </div>
-<p class="band">Comment on Skin <em>capture</em> — guide size, coach, X. Not the result cards.</p>
-  <fieldset>
-    <legend>Skin capture</legend>
-    <label class="opt"><input type="radio" name="skin_capture" value="fable"> Fable</label>
-    <label class="opt"><input type="radio" name="skin_capture" value="codex"> Codex</label>
-    <label class="opt"><input type="radio" name="skin_capture" value="mix"> Mix — write how below</label>
-    <label class="opt more"><input type="radio" name="skin_capture" value="mock-another-round"> Mock another round</label>
-    <div class="steer"><label for="skin_capture_notes">Steal from Fable / steal from Codex</label><textarea id="skin_capture_notes" name="skin_capture_notes"></textarea></div>
-  </fieldset>
-</article>
-
+<h2>Skin capture</h2>
+<p class="why">Choose the framing guide and coaching. Review and recovery show the rest of the capture flow.</p>
+<div class="model-row fable-row" id="skin-cap-fable" tabindex="-1"><div class="row-head"><h3 class="row-label fable">Fable · screens</h3><a href="#skin-cap-codex">Compare Codex ↓</a></div>
+<div class="pair">
+<div class="cell f"><p class="print-context">Skin capture</p>
+<div class="who-tag fable">Fable 1</div>
+<h4>Positioning · too far</h4>
+<div class="phone-clip" data-src="fable/skin-capture.html?solo=0" data-title="Fable Skin 1 far"></div>
+<p class="cap">A wide oval and one coaching line guide framing. The outside is dimmed; the shutter is available.</p>
+</div>
+<div class="cell f"><p class="print-context">Skin capture</p>
+<div class="who-tag fable">Fable 2</div>
+<h4>Ready · solid guide <span class="rec-pill">Fable rec</span></h4>
+<div class="phone-clip" data-src="fable/skin-capture.html?solo=1" data-title="Fable Skin 2 filled"></div>
+<p class="cap">A solid teal guide and shorter coaching line signal that the face fills the frame.</p>
+</div>
+<div class="cell f"><p class="print-context">Skin capture</p>
+<div class="who-tag fable">Fable 3</div>
+<h4>Review · use or retake</h4>
+<div class="phone-clip" data-src="fable/skin-capture.html?solo=2" data-title="Fable Skin 3 review"></div>
+<p class="cap">The full still is shown for review. Two actions: use the photo or retake it.</p>
+</div>
+</div>
+<fieldset class="choicebar" data-decision="skin_capture"><legend>Skin capture</legend><div class="options"><label class="opt"><input data-choice="skin_capture" name="ui_skin_capture_0" type="radio" value="fable"/> Fable</label><label class="opt"><input data-choice="skin_capture" name="ui_skin_capture_0" type="radio" value="codex"/> Codex</label><label class="opt"><input data-choice="skin_capture" name="ui_skin_capture_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="skin_capture" name="ui_skin_capture_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#skin_capture_notes">Add notes</a></fieldset></div>
+<div class="model-row codex-row" id="skin-cap-codex" tabindex="-1"><div class="row-head"><h3 class="row-label codex">Codex · screens</h3><a href="#skin-cap-fable">Compare Fable ↑</a></div>
+<div class="pair">
+<div class="cell c"><p class="print-context">Skin capture</p>
+<div class="who-tag codex">Codex 08</div>
+<h4>Skin capture — fill the oval <span class="rec-pill">Codex rec</span></h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-ready" data-title="Codex Skin ready"></div>
+<p class="cap">One top coach line, high 316 px green oval, and a clear shutter. The guide teaches framing; it does not claim local quality detection.</p>
+</div>
+<div class="cell c"><p class="print-context">Skin capture</p>
+<div class="who-tag codex">Codex 13</div>
+<h4>Photo too small — recovery</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-error" data-title="Codex Skin too small"></div>
+<p class="cap">The documented rejection becomes useful recovery copy. One action gets back to the larger guide.</p>
+</div>
+<div class="cell c"><p class="print-context">Skin capture</p>
+<div class="who-tag codex">Codex 09</div>
+<h4>Use or retake</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-review" data-title="Codex Skin review"></div>
+<p class="cap">One still, one review decision. The illustration represents the unfiltered photo; UI blur never changes analysis pixels.</p>
+</div>
+</div>
+<fieldset class="choicebar" data-decision="skin_capture"><legend>Skin capture</legend><div class="options"><label class="opt"><input data-choice="skin_capture" name="ui_skin_capture_1" type="radio" value="fable"/> Fable</label><label class="opt"><input data-choice="skin_capture" name="ui_skin_capture_1" type="radio" value="codex"/> Codex</label><label class="opt"><input data-choice="skin_capture" name="ui_skin_capture_1" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="skin_capture" name="ui_skin_capture_1" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#skin_capture_notes">Add notes</a></fieldset></div>
+<input name="skin_capture" type="hidden" value=""/><div class="model-row fable-row supporting-row" id="skin-cap-fable-2" tabindex="-1"><div class="row-head"><h3 class="row-label fable">Fable · supporting screens</h3><a href="#skin-cap-codex">Back to Codex ↑</a></div><div class="pair"><div class="cell f"><p class="print-context">Skin capture</p>
+<div class="who-tag fable">Fable 4</div>
+<h4>Sending</h4>
+<div class="phone-clip" data-src="fable/skin-capture.html?solo=3" data-title="Fable Skin 4 sending"></div>
+<p class="cap">Indeterminate ring, one sentence, the X still cancels. No invented percent.</p>
+</div></div><fieldset class="choicebar" data-decision="skin_capture"><legend>Skin capture</legend><div class="options"><label class="opt"><input data-choice="skin_capture" name="ui_skin_capture_2" type="radio" value="fable"/> Fable</label><label class="opt"><input data-choice="skin_capture" name="ui_skin_capture_2" type="radio" value="codex"/> Codex</label><label class="opt"><input data-choice="skin_capture" name="ui_skin_capture_2" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="skin_capture" name="ui_skin_capture_2" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#skin_capture_notes">Add notes</a></fieldset></div><div class="steer"><label for="skin_capture_notes">Skin capture notes (optional)</label><textarea id="skin_capture_notes" name="skin_capture_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div></article>
 <article class="surface" id="skin-res">
-  <h2>Skin result</h2>
-  <p class="why">Esthetician highlights/lowlights, consider green/amber/red first, number on tap or Ask. Not 70 numbers.</p>
-  <div class="recs">
-    <div class="f"><strong>Fable rec</strong> Highlights → worth attention → needs care, word beside colour</div>
-    <div class="c"><strong>Codex rec</strong> Highlight, care priority, watch — scores on tap</div>
-  </div>
-  
-  <div class="model-row fable-row">
-    <div class="row-label fable">Fable — this lane’s directions</div>
-    <div class="pair">
-<div class="cell f">
-      <div class="who-tag fable">Fable A</div>
-      <h3>Highlights and lowlights <span class="rec-pill">Fable rec</span></h3>
-      <div class="phone-clip" data-src="fable/skin-result.html?solo=0" data-title="Fable A Skin result"></div>
-      <p class="cap">Three groups, in the order a professional speaks: what’s good first, then two or three things to watch, then anything that needs care. The “why” lines are Sweet’s plain-English reading of the vendor’s zone scores, never a symptom claim. “When to check in” can suggest a professional; it does not name a condition, a threshold, or a treatment.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable A Skin result">Pin Fable A</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable B</div>
-      <h3>Glance bar first, then dots</h3>
-      <div class="phone-clip" data-src="fable/skin-result.html?solo=1" data-title="Fable B Skin glance"></div>
-      <p class="cap">Everything in one glance: a proportional bar, then all fifteen as dots by area, no numbers. Faster than A for a returning person, less warm for a first-timer because there is no sentence. Named alternative.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable B Skin glance">Pin Fable B</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable C</div>
-      <h3>Tap a reading — number, zones, one explanation</h3>
-      <div class="phone-clip" data-src="fable/skin-result.html?solo=2" data-title="Fable C Skin tap"></div>
-      <p class="cap">The number arrives with its zones and the polarity spelled out, so “41” cannot be misread. The scale is described as the analysis’s own without naming the vendor.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable C Skin tap">Pin Fable C</button></div>
-    </div>
-    </div>
-  </div>
-
-  <div class="model-row codex-row">
-    <div class="row-label codex">Codex — this lane’s directions</div>
-    <div class="pair">
-<div class="cell c">
-      <div class="who-tag codex">Codex 10</div>
-      <h3>Meaning-first Skin <span class="rec-pill">Codex rec</span></h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-result" data-title="Codex Skin result"></div>
-      <p class="cap">A highlight, a care priority, and something to watch. No raw-number wall. Tap a card for its score.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Skin result">Pin Codex 10</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 11</div>
-      <h3>Skin score detail</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-detail" data-title="Codex Skin detail"></div>
-      <p class="cap">Photo-analysis score first; adjusted presentation score in a disclosure. Public documentation says 1–100, not 0–100.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Skin detail">Pin Codex 11</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 12</div>
-      <h3>All observations</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-all" data-title="Codex Skin all"></div>
-      <p class="cap">Progressive disclosure preserves access to returned scores, skin type, model scores, regions and missing fields.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Skin all">Pin Codex 12</button></div>
-    </div>
-    </div>
-  </div>
-<p class="band">Comment on Skin <em>result</em>.</p>
-  <fieldset>
-    <legend>Skin result</legend>
-    <label class="opt"><input type="radio" name="skin_result" value="fable-a"> Fable A — highlights / lowlights</label>
-    <label class="opt"><input type="radio" name="skin_result" value="fable-b"> Fable B — glance bar</label>
-    <label class="opt"><input type="radio" name="skin_result" value="codex"> Codex</label>
-    <label class="opt"><input type="radio" name="skin_result" value="mix"> Mix — write how below</label>
-    <label class="opt more"><input type="radio" name="skin_result" value="mock-another-round"> Mock another round</label>
-    <div class="steer"><label for="skin_result_notes">Steal from Fable / steal from Codex</label><textarea id="skin_result_notes" name="skin_result_notes"></textarea></div>
-  </fieldset>
-</article>
-
+<h2>Skin result</h2>
+<p class="why">Choose the overview: highlights and lowlights, a glance bar, or Codex’s cards. Detail screens show the next step.</p>
+<div class="model-row fable-row" id="skin-res-fable" tabindex="-1"><div class="row-head"><h3 class="row-label fable">Fable · screens</h3><a href="#skin-res-codex">Compare Codex ↓</a></div>
+<div class="pair">
+<div class="cell f"><p class="print-context">Skin result</p>
+<div class="who-tag fable">Fable A</div>
+<h4>Highlights and lowlights <span class="rec-pill">Fable rec</span></h4>
+<div class="phone-clip" data-src="fable/skin-result.html?solo=0" data-title="Fable A Skin result"></div>
+<p class="cap">Highlights lead, followed by things to watch and things needing care. Each group explains its meaning in words.</p>
+</div>
+<div class="cell f"><p class="print-context">Skin result</p>
+<div class="who-tag fable">Fable B</div>
+<h4>Glance bar first, then dots</h4>
+<div class="phone-clip" data-src="fable/skin-result.html?solo=1" data-title="Fable B Skin glance"></div>
+<p class="cap">A proportional bar and area dots replace overview numbers. Faster to scan, with less explanatory text.</p>
+</div>
+<div class="cell f"><p class="print-context">Skin result</p>
+<div class="who-tag fable">Fable C</div>
+<h4>Reading detail · score and zones</h4>
+<div class="phone-clip" data-src="fable/skin-result.html?solo=2" data-title="Fable C Skin tap"></div>
+<p class="cap">Detail state: the score appears with zones and an explanation of what higher or lower means.</p>
+</div>
+</div>
+<fieldset class="choicebar" data-decision="skin_result"><legend>Skin result</legend><div class="options"><label class="opt"><input data-choice="skin_result" name="ui_skin_result_0" type="radio" value="fable-a"/> Fable A · highlights</label><label class="opt"><input data-choice="skin_result" name="ui_skin_result_0" type="radio" value="fable-b"/> Fable B · glance bar</label><label class="opt"><input data-choice="skin_result" name="ui_skin_result_0" type="radio" value="codex"/> Codex A · cards</label><label class="opt"><input data-choice="skin_result" name="ui_skin_result_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="skin_result" name="ui_skin_result_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#skin_result_notes">Add notes</a></fieldset></div>
+<div class="model-row codex-row" id="skin-res-codex" tabindex="-1"><div class="row-head"><h3 class="row-label codex">Codex · screens</h3><a href="#skin-res-fable">Compare Fable ↑</a></div>
+<div class="pair">
+<div class="cell c"><p class="print-context">Skin result</p>
+<div class="who-tag codex">Codex A</div>
+<h4>Meaning-first Skin <span class="rec-pill">Codex rec</span></h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-result" data-title="Codex Skin result"></div>
+<p class="cap">A highlight, a care priority, and something to watch. No raw-number wall. Tap a card for its score.</p>
+</div>
+<div class="cell c"><p class="print-context">Skin result</p>
+<div class="who-tag codex">Codex B</div>
+<h4>Skin score detail</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-detail" data-title="Codex Skin detail"></div>
+<p class="cap">The photo-analysis score is visible first. An additional presentation score sits in a disclosure.</p>
+</div>
+<div class="cell c"><p class="print-context">Skin result</p>
+<div class="who-tag codex">Codex C</div>
+<h4>All observations</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-all" data-title="Codex Skin all"></div>
+<p class="cap">Supporting screen: observations, zones, and unavailable readings remain accessible after the overview.</p>
+</div>
+</div>
+<fieldset class="choicebar" data-decision="skin_result"><legend>Skin result</legend><div class="options"><label class="opt"><input data-choice="skin_result" name="ui_skin_result_1" type="radio" value="fable-a"/> Fable A · highlights</label><label class="opt"><input data-choice="skin_result" name="ui_skin_result_1" type="radio" value="fable-b"/> Fable B · glance bar</label><label class="opt"><input data-choice="skin_result" name="ui_skin_result_1" type="radio" value="codex"/> Codex A · cards</label><label class="opt"><input data-choice="skin_result" name="ui_skin_result_1" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="skin_result" name="ui_skin_result_1" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#skin_result_notes">Add notes</a></fieldset></div>
+<input name="skin_result" type="hidden" value=""/><div class="steer"><label for="skin_result_notes">Skin result notes (optional)</label><textarea id="skin_result_notes" name="skin_result_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div></article>
 <article class="surface" id="gut">
-  <h2>Gut</h2>
-  <p class="why">Already decided: Codex layout + Fable tints, brown stool, surround only, “You”. Confirm the paint, or send it back.</p>
-  <div class="recs">
-    <div class="f"><strong>Fable rec</strong> Codex layout, Fable tints, type 4 green / type 6 orange</div>
-    <div class="c"><strong>Codex rec</strong> Same contract, independently painted</div>
-  </div>
-  
-  <div class="model-row fable-row">
-    <div class="row-label fable">Fable — this lane’s directions</div>
-    <div class="pair">
-<div class="cell f">
-      <div class="who-tag fable">Fable · type 4</div>
-      <h3>“You” on a green tile <span class="rec-pill">Fable rec</span></h3>
-      <div class="phone-clip" data-src="fable/gut-result.html?solo=0" data-title="Fable Gut type 4"></div>
-      <p class="cap">The tiles have no border; the band fill is the whole decoration. “You” gets a 2-pt ink outline, and the hero’s rounded surround takes the same green so the answer and the row agree. The clinician section keeps the shipped heading and all seven symptoms in the scrolling document — never a clipped overlay.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable Gut type 4">Pin Fable type 4</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable · type 6</div>
-      <h3>“You” on an orange tile</h3>
-      <div class="phone-clip" data-src="fable/gut-result.html?solo=1" data-title="Fable Gut type 6"></div>
-      <p class="cap">Same page, softer form: the surround is soft orange, the words stay the shipped ones, and the tint never becomes a verdict (“softer form”, not “abnormal”).</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable Gut type 6">Pin Fable type 6</button></div>
-    </div>
-    </div>
-  </div>
-
-  <div class="model-row codex-row">
-    <div class="row-label codex">Codex — this lane’s directions</div>
-    <div class="pair">
-<div class="cell c">
-      <div class="who-tag codex">Codex 15</div>
-      <h3>Gut result <span class="rec-pill">Codex rec</span></h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=gut-result" data-title="Codex Gut result"></div>
-      <p class="cap">You marks the result. Harder and Looser explain the compact scale. Short meaning, useful next step, and one honesty line. Stool stays brown; only the surround is tinted. Scroll the phone to reach the full clinician block.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Gut result">Pin Codex 15</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 14</div>
-      <h3>Gut photo (before the result)</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=gut-capture" data-title="Codex Gut capture"></div>
-      <p class="cap">The frame teaches what needs to be in view. A single capture action, no Bristol lesson before the check.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Gut capture">Pin Codex 14</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 15 scrolled</div>
-      <h3>Clinician block fully in view</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/captures/gut-result-bottom.png" data-title="Codex Gut clinician"></div>
-      <p class="cap">This is the bottom of Codex’s Gut result — the clinician section in the scrolling document, never a clipped overlay. Compare with Fable type 4, where that block is also in the scroll.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Gut clinician">Pin Codex clinician</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 16</div>
-      <h3>Ask to dig (from Gut)</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=ask&amp;context=gut" data-title="Codex Ask from Gut"></div>
-      <p class="cap">A short contextual answer and one follow-up. Example replies are local; a new typed question receives an explicit unconnected-mock response.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Ask Gut">Pin Codex 16</button></div>
-    </div>
-    </div>
-  </div>
-<p class="band">Comment on these Gut screens.</p>
-  <fieldset>
-    <legend>Gut</legend>
-    <label class="opt"><input type="radio" name="gut" value="as-decided"> Yes — Codex layout + Fable tints as shown</label>
-    <label class="opt"><input type="radio" name="gut" value="fable"> Fable’s paint</label>
-    <label class="opt"><input type="radio" name="gut" value="codex"> Codex’s paint</label>
-    <label class="opt"><input type="radio" name="gut" value="mix"> Mix — write how below</label>
-    <label class="opt more"><input type="radio" name="gut" value="mock-another-round"> Mock another round</label>
-    <div class="steer"><label for="gut_notes">Steal from Fable / steal from Codex</label><textarea id="gut_notes" name="gut_notes"></textarea></div>
-  </fieldset>
-</article>
-
+<h2>Gut</h2>
+<p class="why">Confirm the agreed Codex layout with Fable tints, or choose a different treatment. Stool stays brown; only the surround is tinted.</p><p class="context-link">Follow-up conversation: <a href="#ask">see Ask</a>.</p>
+<div class="model-row fable-row" id="gut-fable" tabindex="-1"><div class="row-head"><h3 class="row-label fable">Fable · screens</h3><a href="#gut-codex">Compare Codex ↓</a></div>
+<div class="pair">
+<div class="cell f"><p class="print-context">Gut</p>
+<div class="who-tag fable">Fable · type 4</div>
+<h4>“You” on a green tile <span class="rec-pill">Fable rec</span></h4>
+<div class="phone-clip" data-src="fable/gut-result.html?solo=0" data-title="Fable Gut type 4"></div>
+<p class="cap">Green surrounds the brown illustration. “You” outlines the matching tile; the clinician section is below in the phone’s scroll.</p>
+</div>
+<div class="cell f"><p class="print-context">Gut</p>
+<div class="who-tag fable">Fable · type 6</div>
+<h4>“You” on an orange tile</h4>
+<div class="phone-clip" data-src="fable/gut-result.html?solo=1" data-title="Fable Gut type 6"></div>
+<p class="cap">The same layout uses a soft orange surround for a softer form. The illustration stays brown.</p>
+</div>
+</div>
+<fieldset class="choicebar" data-decision="gut"><legend>Gut</legend><div class="options"><label class="opt"><input data-choice="gut" name="ui_gut_0" type="radio" value="as-decided"/> Agreed layout + tints</label><label class="opt"><input data-choice="gut" name="ui_gut_0" type="radio" value="fable"/> Fable’s paint</label><label class="opt"><input data-choice="gut" name="ui_gut_0" type="radio" value="codex"/> Codex’s paint</label><label class="opt"><input data-choice="gut" name="ui_gut_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="gut" name="ui_gut_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#gut_notes">Add notes</a></fieldset></div>
+<div class="model-row codex-row" id="gut-codex" tabindex="-1"><div class="row-head"><h3 class="row-label codex">Codex · screens</h3><a href="#gut-fable">Compare Fable ↑</a></div>
+<div class="pair">
+<div class="cell c"><p class="print-context">Gut</p>
+<div class="who-tag codex">Codex 15</div>
+<h4>Gut result <span class="rec-pill">Codex rec</span></h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=gut-result" data-title="Codex Gut result"></div>
+<p class="cap">“You” marks the result on a compact scale. Meaning and a next step lead; scroll inside for the clinician section.</p>
+</div>
+<div class="cell c"><p class="print-context">Gut</p>
+<div class="who-tag codex">Codex 14</div>
+<h4>Gut photo (before the result)</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=gut-capture" data-title="Codex Gut capture"></div>
+<p class="cap">The frame teaches what needs to be in view. A single capture action, no Bristol lesson before the check.</p>
+</div>
+<div class="cell c"><p class="print-context">Gut</p>
+<div class="who-tag codex">Codex 15 scrolled</div>
+<h4>Clinician block fully in view</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/captures/gut-result-bottom.png" data-title="Codex Gut clinician"></div>
+<p class="cap">The bottom of the same Gut result, shown already scrolled so the clinician section is visible.</p>
+</div>
+</div>
+<fieldset class="choicebar" data-decision="gut"><legend>Gut</legend><div class="options"><label class="opt"><input data-choice="gut" name="ui_gut_1" type="radio" value="as-decided"/> Agreed layout + tints</label><label class="opt"><input data-choice="gut" name="ui_gut_1" type="radio" value="fable"/> Fable’s paint</label><label class="opt"><input data-choice="gut" name="ui_gut_1" type="radio" value="codex"/> Codex’s paint</label><label class="opt"><input data-choice="gut" name="ui_gut_1" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="gut" name="ui_gut_1" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#gut_notes">Add notes</a></fieldset></div>
+<input name="gut" type="hidden" value=""/><div class="steer"><label for="gut_notes">Gut notes (optional)</label><textarea id="gut_notes" name="gut_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div></article>
 <article class="surface" id="history">
-  <h2>History</h2>
-  <p class="why">Drop Samples. All / Face / Skin / Gut + compare two Face checks.</p>
-  <div class="recs">
-    <div class="f"><strong>Fable rec</strong> Meaning in every row; compare in words; trend after seven checks</div>
-    <div class="c"><strong>Codex rec</strong> Filters, explicit two-check select, matched vs different-time compare</div>
-  </div>
-  
-  <div class="model-row fable-row">
-    <div class="row-label fable">Fable — this lane’s directions</div>
-    <div class="pair">
-<div class="cell f">
-      <div class="who-tag fable">Fable 1</div>
-      <h3>The list — filters, meaning in every row</h3>
-      <div class="phone-clip" data-src="fable/history.html?solo=0" data-title="Fable History 1 list"></div>
-      <p class="cap">Same icon tiles as Home so the kinds are recognisable at a glance. The meaning line uses the dots from the result screens. Chips hide until the person has more than one kind. No chevrons: rows are the target; the compare card has the go coin. No Samples.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable History 1">Pin Fable 1</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable 2</div>
-      <h3>Compare — two checks side by side, in words</h3>
-      <div class="phone-clip" data-src="fable/history.html?solo=1" data-title="Fable History 2 compare"></div>
-      <p class="cap">This is the one screen where numbers lead, because comparing is what numbers are for; each pair still gets a word. “About the same” is Sweet’s phrase for a difference smaller than check-to-check wobble. No arrows, no green-up/red-down: direction is not a verdict.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable History 2">Pin Fable 2</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable 3</div>
-      <h3>Trend — usual as a band</h3>
-      <div class="phone-clip" data-src="fable/history.html?solo=2" data-title="Fable History 3 trend"></div>
-      <p class="cap">Single series, so no legend; the title names it. The band is the person’s own usual (14-day middle range), not a population range. The headline counts, it does not grade. Metric chips switch the series; there is never a composite.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable History 3">Pin Fable 3</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable 4</div>
-      <h3>Empty</h3>
-      <div class="phone-clip" data-src="fable/history.html?solo=3" data-title="Fable History 4 empty"></div>
-      <p class="cap">One sentence, one action. No Samples segment, no “About saved checks”.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable History 4">Pin Fable 4</button></div>
-    </div>
-    </div>
-  </div>
-
-  <div class="model-row codex-row">
-    <div class="row-label codex">Codex — this lane’s directions</div>
-    <div class="pair">
-<div class="cell c">
-      <div class="who-tag codex">Codex 17</div>
-      <h3>All checks</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=history" data-title="Codex History"></div>
-      <p class="cap">Each row has a date, a recognizable check, and a meaningful summary. All / Face / Skin / Gut. No Samples filter.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex History">Pin Codex 17</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 20</div>
-      <h3>Face comparison</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=compare" data-title="Codex compare"></div>
-      <p class="cap">Two dates, the same units and method, and a short statement of what changed. More is not automatically better.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex compare">Pin Codex 20</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 19</div>
-      <h3>Choose two</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=compare-select" data-title="Codex compare select"></div>
-      <p class="cap">Explicit selection and a disabled-until-ready action. A third check cannot silently replace a selected check.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex compare select">Pin Codex 19</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 22</div>
-      <h3>Empty history</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=history-empty" data-title="Codex History empty"></div>
-      <p class="cap">A clear route to the first check. No fake samples mixed into the person’s timeline.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex History empty">Pin Codex 22</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 18</div>
-      <h3>Face filter</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=history-face" data-title="Codex History Face filter"></div>
-      <p class="cap">Narrow the timeline without entering another navigation hierarchy.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex History Face filter">Pin Codex 18</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 21</div>
-      <h3>Different time of day</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=compare-limited" data-title="Codex compare limited"></div>
-      <p class="cap">Morning and evening remain visible side by side, without a trend judgment.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex compare limited">Pin Codex 21</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 22b</div>
-      <h3>The saved moment</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=saved-check&amp;record=f06" data-title="Codex saved Face"></div>
-      <p class="cap">Reopening an older entry preserves its date, time, readings and missing fields. Back keeps the chosen History filter.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex saved Face">Pin Codex 22b</button></div>
-    </div>
-    </div>
-  </div>
-<p class="band">Comment on these History screens.</p>
-  <fieldset>
-    <legend>History</legend>
-    <label class="opt"><input type="radio" name="history" value="fable"> Fable</label>
-    <label class="opt"><input type="radio" name="history" value="codex"> Codex</label>
-    <label class="opt"><input type="radio" name="history" value="mix"> Mix — write how below</label>
-    <label class="opt more"><input type="radio" name="history" value="mock-another-round"> Mock another round</label>
-    <div class="steer"><label for="history_notes">Steal from Fable / steal from Codex</label><textarea id="history_notes" name="history_notes"></textarea></div>
-  </fieldset>
-</article>
-
-<article class="surface" id="settings">
-  <h2>Decision: Settings — top-left vs top-right</h2>
-  <p class="why">This is a real pick, same as Home A/B/C. Mocked both corners. No fourth tab. Both lanes recommend top-right so the wordmark can lead.</p>
-  <div class="recs">
-    <div class="f"><strong>Fable rec</strong> Top-right — wordmark keeps the leading spot (Apple Health, Instagram, Oura)</div>
-    <div class="c"><strong>Codex rec</strong> Top-right — same reason; top-left is supplied as a true alternate on Home A</div>
-  </div>
-  
-  <div class="model-row fable-row">
-    <div class="row-label fable">Fable — this lane’s directions</div>
-    <div class="pair">
-<div class="cell f">
-      <div class="who-tag fable">Fable L</div>
-      <h3>Gear top-left, wordmark beside it</h3>
-      <div class="phone-clip" data-src="fable/settings-placement.html?solo=0" data-title="Fable Settings L"></div>
-      <p class="cap">Left is where iOS puts navigation, so a gear here reads slightly as “back”. Reachable with the left thumb. The wordmark loses its leading position.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable Settings L">Pin Fable L</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable R</div>
-      <h3>Wordmark leading, gear top-right <span class="rec-pill">Fable rec</span></h3>
-      <div class="phone-clip" data-src="fable/settings-placement.html?solo=1" data-title="Fable Settings R"></div>
-      <p class="cap">Trailing is where iOS and most consumer apps put profile and settings; the wordmark keeps the leading spot. A 44-pt target either way. If accounts arrive, the gear becomes an initials avatar in the same spot.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable Settings R">Pin Fable R</button></div>
-    </div>
-<div class="cell f">
-      <div class="who-tag fable">Fable · sheet</div>
-      <h3>What the gear opens — one Settings sheet</h3>
-      <div class="phone-clip" data-src="fable/settings-placement.html?solo=2" data-title="Fable Settings sheet"></div>
-      <p class="cap">Units default to lb and in in the US; BMI and the Face height/weight rows follow the choice. Everything that used to sit in the Health tab as “settings” lives here, so the Health tab can be about the person’s readings and connections only.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Fable Settings sheet">Pin Fable sheet</button></div>
-    </div>
-    </div>
-  </div>
-
-  <div class="model-row codex-row">
-    <div class="row-label codex">Codex — this lane’s directions</div>
-    <div class="pair">
-<div class="cell c">
-      <div class="who-tag codex">Codex 24</div>
-      <h3>Home A with Settings at top-left</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-left" data-title="Codex Home left gear"></div>
-      <p class="cap">The exact Codex A Home with the alternate Settings position. Compare with Codex A at the top of this page (gear on the right).</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Home left">Pin Codex 24</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 26</div>
-      <h3>Settings sheet from the right <span class="rec-pill">Codex rec</span></h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=settings-right" data-title="Codex Settings right"></div>
-      <p class="cap">Back returns to the right-entry Home. Both entries reach the same settings structure. Profile units are lb and in.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Settings right">Pin Codex 26</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 25</div>
-      <h3>Settings sheet from the left</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=settings-left" data-title="Codex Settings left"></div>
-      <p class="cap">Back returns to the left-entry Home. Profile units are lb and in. Same sheet as Codex 26 — only the entry corner changes.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Settings left">Pin Codex 25</button></div>
-    </div>
-    </div>
-  </div>
-<p class="band">This card is the Settings decision — left vs right. Not History.</p>
-  <fieldset>
-    <legend>Settings gear — pick one</legend>
-    <label class="opt"><input type="radio" name="settings" value="right"> Top-right (Fable rec and Codex rec)</label>
-    <label class="opt"><input type="radio" name="settings" value="left"> Top-left</label>
-    <label class="opt"><input type="radio" name="settings" value="mix"> Mix — write how below</label>
-    <label class="opt more"><input type="radio" name="settings" value="mock-another-round"> Mock another round</label>
-    <div class="steer"><label for="settings_notes">Comments on Settings L vs R</label><textarea id="settings_notes" name="settings_notes" placeholder="e.g. top-right like Fable R, sheet contents like Codex 26…"></textarea></div>
-  </fieldset>
-</article>
-
+<h2>History</h2>
+<p class="why">Choose the History look and comparison flow. All / Face / Skin / Gut; Samples is already removed.</p>
+<div class="model-row fable-row" id="history-fable" tabindex="-1"><div class="row-head"><h3 class="row-label fable">Fable · screens</h3><a href="#history-codex">Compare Codex ↓</a></div>
+<div class="pair">
+<div class="cell f"><p class="print-context">History</p>
+<div class="who-tag fable">Fable 1</div>
+<h4>History · filters and meaning</h4>
+<div class="phone-clip" data-src="fable/history.html?solo=0" data-title="Fable History 1 list"></div>
+<p class="cap">Familiar check icons and meaning in every row. Filters and a compare entry sit above the list; no Samples.</p>
+</div>
+<div class="cell f"><p class="print-context">History</p>
+<div class="who-tag fable">Fable 2</div>
+<h4>Compare · two checks</h4>
+<div class="phone-clip" data-src="fable/history.html?solo=1" data-title="Fable History 2 compare"></div>
+<p class="cap">Two checks show numbers side by side, with words explaining the difference. Direction is not presented as a verdict.</p>
+</div>
+<div class="cell f"><p class="print-context">History</p>
+<div class="who-tag fable">Fable 3</div>
+<h4>Trend — usual as a band</h4>
+<div class="phone-clip" data-src="fable/history.html?solo=2" data-title="Fable History 3 trend"></div>
+<p class="cap">One metric and a personal usual-range band. Metric chips switch the chart; the headline counts checks.</p>
+</div>
+</div>
+<fieldset class="choicebar" data-decision="history"><legend>History</legend><div class="options"><label class="opt"><input data-choice="history" name="ui_history_0" type="radio" value="fable"/> Fable</label><label class="opt"><input data-choice="history" name="ui_history_0" type="radio" value="codex"/> Codex</label><label class="opt"><input data-choice="history" name="ui_history_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="history" name="ui_history_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#history_notes">Add notes</a></fieldset></div>
+<div class="model-row codex-row" id="history-codex" tabindex="-1"><div class="row-head"><h3 class="row-label codex">Codex · screens</h3><a href="#history-fable">Compare Fable ↑</a></div>
+<div class="pair">
+<div class="cell c"><p class="print-context">History</p>
+<div class="who-tag codex">Codex 17</div>
+<h4>All checks</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=history" data-title="Codex History"></div>
+<p class="cap">Each row has a date, a recognizable check, and a meaningful summary. All / Face / Skin / Gut. No Samples filter.</p>
+</div>
+<div class="cell c"><p class="print-context">History</p>
+<div class="who-tag codex">Codex 20</div>
+<h4>Face comparison</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=compare" data-title="Codex compare"></div>
+<p class="cap">Two dates, the same units and method, and a short statement of what changed. More is not automatically better.</p>
+</div>
+<div class="cell c"><p class="print-context">History</p>
+<div class="who-tag codex">Codex 19</div>
+<h4>Choose two</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=compare-select" data-title="Codex compare select"></div>
+<p class="cap">Explicit selection and a disabled-until-ready action. A third check cannot silently replace a selected check.</p>
+</div>
+</div>
+<fieldset class="choicebar" data-decision="history"><legend>History</legend><div class="options"><label class="opt"><input data-choice="history" name="ui_history_1" type="radio" value="fable"/> Fable</label><label class="opt"><input data-choice="history" name="ui_history_1" type="radio" value="codex"/> Codex</label><label class="opt"><input data-choice="history" name="ui_history_1" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="history" name="ui_history_1" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#history_notes">Add notes</a></fieldset></div>
+<input name="history" type="hidden" value=""/><div class="model-row fable-row supporting-row" id="history-fable-2" tabindex="-1"><div class="row-head"><h3 class="row-label fable">Fable · supporting screens</h3><a href="#history-codex">Back to Codex ↑</a></div><div class="pair"><div class="cell f"><p class="print-context">History</p>
+<div class="who-tag fable">Fable 4</div>
+<h4>Empty</h4>
+<div class="phone-clip" data-src="fable/history.html?solo=3" data-title="Fable History 4 empty"></div>
+<p class="cap">One sentence, one action. No Samples segment, no “About saved checks”.</p>
+</div></div><fieldset class="choicebar" data-decision="history"><legend>History</legend><div class="options"><label class="opt"><input data-choice="history" name="ui_history_2" type="radio" value="fable"/> Fable</label><label class="opt"><input data-choice="history" name="ui_history_2" type="radio" value="codex"/> Codex</label><label class="opt"><input data-choice="history" name="ui_history_2" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="history" name="ui_history_2" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#history_notes">Add notes</a></fieldset></div><div class="model-row codex-row supporting-row" id="history-codex-3" tabindex="-1"><div class="row-head"><h3 class="row-label codex">Codex · supporting screens</h3><a href="#history-fable">Back to Fable ↑</a></div><div class="pair"><div class="cell c"><p class="print-context">History</p>
+<div class="who-tag codex">Codex 22</div>
+<h4>Empty history</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=history-empty" data-title="Codex History empty"></div>
+<p class="cap">A clear route to the first check. No fake samples mixed into the person’s timeline.</p>
+</div><div class="cell c"><p class="print-context">History</p>
+<div class="who-tag codex">Codex 18</div>
+<h4>Face filter</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=history-face" data-title="Codex History Face filter"></div>
+<p class="cap">Narrow the timeline without entering another navigation hierarchy.</p>
+</div><div class="cell c"><p class="print-context">History</p>
+<div class="who-tag codex">Codex 21</div>
+<h4>Different time of day</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=compare-limited" data-title="Codex compare limited"></div>
+<p class="cap">Morning and evening remain visible side by side, without a trend judgment.</p>
+</div><div class="cell c"><p class="print-context">History</p>
+<div class="who-tag codex">Codex 22b</div>
+<h4>The saved moment</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=saved-check&amp;record=f06" data-title="Codex saved Face"></div>
+<p class="cap">Reopening an older entry preserves its date, time, readings and missing fields. Back keeps the chosen History filter.</p>
+</div></div><fieldset class="choicebar" data-decision="history"><legend>History</legend><div class="options"><label class="opt"><input data-choice="history" name="ui_history_3" type="radio" value="fable"/> Fable</label><label class="opt"><input data-choice="history" name="ui_history_3" type="radio" value="codex"/> Codex</label><label class="opt"><input data-choice="history" name="ui_history_3" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="history" name="ui_history_3" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#history_notes">Add notes</a></fieldset></div><div class="steer"><label for="history_notes">History notes (optional)</label><textarea id="history_notes" name="history_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div></article>
 <article class="surface" id="health">
-  <h2>Health tab and Ask</h2>
-  <p class="why">Fable did not mock a Health tab or Ask screen this round. Codex did. Same phone size. Optional pick — skip if you do not care yet.</p>
-  
-  <div class="model-row fable-row">
-    <div class="row-label fable">Fable — this lane’s directions</div>
-    <div class="pair">
-<div class="cell f">
-      <div class="who-tag fable">Fable</div>
-      <h3>No Health or Ask mock this round</h3>
-      <div class="missing">Fable did not draw a Health tab or Ask screen in round 2. Codex 23 and 16 are the only mocks for those surfaces.</div>
-    </div>
-    </div>
-  </div>
-
-  <div class="model-row codex-row">
-    <div class="row-label codex">Codex — this lane’s directions</div>
-    <div class="pair">
-<div class="cell c">
-      <div class="who-tag codex">Codex 23</div>
-      <h3>Health tab</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=health" data-title="Codex Health"></div>
-      <p class="cap">A personal pattern is the main story. No invented general health score; returned models would have their own explanation. Home · Health · History throughout the main shell.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Health">Pin Codex 23</button></div>
-    </div>
-<div class="cell c">
-      <div class="who-tag codex">Codex 16</div>
-      <h3>Ask (also shown under Gut)</h3>
-      <div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=ask&amp;context=gut" data-title="Codex Ask"></div>
-      <p class="cap">Ask stays contextual to the current result, not a fourth tab. Short explanation on the result by default; Ask only to dig.</p>
-      <div class="tools"><button type="button" class="pin" data-pin="Codex Ask">Pin Codex Ask</button></div>
-    </div>
-    </div>
-  </div>
-<fieldset>
-    <legend>Health / Ask (optional)</legend>
-    <label class="opt"><input type="radio" name="health" value="codex"> Use Codex Health / Ask as the starting look</label>
-    <label class="opt"><input type="radio" name="health" value="skip"> Skip — not deciding this now</label>
-    <label class="opt more"><input type="radio" name="health" value="mock-another-round"> Mock another round</label>
-    <div class="steer"><label for="health_notes">Comments</label><textarea id="health_notes" name="health_notes"></textarea></div>
-  </fieldset>
-</article>
-
+<h2>Health tab · optional</h2>
+<p class="why">Choose the Health tab’s starting look. Fable supplied no Health mock; this decision is optional.</p>
+<div class="model-row codex-row" id="health-codex" tabindex="-1"><div class="row-head"><h3 class="row-label codex">Codex · screens</h3></div>
+<div class="pair">
+<div class="cell c"><p class="print-context">Health tab · optional</p>
+<div class="who-tag codex">Codex 23</div>
+<h4>Health tab</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=health" data-title="Codex Health"></div>
+<p class="cap">A personal pattern leads the Health tab. Main navigation remains Home · Health · History.</p>
+</div>
+</div>
+<fieldset class="choicebar" data-decision="health"><legend>Health look · optional</legend><div class="options"><label class="opt"><input data-choice="health" name="ui_health_0" type="radio" value="codex"/> Use Codex Health</label><label class="opt"><input data-choice="health" name="ui_health_0" type="radio" value="skip"/> Decide later</label><label class="opt"><input data-choice="health" name="ui_health_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#health_notes">Add notes</a></fieldset></div>
+<input name="health" type="hidden" value=""/><div class="steer"><label for="health_notes">Health notes (optional)</label><textarea id="health_notes" name="health_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div></article><article class="surface" id="ask"><h2>Ask · optional</h2><p class="why">Choose the look of a follow-up conversation from a result. Ask is not a tab. Fable supplied no Ask mock.</p><div class="model-row codex-row" id="ask-codex" tabindex="-1"><div class="row-head"><h3 class="row-label codex">Codex · screens</h3></div><div class="pair"><div class="cell c"><p class="print-context">Ask · optional</p>
+<div class="who-tag codex">Codex 16</div>
+<h4>Ask from a Gut result</h4>
+<div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=ask&amp;context=gut" data-title="Codex Ask from Gut"></div>
+<p class="cap">A contextual answer and one follow-up. Sample replies work locally; a new question explains that the mock is unconnected.</p>
+</div></div><fieldset class="choicebar" data-decision="ask"><legend>Ask look · optional</legend><div class="options"><label class="opt"><input data-choice="ask" name="ui_ask_0" type="radio" value="codex"/> Use Codex Ask</label><label class="opt"><input data-choice="ask" name="ui_ask_0" type="radio" value="skip"/> Decide later</label><label class="opt"><input data-choice="ask" name="ui_ask_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#ask_notes">Add notes</a></fieldset></div><input name="ask" type="hidden" value=""/><div class="steer"><label for="ask_notes">Ask notes (optional)</label><textarea id="ask_notes" name="ask_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div></article>
 <article class="surface" id="else">
-  <h2>Anything else</h2>
-  <p class="why">Catch-all, plus anything you pinned into the mix tray below.</p>
-  <textarea name="notes" id="notes" rows="5" placeholder="Overall direction, things to combine, things to kill…"></textarea>
-  <input type="hidden" name="pins" id="pins">
-  <input type="hidden" name="mix_line" id="mix_line">
+<h2>Overall notes</h2>
+<label for="notes">Anything to keep, combine, or change across screens (optional)</label><textarea id="notes" name="notes" placeholder="Overall direction or shared details" rows="3"></textarea>
+<input id="pins" name="pins" type="hidden"/>
+<input id="mix_line" name="mix_line" type="hidden"/>
 </article>
-</div>
-
-<div class="sticky">
-  <div class="sticky-inner">
-    <div id="mix-tray" aria-live="polite"></div>
-    <div class="actions">
-      <button type="submit" class="primary">Submit answers</button>
-      <button type="button" class="ghost" id="copyBtn">Copy answers</button>
-      <button type="button" class="ghost" id="dlBtn">Download answers</button>
-      <button type="button" class="ghost" id="printBtn">Print / Save PDF</button>
-      <span class="status" id="status"></span>
-    </div>
-  </div>
-</div>
+<section aria-labelledby="answers-title" class="answers surface" id="answers"><h2 id="answers-title">Review &amp; send</h2><p id="answer-reviewer">Choose Salim or Ranya before sending.</p><div id="answer-summary"></div><p hidden="" id="legacy-pins"></p><p class="print-warning" id="print-warning">Some phones are not ready. Cancel this print and use “Print packet / PDF” for a complete copy.</p><div class="actions"><button class="primary" id="submitBtn" type="submit">Send answers</button><button id="copyBtn" type="button">Copy answers</button><button id="dlBtn" type="button">Download answers</button><button id="printBtn" type="button">Print packet / PDF</button></div><p aria-live="polite" class="status" id="status" role="status"></p></section></main>
 </form>
-
-<div id="lite" role="dialog" aria-modal="true" aria-label="Enlarged phone">
-  <button type="button" class="close" id="liteClose">Close</button>
-  <div class="stage"><iframe title="Enlarged mock"></iframe></div>
-</div>
-
 <script>
-const KEY = "sweet-round3-draft-v1";
-const DECISIONS = ["home","face_capture","face_result","skin_capture","skin_result","gut","history","settings"];
-const pins = [];
+const LEGACY_KEY = 'sweet-round3-draft-v1';
+const DRAFT_PREFIX = 'sweet-round3-draft-v2-';
+const REVIEWER_KEY = 'sweet-round3-reviewer-v2';
+const DECISIONS = ['home', 'face_capture', 'face_result', 'skin_capture', 'skin_result', 'gut', 'history', 'settings'];
+const OPTIONAL = ['health', 'ask'];
+const ALL_DECISIONS = DECISIONS.concat(OPTIONAL);
+const form = document.getElementById('mixform');
+const status = document.getElementById('status');
+const saveStatus = document.getElementById('save-status');
+const sections = [...document.querySelectorAll('.surface')].filter(section => section.querySelector('.choicebar'));
+const memoryDrafts = new Map();
+let currentWho = '';
+let legacyPins = [];
+let sending = false;
+let preparingPrint = false;
+let printing = false;
 
 function val(name) {
-  const el = document.querySelector('[name="'+name+'"]:checked');
-  return el ? el.value : "";
+  if (name === 'who') return form.querySelector('[name="who"]:checked')?.value || '';
+  return form.elements.namedItem(name)?.value || '';
 }
-function text(name) {
-  const el = document.querySelector('[name="'+name+'"]');
-  return el ? (el.value || "").trim() : "";
+function setChoice(name, value) {
+  const radios = [...form.querySelectorAll('[data-choice="' + name + '"]')];
+  const accepted = radios.some(radio => radio.value === value) ? value : '';
+  form.elements.namedItem(name).value = accepted;
+  radios.forEach(radio => { radio.checked = radio.value === accepted; });
+}
+function choiceLabel(name) {
+  const radio = [...form.querySelectorAll('[data-choice="' + name + '"]')].find(input => input.value === val(name));
+  return radio ? radio.parentElement.textContent.trim() : 'Not decided';
 }
 function mixLine() {
-  const lines = ["who=" + (val("who") || "UNDECIDED")];
-  DECISIONS.concat(["health"]).forEach(function (k) {
-    const n = text(k + "_notes");
-    lines.push(k + "=" + (val(k) || "UNDECIDED") + (n ? "\n  STEER: " + n.replace(/\n/g, "\n  ") : ""));
+  const lines = ['Sweet · packet 3', 'Reviewer: ' + (val('who') || 'Not selected')];
+  sections.forEach(section => {
+    const name = section.querySelector('.choicebar').dataset.decision;
+    lines.push(section.querySelector('h2').textContent + ': ' + choiceLabel(name) + ' [' + (val(name) || 'UNDECIDED') + ']');
+    if (val(name + '_notes').trim()) lines.push('  Notes: ' + val(name + '_notes').trim().replace(/\n/g, '\n  '));
   });
-  if (pins.length) lines.push("pins=" + pins.join(" | "));
-  const notes = text("notes");
-  if (notes) lines.push("notes=\n  " + notes.replace(/\n/g, "\n  "));
-  return lines.join("\n");
+  if (legacyPins.length) lines.push('Earlier pinned references (not decisions): ' + legacyPins.join(' | '));
+  if (val('notes').trim()) lines.push('Overall notes:\n' + val('notes').trim());
+  return lines.join('\n');
 }
 function collectDraft() {
-  const data = {};
-  new FormData(document.getElementById("mixform")).forEach(function (v, k) { data[k] = v; });
-  data._pins = pins.slice();
+  const data = {who: val('who'), notes: val('notes'), _pins: legacyPins.slice()};
+  ALL_DECISIONS.forEach(name => {
+    data[name] = val(name);
+    data[name + '_notes'] = val(name + '_notes');
+  });
   return data;
 }
+function renderSummary() {
+  const count = DECISIONS.filter(name => val(name)).length;
+  document.getElementById('progress').textContent = count + ' of 8 decided';
+  document.getElementById('answer-reviewer').textContent = val('who') ? 'Answers from ' + val('who') + ' · ' + count + ' of 8 decided. Partial answers can be sent.' : 'Choose Salim or Ranya before sending.';
+  const summary = document.getElementById('answer-summary');
+  summary.replaceChildren();
+  sections.forEach(section => {
+    const name = section.querySelector('.choicebar').dataset.decision;
+    const row = document.createElement('div');
+    row.className = 'answer-row';
+    const title = document.createElement('strong');
+    title.textContent = section.querySelector('h2').textContent;
+    const answer = document.createElement('span');
+    answer.textContent = choiceLabel(name);
+    const edit = document.createElement('a');
+    edit.href = '#' + section.id;
+    edit.textContent = 'Review';
+    edit.setAttribute('aria-label', 'Review ' + title.textContent);
+    row.append(title, answer, edit);
+    if (val(name + '_notes')) {
+      const notes = document.createElement('p');
+      notes.textContent = val(name + '_notes');
+      row.append(notes);
+    }
+    summary.append(row);
+    const nav = document.querySelector('.toc a[href="#' + section.id + '"]');
+    if (nav) {
+      nav.classList.toggle('decided', Boolean(val(name)));
+      nav.setAttribute('aria-label', title.textContent + (val(name) ? ' — ' + choiceLabel(name) : ' — not decided'));
+    }
+  });
+  if (val('notes')) {
+    const row = document.createElement('div');
+    row.className = 'answer-row';
+    const label = document.createElement('strong');
+    label.textContent = 'Overall notes';
+    const notes = document.createElement('p');
+    notes.textContent = val('notes');
+    row.append(label, notes);
+    summary.append(row);
+  }
+  const pins = document.getElementById('legacy-pins');
+  pins.hidden = !legacyPins.length;
+  pins.textContent = 'Earlier pinned references (not decisions): ' + legacyPins.join(' · ');
+  document.getElementById('pins').value = legacyPins.join(' | ');
+  document.getElementById('mix_line').value = mixLine();
+}
+function storeDraft(who, data) {
+  const snapshot = {...data, who};
+  memoryDrafts.set(who, snapshot);
+  localStorage.setItem(DRAFT_PREFIX + (who || 'unassigned'), JSON.stringify({savedAt: Date.now(), data: snapshot}));
+}
+function readDraft(who) {
+  if (memoryDrafts.has(who)) return memoryDrafts.get(who);
+  const raw = localStorage.getItem(DRAFT_PREFIX + (who || 'unassigned'));
+  const data = raw ? JSON.parse(raw).data : null;
+  if (data) memoryDrafts.set(who, data);
+  return data;
+}
+function applyDraft(data = {}) {
+  ALL_DECISIONS.forEach(name => {
+    setChoice(name, data[name] || '');
+    form.elements.namedItem(name + '_notes').value = typeof data[name + '_notes'] === 'string' ? data[name + '_notes'] : '';
+  });
+  form.elements.namedItem('notes').value = typeof data.notes === 'string' ? data.notes : '';
+  legacyPins = Array.isArray(data._pins) ? data._pins.filter(pin => typeof pin === 'string') : [];
+}
 function saveDraft() {
-  try { localStorage.setItem(KEY, JSON.stringify({ savedAt: Date.now(), data: collectDraft() })); } catch (e) {}
-  document.getElementById("mix_line").value = mixLine();
-  document.getElementById("pins").value = pins.join(" | ");
-  const n = DECISIONS.filter(function (k) { return val(k); }).length;
-  document.getElementById("progress").textContent = n + " of " + DECISIONS.length + " decided";
+  renderSummary();
+  try {
+    storeDraft(currentWho, collectDraft());
+    localStorage.setItem(REVIEWER_KEY, currentWho);
+    saveStatus.textContent = (currentWho ? currentWho + '’s draft saved' : 'Draft saved') + ' on this device.';
+  } catch (error) {
+    saveStatus.textContent = 'Autosave unavailable. Download answers to keep a copy.';
+  }
 }
 function loadDraft() {
   try {
-    const raw = localStorage.getItem(KEY);
-    if (!raw) return;
-    const data = JSON.parse(raw).data || {};
-    Object.keys(data).forEach(function (k) {
-      if (k === "_pins") return;
-      document.querySelectorAll('[name="'+k+'"]').forEach(function (el) {
-        if (el.type === "radio") el.checked = el.value === data[k];
-        else el.value = data[k];
-      });
-    });
-    if (Array.isArray(data._pins)) data._pins.forEach(function (p) { addPin(p, true); });
-  } catch (e) {}
-}
-function addPin(name, silent) {
-  if (pins.indexOf(name) !== -1) return;
-  pins.push(name);
-  const tray = document.getElementById("mix-tray");
-  const chip = document.createElement("span");
-  chip.className = "chip " + (name.indexOf("Fable") === 0 ? "f" : "c");
-  chip.textContent = "Pinned · " + name;
-  chip.title = "Click to unpin";
-  chip.style.cursor = "pointer";
-  chip.onclick = function () {
-    pins.splice(pins.indexOf(name), 1);
-    chip.remove();
-    document.querySelectorAll('.pin[data-pin="'+name+'"]').forEach(function (b) { b.classList.remove("on"); b.textContent = "Pin"; });
-    saveDraft();
-  };
-  tray.appendChild(chip);
-  if (!silent) saveDraft();
-}
-function mountPhones() {
-  document.querySelectorAll(".phone-clip[data-src]").forEach(function (clip) {
-    const src = clip.getAttribute("data-src");
-    const title = clip.getAttribute("data-title") || "Mock";
-    if (/\.png(\?|$)/i.test(src)) {
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = title;
-      img.width = 402;
-      img.height = 874;
-      clip.appendChild(img);
-      return;
+    let who = localStorage.getItem(REVIEWER_KEY);
+    let data;
+    if (who === null) {
+      const old = JSON.parse(localStorage.getItem(LEGACY_KEY) || 'null')?.data;
+      if (old) {
+        who = ['Salim', 'Ranya'].includes(old.who) ? old.who : '';
+        data = {...old, ask: old.health || ''};
+        if (old.health_notes) data.health_notes = 'Earlier Health / Ask notes: ' + old.health_notes;
+      }
     }
-    const iframe = document.createElement("iframe");
-    iframe.loading = "lazy";
-    iframe.title = title;
-    iframe.src = src;
-    clip.appendChild(iframe);
-  });
-}
-function downloadMix() {
-  const blob = new Blob([mixLine()], { type: "text/plain" });
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "sweet-round3-answers.txt";
-  a.click();
-}
-document.getElementById("mixform").addEventListener("input", saveDraft);
-window.addEventListener("beforeunload", saveDraft);
-document.addEventListener("click", function (e) {
-  const pin = e.target.closest(".pin");
-  if (!pin) return;
-  const name = pin.getAttribute("data-pin");
-  if (pin.classList.contains("on")) {
-    pin.classList.remove("on"); pin.textContent = "Pin";
-    const chip = Array.prototype.find.call(document.querySelectorAll("#mix-tray .chip"), function (c) { return c.textContent.indexOf(name) !== -1; });
-    if (chip) chip.click();
-  } else {
-    pin.classList.add("on"); pin.textContent = "Pinned";
-    addPin(name);
+    currentWho = ['Salim', 'Ranya'].includes(who) ? who : '';
+    data = readDraft(currentWho) || data || {};
+    form.querySelectorAll('[name="who"]').forEach(radio => { radio.checked = radio.value === currentWho; });
+    applyDraft(data);
+  } catch (error) {
+    saveStatus.textContent = 'Could not restore the draft. Download answers to keep a copy.';
   }
+}
+form.addEventListener('input', event => {
+  const input = event.target;
+  if (input.name === 'who') {
+    const nextWho = val('who');
+    const previous = collectDraft();
+    let next = memoryDrafts.get(nextWho) || null;
+    try {
+      storeDraft(currentWho, previous);
+      next = readDraft(nextWho);
+    } catch (error) { /* The current answers remain available for export. */ }
+    applyDraft(next || (currentWho ? {} : previous));
+    currentWho = nextWho;
+  } else if (input.dataset.choice) {
+    setChoice(input.dataset.choice, input.value);
+  }
+  saveDraft();
 });
-mountPhones();
+form.addEventListener('invalid', () => {
+  status.textContent = 'Choose Salim or Ranya in Reviewer before sending.';
+}, true);
+window.addEventListener('pagehide', saveDraft);
 loadDraft();
 saveDraft();
-document.getElementById("mixform").addEventListener("submit", async function (e) {
-  e.preventDefault();
-  if (!val("who")) {
-    document.getElementById("status").textContent = "Pick Salim or Ranya at the top first.";
-    window.scrollTo({ top: 0, behavior: "smooth" });
+
+// Reserve the full phone from the start; load nearby documents automatically.
+// Distant untouched frames are released. Interacted frames retain their state.
+const clips = [...document.querySelectorAll('.phone-clip[data-src]')];
+const phoneStates = new Map();
+for (const clip of clips) {
+  const placeholder = document.createElement('div');
+  placeholder.className = 'phone-loading';
+  const message = document.createElement('span');
+  message.textContent = 'Loading ' + clip.dataset.title + '…';
+  const retry = document.createElement('button');
+  retry.type = 'button';
+  retry.textContent = 'Retry phone';
+  retry.hidden = true;
+  retry.addEventListener('click', () => { releasePhone(clip); mountPhone(clip); });
+  placeholder.append(message, retry);
+  clip.append(placeholder);
+  phoneStates.set(clip, {message, retry, node: null, ready: false, touched: false, near: false, promise: null});
+}
+function releasePhone(clip) {
+  const state = phoneStates.get(clip);
+  clearTimeout(state.timer);
+  if (state.finish) state.finish(false);
+  state.node?.remove();
+  state.node = null;
+  state.ready = false;
+  state.promise = null;
+  state.touched = false;
+  state.retry.hidden = true;
+  state.message.textContent = 'Loading ' + clip.dataset.title + '…';
+  clip.classList.remove('is-ready');
+}
+function mountPhone(clip) {
+  const state = phoneStates.get(clip);
+  if (state.ready) return Promise.resolve(true);
+  if (state.node) return state.promise;
+  const isImage = /\.png(\?|$)/i.test(clip.dataset.src);
+  const node = document.createElement(isImage ? 'img' : 'iframe');
+  state.node = node;
+  state.promise = new Promise(resolve => { state.finish = resolve; });
+  if (isImage) { node.alt = clip.dataset.title; node.width = 402; node.height = 874; }
+  else { node.title = clip.dataset.title; node.loading = 'eager'; }
+  const failed = () => {
+    if (state.node !== node) return;
+    clearTimeout(state.timer);
+    state.message.textContent = 'Could not load ' + clip.dataset.title + '.';
+    state.retry.hidden = false;
+    state.finish(false);
+  };
+  node.addEventListener('error', failed);
+  node.addEventListener('load', async () => {
+    if (state.node !== node) return;
+    if (!isImage) {
+      const doc = node.contentDocument;
+      if (!doc?.querySelector('.phone')) { failed(); return; }
+      const touched = () => { state.touched = true; };
+      doc.addEventListener('pointerdown', touched, {capture: true, once: true});
+      doc.addEventListener('keydown', touched, {capture: true, once: true});
+      doc.addEventListener('scroll', touched, {capture: true, once: true});
+      await doc.fonts.ready;
+      await Promise.all([...doc.images].map(img => img.complete ? Promise.resolve() : new Promise(resolve => {
+        img.addEventListener('load', resolve, {once: true});
+        img.addEventListener('error', resolve, {once: true});
+      })));
+    }
+    if (state.node !== node) return;
+    clearTimeout(state.timer);
+    state.ready = true;
+    state.retry.hidden = true;
+    clip.classList.add('is-ready');
+    state.finish(true);
+  });
+  state.timer = setTimeout(failed, 20000);
+  node.src = clip.dataset.src;
+  clip.append(node);
+  return state.promise;
+}
+function releaseDistantPhones() {
+  for (const clip of clips) {
+    const state = phoneStates.get(clip);
+    const bounds = clip.getBoundingClientRect();
+    if (bounds.bottom < -1600 || bounds.top > innerHeight + 1600) {
+      if (!state.touched && document.activeElement !== state.node) releasePhone(clip);
+    }
+  }
+}
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      const state = phoneStates.get(entry.target);
+      state.near = entry.isIntersecting;
+      if (entry.isIntersecting) mountPhone(entry.target);
+      else if (!printing && !preparingPrint && !state.touched && document.activeElement !== state.node) releasePhone(entry.target);
+    }
+  }, {rootMargin: '1600px 0px'});
+  clips.forEach(clip => observer.observe(clip));
+} else {
+  clips.forEach(mountPhone);
+}
+// The initial comparison never waits for observer delivery.
+[...document.querySelectorAll('#home .fable-row .phone-clip')].forEach(mountPhone);
+
+let navScheduled = false;
+function updateNavigation() {
+  navScheduled = false;
+  const targets = [...document.querySelectorAll('.toc a[href^="#"]')];
+  let active = targets[0];
+  for (const link of targets) {
+    if (document.querySelector(link.getAttribute('href')).getBoundingClientRect().top <= 100) active = link;
+  }
+  for (const link of targets) {
+    if (link === active) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  }
+}
+addEventListener('scroll', () => {
+  if (!navScheduled) { navScheduled = true; requestAnimationFrame(updateNavigation); }
+}, {passive: true});
+updateNavigation();
+// Anchor navigation also moves keyboard focus, including the row comparison links.
+document.addEventListener('click', event => {
+  const anchor = event.target.closest('a[href^="#"]');
+  if (!anchor) return;
+  const target = document.querySelector(anchor.getAttribute('href'));
+  if (target) {
+    if (!target.matches('textarea, input, button')) target.setAttribute('tabindex', '-1');
+    requestAnimationFrame(() => target.focus({preventScroll: true}));
+  }
+});
+function downloadMix() {
+  const url = URL.createObjectURL(new Blob([mixLine()], {type: 'text/plain;charset=utf-8'}));
+  const anchor = document.createElement('a');
+  anchor.href = url;
+  anchor.download = 'sweet-round3-' + (val('who') || 'draft').toLowerCase() + '-answers.txt';
+  anchor.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+  if (sending || !val('who')) return;
+  saveDraft();
+  const reviewer = val('who');
+  const submitted = mixLine();
+  const body = new FormData();
+  Object.entries(collectDraft()).forEach(([name, value]) => {
+    if (name !== '_pins') body.append(name, value);
+  });
+  body.append('pins', legacyPins.join(' | '));
+  body.append('mix_line', submitted);
+  body.append('_subject', 'Sweet round 3 answers from ' + reviewer);
+  sending = true;
+  document.getElementById('submitBtn').disabled = true;
+  status.textContent = 'Sending ' + reviewer + '’s answers…';
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 20000);
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/23322cc0514fb928fe0d089afa12512a', {
+      method: 'POST', headers: {Accept: 'application/json'}, body, signal: controller.signal
+    });
+    const payload = await response.json();
+    if (!response.ok || (payload.success !== true && payload.success !== 'true')) throw new Error('Send not confirmed');
+    status.textContent = 'Sent ' + reviewer + '’s answers. ' + (mixLine() === submitted ? 'Draft kept on this device.' : 'Later changes are still a draft; send again to include them.');
+  } catch (error) {
+    status.textContent = 'Answers were not confirmed sent. Retry Send answers, or copy / download them. Your draft is kept on this device if autosave is available.';
+  } finally {
+    clearTimeout(timer);
+    sending = false;
+    document.getElementById('submitBtn').disabled = false;
+  }
+});
+document.getElementById('copyBtn').addEventListener('click', async () => {
+  saveDraft();
+  try { await navigator.clipboard.writeText(mixLine()); status.textContent = 'Answers copied.'; }
+  catch (error) { status.textContent = 'Copy unavailable. Use Download answers.'; }
+});
+document.getElementById('dlBtn').addEventListener('click', () => {
+  saveDraft(); downloadMix(); status.textContent = 'Answers downloaded.';
+});
+document.getElementById('printBtn').addEventListener('click', async () => {
+  if (preparingPrint) return;
+  saveDraft();
+  preparingPrint = true;
+  const button = document.getElementById('printBtn');
+  button.disabled = true;
+  button.textContent = 'Preparing phones…';
+  status.textContent = 'Loading all phones for print…';
+  const loaded = await Promise.all(clips.map(mountPhone));
+  preparingPrint = false;
+  button.disabled = false;
+  button.textContent = 'Print packet / PDF';
+  if (loaded.some(ready => !ready)) {
+    status.textContent = 'Some phones did not load. Retry those phones before printing.';
     return;
   }
-  saveDraft();
-  downloadMix();
-  const status = document.getElementById("status");
-  status.textContent = "Sending… (also downloaded a backup)";
-  const body = new FormData(this);
-  body.append("_subject", "Sweet round 3 answers from " + val("who"));
-  try {
-    const res = await fetch("https://formsubmit.co/ajax/23322cc0514fb928fe0d089afa12512a", {
-      method: "POST", headers: { Accept: "application/json" }, body
-    });
-    const payload = await res.json().catch(function () { return {}; });
-    if (!res.ok || payload.success === "false" || payload.success === false) throw new Error(payload.message || ("HTTP " + res.status));
-    status.textContent = "Submitted. Backup downloaded. Draft kept on this device.";
-  } catch (err) {
-    status.textContent = "Online send failed. Backup downloaded — paste it here in chat if needed.";
-  }
+  document.body.classList.add('print-ready');
+  status.textContent = 'All phones ready to print.';
+  window.print();
 });
-document.getElementById("copyBtn").addEventListener("click", async function () {
-  saveDraft();
-  try { await navigator.clipboard.writeText(mixLine()); document.getElementById("status").textContent = "Copied."; }
-  catch (err) { document.getElementById("status").textContent = "Copy failed — use Download."; }
+window.addEventListener('beforeprint', () => {
+  printing = true;
+  renderSummary();
+  document.body.classList.toggle('print-ready', clips.every(clip => phoneStates.get(clip).ready));
+  clips.forEach(mountPhone);
 });
-document.getElementById("dlBtn").addEventListener("click", function () { saveDraft(); downloadMix(); document.getElementById("status").textContent = "Downloaded."; });
-document.getElementById("printBtn").addEventListener("click", function () { saveDraft(); window.print(); });
+window.addEventListener('afterprint', () => {
+  printing = false;
+  document.body.classList.remove('print-ready');
+  releaseDistantPhones();
+});
 </script>
 </body>
 </html>
