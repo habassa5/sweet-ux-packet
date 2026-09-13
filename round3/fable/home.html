@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Sweet — Home, round 2 (Codex IA, three visual directions)</title>
+<link rel="stylesheet" href="sweet2.css">
+<style>
+.brandrow { display:flex; align-items:center; justify-content:space-between; height:44px; margin-top:6px; }
+.hero { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:14px; }
+.hero .display { max-width:250px; }
+.hero img { width:118px; height:118px; transform: rotate(10deg); }
+.hero .sub { font:400 17px/1.35 var(--font); color:var(--ink-muted); margin-top:8px; }
+
+/* A · candy cards */
+.ccard { display:flex; align-items:center; gap:14px; background:var(--card); border-radius:20px; padding:14px 14px 14px 14px; }
+.ccard + .ccard { margin-top:10px; }
+.ccard .t { font:600 19px/1.2 var(--font); letter-spacing:-.01em; }
+.ccard .d { font:400 14px/1.3 var(--font); color:var(--ink-muted); margin-top:4px; }
+.ccard .main { flex:1; min-width:0; }
+.last { display:flex; align-items:center; gap:10px; margin-top:16px; padding:10px 14px; border-radius:14px; background:var(--tint-teal); color:#0B4F4A; font:500 14px/1.3 var(--font); }
+.last b { font-weight:600; }
+.demo-h { display:flex; align-items:baseline; justify-content:space-between; margin-top:26px; }
+.demo-h .h { font:600 17px/1.3 var(--font); }
+.demo { display:flex; align-items:center; gap:12px; padding:12px 2px; }
+.demo + .demo { border-top:1px solid var(--hairline); }
+.demo .play { width:26px; height:26px; border-radius:8px; background:var(--card); display:flex; align-items:center; justify-content:center; color:var(--ink-muted); flex:none; }
+.demo .play svg { width:14px; height:14px; }
+.demo .n { flex:1; font:500 16px/1.3 var(--font); }
+.demo .tag { font:600 11px/1 var(--font); letter-spacing:.06em; text-transform:uppercase; color:var(--ink-muted); }
+
+/* B · bloom tiles */
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:18px; }
+.btile { border-radius:22px; padding:16px; min-height:150px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; }
+.btile.wide { grid-column:1 / -1; min-height:150px; flex-direction:row; align-items:center; gap:16px; }
+.btile.face { background: linear-gradient(135deg, #FDE7EF 0%, #FBD3E1 100%); }
+.btile.skin { background: linear-gradient(135deg, #E6EEFC 0%, #D6E2FA 100%); }
+.btile.gut  { background: linear-gradient(135deg, #F8ECD9 0%, #F3DFC0 100%); }
+.btile .t { font:600 20px/1.2 var(--font); letter-spacing:-.01em; }
+.btile .d { font:400 14px/1.3 var(--font); color:var(--ink-muted); margin-top:4px; }
+.btile .big { width:64px; height:64px; }
+.btile .big svg { width:64px; height:64px; }
+.btile .cta { font:600 14px/1 var(--font); margin-top:14px; display:flex; align-items:center; gap:6px; }
+.btile.face .cta { color:var(--ink-face);} .btile.skin .cta { color:var(--ink-skin);} .btile.gut .cta { color:var(--ink-gut);}
+.btile .cta svg { width:16px; height:16px; }
+
+/* C · lens */
+.lens { margin: 14px -16px 0; padding: 18px 16px 22px; background: var(--ink); color: var(--surface); border-radius: 0 0 28px 28px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.lens .display { color: var(--surface); max-width: 230px; }
+.lens .sub { color: rgba(250,245,237,.75); font: 400 16px/1.35 var(--font); margin-top:8px; }
+.lens img { width:104px; height:104px; transform: rotate(10deg); }
+.lrow { display:flex; align-items:center; gap:14px; padding:14px 2px; }
+.lrow + .lrow { border-top:1px solid var(--hairline); }
+.lrow .t { font:600 19px/1.2 var(--font); letter-spacing:-.01em; }
+.lrow .d { font:400 14px/1.3 var(--font); color:var(--ink-muted); margin-top:4px; }
+.lrow .main { flex:1; }
+.lrow .start { font:600 16px/1 var(--font); color:var(--teal); }
+</style></head>
+<body class="gallery">
+<h1>Home — Codex IA, three visual directions</h1>
+<p class="lead">The information architecture is the one Salim picked: brand row, "A moment for you." with the spiral, three personal checks as rows in Codex's order and copy, then the demos under one heading, and Home · Health · History tabs. What changes is the visual pass: each check has to read as tappable without a giant teal button and without a list chevron, the icons have to carry some charm, and the page has to stay clean. A uses candy cards with a tinted "go" coin; B makes the tiles themselves the buttons; C keeps rows and uses a dark Sweet Lens hero for boldness. Settings placement is a separate page (<a href="settings-placement.html">settings-placement.html</a>).</p>
+
+<div class="row">
+
+<!-- ================= A ================= -->
+<div class="variant">
+<div class="label">A · Candy cards — tinted icon tile, one-line meaning, a "go" coin (recommended)</div>
+<div class="phone">
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="scroll with-tabs">
+    <div class="brandrow">
+      <div class="brand">Sweet</div>
+      <svg class="gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+    </div>
+    <div class="hero">
+      <div><div class="display">A moment<br>for you.</div><div class="sub">Pick a check. About a minute.</div></div>
+      <img src="brand/living-spiral-mark-composited-light.png" alt="">
+    </div>
+
+    <div class="last"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Face · 2 h ago.</b> Everything sat within your usual.</span></div>
+
+    <div style="margin-top:16px">
+      <div class="ccard">
+        <div class="tile-ico face"><svg viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="12.5" fill="#fff" stroke="currentColor" stroke-width="2"/><path d="M11.5 14.2c.6-1 1.6-1 2.2 0M20.3 14.2c.6-1 1.6-1 2.2 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 20.2c1.4 2 3.1 2.9 5 2.9s3.6-.9 5-2.9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 9.5c2-1.5 3.6-1.2 5 .6M30 9.5c-2-1.5-3.6-1.2-5 .6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".55"/></svg></div>
+        <div class="main"><div class="t">Face check</div><div class="d">Pulse, breathing &amp; recovery</div></div>
+        <div class="go face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div>
+      </div>
+      <div class="ccard">
+        <div class="tile-ico skin"><svg viewBox="0 0 34 34" fill="none"><path d="M17 5.5c3.8 5 7.5 9 7.5 13.2A7.5 7.5 0 0 1 9.5 18.7C9.5 14.5 13.2 10.5 17 5.5z" fill="#fff" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M13.6 19.4c0 1.8 1.1 3.1 2.6 3.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".7"/><path d="M27 6.5v4M25 8.5h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="main"><div class="t">Skin check</div><div class="d">A closer look at your skin</div></div>
+        <div class="go skin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div>
+      </div>
+      <div class="ccard">
+        <div class="tile-ico gut"><svg viewBox="0 0 34 34" fill="none"><path d="M9 10.5c0-2.5 2-4 4.5-4h7c2.5 0 4.5 1.5 4.5 4s-2 4-4.5 4h-7c-2.5 0-4.5 1.5-4.5 4s2 4 4.5 4h7c2.5 0 4.5 1.5 4.5 4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M9 10.5c0-2.5 2-4 4.5-4h7c2.5 0 4.5 1.5 4.5 4s-2 4-4.5 4h-7c-2.5 0-4.5 1.5-4.5 4s2 4 4.5 4h7c2.5 0 4.5 1.5 4.5 4" stroke="#fff" stroke-width="5.2" stroke-linecap="round" fill="none" style="mix-blend-mode:normal" opacity="0"/><circle cx="25" cy="27" r="2.2" fill="currentColor"/></svg></div>
+        <div class="main"><div class="t">Gut check</div><div class="d">Understand your stool’s form</div></div>
+        <div class="go gut"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div>
+      </div>
+    </div>
+
+    <div class="demo-h"><div class="h">Explore the demos</div><div class="caption">9 checks</div></div>
+    <div class="caption" style="margin-top:2px">Sample results for planned checks. Not about you.</div>
+    <div style="margin-top:6px">
+      <div class="demo"><div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="n">Full Checkup</div><div class="tag">Demo</div></div>
+      <div class="demo"><div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="n">Heart</div><div class="tag">Demo</div></div>
+      <div class="demo"><div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="n">Blood</div><div class="tag">Demo</div></div>
+    </div>
+  </div>
+  <div class="tabbar">
+    <div class="tab on"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4v-5H9v5H5a1 1 0 0 1-1-1z"/></svg>Home</div>
+    <div class="tab"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M6 12h3l1.5-3 2 6 1.5-3h4"/></svg>Health</div>
+    <div class="tab"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3.5 12a8.5 8.5 0 1 0 2.5-6"/><path d="M3 4v4.5h4.5"/><path d="M12 8v4.5l3 1.8"/></svg>History</div>
+  </div>
+  <div class="home-ind"></div>
+</div>
+<div class="note"><b>Why it reads as tappable:</b> the card fill lifts each check off the paper, the tinted icon tile gives it a colour, and the trailing coin with an arrow is a "go" cue, not an iOS disclosure chevron. Nothing is a giant button; the whole card is the target. The latest-check strip appears only once a record exists and speaks in baseline grammar ("within your usual"), never a verdict. Demo rows keep Codex's placement but drop the chevron; the play glyph plus the Demo tag say what they are.</div>
+</div>
+
+<!-- ================= B ================= -->
+<div class="variant">
+<div class="label">B · Bloom tiles — the tile is the button, pastel gradients, no trailing control at all</div>
+<div class="phone">
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="scroll with-tabs">
+    <div class="brandrow">
+      <div class="brand">Sweet</div>
+      <svg class="gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+    </div>
+    <div class="hero">
+      <div><div class="display">A moment<br>for you.</div><div class="sub">Pick a check. About a minute.</div></div>
+      <img src="brand/living-spiral-mark-composited-light.png" alt="">
+    </div>
+
+    <div class="grid">
+      <div class="btile wide face">
+        <div class="big"><svg viewBox="0 0 34 34" fill="none" style="color:#C7216B"><circle cx="17" cy="17" r="12.5" fill="#fff" stroke="currentColor" stroke-width="2"/><path d="M11.5 14.2c.6-1 1.6-1 2.2 0M20.3 14.2c.6-1 1.6-1 2.2 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 20.2c1.4 2 3.1 2.9 5 2.9s3.6-.9 5-2.9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 9.5c2-1.5 3.6-1.2 5 .6M30 9.5c-2-1.5-3.6-1.2-5 .6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".55"/></svg></div>
+        <div style="flex:1"><div class="t">Face check</div><div class="d">Pulse, breathing &amp; recovery. About a minute, front camera.</div><div class="cta">Start <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div></div>
+      </div>
+      <div class="btile skin">
+        <div class="big"><svg viewBox="0 0 34 34" fill="none" style="color:#2E66D6"><path d="M17 5.5c3.8 5 7.5 9 7.5 13.2A7.5 7.5 0 0 1 9.5 18.7C9.5 14.5 13.2 10.5 17 5.5z" fill="#fff" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M13.6 19.4c0 1.8 1.1 3.1 2.6 3.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".7"/><path d="M27 6.5v4M25 8.5h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div><div class="t">Skin check</div><div class="d">A closer look at your skin</div><div class="cta">Start <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div></div>
+      </div>
+      <div class="btile gut">
+        <div class="big"><svg viewBox="0 0 34 34" fill="none" style="color:#A8642A"><path d="M9 10.5c0-2.5 2-4 4.5-4h7c2.5 0 4.5 1.5 4.5 4s-2 4-4.5 4h-7c-2.5 0-4.5 1.5-4.5 4s2 4 4.5 4h7c2.5 0 4.5 1.5 4.5 4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/><circle cx="25" cy="27" r="2.2" fill="currentColor"/></svg></div>
+        <div><div class="t">Gut check</div><div class="d">Understand your stool’s form</div><div class="cta">Start <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></div></div>
+      </div>
+    </div>
+
+    <div class="demo-h"><div class="h">Explore the demos</div><div class="caption">9 checks</div></div>
+    <div class="caption" style="margin-top:2px">Sample results for planned checks. Not about you.</div>
+    <div style="margin-top:6px">
+      <div class="demo"><div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="n">Full Checkup</div><div class="tag">Demo</div></div>
+      <div class="demo"><div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="n">Heart</div><div class="tag">Demo</div></div>
+    </div>
+  </div>
+  <div class="tabbar">
+    <div class="tab on"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4v-5H9v5H5a1 1 0 0 1-1-1z"/></svg>Home</div>
+    <div class="tab"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M6 12h3l1.5-3 2 6 1.5-3h4"/></svg>Health</div>
+    <div class="tab"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3.5 12a8.5 8.5 0 1 0 2.5-6"/><path d="M3 4v4.5h4.5"/><path d="M12 8v4.5l3 1.8"/></svg>History</div>
+  </div>
+  <div class="home-ind"></div>
+</div>
+<div class="note"><b>Why it reads as tappable:</b> a coloured tile with a verb inside it is a button by convention (Fitness, Headspace). Face gets the wide tile because it is the check that runs most; Skin and Gut sit as a pair. The word "Start" inside each tile is the only control text. Cost: the pastel gradients are a new surface treatment (DESIGN.md §6 has flat fills only) and would need a bounded adoption.</div>
+</div>
+
+<!-- ================= C ================= -->
+<div class="variant">
+<div class="label">C · Lens — dark hero band for boldness, quiet rows, "Start" in teal text, no chevron</div>
+<div class="phone">
+  <div class="status"><span>9:41</span><div class="island"></div><div class="right"><span>●●●</span><div class="bat"></div></div></div>
+  <div class="scroll with-tabs">
+    <div class="brandrow">
+      <div class="brand">Sweet</div>
+      <svg class="gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+    </div>
+    <div class="lens">
+      <div><div class="display">A moment<br>for you.</div><div class="sub">Pick a check. About a minute.</div></div>
+      <img src="brand/living-spiral-mark-composited-dark.png" alt="">
+    </div>
+
+    <div style="margin-top:10px">
+      <div class="lrow">
+        <div class="tile-ico mono"><svg viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="12.5" fill="#fff" stroke="currentColor" stroke-width="2"/><path d="M11.5 14.2c.6-1 1.6-1 2.2 0M20.3 14.2c.6-1 1.6-1 2.2 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 20.2c1.4 2 3.1 2.9 5 2.9s3.6-.9 5-2.9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div class="main"><div class="t">Face check</div><div class="d">Pulse, breathing &amp; recovery</div></div>
+        <div class="start">Start</div>
+      </div>
+      <div class="lrow">
+        <div class="tile-ico mono"><svg viewBox="0 0 34 34" fill="none"><path d="M17 5.5c3.8 5 7.5 9 7.5 13.2A7.5 7.5 0 0 1 9.5 18.7C9.5 14.5 13.2 10.5 17 5.5z" fill="#fff" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M27 6.5v4M25 8.5h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="main"><div class="t">Skin check</div><div class="d">A closer look at your skin</div></div>
+        <div class="start">Start</div>
+      </div>
+      <div class="lrow">
+        <div class="tile-ico mono"><svg viewBox="0 0 34 34" fill="none"><path d="M9 10.5c0-2.5 2-4 4.5-4h7c2.5 0 4.5 1.5 4.5 4s-2 4-4.5 4h-7c-2.5 0-4.5 1.5-4.5 4s2 4 4.5 4h7c2.5 0 4.5 1.5 4.5 4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/><circle cx="25" cy="27" r="2.2" fill="currentColor"/></svg></div>
+        <div class="main"><div class="t">Gut check</div><div class="d">Understand your stool’s form</div></div>
+        <div class="start">Start</div>
+      </div>
+    </div>
+
+    <div class="demo-h"><div class="h">Explore the demos</div><div class="caption">9 checks</div></div>
+    <div class="caption" style="margin-top:2px">Sample results for planned checks. Not about you.</div>
+    <div style="margin-top:6px">
+      <div class="demo"><div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="n">Full Checkup</div><div class="tag">Demo</div></div>
+      <div class="demo"><div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="n">Heart</div><div class="tag">Demo</div></div>
+      <div class="demo"><div class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="n">Blood</div><div class="tag">Demo</div></div>
+    </div>
+  </div>
+  <div class="tabbar">
+    <div class="tab on"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4v-5H9v5H5a1 1 0 0 1-1-1z"/></svg>Home</div>
+    <div class="tab"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/><path d="M6 12h3l1.5-3 2 6 1.5-3h4"/></svg>Health</div>
+    <div class="tab"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3.5 12a8.5 8.5 0 1 0 2.5-6"/><path d="M3 4v4.5h4.5"/><path d="M12 8v4.5l3 1.8"/></svg>History</div>
+  </div>
+  <div class="home-ind"></div>
+</div>
+<div class="note"><b>Why it reads as tappable:</b> a teal "Start" word at the trailing edge is a verb, not a chevron, and rows stay on the paper so the page is the calmest of the three. The dark band is Sweet Lens used once, as the brand moment. Cost: one-hue icons are quieter than A's tints; the dark band makes the top heavier than Salim's "clean, uncluttered" may want.</div>
+</div>
+
+</div>
+<script src="solo.js"></script>
+</body></html>

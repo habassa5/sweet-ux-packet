@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sweet — round 3 comparison bench</title>
+<style>
+:root {
+  --paper: #F3EEE4;
+  --ink: #1A1612;
+  --muted: #6A6158;
+  --line: #DDD3C6;
+  --card: #FFFCF6;
+  --fable: #0E6B63;
+  --fable-soft: #D7EFEB;
+  --codex: #A12D58;
+  --codex-soft: #F8E3EA;
+  --teal: #0F766E;
+  --phone-w: 248px;
+  --rail: 52px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16.5px/1.45 "Iowan Old Style", Palatino, Georgia, serif;
+}
+button, input, textarea, select, label, .chip, nav a, .pin, .zoom {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+}
+.top {
+  position: sticky; top: 0; z-index: 40;
+  background: rgba(243,238,228,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.top-row {
+  max-width: 1180px; margin: 0 auto;
+  padding: .65rem 1.1rem .5rem;
+  display: flex; flex-wrap: wrap; gap: .55rem 1rem; align-items: center;
+}
+.kicker { font: 700 11px/1 system-ui; letter-spacing: .14em; text-transform: uppercase; color: var(--codex); }
+.who label { font: 650 13px/1.2 system-ui; cursor: pointer; margin-right: .7rem; }
+.progress { font: 650 12px/1.2 system-ui; color: var(--muted); margin-left: auto; }
+.toc {
+  max-width: 1180px; margin: 0 auto;
+  padding: 0 1.1rem .55rem;
+  display: flex; flex-wrap: wrap; gap: .35rem;
+}
+.toc a {
+  font: 650 12px/1 system-ui; color: var(--ink);
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 999px; padding: .38rem .7rem; text-decoration: none;
+}
+.toc a:hover { border-color: var(--ink); }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 1.25rem 1.1rem 8rem; }
+h1 { font-size: clamp(1.85rem, 3.4vw, 2.55rem); line-height: 1.1; margin: .2rem 0 .6rem; letter-spacing: -.02em; }
+.lede { color: var(--muted); max-width: 42rem; }
+.lede a { color: var(--teal); }
+.lock {
+  margin: 1.1rem 0 1.4rem; padding: .8rem 1rem;
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  font: 400 13.5px/1.45 system-ui; color: var(--muted);
+}
+.lock strong { color: var(--ink); }
+.lanes {
+  position: sticky; top: var(--rail); z-index: 12;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  max-width: 1180px; margin: 0 auto 1rem;
+  padding: .45rem 1.1rem;
+  background: rgba(243,238,228,.94);
+}
+.lane {
+  font: 800 11px/1 system-ui; letter-spacing: .12em; text-transform: uppercase;
+  padding: .45rem .7rem; border-radius: 10px; text-align: center;
+}
+.lane.f { background: var(--fable-soft); color: var(--fable); }
+.lane.c { background: var(--codex-soft); color: var(--codex); }
+.surface {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1.15rem 1.15rem 1.3rem;
+  margin: 0 0 1.5rem;
+}
+.surface h2 { font-size: 1.45rem; margin: 0 0 .35rem; }
+.why { color: var(--muted); margin: 0 0 .7rem; }
+.recs {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  margin: 0 0 1rem; font: 400 13.5px/1.4 system-ui;
+}
+.recs div { border-radius: 12px; padding: .55rem .75rem; }
+.recs .f { background: var(--fable-soft); }
+.recs .c { background: var(--codex-soft); }
+.recs strong { display: block; font: 800 10px/1 system-ui; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .25rem; }
+.recs .f strong { color: var(--fable); }
+.recs .c strong { color: var(--codex); }
+.pair {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px 18px;
+  margin: 0 0 1.15rem; align-items: start;
+}
+.cell h3 {
+  font: 700 12.5px/1.3 system-ui; margin: 0 0 .45rem;
+  min-height: 2.4em;
+}
+.cell.f h3 { color: var(--fable); }
+.cell.c h3 { color: var(--codex); }
+.phone-clip {
+  width: var(--phone-w);
+  height: calc(var(--phone-w) * 874 / 402);
+  overflow: hidden;
+  border-radius: calc(42px * var(--phone-w) / 402);
+  background: #161310;
+  box-shadow: 0 12px 30px rgba(26,22,18,.16);
+  cursor: zoom-in;
+  position: relative;
+}
+.phone-clip iframe {
+  width: 402px; height: 874px; border: 0;
+  transform: scale(calc(var(--phone-w) / 402));
+  transform-origin: 0 0;
+  pointer-events: none;
+  background: #fff;
+}
+.tools { display: flex; gap: .4rem; margin-top: .45rem; }
+.pin, .zoom {
+  font: 650 11px/1 system-ui; border: 1px solid var(--line); background: #fff;
+  border-radius: 999px; padding: .35rem .6rem; cursor: pointer; color: var(--ink);
+}
+.pin.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+.solo-row {
+  display: flex; flex-wrap: wrap; gap: 1rem 1.2rem;
+  margin: 0 0 1.1rem;
+}
+.solo-row .cell { flex: 0 0 auto; }
+.band {
+  font: 700 12px/1.35 system-ui; color: var(--teal);
+  background: #D7F3EA; border-radius: 8px; padding: .45rem .7rem; margin: 0 0 .8rem;
+}
+fieldset {
+  border: 1px solid var(--line); border-radius: 14px;
+  padding: .8rem 1rem 1rem; margin: 0; background: #FFFEFB;
+}
+legend { font: 800 11px/1 system-ui; letter-spacing: .08em; text-transform: uppercase; padding: 0 .3rem; }
+label.opt { display: block; padding: .32rem 0; cursor: pointer; font: 400 14.5px/1.35 system-ui; }
+label.opt.more { margin-top: .4rem; padding-top: .5rem; border-top: 1px dashed var(--line); color: var(--teal); font-weight: 650; }
+.steer { margin-top: .7rem; padding-top: .6rem; border-top: 1px solid var(--line); }
+.steer label { display: block; font: 700 11px/1.3 system-ui; letter-spacing: .04em; text-transform: uppercase; color: var(--teal); margin-bottom: .35rem; }
+textarea {
+  width: 100%; min-height: 5.2rem; font: 15px/1.4 system-ui;
+  padding: .65rem .75rem; border-radius: 10px; border: 1px solid var(--line); background: #fff; resize: vertical;
+}
+.missing {
+  width: var(--phone-w); min-height: 8rem;
+  border: 1px dashed var(--line); border-radius: 18px;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  padding: 1rem; color: var(--muted); font: 400 13px/1.4 system-ui; background: #f7f2ea;
+}
+.sticky {
+  position: sticky; bottom: 0; z-index: 30;
+  background: rgba(243,238,228,.96); backdrop-filter: blur(12px);
+  border-top: 1px solid var(--line);
+  padding: .7rem 1.1rem .85rem;
+}
+.sticky-inner { max-width: 1180px; margin: 0 auto; }
+#mix-tray {
+  display: flex; flex-wrap: wrap; gap: .35rem; min-height: 0; margin: 0 0 .5rem;
+}
+#mix-tray:empty { display: none; }
+#mix-tray .chip {
+  font: 650 11px/1 system-ui; border-radius: 999px; padding: .35rem .55rem;
+  background: #fff; border: 1px solid var(--line);
+}
+#mix-tray .chip.f { border-color: var(--fable); color: var(--fable); }
+#mix-tray .chip.c { border-color: var(--codex); color: var(--codex); }
+.actions { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+.actions button {
+  font: 700 13px/1 system-ui; border: 0; border-radius: 999px;
+  padding: .7rem 1.05rem; cursor: pointer;
+}
+.actions .primary { background: var(--teal); color: #fff; }
+.actions .ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+.status { font: 600 12.5px/1.3 system-ui; color: var(--muted); }
+#lite {
+  position: fixed; inset: 0; background: rgba(18,14,12,.72); z-index: 80;
+  display: none; align-items: center; justify-content: center; padding: 1.5rem;
+}
+#lite.on { display: flex; }
+#lite .stage {
+  background: #111; border-radius: 28px; overflow: hidden;
+  width: 402px; height: 874px; max-height: 92vh; max-width: 92vw;
+  box-shadow: 0 20px 60px #0008;
+}
+#lite iframe { width: 402px; height: 874px; border: 0; background: #fff; }
+#lite .close {
+  position: absolute; top: 12px; right: 12px;
+  font: 700 13px/1 system-ui; background: #fff; border: 0; border-radius: 999px;
+  padding: .55rem .8rem; cursor: pointer;
+}
+@media (max-width: 820px) {
+  :root { --phone-w: 210px; --rail: 96px; }
+  .pair, .recs, .lanes { grid-template-columns: 1fr; }
+  .lanes { top: 86px; }
+  .phone-clip { margin: 0 auto; }
+}
+@media (max-width: 480px) {
+  :root { --phone-w: min(248px, calc(100vw - 3rem)); }
+}
+@media print {
+  .top, .lanes, .sticky, .tools, #lite { display: none !important; }
+  .surface { break-inside: avoid; box-shadow: none; }
+  .phone-clip { box-shadow: none; }
+  body { background: #fff; }
+  textarea { min-height: 3rem; }
+}
+</style>
+</head>
+<body>
+<form id="mixform">
+<div class="top">
+  <div class="top-row">
+    <span class="kicker">Sweet UX · packet 3</span>
+    <span class="who">
+      Who
+      <label><input type="radio" name="who" value="Salim" required> Salim</label>
+      <label><input type="radio" name="who" value="Ranya"> Ranya</label>
+    </span>
+    <span class="progress" id="progress">0 of 8 decided</span>
+  </div>
+  <nav class="toc">
+    <a href="#home">Home</a>
+    <a href="#face-cap">Face capture</a>
+    <a href="#face-res">Face result</a>
+    <a href="#skin-cap">Skin capture</a>
+    <a href="#skin-res">Skin result</a>
+    <a href="#gut">Gut</a>
+    <a href="#history">History</a>
+    <a href="#settings">Settings</a>
+    <a href="#health">Health / Ask</a>
+    <a href="../round2/index.html">Round 2 packet</a>
+    <a href="../">Round 1 packet</a>
+  </nav>
+</div>
+<div class="lanes" aria-hidden="true">
+  <div class="lane f">Fable · always left · same 402×874 phone as Codex</div>
+  <div class="lane c">Codex · always right · interactive</div>
+</div>
+
+<div class="wrap">
+<header>
+  <h1>One bench. Same-size phones. Pin what you want to steal.</h1>
+  <p class="lede">This is a <strong>new</strong> page. Round 2 is still at <a href="../round2/index.html">/round2/</a> and was not changed. Every Fable screen is isolated at Codex’s 402×874 — no more giant contact sheets. Fable stays on the left, Codex on the right. Click a phone to enlarge. Pin screens into your mix, then pick (or mix) and write why.</p>
+</header>
+<div class="lock"><strong>Already decided (round 1).</strong> Home rows as IA · Gut Codex layout + Fable tints · drop Samples · tabs Home · Health · History · Instagram X · oval higher · blur outside oval · no disclaimer on capture · meaning-first · no Shen · lb/in · rMSSD only · short explain, Ask to dig. This page is the visual pass.</div>
+
+<article class="surface" id="home">
+  <h2>Home</h2>
+  <p class="why">Same IA. The question is how each check feels tappable without a giant teal button or a lame chevron — beauty, care, whimsy, still clean.</p>
+  <div class="recs">
+    <div class="f"><strong>Fable rec</strong> A · candy cards + go-coin, gear top-right</div>
+    <div class="c"><strong>Codex rec</strong> C · candy keepsakes, whole row tappable, gear top-right</div>
+  </div>
+  <div class="pair">
+    <div class="cell f"><h3>A · Candy cards + go-coin</h3><div class="phone-clip" data-src="fable/home.html?solo=0" data-title="Fable Home A"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Home A">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>A · Warm editorial</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-a" data-title="Codex Home A"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Home A">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>B · Bloom tiles</h3><div class="phone-clip" data-src="fable/home.html?solo=1" data-title="Fable Home B"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Home B">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>B · Rose note</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-b" data-title="Codex Home B"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Home B">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>C · Lens band + Start</h3><div class="phone-clip" data-src="fable/home.html?solo=2" data-title="Fable Home C"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Home C">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>C · Candy keepsakes (rec)</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-c" data-title="Codex Home C"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Home C">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+  </div>
+  <p class="band">Comment on these Home phones — not Face.</p>
+  <fieldset>
+    <legend>Home look</legend>
+    <label class="opt"><input type="radio" name="home" value="fable-a"> Fable A — candy cards + go coin</label>
+    <label class="opt"><input type="radio" name="home" value="fable-b"> Fable B — bloom tiles</label>
+    <label class="opt"><input type="radio" name="home" value="fable-c"> Fable C — Lens band</label>
+    <label class="opt"><input type="radio" name="home" value="codex-a"> Codex A — warm editorial</label>
+    <label class="opt"><input type="radio" name="home" value="codex-b"> Codex B — rose note</label>
+    <label class="opt"><input type="radio" name="home" value="codex-c"> Codex C — candy keepsakes</label>
+    <label class="opt"><input type="radio" name="home" value="mix"> Mix — steal pieces, write how below</label>
+    <label class="opt more"><input type="radio" name="home" value="mock-another-round"> Mock another round</label>
+    <div class="steer"><label for="home_notes">Steal from Fable / steal from Codex / anything else</label><textarea id="home_notes" name="home_notes" placeholder="e.g. Codex C rows + Fable spiral hero + go-coin…"></textarea></div>
+  </fieldset>
+</article>
+
+<article class="surface" id="face-cap">
+  <h2>Face capture</h2>
+  <p class="why">Locked: Instagram X, oval higher, full-bleed + blur outside, guidance above, no disclaimer. Open: working graphic, whether X hides when the signal is good.</p>
+  <div class="recs">
+    <div class="f"><strong>Fable rec</strong> Heart + waveform; X hides while the run is good</div>
+    <div class="c"><strong>Codex rec</strong> Three quiet dots; unbordered X stays</div>
+  </div>
+  <div class="pair">
+    <div class="cell f"><h3>Too far · amber · X visible</h3><div class="phone-clip" data-src="fable/face-capture.html?solo=0" data-title="Fable Face too far"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face too far">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Reposition</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-adjust" data-title="Codex Face reposition"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Face reposition">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>Ready · teal oval · coach above</h3><div class="phone-clip" data-src="fable/face-capture.html?solo=1" data-title="Fable Face ready"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face ready">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Ready · high green oval</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-ready" data-title="Codex Face ready"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Face ready">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>Measuring · heart + wave · X hidden (rec)</h3><div class="phone-clip" data-src="fable/face-capture.html?solo=2" data-title="Fable Face measuring"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face measuring">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Working · three dots</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-scan" data-title="Codex Face working"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Face working">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+  </div>
+  <p class="why" style="margin-top:.2rem">Only on one side — still the same phone size.</p>
+  <div class="solo-row">
+    <div class="cell f"><h3>Fable 3b · live bpm (alt, not rec)</h3><div class="phone-clip" data-src="fable/face-capture.html?solo=3" data-title="Fable Face live bpm"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face live bpm">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>Fable · signal dropped · X returns</h3><div class="phone-clip" data-src="fable/face-capture.html?solo=4" data-title="Fable Face signal dropped"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face signal dropped">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>Fable · finishing</h3><div class="phone-clip" data-src="fable/face-capture.html?solo=5" data-title="Fable Face finishing"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face finishing">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>Fable · camera off</h3><div class="phone-clip" data-src="fable/face-capture.html?solo=6" data-title="Fable Face camera off"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face camera off">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+  </div>
+  <p class="band">Comment on Face <em>capture</em> — oval, blur, X, working graphic. Not the result tiles.</p>
+  <fieldset>
+    <legend>Face capture</legend>
+    <label class="opt"><input type="radio" name="face_capture" value="fable"> Fable (heart + wave; X hides when good)</label>
+    <label class="opt"><input type="radio" name="face_capture" value="codex"> Codex (three dots; X stays)</label>
+    <label class="opt"><input type="radio" name="face_capture" value="fable-bpm"> Fable 3b — heart + live bpm</label>
+    <label class="opt"><input type="radio" name="face_capture" value="mix"> Mix — write how below</label>
+    <label class="opt more"><input type="radio" name="face_capture" value="mock-another-round"> Mock another round</label>
+    <div class="steer"><label for="face_capture_notes">Steal from Fable / steal from Codex</label><textarea id="face_capture_notes" name="face_capture_notes" placeholder="e.g. Codex oval + Fable hidden X + Codex dots…"></textarea></div>
+  </fieldset>
+</article>
+
+<article class="surface" id="face-res">
+  <h2>Face result</h2>
+  <p class="why">4–8 hero tiles, prettier, not raw numbers, meaning-first. Remaining pick: captions on the tile vs tap-to-see.</p>
+  <div class="recs">
+    <div class="f"><strong>Fable rec</strong> Six tiles, meaning first, number as a small caption</div>
+    <div class="c"><strong>Codex rec</strong> Six meaning tiles; number is not the headline</div>
+  </div>
+  <div class="pair">
+    <div class="cell f"><h3>A · Six tiles + captions (rec)</h3><div class="phone-clip" data-src="fable/face-result.html?solo=0" data-title="Fable Face result A"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face result A">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Six meaning tiles</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-result" data-title="Codex Face result"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Face result">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>B · First check · four tiles, no numbers</h3><div class="phone-clip" data-src="fable/face-result.html?solo=1" data-title="Fable Face first check"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Face first check">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Before a baseline</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-baseline-empty" data-title="Codex Face no baseline"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Face no baseline">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>C · HRV so-what sheet</h3><div class="phone-clip" data-src="fable/face-result.html?solo=2" data-title="Fable HRV sheet"></div><div class="tools"><button type="button" class="pin" data-pin="Fable HRV sheet">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>HRV detail · rMSSD + range</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-detail" data-title="Codex HRV detail"></div><div class="tools"><button type="button" class="pin" data-pin="Codex HRV detail">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+  </div>
+  <div class="solo-row">
+    <div class="cell c"><h3>Codex · every reading</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=face-all" data-title="Codex Face all readings"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Face all readings">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+  </div>
+  <p class="band">Comment on Face <em>result</em> — not capture.</p>
+  <fieldset>
+    <legend>Face result</legend>
+    <label class="opt"><input type="radio" name="face_result" value="fable-a"> Fable A — six tiles + captions</label>
+    <label class="opt"><input type="radio" name="face_result" value="fable-b"> Fable B — first-check four tiles</label>
+    <label class="opt"><input type="radio" name="face_result" value="codex"> Codex six tiles</label>
+    <label class="opt"><input type="radio" name="face_result" value="mix"> Mix — write how below</label>
+    <label class="opt more"><input type="radio" name="face_result" value="mock-another-round"> Mock another round</label>
+    <div class="steer"><label for="face_result_notes">Steal from Fable / steal from Codex</label><textarea id="face_result_notes" name="face_result_notes"></textarea></div>
+  </fieldset>
+</article>
+
+<article class="surface" id="skin-cap">
+  <h2>Skin capture</h2>
+  <p class="why">One coach, oval higher/maybe bigger (fill-most-of-width), Instagram X.</p>
+  <div class="recs">
+    <div class="f"><strong>Fable rec</strong> Wider higher guide; one coach line; dim outside (the whole still is sent)</div>
+    <div class="c"><strong>Codex rec</strong> Wider close-up oval; one coach; shutter</div>
+  </div>
+  <div class="pair">
+    <div class="cell f"><h3>Far · the gap is the instruction</h3><div class="phone-clip" data-src="fable/skin-capture.html?solo=0" data-title="Fable Skin far"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Skin far">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Ready · fill the oval</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-ready" data-title="Codex Skin ready"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Skin ready">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>Filled · stroke solid</h3><div class="phone-clip" data-src="fable/skin-capture.html?solo=1" data-title="Fable Skin filled"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Skin filled">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Photo too small · recovery</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-error" data-title="Codex Skin too small"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Skin too small">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>Review · use or retake</h3><div class="phone-clip" data-src="fable/skin-capture.html?solo=2" data-title="Fable Skin review"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Skin review">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Review · use or retake</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-review" data-title="Codex Skin review"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Skin review">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+  </div>
+  <div class="solo-row">
+    <div class="cell f"><h3>Fable · sending</h3><div class="phone-clip" data-src="fable/skin-capture.html?solo=3" data-title="Fable Skin sending"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Skin sending">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+  </div>
+  <p class="band">Comment on Skin <em>capture</em> — guide size, coach, X. Not the result cards.</p>
+  <fieldset>
+    <legend>Skin capture</legend>
+    <label class="opt"><input type="radio" name="skin_capture" value="fable"> Fable</label>
+    <label class="opt"><input type="radio" name="skin_capture" value="codex"> Codex</label>
+    <label class="opt"><input type="radio" name="skin_capture" value="mix"> Mix — write how below</label>
+    <label class="opt more"><input type="radio" name="skin_capture" value="mock-another-round"> Mock another round</label>
+    <div class="steer"><label for="skin_capture_notes">Steal from Fable / steal from Codex</label><textarea id="skin_capture_notes" name="skin_capture_notes"></textarea></div>
+  </fieldset>
+</article>
+
+<article class="surface" id="skin-res">
+  <h2>Skin result</h2>
+  <p class="why">Esthetician highlights/lowlights, consider green/amber/red first, number on tap or Ask. Not 70 numbers.</p>
+  <div class="recs">
+    <div class="f"><strong>Fable rec</strong> Highlights → worth attention → needs care, word beside colour</div>
+    <div class="c"><strong>Codex rec</strong> Highlight, care priority, watch — scores on tap</div>
+  </div>
+  <div class="pair">
+    <div class="cell f"><h3>A · Highlights and lowlights (rec)</h3><div class="phone-clip" data-src="fable/skin-result.html?solo=0" data-title="Fable Skin result A"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Skin result A">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Meaning-first Skin</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-result" data-title="Codex Skin result"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Skin result">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>B · Glance bar + dots</h3><div class="phone-clip" data-src="fable/skin-result.html?solo=1" data-title="Fable Skin glance bar"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Skin glance bar">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Score detail</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-detail" data-title="Codex Skin detail"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Skin detail">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>C · Tap a reading</h3><div class="phone-clip" data-src="fable/skin-result.html?solo=2" data-title="Fable Skin tap reading"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Skin tap reading">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>All observations</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=skin-all" data-title="Codex Skin all"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Skin all">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+  </div>
+  <p class="band">Comment on Skin <em>result</em>.</p>
+  <fieldset>
+    <legend>Skin result</legend>
+    <label class="opt"><input type="radio" name="skin_result" value="fable-a"> Fable A — highlights / lowlights</label>
+    <label class="opt"><input type="radio" name="skin_result" value="fable-b"> Fable B — glance bar</label>
+    <label class="opt"><input type="radio" name="skin_result" value="codex"> Codex</label>
+    <label class="opt"><input type="radio" name="skin_result" value="mix"> Mix — write how below</label>
+    <label class="opt more"><input type="radio" name="skin_result" value="mock-another-round"> Mock another round</label>
+    <div class="steer"><label for="skin_result_notes">Steal from Fable / steal from Codex</label><textarea id="skin_result_notes" name="skin_result_notes"></textarea></div>
+  </fieldset>
+</article>
+
+<article class="surface" id="gut">
+  <h2>Gut</h2>
+  <p class="why">Already decided: Codex layout + Fable tints, brown stool, surround only, “You”. Confirm the paint, or send it back.</p>
+  <div class="recs">
+    <div class="f"><strong>Fable rec</strong> Codex layout, Fable tints, type 4 green / type 6 orange</div>
+    <div class="c"><strong>Codex rec</strong> Same contract, independently painted</div>
+  </div>
+  <div class="pair">
+    <div class="cell f"><h3>Type 4 · You on green</h3><div class="phone-clip" data-src="fable/gut-result.html?solo=0" data-title="Fable Gut type 4"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Gut type 4">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Gut result</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=gut-result" data-title="Codex Gut result"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Gut result">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>Type 6 · You on orange</h3><div class="phone-clip" data-src="fable/gut-result.html?solo=1" data-title="Fable Gut type 6"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Gut type 6">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Gut photo (before the result)</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=gut-capture" data-title="Codex Gut capture"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Gut capture">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+  </div>
+  <p class="band">Comment on these Gut screens.</p>
+  <fieldset>
+    <legend>Gut</legend>
+    <label class="opt"><input type="radio" name="gut" value="as-decided"> Yes — Codex layout + Fable tints as shown</label>
+    <label class="opt"><input type="radio" name="gut" value="fable"> Fable’s paint</label>
+    <label class="opt"><input type="radio" name="gut" value="codex"> Codex’s paint</label>
+    <label class="opt"><input type="radio" name="gut" value="mix"> Mix — write how below</label>
+    <label class="opt more"><input type="radio" name="gut" value="mock-another-round"> Mock another round</label>
+    <div class="steer"><label for="gut_notes">Steal from Fable / steal from Codex</label><textarea id="gut_notes" name="gut_notes"></textarea></div>
+  </fieldset>
+</article>
+
+<article class="surface" id="history">
+  <h2>History</h2>
+  <p class="why">Drop Samples. All / Face / Skin / Gut + compare two Face checks.</p>
+  <div class="recs">
+    <div class="f"><strong>Fable rec</strong> Meaning in every row; compare in words; trend after seven checks</div>
+    <div class="c"><strong>Codex rec</strong> Filters, explicit two-check select, matched vs different-time compare</div>
+  </div>
+  <div class="pair">
+    <div class="cell f"><h3>List · filters + meaning</h3><div class="phone-clip" data-src="fable/history.html?solo=0" data-title="Fable History list"></div><div class="tools"><button type="button" class="pin" data-pin="Fable History list">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>All checks</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=history" data-title="Codex History"></div><div class="tools"><button type="button" class="pin" data-pin="Codex History">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>Compare two · in words</h3><div class="phone-clip" data-src="fable/history.html?solo=1" data-title="Fable History compare"></div><div class="tools"><button type="button" class="pin" data-pin="Fable History compare">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Face comparison</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=compare" data-title="Codex compare"></div><div class="tools"><button type="button" class="pin" data-pin="Codex compare">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>Trend · usual as a band</h3><div class="phone-clip" data-src="fable/history.html?solo=2" data-title="Fable History trend"></div><div class="tools"><button type="button" class="pin" data-pin="Fable History trend">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Choose two</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=compare-select" data-title="Codex compare select"></div><div class="tools"><button type="button" class="pin" data-pin="Codex compare select">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>Empty</h3><div class="phone-clip" data-src="fable/history.html?solo=3" data-title="Fable History empty"></div><div class="tools"><button type="button" class="pin" data-pin="Fable History empty">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Empty</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=history-empty" data-title="Codex History empty"></div><div class="tools"><button type="button" class="pin" data-pin="Codex History empty">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+  </div>
+  <div class="solo-row">
+    <div class="cell c"><h3>Codex · Face filter</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=history-face" data-title="Codex History Face filter"></div><div class="tools"><button type="button" class="pin" data-pin="Codex History Face filter">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Codex · different time of day</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=compare-limited" data-title="Codex compare limited"></div><div class="tools"><button type="button" class="pin" data-pin="Codex compare limited">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Codex · saved Face check</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=saved-check&record=f06" data-title="Codex saved Face"></div><div class="tools"><button type="button" class="pin" data-pin="Codex saved Face">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+  </div>
+  <p class="band">Comment on these History screens.</p>
+  <fieldset>
+    <legend>History</legend>
+    <label class="opt"><input type="radio" name="history" value="fable"> Fable</label>
+    <label class="opt"><input type="radio" name="history" value="codex"> Codex</label>
+    <label class="opt"><input type="radio" name="history" value="mix"> Mix — write how below</label>
+    <label class="opt more"><input type="radio" name="history" value="mock-another-round"> Mock another round</label>
+    <div class="steer"><label for="history_notes">Steal from Fable / steal from Codex</label><textarea id="history_notes" name="history_notes"></textarea></div>
+  </fieldset>
+</article>
+
+<article class="surface" id="settings">
+  <h2>Settings placement</h2>
+  <p class="why">Mocked top-left and top-right. Pick with the rest of the look. No fourth tab.</p>
+  <div class="recs">
+    <div class="f"><strong>Fable rec</strong> Top-right (wordmark leads)</div>
+    <div class="c"><strong>Codex rec</strong> Top-right (wordmark keeps its reading position)</div>
+  </div>
+  <div class="pair">
+    <div class="cell f"><h3>L · gear top-left</h3><div class="phone-clip" data-src="fable/settings-placement.html?solo=0" data-title="Fable Settings left"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Settings left">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Home A · gear top-left</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=home-left" data-title="Codex Home left gear"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Home left gear">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>R · gear top-right (rec)</h3><div class="phone-clip" data-src="fable/settings-placement.html?solo=1" data-title="Fable Settings right"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Settings right">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Settings from the right</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=settings-right" data-title="Codex Settings right"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Settings right">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>The sheet it opens</h3><div class="phone-clip" data-src="fable/settings-placement.html?solo=2" data-title="Fable Settings sheet"></div><div class="tools"><button type="button" class="pin" data-pin="Fable Settings sheet">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Settings from the left</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=settings-left" data-title="Codex Settings left"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Settings left">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+  </div>
+  <p class="band">Comment on Settings placement — not History.</p>
+  <fieldset>
+    <legend>Settings gear</legend>
+    <label class="opt"><input type="radio" name="settings" value="right"> Top-right</label>
+    <label class="opt"><input type="radio" name="settings" value="left"> Top-left</label>
+    <label class="opt more"><input type="radio" name="settings" value="mock-another-round"> Mock another round</label>
+    <div class="steer"><label for="settings_notes">Comments</label><textarea id="settings_notes" name="settings_notes"></textarea></div>
+  </fieldset>
+</article>
+
+<article class="surface" id="health">
+  <h2>Health tab and Ask</h2>
+  <p class="why">Fable did not mock a Health tab or Ask screen this round. Codex did. Same phone size. Optional pick — skip if you do not care yet.</p>
+  <div class="solo-row">
+    <div class="cell c"><h3>Codex · Health</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=health" data-title="Codex Health"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Health">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell c"><h3>Codex · Ask (from Gut)</h3><div class="phone-clip" data-src="../round2/codex/MOCKUPS/screen.html?screen=ask&context=gut" data-title="Codex Ask"></div><div class="tools"><button type="button" class="pin" data-pin="Codex Ask">Pin</button><button type="button" class="zoom">Enlarge</button></div></div>
+    <div class="cell f"><h3>Fable</h3><div class="missing">No Health or Ask mock in this Fable round.</div></div>
+  </div>
+  <fieldset>
+    <legend>Health / Ask (optional)</legend>
+    <label class="opt"><input type="radio" name="health" value="codex"> Use Codex Health / Ask as the starting look</label>
+    <label class="opt"><input type="radio" name="health" value="skip"> Skip — not deciding this now</label>
+    <label class="opt more"><input type="radio" name="health" value="mock-another-round"> Mock another round</label>
+    <div class="steer"><label for="health_notes">Comments</label><textarea id="health_notes" name="health_notes"></textarea></div>
+  </fieldset>
+</article>
+
+<article class="surface" id="else">
+  <h2>Anything else</h2>
+  <p class="why">Catch-all, plus anything you pinned into the mix tray below.</p>
+  <textarea name="notes" id="notes" rows="5" placeholder="Overall direction, things to combine, things to kill…"></textarea>
+  <input type="hidden" name="pins" id="pins">
+  <input type="hidden" name="mix_line" id="mix_line">
+</article>
+</div>
+
+<div class="sticky">
+  <div class="sticky-inner">
+    <div id="mix-tray" aria-live="polite"></div>
+    <div class="actions">
+      <button type="submit" class="primary">Submit answers</button>
+      <button type="button" class="ghost" id="copyBtn">Copy answers</button>
+      <button type="button" class="ghost" id="dlBtn">Download answers</button>
+      <button type="button" class="ghost" id="printBtn">Print / Save PDF</button>
+      <span class="status" id="status"></span>
+    </div>
+  </div>
+</div>
+</form>
+
+<div id="lite" role="dialog" aria-modal="true" aria-label="Enlarged phone">
+  <button type="button" class="close" id="liteClose">Close</button>
+  <div class="stage"><iframe title="Enlarged mock"></iframe></div>
+</div>
+
+<script>
+const KEY = "sweet-round3-draft-v1";
+const DECISIONS = ["home","face_capture","face_result","skin_capture","skin_result","gut","history","settings"];
+const pins = [];
+
+function val(name) {
+  const el = document.querySelector('[name="'+name+'"]:checked');
+  return el ? el.value : "";
+}
+function text(name) {
+  const el = document.querySelector('[name="'+name+'"]');
+  return el ? (el.value || "").trim() : "";
+}
+function mixLine() {
+  const lines = ["who=" + (val("who") || "UNDECIDED")];
+  DECISIONS.concat(["health"]).forEach(function (k) {
+    const n = text(k + "_notes");
+    lines.push(k + "=" + (val(k) || "UNDECIDED") + (n ? "\n  STEER: " + n.replace(/\n/g, "\n  ") : ""));
+  });
+  if (pins.length) lines.push("pins=" + pins.join(" | "));
+  const notes = text("notes");
+  if (notes) lines.push("notes=\n  " + notes.replace(/\n/g, "\n  "));
+  return lines.join("\n");
+}
+function collectDraft() {
+  const data = {};
+  new FormData(document.getElementById("mixform")).forEach(function (v, k) { data[k] = v; });
+  data._pins = pins.slice();
+  return data;
+}
+function saveDraft() {
+  try { localStorage.setItem(KEY, JSON.stringify({ savedAt: Date.now(), data: collectDraft() })); } catch (e) {}
+  document.getElementById("mix_line").value = mixLine();
+  document.getElementById("pins").value = pins.join(" | ");
+  const n = DECISIONS.filter(function (k) { return val(k); }).length;
+  document.getElementById("progress").textContent = n + " of " + DECISIONS.length + " decided";
+}
+function loadDraft() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw).data || {};
+    Object.keys(data).forEach(function (k) {
+      if (k === "_pins") return;
+      document.querySelectorAll('[name="'+k+'"]').forEach(function (el) {
+        if (el.type === "radio") el.checked = el.value === data[k];
+        else el.value = data[k];
+      });
+    });
+    if (Array.isArray(data._pins)) data._pins.forEach(function (p) { addPin(p, true); });
+  } catch (e) {}
+}
+function addPin(name, silent) {
+  if (pins.indexOf(name) !== -1) return;
+  pins.push(name);
+  const tray = document.getElementById("mix-tray");
+  const chip = document.createElement("span");
+  chip.className = "chip " + (name.indexOf("Fable") === 0 ? "f" : "c");
+  chip.textContent = "Pinned · " + name;
+  chip.title = "Click to unpin";
+  chip.style.cursor = "pointer";
+  chip.onclick = function () {
+    pins.splice(pins.indexOf(name), 1);
+    chip.remove();
+    document.querySelectorAll('.pin[data-pin="'+name+'"]').forEach(function (b) { b.classList.remove("on"); b.textContent = "Pin"; });
+    saveDraft();
+  };
+  tray.appendChild(chip);
+  if (!silent) saveDraft();
+}
+function mountPhones() {
+  document.querySelectorAll(".phone-clip[data-src]").forEach(function (clip) {
+    const src = clip.getAttribute("data-src");
+    const title = clip.getAttribute("data-title") || "Mock";
+    const iframe = document.createElement("iframe");
+    iframe.loading = "lazy";
+    iframe.title = title;
+    iframe.src = src;
+    clip.appendChild(iframe);
+    clip.addEventListener("click", function () { openLite(src, title); });
+    const cell = clip.parentElement;
+    const zoom = cell && cell.querySelector(".zoom");
+    if (zoom) zoom.addEventListener("click", function (e) { e.preventDefault(); openLite(src, title); });
+  });
+}
+function openLite(src, title) {
+  const lite = document.getElementById("lite");
+  lite.querySelector("iframe").src = src;
+  lite.querySelector("iframe").title = title;
+  lite.classList.add("on");
+}
+function closeLite() {
+  const lite = document.getElementById("lite");
+  lite.classList.remove("on");
+  lite.querySelector("iframe").src = "about:blank";
+}
+function downloadMix() {
+  const blob = new Blob([mixLine()], { type: "text/plain" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "sweet-round3-answers.txt";
+  a.click();
+}
+document.getElementById("mixform").addEventListener("input", saveDraft);
+window.addEventListener("beforeunload", saveDraft);
+document.addEventListener("click", function (e) {
+  const pin = e.target.closest(".pin");
+  if (!pin) return;
+  const name = pin.getAttribute("data-pin");
+  if (pin.classList.contains("on")) {
+    pin.classList.remove("on"); pin.textContent = "Pin";
+    const chip = Array.prototype.find.call(document.querySelectorAll("#mix-tray .chip"), function (c) { return c.textContent.indexOf(name) !== -1; });
+    if (chip) chip.click();
+  } else {
+    pin.classList.add("on"); pin.textContent = "Pinned";
+    addPin(name);
+  }
+});
+document.getElementById("liteClose").onclick = closeLite;
+document.getElementById("lite").addEventListener("click", function (e) { if (e.target.id === "lite") closeLite(); });
+document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeLite(); });
+mountPhones();
+loadDraft();
+saveDraft();
+document.getElementById("mixform").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  if (!val("who")) {
+    document.getElementById("status").textContent = "Pick Salim or Ranya at the top first.";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+  saveDraft();
+  downloadMix();
+  const status = document.getElementById("status");
+  status.textContent = "Sending… (also downloaded a backup)";
+  const body = new FormData(this);
+  body.append("_subject", "Sweet round 3 answers from " + val("who"));
+  try {
+    const res = await fetch("https://formsubmit.co/ajax/23322cc0514fb928fe0d089afa12512a", {
+      method: "POST", headers: { Accept: "application/json" }, body
+    });
+    const payload = await res.json().catch(function () { return {}; });
+    if (!res.ok || payload.success === "false" || payload.success === false) throw new Error(payload.message || ("HTTP " + res.status));
+    status.textContent = "Submitted. Backup downloaded. Draft kept on this device.";
+  } catch (err) {
+    status.textContent = "Online send failed. Backup downloaded — paste it here in chat if needed.";
+  }
+});
+document.getElementById("copyBtn").addEventListener("click", async function () {
+  saveDraft();
+  try { await navigator.clipboard.writeText(mixLine()); document.getElementById("status").textContent = "Copied."; }
+  catch (err) { document.getElementById("status").textContent = "Copy failed — use Download."; }
+});
+document.getElementById("dlBtn").addEventListener("click", function () { saveDraft(); downloadMix(); document.getElementById("status").textContent = "Downloaded."; });
+document.getElementById("printBtn").addEventListener("click", function () { saveDraft(); window.print(); });
+</script>
+</body>
+</html>
