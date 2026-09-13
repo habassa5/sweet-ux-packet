@@ -1,4 +1,4 @@
-/* Isolate one .phone at 402×874 so Fable matches Codex screen size. */
+/* Isolate one .phone at native 402×874. No gallery chrome, no crop. */
 (function () {
   var m = /(?:\?|&)solo=(\d+)/.exec(location.search || "");
   if (!m) return;
@@ -15,9 +15,15 @@
       el.remove();
     });
   });
-  document.body.style.cssText = "margin:0;padding:0;background:#111;overflow:hidden;";
+  var s = document.createElement("style");
+  s.textContent =
+    "html,body.solo{margin:0!important;padding:0!important;width:402px!important;height:874px!important;overflow:hidden!important;background:#111!important;}" +
+    "body.solo .row,body.solo .variant{display:block!important;margin:0!important;padding:0!important;gap:0!important;}" +
+    "body.solo .phone{margin:0!important;border-radius:0!important;box-shadow:none!important;width:402px!important;height:874px!important;}";
+  document.head.appendChild(s);
   var phone = document.querySelector(".phone");
-  if (!phone) return;
-  phone.style.cssText =
-    "margin:0;border-radius:0;box-shadow:none;width:402px;height:874px;";
+  if (phone) {
+    document.body.innerHTML = "";
+    document.body.appendChild(phone);
+  }
 })();

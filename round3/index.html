@@ -16,8 +16,8 @@
   --codex: #A12D58;
   --codex-soft: #F8E3EA;
   --teal: #0F766E;
-  --phone-w: 248px;
-  --rail: 52px;
+  --phone-w: 402px;
+  --phone-h: 874px;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 118px; }
@@ -37,16 +37,16 @@ button, input, textarea, select, label, .chip, nav a, .pin, .zoom {
   border-bottom: 1px solid var(--line);
 }
 .top-row {
-  max-width: 1180px; margin: 0 auto;
-  padding: .65rem 1.1rem .5rem;
+  margin: 0;
+  padding: .65rem 1.5rem .5rem;
   display: flex; flex-wrap: wrap; gap: .55rem 1rem; align-items: center;
 }
 .kicker { font: 700 11px/1 system-ui; letter-spacing: .14em; text-transform: uppercase; color: var(--codex); }
 .who label { font: 650 13px/1.2 system-ui; cursor: pointer; margin-right: .7rem; }
 .progress { font: 650 12px/1.2 system-ui; color: var(--muted); margin-left: auto; }
 .toc {
-  max-width: 1180px; margin: 0 auto;
-  padding: 0 1.1rem .55rem;
+  margin: 0;
+  padding: 0 1.5rem .55rem;
   display: flex; flex-wrap: wrap; gap: .35rem;
 }
 .toc a {
@@ -55,7 +55,7 @@ button, input, textarea, select, label, .chip, nav a, .pin, .zoom {
   border-radius: 999px; padding: .38rem .7rem; text-decoration: none;
 }
 .toc a:hover { border-color: var(--ink); }
-.wrap { max-width: 1180px; margin: 0 auto; padding: 1.25rem 1.1rem 8rem; }
+.wrap { max-width: none; margin: 0; padding: 1.1rem 1.5rem 7rem; }
 h1 { font-size: clamp(1.85rem, 3.4vw, 2.55rem); line-height: 1.1; margin: .2rem 0 .6rem; letter-spacing: -.02em; }
 .lede { color: var(--muted); max-width: 42rem; }
 .lede a { color: var(--teal); }
@@ -66,11 +66,9 @@ h1 { font-size: clamp(1.85rem, 3.4vw, 2.55rem); line-height: 1.1; margin: .2rem 
 }
 .lock strong { color: var(--ink); }
 .lanes {
-  position: sticky; top: var(--rail); z-index: 12;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-  max-width: 1180px; margin: 0 auto 1rem;
-  padding: .45rem 1.1rem;
-  background: rgba(243,238,228,.94);
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 0 0 1rem;
+  padding: 0;
 }
 .lane {
   font: 800 11px/1 system-ui; letter-spacing: .12em; text-transform: uppercase;
@@ -89,53 +87,49 @@ h1 { font-size: clamp(1.85rem, 3.4vw, 2.55rem); line-height: 1.1; margin: .2rem 
 .surface h2 { font-size: 1.45rem; margin: 0 0 .35rem; }
 .why { color: var(--muted); margin: 0 0 .7rem; }
 .recs {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  display: flex; flex-wrap: wrap; gap: 8px;
   margin: 0 0 1rem; font: 400 13.5px/1.4 system-ui;
+  max-width: 860px;
 }
-.recs div { border-radius: 12px; padding: .55rem .75rem; }
+.recs div { flex: 1 1 280px; border-radius: 12px; padding: .55rem .75rem; }
 .recs .f { background: var(--fable-soft); }
 .recs .c { background: var(--codex-soft); }
 .recs strong { display: block; font: 800 10px/1 system-ui; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .25rem; }
 .recs .f strong { color: var(--fable); }
 .recs .c strong { color: var(--codex); }
-.pair {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 12px 18px;
-  margin: 0 0 1.15rem; align-items: start;
+.pair, .solo-row {
+  display: flex; flex-wrap: wrap; gap: 20px 28px;
+  margin: 0 0 1.15rem; align-items: flex-start;
 }
+.cell { flex: 0 0 402px; width: 402px; }
 .cell h3 {
-  font: 700 12.5px/1.3 system-ui; margin: 0 0 .45rem;
-  min-height: 2.4em;
+  font: 700 13px/1.3 system-ui; margin: 0 0 .45rem;
 }
 .cell.f h3 { color: var(--fable); }
 .cell.c h3 { color: var(--codex); }
 .phone-clip {
-  width: var(--phone-w);
-  height: calc(var(--phone-w) * 874 / 402);
+  width: 402px;
+  height: 874px;
   overflow: hidden;
-  border-radius: calc(42px * var(--phone-w) / 402);
+  border-radius: 42px;
   background: #161310;
   box-shadow: 0 12px 30px rgba(26,22,18,.16);
-  cursor: zoom-in;
   position: relative;
 }
 .phone-clip iframe {
-  width: 402px; height: 874px; border: 0;
-  transform: scale(calc(var(--phone-w) / 402));
-  transform-origin: 0 0;
-  pointer-events: none;
+  display: block;
+  width: 402px;
+  height: 874px;
+  border: 0;
   background: #fff;
 }
 .tools { display: flex; gap: .4rem; margin-top: .45rem; }
-.pin, .zoom {
+.pin {
   font: 650 11px/1 system-ui; border: 1px solid var(--line); background: #fff;
   border-radius: 999px; padding: .35rem .6rem; cursor: pointer; color: var(--ink);
 }
 .pin.on { background: var(--ink); color: #fff; border-color: var(--ink); }
-.solo-row {
-  display: flex; flex-wrap: wrap; gap: 1rem 1.2rem;
-  margin: 0 0 1.1rem;
-}
-.solo-row .cell { flex: 0 0 auto; }
+.zoom { display: none !important; }
 .band {
   font: 700 12px/1.35 system-ui; color: var(--teal);
   background: #D7F3EA; border-radius: 8px; padding: .45rem .7rem; margin: 0 0 .8rem;
@@ -154,10 +148,10 @@ textarea {
   padding: .65rem .75rem; border-radius: 10px; border: 1px solid var(--line); background: #fff; resize: vertical;
 }
 .missing {
-  width: var(--phone-w); min-height: 8rem;
-  border: 1px dashed var(--line); border-radius: 18px;
+  width: 402px; height: 874px;
+  border: 1px dashed var(--line); border-radius: 42px;
   display: flex; align-items: center; justify-content: center; text-align: center;
-  padding: 1rem; color: var(--muted); font: 400 13px/1.4 system-ui; background: #f7f2ea;
+  padding: 1.5rem; color: var(--muted); font: 400 15px/1.4 system-ui; background: #f7f2ea;
 }
 .sticky {
   position: sticky; bottom: 0; z-index: 30;
@@ -165,7 +159,7 @@ textarea {
   border-top: 1px solid var(--line);
   padding: .7rem 1.1rem .85rem;
 }
-.sticky-inner { max-width: 1180px; margin: 0 auto; }
+.sticky-inner { margin: 0; }
 #mix-tray {
   display: flex; flex-wrap: wrap; gap: .35rem; min-height: 0; margin: 0 0 .5rem;
 }
@@ -184,32 +178,9 @@ textarea {
 .actions .primary { background: var(--teal); color: #fff; }
 .actions .ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); }
 .status { font: 600 12.5px/1.3 system-ui; color: var(--muted); }
-#lite {
-  position: fixed; inset: 0; background: rgba(18,14,12,.72); z-index: 80;
-  display: none; align-items: center; justify-content: center; padding: 1.5rem;
-}
-#lite.on { display: flex; }
-#lite .stage {
-  background: #111; border-radius: 28px; overflow: hidden;
-  width: 402px; height: 874px; max-height: 92vh; max-width: 92vw;
-  box-shadow: 0 20px 60px #0008;
-}
-#lite iframe { width: 402px; height: 874px; border: 0; background: #fff; }
-#lite .close {
-  position: absolute; top: 12px; right: 12px;
-  font: 700 13px/1 system-ui; background: #fff; border: 0; border-radius: 999px;
-  padding: .55rem .8rem; cursor: pointer;
-}
-@media (max-width: 720px) {
-  :root { --phone-w: min(280px, calc(100vw - 2.5rem)); --rail: 0px; }
-  .pair, .recs, .lanes { grid-template-columns: 1fr; }
-  .lanes { position: static; }
-  .phone-clip { margin: 0 auto; }
-  html { scroll-padding-top: 96px; }
-  .surface { scroll-margin-top: 96px; }
-}
+#lite { display: none !important; }
 @media print {
-  .top, .lanes, .sticky, .tools, #lite { display: none !important; }
+  .top, .lanes, .sticky, .tools { display: none !important; }
   .surface { break-inside: avoid; box-shadow: none; }
   .phone-clip { box-shadow: none; }
   body { background: #fff; }
@@ -250,8 +221,8 @@ textarea {
 
 <div class="wrap">
 <header>
-  <h1>One bench. Same-size phones. Pin what you want to steal.</h1>
-  <p class="lede">This is a <strong>new</strong> page. Round 2 is still at <a href="../round2/index.html">/round2/</a> and was not changed. Every Fable screen is isolated at Codex’s 402×874 — no more giant contact sheets. Fable stays on the left, Codex on the right. Click a phone to enlarge. Pin screens into your mix, then pick (or mix) and write why.</p>
+  <h1>Whole phones, full size. Nothing hidden behind a click.</h1>
+  <p class="lede">This is a <strong>new</strong> page. Round 2 is still at <a href="../round2/index.html">/round2/</a> and was not changed. Every mock is the real 402×874 phone — Fable and Codex the same size, no crop, no zoom step. Widen the window and more phones sit in a row. Scroll a phone if that screen has more inside it. Pin what you want to steal, then pick or mix.</p>
 </header>
 <div class="lock"><strong>Already decided (round 1).</strong> Home rows as IA · Gut Codex layout + Fable tints · drop Samples · tabs Home · Health · History · Instagram X · oval higher · blur outside oval · no disclaimer on capture · meaning-first · no Shen · lb/in · rMSSD only · short explain, Ask to dig. This page is the visual pass.</div>
 
@@ -612,22 +583,7 @@ function mountPhones() {
     iframe.title = title;
     iframe.src = src;
     clip.appendChild(iframe);
-    clip.addEventListener("click", function () { openLite(src, title); });
-    const cell = clip.parentElement;
-    const zoom = cell && cell.querySelector(".zoom");
-    if (zoom) zoom.addEventListener("click", function (e) { e.preventDefault(); openLite(src, title); });
   });
-}
-function openLite(src, title) {
-  const lite = document.getElementById("lite");
-  lite.querySelector("iframe").src = src;
-  lite.querySelector("iframe").title = title;
-  lite.classList.add("on");
-}
-function closeLite() {
-  const lite = document.getElementById("lite");
-  lite.classList.remove("on");
-  lite.querySelector("iframe").src = "about:blank";
 }
 function downloadMix() {
   const blob = new Blob([mixLine()], { type: "text/plain" });
@@ -651,9 +607,6 @@ document.addEventListener("click", function (e) {
     addPin(name);
   }
 });
-document.getElementById("liteClose").onclick = closeLite;
-document.getElementById("lite").addEventListener("click", function (e) { if (e.target.id === "lite") closeLite(); });
-document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeLite(); });
 mountPhones();
 loadDraft();
 saveDraft();
