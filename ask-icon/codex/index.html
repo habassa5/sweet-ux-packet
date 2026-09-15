@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#FBF8F3">
-  <meta name="description" content="Twelve original icon directions for Sweet’s Ask, shown at 64 and 25 points.">
+  <meta name="description" content="Ten original icon directions for Sweet’s Ask, shown at 64 and 25 points.">
   <title>Ask — Sweet icon studies · Codex</title>
   <style>
 :root { color-scheme: light; --cream: #FBF8F3; --magenta: #AD315B; --ink: #1A2021; --secondary: #666361; --rule: #ded8d2; --space: 24px; }
@@ -27,7 +27,7 @@ h1 { font-size: clamp(40px, 5vw, 64px); line-height: 1.05; font-weight: 500; let
 .intro p { margin: 0 0 2px; max-width: 400px; font-size: 17px; line-height: 1.55; color: var(--secondary); }
 .legend { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; padding: 16px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule); }
 .legend .note { font-size: 12px; color: var(--secondary); }
-.options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 48px; list-style: none; margin: 0; padding: 0; }
+.options { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: 32px; list-style: none; margin: 0; padding: 0; }
 .option { padding: 24px 0 28px; border-bottom: 1px solid var(--rule); min-width: 0; break-inside: avoid; scroll-margin-top: 24px; }
 .option-title { display: flex; gap: 12px; align-items: baseline; }
 .number { color: var(--magenta); font-size: 12px; font-variant-numeric: tabular-nums; font-weight: 600; }
@@ -45,10 +45,11 @@ figcaption { margin-top: 10px; text-align: center; font-size: 10px; line-height:
 .footer { display: flex; justify-content: space-between; gap: 20px; padding-top: 24px; font-size: 11px; line-height: 1.6; color: var(--secondary); }
 .footer p { margin: 0; }
 @media (min-width: 760px) { .description { min-height: 4.65em; } }
+@media (max-width: 1199px) { .options { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; } }
 @media (max-width: 1050px) { .page { padding: 28px 36px; } .options { column-gap: 32px; } .intro { gap: 32px; } }
 @media (max-width: 759px) { .page { padding: 24px; } .intro { grid-template-columns: 1fr; gap: 20px; padding: 40px 0 28px; } h1 { letter-spacing: -1.5px; } .intro p { font-size: 16px; } .options { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; } .option { padding-bottom: 24px; } .description { font-size: 13px; } .specimens { gap: 8px; } .footer { flex-wrap: wrap; } }
 @media (max-width: 499px) { .masthead .eyebrow { font-size: 9px; letter-spacing: 1px; } .options { grid-template-columns: 1fr; } .option { padding: 24px 0; } .specimens { margin: 24px 0 20px; } .description { font-size: 14px; max-width: none; } .sample { height: 72px; } }
-@media print { @page { size: A4 landscape; margin: 12mm; } .page { max-width: none; padding: 0; } .intro { padding: 20px 0; } h1 { font-size: 36px; } .options { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 32px; } .option { padding: 16px 0; } .specimens { margin: 12px 0; } body { print-color-adjust: exact; -webkit-print-color-adjust: exact; } .skip { display: none; } }
+@media print { @page { size: A4 landscape; margin: 12mm; } .page { max-width: none; padding: 0; } .intro { padding: 20px 0; } h1 { font-size: 36px; } .options { grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: 20px; } .option { padding: 16px 0; } .description { font-size: 11px; } h2 { font-size: 14px; } .specimens { margin: 12px 0; } body { print-color-adjust: exact; -webkit-print-color-adjust: exact; } .skip { display: none; } }
   </style>
 </head>
 <body>
@@ -59,7 +60,7 @@ figcaption { margin-top: 10px; text-align: center; font-size: 10px; line-height:
       <div class="intro"><h1>A mark for Ask.</h1><p>A careful conversation about a check.<br>A little warmth. A little clarity. Room to ask.</p></div>
     </header>
     <main>
-      <div class="legend"><p class="eyebrow" id="board-title">12 directions</p><span class="note">The idea, up close. The icon, in use.</span></div>
+      <div class="legend"><p class="eyebrow" id="board-title">10 directions</p><span class="note">The idea, up close. The icon, in use.</span></div>
       <!-- iOS point specimens: 1 CSS pixel represents 1 logical iOS point at 100% browser zoom. -->
       <!-- Each 25pt outline is optically strengthened to 1.72 logical points; filled shapes retain their silhouette. -->
       <ol class="options" id="options" aria-labelledby="board-title">
@@ -73,19 +74,9 @@ figcaption { margin-top: 10px; text-align: center; font-size: 10px; line-height:
           <p class="description">An open four-point spark leaves a little room for the conversation to begin.</p>
         </article>
       </li>
-      <li class="option" id="soft-signal">
-        <article aria-labelledby="title-soft-signal">
-          <div class="option-title"><span class="number">02</span><h2 id="title-soft-signal">Soft signal</h2></div>
-          <div class="specimens">
-            <figure aria-label="Soft signal at 64 points"><div class="sample"><svg class="mark" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" focusable="false"><path d="M32 8 C35 8 35 21 41 25 C46 29 56 29 56 32 C56 35 46 35 41 39 C35 43 35 56 32 56 C29 56 29 43 23 39 C18 35 8 35 8 32 C8 29 18 29 23 25 C29 21 29 8 32 8 Z"/></svg></div><figcaption>64 PT</figcaption></figure>
-            <figure aria-label="Soft signal at 25 points beside Ask"><div class="sample sample-small"><svg class="mark mark-small" viewBox="0 0 64 64" width="25" height="25" aria-hidden="true" focusable="false"><path d="M32 8 C35 8 35 21 41 25 C46 29 56 29 56 32 C56 35 46 35 41 39 C35 43 35 56 32 56 C29 56 29 43 23 39 C18 35 8 35 8 32 C8 29 18 29 23 25 C29 21 29 8 32 8 Z"/></svg><span class="ask-label">Ask</span></div><figcaption>25 PT</figcaption></figure>
-          </div>
-          <p class="description">A soft, broad-waisted sparkle gives intelligence a warmer, quieter expression.</p>
-        </article>
-      </li>
       <li class="option" id="reply">
         <article aria-labelledby="title-reply">
-          <div class="option-title"><span class="number">03</span><h2 id="title-reply">Bright reply</h2></div>
+          <div class="option-title"><span class="number">02</span><h2 id="title-reply">Bright reply</h2></div>
           <div class="specimens">
             <figure aria-label="Bright reply at 64 points"><div class="sample"><svg class="mark" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" focusable="false"><path d="M30 8 C34 21 41 25 55 28 C44 32 40 35 40 41 L46 55 L32 47 C28 40 22 36 8 32 C22 28 27 21 30 8 Z"/></svg></div><figcaption>64 PT</figcaption></figure>
             <figure aria-label="Bright reply at 25 points beside Ask"><div class="sample sample-small"><svg class="mark mark-small" viewBox="0 0 64 64" width="25" height="25" aria-hidden="true" focusable="false"><path d="M30 8 C34 21 41 25 55 28 C44 32 40 35 40 41 L46 55 L32 47 C28 40 22 36 8 32 C22 28 27 21 30 8 Z"/></svg><span class="ask-label">Ask</span></div><figcaption>25 PT</figcaption></figure>
@@ -95,17 +86,17 @@ figcaption { margin-top: 10px; text-align: center; font-size: 10px; line-height:
       </li>
       <li class="option" id="in-company">
         <article aria-labelledby="title-in-company">
-          <div class="option-title"><span class="number">04</span><h2 id="title-in-company">In company</h2></div>
+          <div class="option-title"><span class="number">03</span><h2 id="title-in-company">In company</h2></div>
           <div class="specimens">
-            <figure aria-label="In company at 64 points"><div class="sample"><svg class="mark" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" focusable="false"><path d="M13 28 Q15 37 23 40 Q15 43 13 52 Q11 43 3 40 Q11 37 13 28 Z M33 13 Q36 25 47 28 Q36 31 33 43 Q30 31 19 28 Q30 25 33 13 Z M52 7 Q54 14 61 17 Q54 20 52 27 Q50 20 43 17 Q50 14 52 7 Z"/></svg></div><figcaption>64 PT</figcaption></figure>
-            <figure aria-label="In company at 25 points beside Ask"><div class="sample sample-small"><svg class="mark mark-small" viewBox="0 0 64 64" width="25" height="25" aria-hidden="true" focusable="false"><path d="M13 28 Q15 37 23 40 Q15 43 13 52 Q11 43 3 40 Q11 37 13 28 Z M33 13 Q36 25 47 28 Q36 31 33 43 Q30 31 19 28 Q30 25 33 13 Z M52 7 Q54 14 61 17 Q54 20 52 27 Q50 20 43 17 Q50 14 52 7 Z"/></svg><span class="ask-label">Ask</span></div><figcaption>25 PT</figcaption></figure>
+            <figure aria-label="In company at 64 points"><div class="sample"><svg class="mark" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" focusable="false"><path d="M12 40 Q14 46 20 48 Q14 50 12 56 Q10 50 4 48 Q10 46 12 40 Z M31 15 Q34 28 44 31 Q34 34 31 47 Q28 34 18 31 Q28 28 31 15 Z M52 7 Q54 14 60 16 Q54 18 52 25 Q50 18 44 16 Q50 14 52 7 Z"/></svg></div><figcaption>64 PT</figcaption></figure>
+            <figure aria-label="In company at 25 points beside Ask"><div class="sample sample-small"><svg class="mark mark-small" viewBox="0 0 64 64" width="25" height="25" aria-hidden="true" focusable="false"><path d="M12 40 Q14 46 20 48 Q14 50 12 56 Q10 50 4 48 Q10 46 12 40 Z M31 15 Q34 28 44 31 Q34 34 31 47 Q28 34 18 31 Q28 28 31 15 Z M52 7 Q54 14 60 16 Q54 18 52 25 Q50 18 44 16 Q50 14 52 7 Z"/></svg><span class="ask-label">Ask</span></div><figcaption>25 PT</figcaption></figure>
           </div>
           <p class="description">Three rising sparks make Ask feel like a thought being worked through together.</p>
         </article>
       </li>
       <li class="option" id="sweet-spot">
         <article aria-labelledby="title-sweet-spot">
-          <div class="option-title"><span class="number">05</span><h2 id="title-sweet-spot">Sweet spot</h2></div>
+          <div class="option-title"><span class="number">04</span><h2 id="title-sweet-spot">Sweet spot</h2></div>
           <div class="specimens">
             <figure aria-label="Sweet spot at 64 points"><div class="sample"><svg class="mark" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" focusable="false"><path class="solid" fill-rule="evenodd" d="M56 32 C56 46 47 56 32 56 C17 56 8 46 8 32 C8 18 17 8 32 8 C47 8 56 18 56 32 Z M32 16 C29 27 25 30 16 32 C25 34 29 38 32 49 C35 38 39 34 48 32 C39 30 35 27 32 16 Z"/></svg></div><figcaption>64 PT</figcaption></figure>
             <figure aria-label="Sweet spot at 25 points beside Ask"><div class="sample sample-small"><svg class="mark mark-small" viewBox="0 0 64 64" width="25" height="25" aria-hidden="true" focusable="false"><path class="solid" fill-rule="evenodd" d="M56 32 C56 46 47 56 32 56 C17 56 8 46 8 32 C8 18 17 8 32 8 C47 8 56 18 56 32 Z M32 16 C29 27 25 30 16 32 C25 34 29 38 32 49 C35 38 39 34 48 32 C39 30 35 27 32 16 Z"/></svg><span class="ask-label">Ask</span></div><figcaption>25 PT</figcaption></figure>
@@ -113,19 +104,9 @@ figcaption { margin-top: 10px; text-align: center; font-size: 10px; line-height:
           <p class="description">A four-point opening inside a soft round form makes insight the heart of the mark.</p>
         </article>
       </li>
-      <li class="option" id="unwrap">
-        <article aria-labelledby="title-unwrap">
-          <div class="option-title"><span class="number">06</span><h2 id="title-unwrap">Unwrap</h2></div>
-          <div class="specimens">
-            <figure aria-label="Unwrap at 64 points"><div class="sample"><svg class="mark" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" focusable="false"><path d="M9 16 C19 25 23 18 32 18 C41 18 45 25 55 16 C47 28 47 36 55 48 C45 39 41 46 32 46 C23 46 19 39 9 48 C17 36 17 28 9 16 Z"/></svg></div><figcaption>64 PT</figcaption></figure>
-            <figure aria-label="Unwrap at 25 points beside Ask"><div class="sample sample-small"><svg class="mark mark-small" viewBox="0 0 64 64" width="25" height="25" aria-hidden="true" focusable="false"><path d="M9 16 C19 25 23 18 32 18 C41 18 45 25 55 16 C47 28 47 36 55 48 C45 39 41 46 32 46 C23 46 19 39 9 48 C17 36 17 28 9 16 Z"/></svg><span class="ask-label">Ask</span></div><figcaption>25 PT</figcaption></figure>
-          </div>
-          <p class="description">Four turned-out corners suggest a sweet being opened, with a generous space at its centre.</p>
-        </article>
-      </li>
       <li class="option" id="sweet-stem">
         <article aria-labelledby="title-sweet-stem">
-          <div class="option-title"><span class="number">07</span><h2 id="title-sweet-stem">Sweet stem</h2></div>
+          <div class="option-title"><span class="number">05</span><h2 id="title-sweet-stem">Sweet stem</h2></div>
           <div class="specimens">
             <figure aria-label="Sweet stem at 64 points"><div class="sample"><svg class="mark" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" focusable="false"><path d="M30 8 C34 20 39 24 51 28 C40 32 35 37 31 48 C19 48 11 40 11 29 C11 18 19 12 30 8 Z M28 48 L23 58"/></svg></div><figcaption>64 PT</figcaption></figure>
             <figure aria-label="Sweet stem at 25 points beside Ask"><div class="sample sample-small"><svg class="mark mark-small" viewBox="0 0 64 64" width="25" height="25" aria-hidden="true" focusable="false"><path d="M30 8 C34 20 39 24 51 28 C40 32 35 37 31 48 C19 48 11 40 11 29 C11 18 19 12 30 8 Z M28 48 L23 58"/></svg><span class="ask-label">Ask</span></div><figcaption>25 PT</figcaption></figure>
@@ -135,7 +116,7 @@ figcaption { margin-top: 10px; text-align: center; font-size: 10px; line-height:
       </li>
       <li class="option" id="curiosity">
         <article aria-labelledby="title-curiosity">
-          <div class="option-title"><span class="number">08</span><h2 id="title-curiosity">Curiosity</h2></div>
+          <div class="option-title"><span class="number">06</span><h2 id="title-curiosity">Curiosity</h2></div>
           <div class="specimens">
             <figure aria-label="Curiosity at 64 points"><div class="sample"><svg class="mark" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" focusable="false"><path d="M16 30 C24 26 27 19 29 9 C32 22 37 27 50 30 C38 33 31 37 31 45"/><circle class="solid" cx="31" cy="55" r="2.5"/></svg></div><figcaption>64 PT</figcaption></figure>
             <figure aria-label="Curiosity at 25 points beside Ask"><div class="sample sample-small"><svg class="mark mark-small" viewBox="0 0 64 64" width="25" height="25" aria-hidden="true" focusable="false"><path d="M16 30 C24 26 27 19 29 9 C32 22 37 27 50 30 C38 33 31 37 31 45"/><circle class="solid" cx="31" cy="55" r="2.5"/></svg><span class="ask-label">Ask</span></div><figcaption>25 PT</figcaption></figure>
@@ -145,7 +126,7 @@ figcaption { margin-top: 10px; text-align: center; font-size: 10px; line-height:
       </li>
       <li class="option" id="exchange">
         <article aria-labelledby="title-exchange">
-          <div class="option-title"><span class="number">09</span><h2 id="title-exchange">Exchange</h2></div>
+          <div class="option-title"><span class="number">07</span><h2 id="title-exchange">Exchange</h2></div>
           <div class="specimens">
             <figure aria-label="Exchange at 64 points"><div class="sample"><svg class="mark" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" focusable="false"><path class="solid" d="M28 7 C26 21 20 28 7 32 C18 34 24 39 27 49 C15 48 6 42 6 32 C6 18 15 9 28 7 Z M36 57 C38 43 44 36 57 32 C46 30 40 25 37 15 C49 16 58 22 58 32 C58 46 49 55 36 57 Z"/></svg></div><figcaption>64 PT</figcaption></figure>
             <figure aria-label="Exchange at 25 points beside Ask"><div class="sample sample-small"><svg class="mark mark-small" viewBox="0 0 64 64" width="25" height="25" aria-hidden="true" focusable="false"><path class="solid" d="M28 7 C26 21 20 28 7 32 C18 34 24 39 27 49 C15 48 6 42 6 32 C6 18 15 9 28 7 Z M36 57 C38 43 44 36 57 32 C46 30 40 25 37 15 C49 16 58 22 58 32 C58 46 49 55 36 57 Z"/></svg><span class="ask-label">Ask</span></div><figcaption>25 PT</figcaption></figure>
@@ -155,7 +136,7 @@ figcaption { margin-top: 10px; text-align: center; font-size: 10px; line-height:
       </li>
       <li class="option" id="sweet-script">
         <article aria-labelledby="title-sweet-script">
-          <div class="option-title"><span class="number">10</span><h2 id="title-sweet-script">Sweet script</h2></div>
+          <div class="option-title"><span class="number">08</span><h2 id="title-sweet-script">Sweet script</h2></div>
           <div class="specimens">
             <figure aria-label="Sweet script at 64 points"><div class="sample"><svg class="mark" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" focusable="false"><path d="M48 13 C37 7 21 11 17 22 C13 33 24 34 32 32 C42 30 49 34 46 43 C42 54 26 58 15 50 M48 13 Q40 23 47 26 M15 50 Q23 41 16 38"/></svg></div><figcaption>64 PT</figcaption></figure>
             <figure aria-label="Sweet script at 25 points beside Ask"><div class="sample sample-small"><svg class="mark mark-small" viewBox="0 0 64 64" width="25" height="25" aria-hidden="true" focusable="false"><path d="M48 13 C37 7 21 11 17 22 C13 33 24 34 32 32 C42 30 49 34 46 43 C42 54 26 58 15 50 M48 13 Q40 23 47 26 M15 50 Q23 41 16 38"/></svg><span class="ask-label">Ask</span></div><figcaption>25 PT</figcaption></figure>
@@ -165,7 +146,7 @@ figcaption { margin-top: 10px; text-align: center; font-size: 10px; line-height:
       </li>
       <li class="option" id="one-wand">
         <article aria-labelledby="title-one-wand">
-          <div class="option-title"><span class="number">11</span><h2 id="title-one-wand">One wand</h2></div>
+          <div class="option-title"><span class="number">09</span><h2 id="title-one-wand">One wand</h2></div>
           <div class="specimens">
             <figure aria-label="One wand at 64 points"><div class="sample"><svg class="mark" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" focusable="false"><path d="M38 8 C38 19 45 25 57 25 C43 30 31 40 9 57 C25 35 28 29 18 22 C29 24 35 18 38 8 Z"/></svg></div><figcaption>64 PT</figcaption></figure>
             <figure aria-label="One wand at 25 points beside Ask"><div class="sample sample-small"><svg class="mark mark-small" viewBox="0 0 64 64" width="25" height="25" aria-hidden="true" focusable="false"><path d="M38 8 C38 19 45 25 57 25 C43 30 31 40 9 57 C25 35 28 29 18 22 C29 24 35 18 38 8 Z"/></svg><span class="ask-label">Ask</span></div><figcaption>25 PT</figcaption></figure>
@@ -175,7 +156,7 @@ figcaption { margin-top: 10px; text-align: center; font-size: 10px; line-height:
       </li>
       <li class="option" id="listening">
         <article aria-labelledby="title-listening">
-          <div class="option-title"><span class="number">12</span><h2 id="title-listening">Listening</h2></div>
+          <div class="option-title"><span class="number">10</span><h2 id="title-listening">Listening</h2></div>
           <div class="specimens">
             <figure aria-label="Listening at 64 points"><div class="sample"><svg class="mark" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true" focusable="false"><path d="M20 11 C6 20 6 43 20 53 M44 11 C58 20 58 43 44 53"/><path class="solid" d="M32 17 Q35 29 45 32 Q35 35 32 47 Q29 35 19 32 Q29 29 32 17 Z"/></svg></div><figcaption>64 PT</figcaption></figure>
             <figure aria-label="Listening at 25 points beside Ask"><div class="sample sample-small"><svg class="mark mark-small" viewBox="0 0 64 64" width="25" height="25" aria-hidden="true" focusable="false"><path d="M20 11 C6 20 6 43 20 53 M44 11 C58 20 58 43 44 53"/><path class="solid" d="M32 17 Q35 29 45 32 Q35 35 32 47 Q29 35 19 32 Q29 29 32 17 Z"/></svg><span class="ask-label">Ask</span></div><figcaption>25 PT</figcaption></figure>
