@@ -59,6 +59,14 @@ h1 { font-size: 25px; line-height: 1.2; margin: 0 0 8px; letter-spacing: -.02em;
 .brief > div, .pc > div { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; }
 .brief h3, .pc h3 { margin: 0 0 6px; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; }
 .brief p, .pc p { margin: 0; font-size: 14px; line-height: 1.45; }
+.cases { display: grid; gap: 12px; margin: 0 0 16px; max-width: 1254px; }
+@media (min-width: 900px) { .cases { grid-template-columns: 1fr 1fr 1fr; } }
+.cases > div { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; }
+.cases h3 { margin: 0 0 8px; font-size: 15px; }
+.cases .glyph { font-size: 22px; font-weight: 700; letter-spacing: .04em; color: var(--pool); margin: 0 0 6px; }
+.cases ul { margin: 8px 0 0; padding-left: 18px; font-size: 13px; line-height: 1.45; color: var(--muted); }
+.mess { max-width: 1254px; margin: 0 0 16px; padding: 12px 14px; background: #fff7e8; border: 1px solid #e6d3a8; border-radius: 8px; font-size: 14px; line-height: 1.5; }
+.mess strong { display: block; margin-bottom: 6px; }
 code { font-size: 12px; background: #eef2f1; padding: 1px 4px; border-radius: 3px; }
 .pair { display: flex; flex-wrap: wrap; gap: 24px; align-items: start; margin: 0 0 8px; }
 .cell { width: var(--phone-w); }
@@ -142,8 +150,42 @@ textarea::placeholder { color: #626d70; }
 
 <article class="surface" id="undisputed">
 <h2>Undisputed (approve as one list)</h2>
-<p class="why">These are not fights. All three lanes (or the bind + founder law) already agree. Approving this list lets look implement them without another round. Notes still welcome.</p>
-<div class="brief"><div><h3>Context</h3><p>Locked title bars; one exit rule (X on camera, Done on covers, chevron on pushed pages); Ask on every saved result; integers for Skin scores and whole-number readings; History rows keep the result’s sentence; saved results are the result view; Apple Health lives on the Health tab with a payoff; camera HRV and wearable HRV never share a line; no Sweet composite score; light only; Packet 3 bind still holds.</p></div><div><h3>Pool rec <span class="rec-pill">Pool rec</span></h3><p>Approve this list as-is. Look implements it with the surviving DISAGREE calls you pick below.</p></div></div><div class="pc"><div><h3>Pros of the rec</h3><p>Unblocks the 40-second mom test without relitigating Packet 3. Matches FOUNDERS_HUMAN_UX and the Mix bind.</p></div><div><h3>Cons / cost</h3><p>If you reject one item here, say so in notes — look must not invent a fourth chrome language.</p></div></div>
+<p class="why">These are not fights. All three lanes (or the bind + founder law) already agree. Approving this list lets look implement them without another round. Notes still welcome. The “one exit rule” is the chrome grammar below — same idea as Instagram: you never have to guess which control leaves the screen, or whether it will abandon a check.</p>
+<div class="mess"><strong>Today Build 18 has about six different ways out.</strong>
+Capture uses an X top-left. A finished result uses <em>Done</em> top-right. History and Settings use a left arrow. The Face primer puts <em>Not now</em> at the bottom. Failures have a full-width <em>Go to Home</em> plus a top-left arrow that also goes Home (so the arrow does not mean “back to camera”). Skin choice/primer puts <em>Back</em> at the bottom. Demos have <em>Back to all checks</em> at the top <em>and</em> <em>Back</em> under the primary. Compare has a bar arrow <em>and</em> Cancel. Skin review’s Back looks like retake but dumps you on Home. A person cannot learn one muscle memory. That is catalog <code>P-SYS-02</code>, all three families, BLOCKER.</div>
+<div class="cases">
+<div>
+<p class="glyph">✕</p>
+<h3>X on camera</h3>
+<p>You are <em>in the instrument</em> — Face oval, Skin still, Gut viewfinder. Leaving means <strong>abandon this check</strong>. That is Instagram Stories / camera: a persistent X top-left <em>on the camera</em>, never hidden, never a cream title bar, never “Not now” at the bottom. Packet 3 MIX already named this. X does not mean “previous screen.” It means “I’m out.”</p>
+<ul>
+<li>Face live capture</li>
+<li>Skin capture + freeze-frame review (Retake / Use stay; X still leaves)</li>
+<li>Gut viewfinder, if you approve that decision below</li>
+</ul>
+</div>
+<div>
+<p class="glyph">Done</p>
+<h3>Done on covers</h3>
+<p>A <em>cover</em> is a full-screen overlay that is not a page in the stack: the result after a check, Ask, a failure, a sheet. There is no “back” because you didn’t walk a hallway — a card landed on you. iOS Mail compose, Photos markup, and You(th) results work this way: <strong>Done</strong> (or an X on a small data sheet) top-right, one control, nothing at the bottom. Done returns you to whoever opened it (Home after a live check; the result after Ask).</p>
+<ul>
+<li>Face / Skin / Gut result after you just took it</li>
+<li>Ask (full-screen cover from a result)</li>
+<li>Failures / timeouts / camera-denied (one primary: Try again or Open Settings; Done to leave)</li>
+</ul>
+</div>
+<div>
+<p class="glyph">‹</p>
+<h3>Chevron on pushed pages</h3>
+<p>A <em>push</em> is a hallway: you tapped a row and a new page slid in from the right (History → a saved check, Settings → About, All readings). iOS: <strong>chevron ‹</strong> top-left of a <em>locked</em> title bar. It means “the previous page, with its scroll and filters intact.” Never a custom Back at the bottom-left. Never an X here — X would feel like destroying the list you came from.</p>
+<ul>
+<li>History, a saved result opened from History, Trends</li>
+<li>All readings, estimate detail, Skin all observations</li>
+<li>Settings, Profile, About, Health connections</li>
+</ul>
+</div>
+</div>
+<div class="brief"><div><h3>Context</h3><p>Locked title bars (the bar does not scroll away). One exit rule as the three cases above. Ask on every saved result. Integers for Skin scores and whole-number readings. History rows keep the result’s sentence. Saved results are the result view. Apple Health lives on the Health tab with a payoff. Camera HRV and wearable HRV never share a line. No Sweet composite score. Light only. Packet 3 bind still holds.</p></div><div><h3>Pool rec <span class="rec-pill">Pool rec</span></h3><p>Approve this list as-is. Look implements it with the surviving DISAGREE calls you pick below.</p></div></div><div class="pc"><div><h3>Pros of the rec</h3><p>Unblocks the 40-second mom test without relitigating Packet 3. Matches FOUNDERS_HUMAN_UX and the Mix bind.</p></div><div><h3>Cons / cost</h3><p>If you reject one item here, say so in notes — look must not invent a fourth chrome language.</p></div></div>
 <fieldset class="choicebar" data-decision="undisputed"><legend>Undisputed list</legend><div class="options"><label class="opt"><input data-choice="undisputed" name="ui_undisputed_0" type="radio" value="approve"/> Approve the undisputed list <span class="rec-pill">Pool rec</span></label><label class="opt"><input data-choice="undisputed" name="ui_undisputed_0" type="radio" value="hold"/> Hold — I will name exceptions in notes</label><label class="opt"><input data-choice="undisputed" name="ui_undisputed_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="undisputed" name="ui_undisputed_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#undisputed_notes">Add notes</a></fieldset><input name="undisputed" type="hidden" value=""/><div class="steer"><label for="undisputed_notes">Undisputed list notes (optional)</label><textarea id="undisputed_notes" name="undisputed_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div>
 </article>
 
