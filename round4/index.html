@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Sweet · TF18 UX audit · decide</title>
+<style>
+:root {
+  --paper: #f4f5f5;
+  --ink: #1a2021;
+  --muted: #566164;
+  --line: #b8c1c2;
+  --card: #fff;
+  --pool: #0e6b63;
+  --pool-soft: #d7efeb;
+  --evidence: #6b4a16;
+  --teal: #0f766e;
+  --phone-w: 402px;
+  --phone-h: 874px;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 16px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.45 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+button, input, textarea { font: inherit; }
+a { color: #075f66; text-underline-offset: 3px; }
+button, label.opt, .who label { cursor: pointer; }
+button, .opt, .who label, .toc a { min-height: 40px; }
+button:disabled { cursor: wait; opacity: .65; }
+:focus-visible { outline: 3px solid #155fba; outline-offset: 4px; }
+input[type="radio"] { width: 17px; height: 17px; margin: 0; accent-color: var(--teal); flex-shrink: 0; }
+.skip-link { position: absolute; left: 12px; top: -100px; z-index: 10; padding: 12px; background: #fff; }
+.skip-link:focus { top: 12px; }
+.top { padding: 20px 24px; border-bottom: 1px solid var(--line); }
+.packet-title { color: var(--ink); font-size: 17px; font-weight: 750; text-decoration: none; }
+.who { display: flex; gap: 16px; padding: 0; margin: 12px 0 4px; border: 0; }
+.who legend { padding: 0; font-size: 12px; font-weight: 700; }
+.who label { display: inline-flex; align-items: center; gap: 7px; }
+.progress { font-weight: 700; margin: 8px 0 3px; }
+.save-status, .previous { color: var(--muted); font-size: 12px; margin: 4px 0 12px; }
+.toc { display: flex; flex-wrap: wrap; gap: 3px 8px; }
+.toc a { display: flex; align-items: center; padding: 6px 8px; color: var(--ink); text-decoration: none; border-radius: 5px; }
+.toc a:hover { background: #e5e9e9; }
+.toc a[aria-current="location"] { background: #dce9e7; font-weight: 750; box-shadow: inset 3px 0 var(--teal); }
+.toc a.decided::after { content: "✓"; margin-left: auto; padding-left: 8px; }
+.wrap { min-width: 0; padding: 20px 24px 40px; }
+.intro { margin-bottom: 20px; }
+h1 { font-size: 25px; line-height: 1.2; margin: 0 0 8px; letter-spacing: -.02em; }
+.intro p { max-width: 950px; margin: 0 0 8px; color: var(--muted); }
+.counts { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+.counts li { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; font-size: 13px; }
+.surface { border-top: 1px solid var(--line); padding: 16px 0 0; margin: 0 0 32px; scroll-margin-top: 16px; }
+.surface h2 { font-size: 21px; margin: 0 0 6px; }
+.why { color: var(--muted); margin: 0 0 14px; max-width: 1100px; }
+.brief, .pc { display: grid; gap: 12px; margin: 0 0 16px; max-width: 1254px; }
+@media (min-width: 800px) {
+  .brief { grid-template-columns: 1.2fr 1fr; }
+  .pc { grid-template-columns: 1fr 1fr; }
+}
+.brief > div, .pc > div { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; }
+.brief h3, .pc h3 { margin: 0 0 6px; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; }
+.brief p, .pc p { margin: 0; font-size: 14px; line-height: 1.45; }
+code { font-size: 12px; background: #eef2f1; padding: 1px 4px; border-radius: 3px; }
+.pair { display: flex; flex-wrap: wrap; gap: 24px; align-items: start; margin: 0 0 8px; }
+.cell { width: var(--phone-w); }
+.cell.board { width: min(1254px, 100%); }
+.who-tag { display: inline-block; font-size: 14px; font-weight: 750; line-height: 1.2; padding: 5px 9px; border-radius: 5px; margin-bottom: 7px; }
+.who-tag.pool { background: var(--pool); color: #fff; }
+.who-tag.evidence { background: var(--evidence); color: #fff; }
+.cell h4 { font-size: 15px; font-weight: 600; line-height: 21px; min-height: 42px; margin: 0 0 8px; }
+.rec-pill { display: inline-block; background: #f5d76e; color: #3a2a00; border-radius: 4px; font-size: 10px; line-height: 16px; padding: 0 4px; margin-left: 4px; white-space: nowrap; vertical-align: middle; }
+.cap { font-size: 13px; line-height: 19px; margin: 10px 0 0; }
+.phone-clip { width: var(--phone-w); height: var(--phone-h); border-radius: 42px; background: #e4e9e8; box-shadow: 0 3px 12px #1a20211c; position: relative; }
+.board-clip { width: min(1254px, 100%); height: 940px; border-radius: 12px; background: #e4e9e8; box-shadow: 0 3px 12px #1a20211c; position: relative; }
+.phone-clip iframe, .phone-clip img, .board-clip iframe { display: block; border: 0; border-radius: inherit; background: #fff; position: relative; }
+.phone-clip iframe, .phone-clip img { width: var(--phone-w); height: var(--phone-h); }
+.phone-clip img { object-fit: contain; background: #111; }
+.board-clip iframe { width: 100%; height: 100%; background: #E9E5DF; }
+.phone-loading { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 30px; text-align: center; color: var(--muted); }
+.phone-clip:not(.is-ready) iframe, .phone-clip:not(.is-ready) img, .board-clip:not(.is-ready) iframe { visibility: hidden; }
+.is-ready .phone-loading { display: none; }
+.phone-loading button { background: #fff; border: 1px solid var(--line); border-radius: 5px; padding: 8px 14px; }
+.choicebar { border: 1px solid var(--line); background: var(--card); border-radius: 6px; padding: 8px 12px 10px; margin: 12px 0 0; max-width: 1254px; }
+.choicebar legend { font-size: 12px; font-weight: 700; padding: 0 5px; }
+.options { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+label.opt { display: inline-flex; align-items: center; gap: 7px; border: 1px solid transparent; border-radius: 5px; padding: 7px 9px; font-size: 13px; }
+label.opt:has(input:checked) { background: #e1f0eb; border-color: var(--teal); font-weight: 700; }
+label.opt:hover { background: #f0f4f3; }
+.steer { max-width: 1254px; margin-top: 10px; }
+.steer label { display: block; font-size: 13px; font-weight: 650; margin-bottom: 7px; }
+textarea { display: block; width: 100%; max-width: 1254px; min-height: 66px; resize: vertical; padding: 10px 12px; border: 1px solid #859496; border-radius: 5px; background: #fff; font-size: 14px; }
+textarea::placeholder { color: #626d70; }
+.answers { max-width: 1254px; }
+#answer-summary { margin: 16px 0; }
+.answer-row { display: grid; grid-template-columns: 220px 1fr auto; gap: 5px 18px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.answer-row strong { font-size: 14px; }
+.answer-row p { grid-column: 2 / -1; white-space: pre-wrap; margin: 0; color: var(--muted); }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.actions button { padding: 10px 14px; border: 1px solid #859496; border-radius: 5px; background: #fff; color: var(--ink); font-weight: 650; font-size: 13px; }
+.actions .primary { background: var(--teal); color: #fff; border-color: var(--teal); }
+.status { min-height: 22px; font-size: 13px; }
+.print-context { display: none; }
+@media (min-width: 1550px) {
+  #mixform { display: grid; grid-template-columns: 220px minmax(0, 1fr); align-items: start; }
+  .top { position: sticky; top: 0; padding: 20px 16px; border: 0; max-height: 100vh; overflow-y: auto; }
+  .toc { display: grid; gap: 2px; }
+  .wrap { border-left: 1px solid var(--line); }
+}
+@media (max-width: 899px) {
+  .wrap, .top { padding: 16px; }
+  .answer-row { grid-template-columns: 130px 1fr auto; }
+  .board-clip { height: 720px; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#undisputed">Skip to decisions</a>
+<form id="mixform">
+<aside aria-label="Packet navigation" class="top">
+<a class="packet-title" href="#start">Sweet · TF18 UX audit</a>
+<fieldset class="who"><legend>Reviewer</legend>
+<label><input name="who" required="" type="radio" value="Salim"/> Salim</label>
+<label><input name="who" type="radio" value="Ranya"/> Ranya</label>
+</fieldset>
+<p class="progress" id="progress">0 of 14 decided</p>
+<p class="save-status" id="save-status" role="status">Drafts save on this device.</p>
+<nav aria-label="Decisions" class="toc">
+<a href="#undisputed">undisputed</a><a href="#camera">camera</a><a href="#hrv">hrv</a><a href="#primer">primer</a><a href="#gut">gut</a><a href="#skin_all">skin all</a><a href="#compare">compare</a><a href="#duration">duration</a><a href="#disclaimer">disclaimer</a><a href="#overlay">overlay</a><a href="#signin">signin</a><a href="#tabs">tabs</a><a href="#arc">arc</a><a href="#naming">naming</a>
+<a href="#answers">Review &amp; send</a>
+</nav>
+<p class="previous"><a href="../round3/">Packet 3</a> · <a href="../">All packets</a></p>
+</aside>
+<main class="wrap" id="start" tabindex="-1">
+<noscript><p>This page needs JavaScript to display the phones and save answers.</p></noscript>
+<header class="intro">
+<h1>Decide the TF18 UX audit</h1>
+<p>Three families walked You(th), Packet 3, and Build 18 independently, then pooled. This page is the founder gate: radios + notes, same as Packet 3. Look will not implement until you send.</p>
+<p>Catalog: 155 open rows (31 BLOCKER / 85 SHOULD / 39 POLISH). 116 were not in any seed. One-family BLOCKERs were kept. Packet 3 Mix bind still holds. Light only. No You(th) pixels.</p>
+<ul class="counts">
+<li>155 open</li><li>31 BLOCKER</li><li>116 new</li><li>18 fights</li><li>SHA 5e269b6</li>
+</ul>
+</header>
+
+<article class="surface" id="undisputed">
+<h2>Undisputed (approve as one list)</h2>
+<p class="why">These are not fights. All three lanes (or the bind + founder law) already agree. Approving this list lets look implement them without another round. Notes still welcome.</p>
+<div class="brief"><div><h3>Context</h3><p>Locked title bars; one exit rule (X on camera, Done on covers, chevron on pushed pages); Ask on every saved result; integers for Skin scores and whole-number readings; History rows keep the result’s sentence; saved results are the result view; Apple Health lives on the Health tab with a payoff; camera HRV and wearable HRV never share a line; no Sweet composite score; light only; Packet 3 bind still holds.</p></div><div><h3>Pool rec <span class="rec-pill">Pool rec</span></h3><p>Approve this list as-is. Look implements it with the surviving DISAGREE calls you pick below.</p></div></div><div class="pc"><div><h3>Pros of the rec</h3><p>Unblocks the 40-second mom test without relitigating Packet 3. Matches FOUNDERS_HUMAN_UX and the Mix bind.</p></div><div><h3>Cons / cost</h3><p>If you reject one item here, say so in notes — look must not invent a fourth chrome language.</p></div></div>
+<fieldset class="choicebar" data-decision="undisputed"><legend>Undisputed list</legend><div class="options"><label class="opt"><input data-choice="undisputed" name="ui_undisputed_0" type="radio" value="approve"/> Approve the undisputed list <span class="rec-pill">Pool rec</span></label><label class="opt"><input data-choice="undisputed" name="ui_undisputed_0" type="radio" value="hold"/> Hold — I will name exceptions in notes</label><label class="opt"><input data-choice="undisputed" name="ui_undisputed_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="undisputed" name="ui_undisputed_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#undisputed_notes">Add notes</a></fieldset><input name="undisputed" type="hidden" value=""/><div class="steer"><label for="undisputed_notes">Undisputed list notes (optional)</label><textarea id="undisputed_notes" name="undisputed_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div>
+</article>
+
+<article class="surface" id="camera">
+<h2>Camera letterbox · X and coach contrast</h2>
+<p class="why">Your two newest Beta shots (Build 17; capture unchanged in 18). Packet 3 MIX: full-bleed camera, persistent Instagram X on the camera, coach at top in Sweet type, blur outside the oval and more transparent. Catalog P-VG-01 / P-VG-02. DISAGREE D1.</p>
+<div class="brief"><div><h3>Context</h3><p>The shot is cream chrome above and below a mid-band camera; pale X and pale coach sit on cream, not on the blur. Source: <code>SweetCaptureStage</code> already paints black and frames the camera full-height; <code>ShenCaptureViewController</code> pins the SDK child to all four edges. Fable infers the light bands are the SDK’s own aspect-fit preview on a light background. Still an inference until one device screenshot after the fix.</p></div><div><h3>Pool rec <span class="rec-pill">Pool rec</span></h3><p>Fable’s container fix first (aspect-fill / clip the Shen child so the preview fills the stage). Then Grok’s oval raise so eyes sit near the camera. Material scrim behind X and coach. Device shot before anyone calls it closed.</p></div></div><div class="pc"><div><h3>Pros of the rec</h3><p>Matches the MIX and the shots you filed. One instrument: oval + X + coach on the camera. Does not add a title bar or a Start button.</p></div><div><h3>Cons / cost</h3><p>If Shen cannot aspect-fill without cropping its own guide, we may need a vendor flag. Cost is UIKit in the capture host (already first-class). Do not ship a fake full-bleed by stretching a letterboxed buffer.</p></div></div>
+<div class="pair">
+<div class="cell"><p class="print-context">“Blur should be full screen”</p><div class="who-tag evidence">Build 17 device</div><h4>“Blur should be full screen”</h4><div class="phone-clip" data-src="evidence/blur.jpg" data-title="“Blur should be full screen”"></div><p class="cap">Cream letterbox above and below. Oval in a mid-band. Coach: “Move a little closer.”</p></div>
+<div class="cell"><p class="print-context">X / coach contrast</p><div class="who-tag evidence">Build 17 device</div><h4>X / coach contrast</h4><div class="phone-clip" data-src="evidence/contrast.jpg" data-title="X / coach contrast"></div><p class="cap">Pale X and pale “Center your face…” on cream, not on the camera. Face not filling the oval.</p></div>
+</div>
+<div class="cell board"><p class="print-context">Proposed capture</p><div class="who-tag pool">Pool mock</div><h4>Proposed capture</h4><div class="board-clip" data-src="mocks/01-face-capture.html" data-title="Proposed capture"></div><p class="cap">Full-bleed, X and coach on dark material, teal oval + progress, no primer. Finish arc is Sweet blue (the bind), not magenta.</p></div>
+<fieldset class="choicebar" data-decision="camera"><legend>Camera letterbox</legend><div class="options"><label class="opt"><input data-choice="camera" name="ui_camera_0" type="radio" value="pool-fill-then-oval"/> Pool rec · aspect-fill then raise oval <span class="rec-pill">Pool rec</span></label><label class="opt"><input data-choice="camera" name="ui_camera_0" type="radio" value="fill-only"/> Aspect-fill only; leave oval where it is</label><label class="opt"><input data-choice="camera" name="ui_camera_0" type="radio" value="wait-device"/> Wait for a device screenshot before choosing</label><label class="opt"><input data-choice="camera" name="ui_camera_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="camera" name="ui_camera_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#camera_notes">Add notes</a></fieldset><input name="camera" type="hidden" value=""/><div class="steer"><label for="camera_notes">Camera letterbox notes (optional)</label><textarea id="camera_notes" name="camera_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div>
+</article>
+
+<article class="surface" id="hrv">
+<h2>HRV on the result tile</h2>
+<p class="why">Shen marks rMSSD unavailable. SDNN and lnRMSSD are supported and hidden. Catalog P-VG-06. DISAGREE D2. Fable’s original mocks showed “HRV · rMSSD 42 ms” — do not approve those as drawn.</p>
+<div class="brief"><div><h3>Context</h3><p>Source: <code>ShenResultMapper</code> marks <code>.hrvRMSSD</code> unsupported; <code>VitalGlimpseReading.isVisible</code> hides SDNN and lnRMSSD; the result still includes an rMSSD tile. On a Shen build that tile can never carry a value. Ranya’s plain-English HRV sentence is about HRV, not the estimator name.</p></div><div><h3>Pool rec <span class="rec-pill">Pool rec</span></h3><p>Hero tile: “HRV” with a small “SDNN” label, value in ms. lnRMSSD in All readings, unitless. Baselines only within the exact kind. Do not exponentiate lnRMSSD unless Shen documents the transform.</p></div></div><div class="pc"><div><h3>Pros of the rec</h3><p>Honest. Matches the vendor. Mom sees one word (HRV) and a number. All readings still has the second estimator.</p></div><div><h3>Cons / cost</h3><p>People who googled rMSSD will not see that acronym on the overview. If you want rMSSD as the everyday word, we would be labeling a reading Shen does not return.</p></div></div>
+<div class="cell board"><p class="print-context">Result · SDNN hero</p><div class="who-tag pool">Pool mock</div><h4>Result · SDNN hero</h4><div class="board-clip" data-src="mocks/02-face-result.html" data-title="Result · SDNN hero"></div><p class="cap">Pool mock: HRV tile is SDNN. Ask sits above All readings.</p></div>
+<div class="cell board"><p class="print-context">All readings · SDNN + lnRMSSD</p><div class="who-tag pool">Pool mock</div><h4>All readings · SDNN + lnRMSSD</h4><div class="board-clip" data-src="mocks/03-all-readings.html" data-title="All readings · SDNN + lnRMSSD"></div><p class="cap">SDNN and lnRMSSD as separate rows. Absences say why.</p></div>
+<fieldset class="choicebar" data-decision="hrv"><legend>HRV hero</legend><div class="options"><label class="opt"><input data-choice="hrv" name="ui_hrv_0" type="radio" value="sdnn-hero"/> Pool rec · HRV (SDNN) ms on the tile <span class="rec-pill">Pool rec</span></label><label class="opt"><input data-choice="hrv" name="ui_hrv_0" type="radio" value="lnrmssd-hero"/> lnRMSSD as the hero instead</label><label class="opt"><input data-choice="hrv" name="ui_hrv_0" type="radio" value="keep-rmssd-label"/> Keep showing rMSSD (not recommended)</label><label class="opt"><input data-choice="hrv" name="ui_hrv_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="hrv" name="ui_hrv_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#hrv_notes">Add notes</a></fieldset><input name="hrv" type="hidden" value=""/><div class="steer"><label for="hrv_notes">HRV hero notes (optional)</label><textarea id="hrv_notes" name="hrv_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div>
+</article>
+
+<article class="surface" id="primer">
+<h2>First-run Face primer</h2>
+<p class="why">Today “Start check” is on a preparing page before the camera. Measurement already auto-starts when Shen is ready. Catalog P-VG-10. DISAGREE D3.</p>
+<div class="brief"><div><h3>Context</h3><p>Fable and Grok: delete the primer; the stage’s coach plus one sentence replaces it; the OS camera prompt is the only gate. Codex: avoid repeating it, retain first-use purpose/permission rationale. Source auto-starts when ready — the primer is the extra confirmation the bind told us to delete.</p></div><div><h3>Pool rec <span class="rec-pill">Pool rec</span></h3><p>Delete the primer. Put “About a minute. You can stop anytime.” on the stage on first run only.</p></div></div><div class="pc"><div><h3>Pros of the rec</h3><p>Fewer taps. Matches auto-start. Coach teaches the oval instead of a paragraph.</p></div><div><h3>Cons / cost</h3><p>You lose a dedicated permission-rationale screen. The OS prompt still fires. If you want a first-launch beat, it should be one sentence, not a second Start.</p></div></div>
+<div class="cell board"><p class="print-context">Stage without a primer</p><div class="who-tag pool">Pool mock</div><h4>Stage without a primer</h4><div class="board-clip" data-src="mocks/01-face-capture.html" data-title="Stage without a primer"></div><p class="cap">Second coach line is the primer copy. No Start button on the camera.</p></div>
+<fieldset class="choicebar" data-decision="primer"><legend>Face primer</legend><div class="options"><label class="opt"><input data-choice="primer" name="ui_primer_0" type="radio" value="delete"/> Pool rec · delete; one sentence on the stage <span class="rec-pill">Pool rec</span></label><label class="opt"><input data-choice="primer" name="ui_primer_0" type="radio" value="keep-once"/> Keep once, then never again (Codex)</label><label class="opt"><input data-choice="primer" name="ui_primer_0" type="radio" value="keep"/> Keep the preparing page</label><label class="opt"><input data-choice="primer" name="ui_primer_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="primer" name="ui_primer_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#primer_notes">Add notes</a></fieldset><input name="primer" type="hidden" value=""/><div class="steer"><label for="primer_notes">Face primer notes (optional)</label><textarea id="primer_notes" name="primer_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div>
+</article>
+
+<article class="surface" id="gut">
+<h2>Gut capture · system camera vs Sweet viewfinder</h2>
+<p class="why">Founder law names the Gut viewfinder. Packet 3 Codex 14: the frame teaches what needs to be in view. Catalog P-GUT-01. DISAGREE D4.</p>
+<div class="brief"><div><h3>Context</h3><p>Fable/Grok: a Sweet stage (rounded guide, coach, X, shutter, Library, freeze-frame Retake/Use). Codex: keep the system presenter; add contrast backing; do not add a post-shutter review unless evidence justifies it. The system camera already has Retake/Use; Fable’s freeze-frame replaces it one-for-one, so tap count does not rise.</p></div><div><h3>Pool rec <span class="rec-pill">Pool rec</span></h3><p>Build the Sweet viewfinder. Codex’s chrome fixes become moot.</p></div></div><div class="pc"><div><h3>Pros of the rec</h3><p>Same capture language as Face/Skin. Mom never leaves Sweet. Guide teaches distance/crop. Matches the law.</p></div><div><h3>Cons / cost</h3><p>Real engineering cost: Sweet owns a capture session. If you want cheaper, Codex’s “fix the system camera chrome” is the fallback — worse teaching, less delight.</p></div></div>
+<div class="cell board"><p class="print-context">Sweet Gut viewfinder</p><div class="who-tag pool">Pool mock</div><h4>Sweet Gut viewfinder</h4><div class="board-clip" data-src="mocks/12-gut-capture.html" data-title="Sweet Gut viewfinder"></div><p class="cap">Rounded guide, one coach, Capture, small Library, freeze-frame review.</p></div>
+<fieldset class="choicebar" data-decision="gut"><legend>Gut capture</legend><div class="options"><label class="opt"><input data-choice="gut" name="ui_gut_0" type="radio" value="sweet-viewfinder"/> Pool rec · Sweet viewfinder <span class="rec-pill">Pool rec</span></label><label class="opt"><input data-choice="gut" name="ui_gut_0" type="radio" value="system-camera-chrome"/> Keep system camera; fix chrome only</label><label class="opt"><input data-choice="gut" name="ui_gut_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="gut" name="ui_gut_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#gut_notes">Add notes</a></fieldset><input name="gut" type="hidden" value=""/><div class="steer"><label for="gut_notes">Gut capture notes (optional)</label><textarea id="gut_notes" name="gut_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div>
+</article>
+
+<article class="surface" id="skin_all">
+<h2>Skin · All observations</h2>
+<p class="why">Packet 3 bind: “Fable B for All observations” (glance bar + area dots, less text). Fable’s later audit said dots-only is colour-only meaning. Catalog P-SK-02. DISAGREE D5. Pair with inverted pills on the overview (P-SK-01) — those two must ship together.</p>
+<div class="brief"><div><h3>Context</h3><p>Bind skeleton is Fable B. Fable lane now wants a grouped list with integer, band word, and bar. Codex: keep Fable B; add Good / Attention / Care as text beside the colour. Grok: ship Fable B, numbers on tap.</p></div><div><h3>Pool rec <span class="rec-pill">Pool rec</span></h3><p>Keep the glance bar and area dots (the bind) and add integer + band word per row. That is what the pool mock draws. It revises the bind by one addition.</p></div></div><div class="pc"><div><h3>Pros of the rec</h3><p>Honours Packet 3’s scanability and Sweet’s “no colour-only meaning” rule. Integers as you asked.</p></div><div><h3>Cons / cost</h3><p>Slightly more text than the original Fable B caption. If you want bind-pure Fable B, we keep dots and put numbers only on tap — weaker for colour-blind use.</p></div></div>
+<div class="cell board"><p class="print-context">All observations</p><div class="who-tag pool">Pool mock</div><h4>All observations</h4><div class="board-clip" data-src="mocks/09-skin-all-observations.html" data-title="All observations"></div><p class="cap">Glance bar + area dots + integer and band word per row.</p></div>
+<div class="cell board"><p class="print-context">Overview pills (must ship with it)</p><div class="who-tag pool">Pool mock</div><h4>Overview pills (must ship with it)</h4><div class="board-clip" data-src="mocks/14-skin-result.html" data-title="Overview pills (must ship with it)"></div><p class="cap">Worst band must not read as the softest pill. Confirmed in source.</p></div>
+<fieldset class="choicebar" data-decision="skin_all"><legend>Skin All observations</legend><div class="options"><label class="opt"><input data-choice="skin_all" name="ui_skin_all_0" type="radio" value="bind-plus-words"/> Pool rec · Fable B + integer + band word <span class="rec-pill">Pool rec</span></label><label class="opt"><input data-choice="skin_all" name="ui_skin_all_0" type="radio" value="bind-pure"/> Bind-pure Fable B; numbers on tap only</label><label class="opt"><input data-choice="skin_all" name="ui_skin_all_0" type="radio" value="grouped-list"/> Fable’s later grouped list (no dots)</label><label class="opt"><input data-choice="skin_all" name="ui_skin_all_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="skin_all" name="ui_skin_all_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#skin_all_notes">Add notes</a></fieldset><input name="skin_all" type="hidden" value=""/><div class="steer"><label for="skin_all_notes">Skin All observations notes (optional)</label><textarea id="skin_all_notes" name="skin_all_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div>
+</article>
+
+<article class="surface" id="compare">
+<h2>Compare vs Trends</h2>
+<p class="why">Compare trend lines are graphed oddly (your seed). Catalog P-HIS-05. DISAGREE D6.</p>
+<div class="brief"><div><h3>Context</h3><p>Fable: Compare becomes a “two dates” mode inside Trends; drop the standalone two-mode screen. Codex: keep Compare; fix origin, eligibility, per-metric limit, pair-not-pattern headline, third-tap feedback, duplicate exits. Grok: keep Compare from History and from HRV detail; disabled until two; no silent third; morning/evening labelled, not judged.</p></div><div><h3>Pool rec <span class="rec-pill">Pool rec</span></h3><p>One Trends page owns comparison as a mode, reachable with the current record preselected from a saved result and from HRV detail. Codex’s six graph/eligibility fixes apply to that mode.</p></div></div><div class="pc"><div><h3>Pros of the rec</h3><p>One chart language. Fewer screens. Your “weird graph” seed gets a single place to fix. Still reachable from History.</p></div><div><h3>Cons / cost</h3><p>People who liked a dedicated Compare button lose a named screen. If you want that name, keep a standalone Compare that uses the same chart component.</p></div></div>
+<div class="cell board"><p class="print-context">Trends with Compare as a mode</p><div class="who-tag pool">Pool mock</div><h4>Trends with Compare as a mode</h4><div class="board-clip" data-src="mocks/07-trends.html" data-title="Trends with Compare as a mode"></div><p class="cap">One chart language, usual band, Apple Health as a labelled series, Compare as a mode.</p></div>
+<div class="cell board"><p class="print-context">History still reaches it</p><div class="who-tag pool">Pool mock</div><h4>History still reaches it</h4><div class="board-clip" data-src="mocks/05-history.html" data-title="History still reaches it"></div><p class="cap">Rows keep meaning. Compare/Trends from the saved result, not a raw dump.</p></div>
+<fieldset class="choicebar" data-decision="compare"><legend>Compare</legend><div class="options"><label class="opt"><input data-choice="compare" name="ui_compare_0" type="radio" value="trends-mode"/> Pool rec · Compare as a Trends mode <span class="rec-pill">Pool rec</span></label><label class="opt"><input data-choice="compare" name="ui_compare_0" type="radio" value="standalone"/> Keep a standalone Compare screen; same chart component</label><label class="opt"><input data-choice="compare" name="ui_compare_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="compare" name="ui_compare_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#compare_notes">Add notes</a></fieldset><input name="compare" type="hidden" value=""/><div class="steer"><label for="compare_notes">Compare notes (optional)</label><textarea id="compare_notes" name="compare_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div>
+</article>
+
+<article class="surface" id="duration">
+<h2>40 seconds vs one-minute Shen preset</h2>
+<p class="why">Founder 40-second mom test vs <code>measurementPreset = .oneMinuteAllMetrics</code>, which is what makes Shen compute blood pressure. Catalog P-VG-26. DISAGREE A2 / D10. Grok-only BLOCKER — kept as BLOCKER; law currently wins.</p>
+<div class="brief"><div><h3>Context</h3><p>AGENTS.md: that preset is what makes Shen compute BP. Grok’s real point is the minute *feels* like three because of the primer, cream preparing page, and letterbox — those are already P-VG-09/10/01.</p></div><div><h3>Pool rec <span class="rec-pill">Pool rec</span></h3><p>Keep the one-minute preset (keep BP). Kill the feeling of three minutes by deleting the primer, full-bleed camera, and auto-start (already undisputed / camera / primer).</p></div></div><div class="pc"><div><h3>Pros of the rec</h3><p>Keeps BP, which is a Sweet Face differentiator. Fixes the *feeling* of duration without dropping a reading.</p></div><div><h3>Cons / cost</h3><p>A well-framed check is still ~60s of holding still. If you would rather hit 40s of wall-clock, we drop BP (or wait for a shorter Shen preset that still returns it).</p></div></div>
+<fieldset class="choicebar" data-decision="duration"><legend>Scan length</legend><div class="options"><label class="opt"><input data-choice="duration" name="ui_duration_0" type="radio" value="keep-one-minute"/> Pool rec · keep 1-minute preset (keep BP) <span class="rec-pill">Pool rec</span></label><label class="opt"><input data-choice="duration" name="ui_duration_0" type="radio" value="drop-bp-shorter"/> Drop BP; use a shorter preset</label><label class="opt"><input data-choice="duration" name="ui_duration_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="duration" name="ui_duration_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#duration_notes">Add notes</a></fieldset><input name="duration" type="hidden" value=""/><div class="steer"><label for="duration_notes">Scan length notes (optional)</label><textarea id="duration_notes" name="duration_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div>
+</article>
+
+<article class="surface" id="disclaimer">
+<h2>Disclaimer placement</h2>
+<p class="why">Stamped on almost every screen in three wordings. You(th) says it once as an acknowledgement (081). Catalog P-SYS-06. DISAGREE D15. AGENTS.md: keep You(th)’s own disclaimer pattern.</p>
+<div class="brief"><div><h3>Context</h3><p>Fable: one acknowledgement before the first result, one paragraph in About, one short footnote on result screens only. Grok: one line at the end of each result; none anywhere else. A label true everywhere informs nowhere.</p></div><div><h3>Pool rec <span class="rec-pill">Pool rec</span></h3><p>Fable’s three places. One wording. None on capture, Home, History rows, consent, Ask, Orientation, education.</p></div></div><div class="pc"><div><h3>Pros of the rec</h3><p>Matches You(th) 081 and the law. Stops goodwill drain from repeating “wellness estimates” on every chrome.</p></div><div><h3>Cons / cost</h3><p>If legal wants it on every result, the footnote on results already covers that. Do not put it on Home rows again (Build 17 did).</p></div></div>
+<fieldset class="choicebar" data-decision="disclaimer"><legend>Disclaimer</legend><div class="options"><label class="opt"><input data-choice="disclaimer" name="ui_disclaimer_0" type="radio" value="three-places"/> Pool rec · first-result acknowledgement + About + result footnote <span class="rec-pill">Pool rec</span></label><label class="opt"><input data-choice="disclaimer" name="ui_disclaimer_0" type="radio" value="results-only"/> Only a footnote on results (Grok)</label><label class="opt"><input data-choice="disclaimer" name="ui_disclaimer_0" type="radio" value="keep-everywhere"/> Keep it on many screens (not recommended)</label><label class="opt"><input data-choice="disclaimer" name="ui_disclaimer_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="disclaimer" name="ui_disclaimer_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#disclaimer_notes">Add notes</a></fieldset><input name="disclaimer" type="hidden" value=""/><div class="steer"><label for="disclaimer_notes">Disclaimer notes (optional)</label><textarea id="disclaimer_notes" name="disclaimer_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div>
+</article>
+
+<article class="surface" id="overlay">
+<h2>Shen scan overlay</h2>
+<p class="why">Packet 3 MIX: You(th)/Shen-style scan overlay on the face. Source: face mask on, blood flow off, Shen chrome hidden. Catalog P-POOL-01. Pool found this while pooling — no independent lane had the row.</p>
+<div class="brief"><div><h3>Context</h3><p>Grok assumed no overlay. Source sets <code>showFaceMask = true</code>, <code>showBloodFlow = false</code>, <code>showUserInterface = false</code>. The Sweet oval remains the instrument.</p></div><div><h3>Pool rec <span class="rec-pill">Pool rec</span></h3><p>You decide whether blood flow is on. Either way: keep Shen chrome hidden and the Sweet oval as the instrument.</p></div></div><div class="pc"><div><h3>Pros of the rec</h3><p>Face mask already gives a You(th)-like scan without Shen’s own HUD. Blood flow is extra life if it does not fight the oval.</p></div><div><h3>Cons / cost</h3><p>Blood flow can look medical/scanner and steal focus from the oval. Vendor capability unconfirmed on device.</p></div></div>
+<fieldset class="choicebar" data-decision="overlay"><legend>Shen overlay</legend><div class="options"><label class="opt"><input data-choice="overlay" name="ui_overlay_0" type="radio" value="mask-only"/> Pool rec · keep face mask; blood flow off <span class="rec-pill">Pool rec</span></label><label class="opt"><input data-choice="overlay" name="ui_overlay_0" type="radio" value="mask-and-flow"/> Turn blood flow on as well</label><label class="opt"><input data-choice="overlay" name="ui_overlay_0" type="radio" value="neither"/> No Shen overlay; oval only</label><label class="opt"><input data-choice="overlay" name="ui_overlay_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="overlay" name="ui_overlay_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#overlay_notes">Add notes</a></fieldset><input name="overlay" type="hidden" value=""/><div class="steer"><label for="overlay_notes">Shen overlay notes (optional)</label><textarea id="overlay_notes" name="overlay_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div>
+</article>
+
+<article class="surface" id="signin">
+<h2>Sign-in / Accounts</h2>
+<p class="why">Catalog P-SET-10. DISAGREE D13. SIWA is already on the App ID — do not reopen Apple Developer.</p>
+<div class="brief"><div><h3>Context</h3><p>Fable: hide Accounts until an account does something. Grok: Sign in with Apple only, one honest sentence. Codex: keep, fix code retention and abandonment.</p></div><div><h3>Pool rec <span class="rec-pill">Pool rec</span></h3><p>Product call. If nothing syncs yet, hide is the honest default. If identity is needed for the Ask proxy or later sync, SIWA-only with Codex’s abandonment fixes.</p></div></div><div class="pc"><div><h3>Pros of the rec</h3><p>Honesty: don’t show a door to a room that isn’t built. SIWA is the iOS-native door when you need an account.</p></div><div><h3>Cons / cost</h3><p>Hiding Accounts can surprise testers who expect a profile. SIWA-only still needs a reason (“so checks stay on this iPhone”).</p></div></div>
+<fieldset class="choicebar" data-decision="signin"><legend>Sign-in</legend><div class="options"><label class="opt"><input data-choice="signin" name="ui_signin_0" type="radio" value="hide-until-sync"/> Pool rec if nothing syncs · hide Accounts <span class="rec-pill">Pool rec</span></label><label class="opt"><input data-choice="signin" name="ui_signin_0" type="radio" value="siwa-only"/> Sign in with Apple only, one honest sentence</label><label class="opt"><input data-choice="signin" name="ui_signin_0" type="radio" value="keep-fix"/> Keep Accounts; fix Codex’s abandonment issues</label><label class="opt"><input data-choice="signin" name="ui_signin_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="signin" name="ui_signin_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#signin_notes">Add notes</a></fieldset><input name="signin" type="hidden" value=""/><div class="steer"><label for="signin_notes">Sign-in notes (optional)</label><textarea id="signin_notes" name="signin_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div>
+</article>
+
+<article class="surface" id="tabs">
+<h2>Tab labels on the pill</h2>
+<p class="why">Build 17 device shot shows “Home · Health · History · Settings” under the icons. Build 18 source is images only. Catalog P-POOL-03. Instagram’s pill is icon-only; the mom test is “would my mom know.”</p>
+<div class="brief"><div><h3>Context</h3><p>Packet 3 MIX already chose the Instagram pill with Settings rightmost. Labels are the leftover question. Codex asked for labels; Fable asked for clearer glyphs; neither knew 17 had labels.</p></div><div><h3>Pool rec <span class="rec-pill">Pool rec</span></h3><p>Your call. Default rec if you won’t pick: restore the short labels from Build 17 so the four tabs are named.</p></div></div><div class="pc"><div><h3>Pros of the rec</h3><p>Labels: mom does not have to guess a heart vs a spark. Icon-only: closer to Instagram and the MIX chrome.</p></div><div><h3>Cons / cost</h3><p>Labels add height and can wrap. Icon-only fails the trunk test if glyphs are ambiguous (Health as heart).</p></div></div>
+<fieldset class="choicebar" data-decision="tabs"><legend>Tab labels</legend><div class="options"><label class="opt"><input data-choice="tabs" name="ui_tabs_0" type="radio" value="labels"/> Pool default · restore short labels <span class="rec-pill">Pool rec</span></label><label class="opt"><input data-choice="tabs" name="ui_tabs_0" type="radio" value="icons-only"/> Icons only (Instagram)</label><label class="opt"><input data-choice="tabs" name="ui_tabs_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="tabs" name="ui_tabs_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#tabs_notes">Add notes</a></fieldset><input name="tabs" type="hidden" value=""/><div class="steer"><label for="tabs_notes">Tab labels notes (optional)</label><textarea id="tabs_notes" name="tabs_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div>
+</article>
+
+<article class="surface" id="arc">
+<h2>Completion arc colour</h2>
+<p class="why">Packet 3 MIX: “Neutral complete arc then Sweet-blue before auto-navigate.” Fable mock used magenta. Source uses a blue (46, 62, 209) in no palette. DISAGREE D11.</p>
+<div class="brief"><div><h3>Context</h3><p>The bind already named the colour. The pool mock uses Sweet blue. Magenta is the brand accent for type/emphasis, not the completion signal.</p></div><div><h3>Pool rec <span class="rec-pill">Pool rec</span></h3><p>Bind wins. Add a <code>signalBlue</code> token. Neutral complete arc, then Sweet blue, then auto-navigate.</p></div></div><div class="pc"><div><h3>Pros of the rec</h3><p>Matches Packet 3. Green/amber during the scan stay for good/not-good; blue is “done.”</p></div><div><h3>Cons / cost</h3><p>If you want magenta as the finish (brand), say so — that would override the MIX.</p></div></div>
+<fieldset class="choicebar" data-decision="arc"><legend>Completion arc</legend><div class="options"><label class="opt"><input data-choice="arc" name="ui_arc_0" type="radio" value="sweet-blue"/> Pool rec · Sweet blue (the bind) <span class="rec-pill">Pool rec</span></label><label class="opt"><input data-choice="arc" name="ui_arc_0" type="radio" value="magenta"/> Magenta (Fable mock)</label><label class="opt"><input data-choice="arc" name="ui_arc_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="arc" name="ui_arc_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#arc_notes">Add notes</a></fieldset><input name="arc" type="hidden" value=""/><div class="steer"><label for="arc_notes">Completion arc notes (optional)</label><textarea id="arc_notes" name="arc_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div>
+</article>
+
+<article class="surface" id="naming">
+<h2>Vital Glimpse naming leftover</h2>
+<p class="why">Working name is propagated on Home, History, result bar, Ask. Residual: “Compare Face” link, “camera check” on failures, “Heart-rate estimate” vs “Heart rate”, “still” / “selfie”. Grok called the umbrella a BLOCKER. Catalog P-SYS-09. DISAGREE D8.</p>
+<div class="brief"><div><h3>Context</h3><p>Grok: testers will think Face and Vital Glimpse are two checks. Fable: drift is real but P1/P2. Pool re-read source: the name is on the primary surfaces.</p></div><div><h3>Pool rec <span class="rec-pill">Pool rec</span></h3><p>SHOULD, not BLOCKER. One display name per reading (the friendly one); technical name as small secondary on detail only; “photo”, never “still” or “selfie”; Compare says Vital Glimpse.</p></div></div><div class="pc"><div><h3>Pros of the rec</h3><p>Fixes the leftover copy without pretending the working name never shipped.</p></div><div><h3>Cons / cost</h3><p>If the TestFlight notes still say “Face check,” you can keep BLOCKER and we treat every leftover string as P0.</p></div></div>
+<fieldset class="choicebar" data-decision="naming"><legend>Naming leftover</legend><div class="options"><label class="opt"><input data-choice="naming" name="ui_naming_0" type="radio" value="should"/> Pool rec · SHOULD, fix leftover strings <span class="rec-pill">Pool rec</span></label><label class="opt"><input data-choice="naming" name="ui_naming_0" type="radio" value="blocker"/> Keep BLOCKER; every leftover string is P0</label><label class="opt"><input data-choice="naming" name="ui_naming_0" type="radio" value="mix"/> Mix · add notes</label><label class="opt"><input data-choice="naming" name="ui_naming_0" type="radio" value="mock-another-round"/> Another round</label></div><a class="notes-link" href="#naming_notes">Add notes</a></fieldset><input name="naming" type="hidden" value=""/><div class="steer"><label for="naming_notes">Naming leftover notes (optional)</label><textarea id="naming_notes" name="naming_notes" placeholder="What to keep, combine, or change" rows="2"></textarea></div>
+</article>
+
+<article class="surface" id="else">
+<h2>Overall notes</h2>
+<label for="notes">Anything else for look to obey (optional)</label>
+<textarea id="notes" name="notes" placeholder="Exceptions to the undisputed list, wording you want exact, or a fight we missed" rows="3"></textarea>
+<input id="mix_line" name="mix_line" type="hidden"/>
+</article>
+<section aria-labelledby="answers-title" class="answers surface" id="answers">
+<h2 id="answers-title">Review &amp; send</h2>
+<p id="answer-reviewer">Choose Salim or Ranya before sending.</p>
+<div id="answer-summary"></div>
+<div class="actions">
+<button class="primary" id="submitBtn" type="submit">Send answers</button>
+<button id="copyBtn" type="button">Copy answers</button>
+<button id="dlBtn" type="button">Download answers</button>
+</div>
+<p aria-live="polite" class="status" id="status" role="status"></p>
+</section>
+</main>
+</form>
+<script>
+
+const DRAFT_PREFIX = 'sweet-round4-draft-v1-';
+const REVIEWER_KEY = 'sweet-round4-reviewer-v1';
+const DECISIONS = ['undisputed', 'camera', 'hrv', 'primer', 'gut', 'skin_all', 'compare', 'duration', 'disclaimer', 'overlay', 'signin', 'tabs', 'arc', 'naming'];
+const form = document.getElementById('mixform');
+const status = document.getElementById('status');
+const saveStatus = document.getElementById('save-status');
+const sections = [...document.querySelectorAll('.surface')].filter(section => section.querySelector('.choicebar'));
+const memoryDrafts = new Map();
+let currentWho = '';
+let sending = false;
+
+function val(name) {
+  if (name === 'who') return form.querySelector('[name="who"]:checked')?.value || '';
+  return form.elements.namedItem(name)?.value || '';
+}
+function setChoice(name, value) {
+  const radios = [...form.querySelectorAll('[data-choice="' + name + '"]')];
+  const accepted = radios.some(radio => radio.value === value) ? value : '';
+  form.elements.namedItem(name).value = accepted;
+  radios.forEach(radio => { radio.checked = radio.value === accepted; });
+}
+function choiceLabel(name) {
+  const radio = [...form.querySelectorAll('[data-choice="' + name + '"]')].find(input => input.value === val(name));
+  return radio ? radio.parentElement.textContent.trim() : 'Not decided';
+}
+function mixLine() {
+  const lines = ['Sweet · TF18 UX audit decisions', 'Reviewer: ' + (val('who') || 'Not selected')];
+  sections.forEach(section => {
+    const name = section.querySelector('.choicebar').dataset.decision;
+    lines.push(section.querySelector('h2').textContent + ': ' + choiceLabel(name) + ' [' + (val(name) || 'UNDECIDED') + ']');
+    if (val(name + '_notes').trim()) lines.push('  Notes: ' + val(name + '_notes').trim().replace(/\n/g, '\n  '));
+  });
+  if (val('notes').trim()) lines.push('Overall notes:\n' + val('notes').trim());
+  return lines.join('\n');
+}
+function collectDraft() {
+  const data = {who: val('who'), notes: val('notes')};
+  DECISIONS.forEach(name => {
+    data[name] = val(name);
+    data[name + '_notes'] = val(name + '_notes');
+  });
+  return data;
+}
+function renderSummary() {
+  const count = DECISIONS.filter(name => val(name)).length;
+  document.getElementById('progress').textContent = count + ' of ' + DECISIONS.length + ' decided';
+  document.getElementById('answer-reviewer').textContent = val('who')
+    ? 'Answers from ' + val('who') + ' · ' + count + ' of ' + DECISIONS.length + ' decided. Partial answers can be sent.'
+    : 'Choose Salim or Ranya before sending.';
+  const summary = document.getElementById('answer-summary');
+  summary.replaceChildren();
+  sections.forEach(section => {
+    const name = section.querySelector('.choicebar').dataset.decision;
+    const row = document.createElement('div');
+    row.className = 'answer-row';
+    const title = document.createElement('strong');
+    title.textContent = section.querySelector('h2').textContent;
+    const answer = document.createElement('span');
+    answer.textContent = choiceLabel(name);
+    const edit = document.createElement('a');
+    edit.href = '#' + section.id;
+    edit.textContent = 'Review';
+    row.append(title, answer, edit);
+    if (val(name + '_notes')) {
+      const notes = document.createElement('p');
+      notes.textContent = val(name + '_notes');
+      row.append(notes);
+    }
+    summary.append(row);
+    const nav = document.querySelector('.toc a[href="#' + section.id + '"]');
+    if (nav) {
+      nav.classList.toggle('decided', Boolean(val(name)));
+      nav.setAttribute('aria-label', title.textContent + (val(name) ? ' — ' + choiceLabel(name) : ' — not decided'));
+    }
+  });
+  if (val('notes')) {
+    const row = document.createElement('div');
+    row.className = 'answer-row';
+    const label = document.createElement('strong');
+    label.textContent = 'Overall notes';
+    const notes = document.createElement('p');
+    notes.textContent = val('notes');
+    row.append(label, notes);
+    summary.append(row);
+  }
+  document.getElementById('mix_line').value = mixLine();
+}
+function storeDraft(who, data) {
+  const snapshot = {...data, who};
+  memoryDrafts.set(who, snapshot);
+  localStorage.setItem(DRAFT_PREFIX + (who || 'unassigned'), JSON.stringify({savedAt: Date.now(), data: snapshot}));
+}
+function readDraft(who) {
+  if (memoryDrafts.has(who)) return memoryDrafts.get(who);
+  const raw = localStorage.getItem(DRAFT_PREFIX + (who || 'unassigned'));
+  const data = raw ? JSON.parse(raw).data : null;
+  if (data) memoryDrafts.set(who, data);
+  return data;
+}
+function applyDraft(data = {}) {
+  DECISIONS.forEach(name => {
+    setChoice(name, data[name] || '');
+    form.elements.namedItem(name + '_notes').value = typeof data[name + '_notes'] === 'string' ? data[name + '_notes'] : '';
+  });
+  form.elements.namedItem('notes').value = typeof data.notes === 'string' ? data.notes : '';
+}
+function saveDraft() {
+  renderSummary();
+  try {
+    storeDraft(currentWho, collectDraft());
+    localStorage.setItem(REVIEWER_KEY, currentWho);
+    saveStatus.textContent = (currentWho ? currentWho + '’s draft saved' : 'Draft saved') + ' on this device.';
+  } catch (error) {
+    saveStatus.textContent = 'Autosave unavailable. Download answers to keep a copy.';
+  }
+}
+function loadDraft() {
+  try {
+    let who = localStorage.getItem(REVIEWER_KEY);
+    let data;
+    if (who) data = readDraft(who);
+    currentWho = who || '';
+    data = readDraft(currentWho) || data || {};
+    form.querySelectorAll('[name="who"]').forEach(radio => { radio.checked = radio.value === currentWho; });
+    applyDraft(data);
+  } catch (error) {
+    saveStatus.textContent = 'Could not restore the draft. Download answers to keep a copy.';
+  }
+}
+form.addEventListener('input', event => {
+  const input = event.target;
+  if (input.name === 'who') {
+    const nextWho = val('who');
+    const previous = collectDraft();
+    let next = memoryDrafts.get(nextWho) || null;
+    try {
+      storeDraft(currentWho, previous);
+      next = readDraft(nextWho);
+    } catch (error) { /* keep answers for export */ }
+    applyDraft(next || (currentWho ? {} : previous));
+    currentWho = nextWho;
+  } else if (input.dataset.choice) {
+    setChoice(input.dataset.choice, input.value);
+  }
+  saveDraft();
+});
+form.addEventListener('invalid', () => {
+  status.textContent = 'Choose Salim or Ranya in Reviewer before sending.';
+}, true);
+window.addEventListener('pagehide', saveDraft);
+loadDraft();
+saveDraft();
+
+const clips = [...document.querySelectorAll('.phone-clip[data-src], .board-clip[data-src]')];
+const phoneStates = new Map();
+for (const clip of clips) {
+  const placeholder = document.createElement('div');
+  placeholder.className = 'phone-loading';
+  const message = document.createElement('span');
+  message.textContent = 'Loading ' + clip.dataset.title + '…';
+  const retry = document.createElement('button');
+  retry.type = 'button';
+  retry.textContent = 'Retry';
+  retry.hidden = true;
+  retry.addEventListener('click', () => { releasePhone(clip); mountPhone(clip); });
+  placeholder.append(message, retry);
+  clip.append(placeholder);
+  phoneStates.set(clip, {message, retry, node: null, ready: false, near: false, promise: null});
+}
+function releasePhone(clip) {
+  const state = phoneStates.get(clip);
+  clearTimeout(state.timer);
+  if (state.finish) state.finish(false);
+  state.node?.remove();
+  state.node = null;
+  state.ready = false;
+  state.promise = null;
+  state.retry.hidden = true;
+  state.message.textContent = 'Loading ' + clip.dataset.title + '…';
+  clip.classList.remove('is-ready');
+}
+function mountPhone(clip) {
+  const state = phoneStates.get(clip);
+  if (state.ready) return Promise.resolve(true);
+  if (state.node) return state.promise;
+  const isImage = /\.(png|jpe?g|webp)(\?|$)/i.test(clip.dataset.src);
+  const node = document.createElement(isImage ? 'img' : 'iframe');
+  state.node = node;
+  state.promise = new Promise(resolve => { state.finish = resolve; });
+  if (isImage) { node.alt = clip.dataset.title; }
+  else { node.title = clip.dataset.title; node.loading = 'eager'; }
+  const failed = () => {
+    if (state.node !== node) return;
+    clearTimeout(state.timer);
+    state.message.textContent = 'Could not load ' + clip.dataset.title + '.';
+    state.retry.hidden = false;
+    state.finish(false);
+  };
+  node.addEventListener('error', failed);
+  node.addEventListener('load', () => {
+    if (state.node !== node) return;
+    clearTimeout(state.timer);
+    state.ready = true;
+    state.retry.hidden = true;
+    clip.classList.add('is-ready');
+    state.finish(true);
+  });
+  state.timer = setTimeout(failed, 20000);
+  node.src = clip.dataset.src;
+  clip.append(node);
+  return state.promise;
+}
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) mountPhone(entry.target);
+    }
+  }, {rootMargin: '800px 0px'});
+  clips.forEach(clip => observer.observe(clip));
+} else {
+  clips.forEach(mountPhone);
+}
+clips.slice(0, 4).forEach(mountPhone);
+
+let navScheduled = false;
+function updateNavigation() {
+  navScheduled = false;
+  const targets = [...document.querySelectorAll('.toc a[href^="#"]')];
+  let active = targets[0];
+  for (const link of targets) {
+    const el = document.querySelector(link.getAttribute('href'));
+    if (el && el.getBoundingClientRect().top <= 100) active = link;
+  }
+  for (const link of targets) {
+    if (link === active) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  }
+}
+addEventListener('scroll', () => {
+  if (!navScheduled) { navScheduled = true; requestAnimationFrame(updateNavigation); }
+}, {passive: true});
+updateNavigation();
+
+function downloadMix() {
+  const url = URL.createObjectURL(new Blob([mixLine()], {type: 'text/plain;charset=utf-8'}));
+  const anchor = document.createElement('a');
+  anchor.href = url;
+  anchor.download = 'sweet-tf18-ux-' + (val('who') || 'draft').toLowerCase() + '-answers.txt';
+  anchor.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+  if (sending || !val('who')) return;
+  saveDraft();
+  const reviewer = val('who');
+  const submitted = mixLine();
+  const body = new FormData();
+  Object.entries(collectDraft()).forEach(([name, value]) => body.append(name, value));
+  body.append('mix_line', submitted);
+  body.append('_subject', 'Sweet TF18 UX audit decisions from ' + reviewer);
+  sending = true;
+  document.getElementById('submitBtn').disabled = true;
+  status.textContent = 'Sending ' + reviewer + '’s answers…';
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 20000);
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/23322cc0514fb928fe0d089afa12512a', {
+      method: 'POST', headers: {Accept: 'application/json'}, body, signal: controller.signal
+    });
+    const payload = await response.json();
+    if (!response.ok || (payload.success !== true && payload.success !== 'true')) throw new Error('Send not confirmed');
+    status.textContent = 'Sent ' + reviewer + '’s answers. Draft kept on this device.';
+  } catch (error) {
+    status.textContent = 'Answers were not confirmed sent. Retry Send answers, or copy / download them.';
+  } finally {
+    clearTimeout(timer);
+    sending = false;
+    document.getElementById('submitBtn').disabled = false;
+  }
+});
+document.getElementById('copyBtn').addEventListener('click', async () => {
+  saveDraft();
+  try { await navigator.clipboard.writeText(mixLine()); status.textContent = 'Answers copied.'; }
+  catch (error) { status.textContent = 'Copy unavailable. Use Download answers.'; }
+});
+document.getElementById('dlBtn').addEventListener('click', () => {
+  saveDraft(); downloadMix(); status.textContent = 'Answers downloaded.';
+});
+
+</script>
+</body>
+</html>
