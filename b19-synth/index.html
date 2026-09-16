@@ -120,6 +120,65 @@ h1 em{font-style:normal;color:var(--magenta)}
 footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);margin-top:44px;padding:18px 0 8px;font-size:11px;color:var(--muted)}
 @media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.grid,.grid.two,.rec{grid-template-columns:1fr}.wrap{padding:0 18px 40px}}
+
+/* ---- decide form (round4 workflow) ---- */
+button,input,textarea{font:inherit}
+:focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
+input[type=radio]{width:17px;height:17px;margin:0;accent-color:var(--magenta);flex-shrink:0}
+.fight,.answers{scroll-margin-top:72px}
+.bar-in{max-width:1080px;margin:auto;padding:0 28px}
+.topbar{position:sticky;top:0;z-index:30;background:rgba(251,248,243,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .bar-in{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;min-height:56px;padding-top:6px;padding-bottom:6px}
+.who{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0;padding:0;border:0;min-width:0}
+.who legend{float:left;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--magenta);padding:0;margin-right:10px}
+.who label{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:var(--white);cursor:pointer;font-weight:600;font-size:14px}
+.who label:has(input:checked){border-color:var(--magenta);background:#F7E4EA}
+.topbar .progress{margin:0 0 0 auto;font-weight:700;font-size:14px}
+.topbar .jump{font-size:13px;font-weight:600}
+.pick{margin-top:18px;background:var(--white);border:1.5px dashed var(--magenta);border-radius:14px;padding:6px 16px 16px;min-width:0}
+.pick legend{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--magenta);padding:0 6px}
+.options{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+label.opt{display:inline-flex;align-items:center;gap:9px;min-height:44px;border:1px solid var(--line);border-radius:12px;padding:6px 14px 6px 12px;font-size:13px;cursor:pointer;background:var(--cream);max-width:100%}
+label.opt b{color:var(--magenta);font-weight:700;font-size:14px}
+label.opt:hover{border-color:#D9A9B9}
+label.opt:has(input:checked){border-color:var(--magenta);background:#F7E4EA;font-weight:600;box-shadow:inset 0 0 0 1px var(--magenta)}
+.rec-pill{font-size:10px;letter-spacing:.6px;text-transform:uppercase;font-weight:700;border-radius:5px;padding:2px 6px;border:1px solid;white-space:nowrap}
+.rec-pill.f{color:var(--magenta);border-color:#E8BFCD;background:var(--white)}
+.rec-pill.a{color:var(--blue);border-color:#C5D2DE;background:var(--white)}
+.rec-pill.n{color:var(--muted);border-color:var(--line);background:var(--white)}
+.steer{margin-top:14px}
+.steer label,.extras label{display:block;font-size:12px;font-weight:650;margin-bottom:6px;color:var(--ink)}
+textarea,input[type=text]{display:block;width:100%;padding:9px 12px;border:1px solid #C9BFB8;border-radius:10px;background:var(--white);font-size:14px;color:var(--ink)}
+textarea{min-height:64px;resize:vertical}
+textarea::placeholder,input::placeholder{color:#8A7F84}
+.extras{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.overall textarea{min-height:96px}
+.answers .lede{margin-bottom:10px}
+#answer-summary{margin:12px 0 0}
+.answer-row{display:grid;grid-template-columns:260px 1fr auto;gap:4px 16px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;align-items:baseline}
+.answer-row strong{font-weight:650}
+.answer-row .val{min-width:0}
+.answer-row .undecided{color:var(--muted);font-style:italic}
+.answer-row p{grid-column:2/-1;white-space:pre-wrap;margin:0;color:var(--muted);font-size:13px}
+.answer-row a{font-size:13px;white-space:nowrap}
+.sendbar{position:sticky;bottom:0;z-index:30;background:rgba(251,248,243,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 0 max(10px,env(safe-area-inset-bottom))}
+.sendbar .bar-in{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+.sendbar .lbl{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--magenta)}
+.sendbar .lbl a{color:inherit;text-decoration:none}
+.sendbar .lbl a:hover{text-decoration:underline}
+.sendbar .count{font-weight:700;font-size:14px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto}
+.actions button{min-height:40px;padding:8px 16px;border:1px solid #C9BFB8;border-radius:999px;background:var(--white);color:var(--ink);font-weight:650;font-size:13px;cursor:pointer}
+.actions button:hover{border-color:var(--magenta)}
+.actions .send-btn{background:var(--magenta);color:#fff;border-color:var(--magenta)}
+.actions button:disabled{cursor:wait;opacity:.6}
+.sendbar .lines{flex-basis:100%;display:flex;flex-wrap:wrap;gap:4px 18px;font-size:13px;min-height:20px}
+.sendbar .status{margin:0;font-weight:600}
+.sendbar .status.ok{color:var(--green)}
+.sendbar .status.bad{color:var(--red)}
+.sendbar .save-status{margin:0;color:var(--muted)}
+.toc a.decided::after{content:" ✓";color:var(--green)}
+@media(max-width:640px){.extras{grid-template-columns:1fr}.answer-row{grid-template-columns:1fr auto}.answer-row .val{grid-column:1/-1}.bar-in{padding:0 18px}.topbar .progress{margin-left:0}.fight,.answers{scroll-margin-top:96px}.sendbar{padding-top:8px}.sendbar .lbl,.sendbar .count{display:none}.sendbar .bar-in{gap:6px 12px}.actions{margin-left:0;width:100%;gap:6px}.actions button{flex:1 1 auto;padding:8px 10px;font-size:12px;min-height:38px}.sendbar .lines{font-size:12px;gap:2px 12px;min-height:0}}
 </style>
 </head>
 <body>
@@ -134,17 +193,28 @@ footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid 
 <symbol id="sync" viewBox="0 0 64 64"><path d="M48 28a17 17 0 0 0-30-8M16 36a17 17 0 0 0 30 8" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="M18 12v10h10M46 52V42H36" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </defs>
 </svg>
+<form id="mixform" autocomplete="off">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="mix_line" id="mix_line" value="">
+<div class="topbar"><div class="bar-in">
+  <fieldset class="who"><legend>Reviewer</legend>
+    <label><input type="radio" name="who" value="Salim" required> Salim</label>
+    <label><input type="radio" name="who" value="Ranya"> Ranya</label>
+  </fieldset>
+  <p class="progress" id="progress">0 of 12 decided</p>
+  <a class="jump" href="#answers">Review &amp; send ↓</a>
+</div></div>
 <div class="wrap">
 <header class="mast">
   <div class="word">Sweet</div>
-  <div class="ed">Build 19 · look 31b2548 · PR 192<br>Synth board · twelve fights · none picked</div>
+  <div class="ed">Build 19 · look 31b2548 · PR 192<br>Synth board · twelve fights · pick and send</div>
 </header>
 
 <section class="intro">
   <p class="eyebrow">Founder picks · open</p>
   <h1>Twelve fights.<br><em>Salim picks. Nothing ships until he does.</em></h1>
-  <p class="lede">Two source catalogs walked the same build. Fable and Astra agree on 32 items; those are already being implemented on PR 192 as AGREE_TO_SHIP and are not on this board. What is here is every item where the packet said <em>Decision needed</em>, or where the two catalogs read the founder differently. Each fight shows the options as phones, then what Fable recommends, what Astra recommends, and the trade. The founder line is empty on purpose.</p>
-  <p class="law">Not votes. A recommendation is not a pick. The factory ships a fight only after Salim writes a letter on its founder line. Anything unpicked stays as the code is today.</p>
+  <p class="lede">Two source catalogs walked the same build. Fable and Astra agree on 32 items; those are already being implemented on PR 192 as AGREE_TO_SHIP and are not on this board. What is here is every item where the packet said <em>Decision needed</em>, or where the two catalogs read the founder differently. Each fight shows the options as phones, then what Fable recommends, what Astra recommends, and the trade. Nothing is pre-checked. Pick with the radios under each fight, add notes if a letter is not enough, then Send. Answers email the packet inbox and a text backup downloads.</p>
+  <p class="law">Not votes. A recommendation is not a pick. The factory ships a fight only after Salim picks a letter under it and sends this page. Anything unpicked stays as the code is today.</p>
   <nav class="toc" aria-label="Fights">
     <a href="#f01"><b>1</b>SK-2 grades</a>
     <a href="#f02"><b>2</b>SK-8 zoom</a>
@@ -234,7 +304,15 @@ footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid 
     <div class="f"><span>Fable</span>(A) keep the band word on the tile, 1–100 number one tap in. A–F implies school marks and maps badly to a three-band scale.</div>
     <div class="a"><span>Astra</span>Keep the numeric concern/area score with the three named bands for now. If grades are preferred, decide the mapping and keep the vendor score reachable. Colour is required either way.</div>
   </div>
-  <div class="pick"><span class="lbl">Founder pick</span><span class="blank"></span><span class="opts">A · B · C · or write your own</span></div>
+  <fieldset class="pick" data-decision="sk2" data-title="SK-2 · Letter grades or numbers on Skin tiles"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="sk2" value="A"><b>A</b><span class="txt">Band word on the tile, number one tap in</span><span class="rec-pill f">Fable rec</span></label>
+      <label class="opt"><input type="radio" name="sk2" value="B"><b>B</b><span class="txt">Letter grades A–F on the tiles</span></label>
+      <label class="opt"><input type="radio" name="sk2" value="C"><b>C</b><span class="txt">Number on the tile plus the named band</span><span class="rec-pill a">Astra rec</span></label>
+      <label class="opt"><input type="radio" name="sk2" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="sk2_notes">SK-2 notes (optional) · a blend, a condition, or your own pick</label><textarea id="sk2_notes" name="sk2_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
 </section>
 
 <!-- ============ FIGHT 2 ============ -->
@@ -297,7 +375,15 @@ footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid 
     <div class="f"><span>Fable</span>(B) give Skin the Vital Glimpse geometry. If the founder wants iPhone-Camera-identical, (A). Today’s aspect-fill (61 percent) is the one option nobody defends.</div>
     <div class="a"><span>Astra</span>Compare a default-style Skin preview against any deliberate crop on the target phone, after preview/review equality. Prefer the least surprising framing that meets the provider’s needs. No new zoom factor here.</div>
   </div>
-  <div class="pick"><span class="lbl">Founder pick</span><span class="blank"></span><span class="opts">A · B · C · or write your own</span></div>
+  <fieldset class="pick" data-decision="sk8" data-title="SK-8 · Skin capture zoom"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="sk8" value="A"><b>A</b><span class="txt">Full frame, letterboxed, like iOS Camera</span></label>
+      <label class="opt"><input type="radio" name="sk8" value="B"><b>B</b><span class="txt">Match Vital Glimpse: ×1.2 crop, 83% visible</span><span class="rec-pill f">Fable rec</span></label>
+      <label class="opt"><input type="radio" name="sk8" value="C"><b>C</b><span class="txt">Least-surprising default-style selfie, tested on the phone</span><span class="rec-pill a">Astra rec</span></label>
+      <label class="opt"><input type="radio" name="sk8" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="sk8_notes">SK-8 notes (optional) · a blend, a condition, or your own pick</label><textarea id="sk8_notes" name="sk8_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
 </section>
 
 <!-- ============ FIGHT 3 ============ -->
@@ -358,7 +444,16 @@ footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid 
     <div class="f"><span>Fable</span>(B) no unit. BMI is a dimensionless index in every consumer app; it does not change with the G-4 setting. A third option, showing BMI only under metric, is on the table but recommended by nobody.</div>
     <div class="a"><span>Astra</span>“BMI” as the primary label with a short explanation on detail. Salim decides whether kg/m² stays beside the value or moves into the explanation. No medical-range recommendation.</div>
   </div>
-  <div class="pick"><span class="lbl">Founder pick</span><span class="blank"></span><span class="opts">A · B · C · metric-only · or write your own</span></div>
+  <fieldset class="pick" data-decision="tr3" data-title="TR-3 · How BMI is labelled"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="tr3" value="A"><b>A</b><span class="txt">“kg/m²” beside the value</span></label>
+      <label class="opt"><input type="radio" name="tr3" value="B"><b>B</b><span class="txt">No unit anywhere: “BMI 24.3”</span><span class="rec-pill f">Fable rec</span></label>
+      <label class="opt"><input type="radio" name="tr3" value="C"><b>C</b><span class="txt">“BMI” primary; unit only in the explanation</span><span class="rec-pill a">Astra rec</span></label>
+      <label class="opt"><input type="radio" name="tr3" value="metric-only"><b>M</b><span class="txt">Metric-only: show kg/m² only under the metric setting</span><span class="rec-pill n">Nobody recommends</span></label>
+      <label class="opt"><input type="radio" name="tr3" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="tr3_notes">TR-3 notes (optional) · a blend, a condition, or your own pick</label><textarea id="tr3_notes" name="tr3_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
 </section>
 
 <!-- ============ FIGHT 4 ============ -->
@@ -421,7 +516,15 @@ footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid 
     <div class="f"><span>Fable</span>(A) device-composed. Instant, free, and decisive: the opener renders before consent, so a model call there would leak the result. If the founder wants a model voice, (C) after consent only.</div>
     <div class="a"><span>Astra</span>Prefer a fast local, correctly contextualised opener; spend a model request on the user’s question. Decide after timing the intended model. Today’s hard-coded opener is not founder approval. X04 first.</div>
   </div>
-  <div class="pick"><span class="lbl">Founder pick</span><span class="blank"></span><span class="opts">A · B · C · or write your own</span></div>
+  <fieldset class="pick" data-decision="as3" data-title="AS-3 · Who writes the Ask opener"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="as3" value="A"><b>A</b><span class="txt">Composed on the phone, instant</span><span class="rec-pill f">Fable rec</span><span class="rec-pill a">Astra rec</span></label>
+      <label class="opt"><input type="radio" name="as3" value="B"><b>B</b><span class="txt">Model writes the opener on open</span></label>
+      <label class="opt"><input type="radio" name="as3" value="C"><b>C</b><span class="txt">Local first line, model follow-up after consent</span><span class="rec-pill f">Fable fallback</span></label>
+      <label class="opt"><input type="radio" name="as3" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="as3_notes">AS-3 notes (optional) · a blend, a condition, or your own pick</label><textarea id="as3_notes" name="as3_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
 </section>
 
 <!-- ============ FIGHT 5 ============ -->
@@ -489,7 +592,15 @@ footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid 
     <div class="f"><span>Fable</span>(A) floor only, keeping the one HRV mini chart. The tab’s job is the state said once; Trends is one tap away; the band chip already says in or out of your usual.</div>
     <div class="a"><span>Astra</span>Prefer latest values with date and source and, if approved, a descriptive recent change. Personal history is not a clinical range. Required consistency can proceed without this decision.</div>
   </div>
-  <div class="pick"><span class="lbl">Founder pick</span><span class="blank"></span><span class="opts">A · B · C · or write your own</span></div>
+  <fieldset class="pick" data-decision="hl4" data-title="HL-4 extra · Health tab beyond the floor"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="hl4" value="A"><b>A</b><span class="txt">Floor only: the state, said once</span><span class="rec-pill f">Fable rec</span><span class="rec-pill a">Astra rec</span></label>
+      <label class="opt"><input type="radio" name="hl4" value="B"><b>B</b><span class="txt">Mini sparklines on every card</span></label>
+      <label class="opt"><input type="radio" name="hl4" value="C"><b>C</b><span class="txt">In / out of usual marker on every card</span></label>
+      <label class="opt"><input type="radio" name="hl4" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="hl4_notes">HL-4 extra notes (optional) · a blend, a condition, or your own pick</label><textarea id="hl4_notes" name="hl4_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
 </section>
 
 <!-- ============ FIGHT 6 ============ -->
@@ -561,7 +672,15 @@ footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid 
     <div class="f"><span>Fable</span>(B) Needs care and Worth attention tiles, then one row “9 doing well ›” opening the full grid. Everything the SDK returns stays one tap in and the result fits one screen.</div>
     <div class="a"><span>Astra</span>“Everything the SDK returns” and G-6 are compatible. Opposes deleting licensed fields or an output allowlist; also opposes a flattened list as the interface. Keep all data; give it labels, grouping, detail and provenance. May hold everything visible.</div>
   </div>
-  <div class="pick"><span class="lbl">Founder pick</span><span class="blank"></span><span class="opts">A · B · C · or write your own</span></div>
+  <fieldset class="pick" data-decision="f6" data-title="F-6 · Collapse “Doing well” on the live Skin result"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="f6" value="A"><b>A</b><span class="txt">All fifteen tiles, always</span><span class="rec-pill a">Astra may hold</span></label>
+      <label class="opt"><input type="radio" name="f6" value="B"><b>B</b><span class="txt">Care + attention tiles, then “9 doing well ›”</span><span class="rec-pill f">Fable rec</span></label>
+      <label class="opt"><input type="radio" name="f6" value="C"><b>C</b><span class="txt">Top three tiles only</span></label>
+      <label class="opt"><input type="radio" name="f6" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="f6_notes">F-6 notes (optional) · a blend, a condition, or your own pick</label><textarea id="f6_notes" name="f6_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
 </section>
 
 <!-- ============ FIGHT 7 ============ -->
@@ -646,7 +765,15 @@ footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid 
     <div class="f"><span>Fable</span>(B) Skin adopts Vital Glimpse’s teal and caution and keeps its third “care” tone in the magenta family. G-1 makes Vital Glimpse the standard; DESIGN §15 forbids a red-green judgment axis.</div>
     <div class="a"><span>Astra</span>One instrument does not mean one medical traffic light. Preserve a recognisable card grammar while naming what each colour means. Bristol colours remain Gut-local; provider risk models remain labelled models. No invented thresholds to make cards colourful.</div>
   </div>
-  <div class="pick"><span class="lbl">Founder pick</span><span class="blank"></span><span class="opts">A · B · C · or write your own</span></div>
+  <fieldset class="pick" data-decision="f7" data-title="F-7 · One band palette app-wide, or two"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="f7" value="A"><b>A</b><span class="txt">Keep two palettes</span></label>
+      <label class="opt"><input type="radio" name="f7" value="B"><b>B</b><span class="txt">Skin adopts VG teal and caution; “care” in the magenta family</span><span class="rec-pill f">Fable rec</span></label>
+      <label class="opt"><input type="radio" name="f7" value="C"><b>C</b><span class="txt">Vital Glimpse adopts Skin’s green / orange / red</span></label>
+      <label class="opt"><input type="radio" name="f7" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="f7_notes">F-7 notes (optional) · a blend, a condition, or your own pick</label><textarea id="f7_notes" name="f7_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
 </section>
 
 <!-- ============ FIGHT 8 ============ -->
@@ -720,7 +847,15 @@ footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid 
     <div class="f"><span>Fable</span>(A) Settings quick fields only; Profile rows become read-only pointers to Settings. The defect is E-45: the two editors disagree on whether a unit switch converts.</div>
     <div class="a"><span>Astra</span>No position on placement. X20: put the specific error beside the field, keep the other draft intact, keep save failures distinct from invalid input. Changing units must never change the underlying reading.</div>
   </div>
-  <div class="pick"><span class="lbl">Founder pick</span><span class="blank"></span><span class="opts">A · B · C · or write your own</span></div>
+  <fieldset class="pick" data-decision="f8" data-title="F-8 · Where height and weight live"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="f8" value="A"><b>A</b><span class="txt">Settings only; Profile rows point there</span><span class="rec-pill f">Fable rec</span></label>
+      <label class="opt"><input type="radio" name="f8" value="B"><b>B</b><span class="txt">Profile only; Settings shows a pointer</span></label>
+      <label class="opt"><input type="radio" name="f8" value="C"><b>C</b><span class="txt">Both, sharing one conversion rule</span></label>
+      <label class="opt"><input type="radio" name="f8" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="f8_notes">F-8 notes (optional) · a blend, a condition, or your own pick</label><textarea id="f8_notes" name="f8_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
 </section>
 
 <!-- ============ FIGHT 9 ============ -->
@@ -790,7 +925,15 @@ footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid 
     <div class="f"><span>Fable</span>HL-3 met at 31b2548: Disconnect last, magenta outline, explanation beneath. No option is recommended over another; the placement was the fix.</div>
     <div class="a"><span>Astra</span>The packet says red; the code uses brand magenta and calls it red-family. AS-4 explicitly specifies magenta for Stop. Report that distinction and use the requested destructive treatment. Do not claim a literal colour match from prose alone.</div>
   </div>
-  <div class="pick"><span class="lbl">Founder pick</span><span class="blank"></span><span class="opts">A · B · C · or write your own</span></div>
+  <fieldset class="pick" data-decision="hl3" data-title="HL-3 · Disconnect button colour on Apple Health"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="hl3" value="A"><b>A</b><span class="txt">Literal red, filled</span><span class="rec-pill n">Packet, literally</span></label>
+      <label class="opt"><input type="radio" name="hl3" value="B"><b>B</b><span class="txt">Brand magenta, outlined</span><span class="rec-pill n">Code today</span></label>
+      <label class="opt"><input type="radio" name="hl3" value="C"><b>C</b><span class="txt">Brand magenta, filled, like Stop</span></label>
+      <label class="opt"><input type="radio" name="hl3" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="hl3_notes">HL-3 notes (optional) · a blend, a condition, or your own pick</label><textarea id="hl3_notes" name="hl3_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
 </section>
 
 <!-- ============ FIGHT 10 ============ -->
@@ -856,7 +999,17 @@ footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid 
     <div class="f"><span>Fable</span>AS-5 unknown from iOS source: the model is chosen on the Worker. AS-6 and AS-7 missing at this SHA. Packet says most likely Sonnet 5 Medium + Fast; the B19 JSON said Grok 4.6 low. Confirm on the Worker before picking.</div>
     <div class="a"><span>Astra</span>Packet direction conflicts with source defaults. Resolve the configuration explicitly; verify the exact slug, reasoning and speed controls against the actual service. Show only supported controls; distinguish default from session override; keep it out of ordinary Settings.</div>
   </div>
-  <div class="pick"><span class="lbl">Founder pick</span><span class="blank"></span><span class="opts">A · B · C · B+C · exact slug: ______ · secret gate: ______</span></div>
+  <fieldset class="pick" data-decision="as5" data-title="AS-5/6/7 · Ask model switch and the secret Developer Settings"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="as5" value="A"><b>A</b><span class="txt">Stay on Grok 4.6, effort low</span><span class="rec-pill n">Source today</span></label>
+      <label class="opt"><input type="radio" name="as5" value="B"><b>B</b><span class="txt">Switch the default to Sonnet 5, medium, fast</span><span class="rec-pill n">Slug unconfirmed</span></label>
+      <label class="opt"><input type="radio" name="as5" value="C"><b>C</b><span class="txt">Secret Developer Settings + build-time default</span></label>
+      <label class="opt"><input type="radio" name="as5" value="B+C"><b>B+C</b><span class="txt">Switch the default and build the secret Developer Settings</span></label>
+      <label class="opt"><input type="radio" name="as5" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="extras"><div><label for="as5_slug">Exact slug · confirm on the live Worker, not from prose</label><input type="text" id="as5_slug" name="as5_slug" autocomplete="off" spellcheck="false" placeholder="Leave blank until verified"></div><div><label for="as5_secret">Secret gate for Developer Settings</label><input type="text" id="as5_secret" name="as5_secret" autocomplete="off" placeholder="Tap-count, build flag, or account gate"></div></div>
+    <div class="steer"><label for="as5_notes">AS-5/6/7 notes (optional) · a blend, a condition, or your own pick</label><textarea id="as5_notes" name="as5_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
 </section>
 
 <!-- ============ FIGHT 11 ============ -->
@@ -905,7 +1058,14 @@ footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid 
     <div class="f"><span>Fable</span>Not raised as a fight. §1.7: draw the three group headings (Harder, Commonly expected, Softer to watery) on the seven-type page; the “You” marker should take the type’s band colour.</div>
     <div class="a"><span>Astra</span>Make complete type explanations reachable from saved results too, without adding another mandatory block. This is a proposal to revisit the earlier founder choice, not a bug to silently reverse.</div>
   </div>
-  <div class="pick"><span class="lbl">Founder pick</span><span class="blank"></span><span class="opts">A · B · or write your own</span></div>
+  <fieldset class="pick" data-decision="gut_saved" data-title="Saved Gut · is the seven-type scale tappable?"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="gut_saved" value="A"><b>A</b><span class="txt">Saved strip stays static</span><span class="rec-pill n">Prior founder tradeoff</span></label>
+      <label class="opt"><input type="radio" name="gut_saved" value="B"><b>B</b><span class="txt">Saved strip opens the full scale, like live</span><span class="rec-pill a">Astra proposes</span></label>
+      <label class="opt"><input type="radio" name="gut_saved" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="gut_saved_notes">Saved Gut notes (optional) · a blend, a condition, or your own pick</label><textarea id="gut_saved_notes" name="gut_saved_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
 </section>
 
 <!-- ============ FIGHT 12 ============ -->
@@ -974,12 +1134,34 @@ footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid 
     <div class="f"><span>Fable</span>Split. Source catalog A-19 keeps Home per the DESIGN packet-3 bind and says demos stay on Home. The device walk called the demos aside a mom-test miss.</div>
     <div class="a"><span>Astra</span>Home retains Demos as explicitly separate examples. These recommendations do not require relocating Demos off Home. Keep the work bounded.</div>
   </div>
-  <div class="pick"><span class="lbl">Founder pick</span><span class="blank"></span><span class="opts">A · B · C · or write your own</span></div>
+  <fieldset class="pick" data-decision="home_demos" data-title="Home Demos · “Curious about what’s next?”"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="home_demos" value="A"><b>A</b><span class="txt">Keep the demos card on Home</span><span class="rec-pill n">Source Fable keeps</span></label>
+      <label class="opt"><input type="radio" name="home_demos" value="B"><b>B</b><span class="txt">Remove it from Home</span><span class="rec-pill n">Device Fable miss</span></label>
+      <label class="opt"><input type="radio" name="home_demos" value="C"><b>C</b><span class="txt">Move demos to Settings → About</span></label>
+      <label class="opt"><input type="radio" name="home_demos" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="home_demos_notes">Home Demos notes (optional) · a blend, a condition, or your own pick</label><textarea id="home_demos_notes" name="home_demos_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
 </section>
 
-<section class="fight" id="notes">
+<section class="fight" id="not-on-board">
   <header><h2><b>·</b>Not on this board</h2></header>
   <p class="ctx">AGREE_TO_SHIP (32 items both catalogs endorse, plus Astra’s X01–X03 P1 fixes) is being implemented on PR 192 and needs no pick. F01 and F02 from the previous board are locked: Ask mark trailing top-right, consent on the live stage once. TF-VG-2 answer for the record: the completion oval is signal blue <code>#456687</code>; the arc is 7pt on a 2pt guide.</p>
+</section>
+
+<section class="fight overall" id="overall">
+  <header><h2><b>·</b>Overall notes</h2></header>
+  <p class="ctx">Anything for the factory to obey that a letter above does not carry: wording you want exact, a condition on a pick, or a fight this board missed.</p>
+  <label for="notes" class="steer-label" style="display:block;font-size:12px;font-weight:650;margin-bottom:6px">Overall notes (optional)</label>
+  <textarea id="notes" name="notes" rows="4" placeholder="Exceptions, exact wording, or a fight we missed"></textarea>
+</section>
+
+<section class="fight answers" id="answers" aria-labelledby="answers-title">
+  <header><h2 id="answers-title"><b>·</b>Review &amp; send</h2></header>
+  <p class="ctx" id="answer-reviewer">Choose Salim or Ranya in Reviewer before sending.</p>
+  <p class="ctx">Send emails the packet inbox through FormSubmit; Grok reads that mail. A text backup downloads with every send. Partial answers can be sent; anything unpicked stays as the code is today.</p>
+  <div id="answer-summary"></div>
 </section>
 
 <footer>
@@ -987,5 +1169,271 @@ footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid 
   <div><a href="../b19/">Previous fights (F01, F02)</a> · <a href="../ask-icon/picks-2/">Ask icon shortlist</a> · <a href="../">Packet hub</a></div>
 </footer>
 </div>
+<div class="sendbar"><div class="bar-in">
+  <span class="lbl"><a href="#answers">Review &amp; send</a></span>
+  <span class="count" id="count">0 of 12 decided</span>
+  <div class="actions">
+    <button class="send-btn" id="submitBtn" type="submit">Send answers</button>
+    <button id="copyBtn" type="button">Copy answers</button>
+    <button id="dlBtn" type="button">Download answers</button>
+  </div>
+  <div class="lines">
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <p class="save-status" id="save-status" role="status">Drafts save on this device.</p>
+  </div>
+</div></div>
+</form>
+<script>
+const DRAFT_PREFIX = 'sweet-b19-synth-draft-v1-';
+const REVIEWER_KEY = 'sweet-b19-synth-reviewer-v1';
+const ENDPOINT = 'https://formsubmit.co/ajax/23322cc0514fb928fe0d089afa12512a';
+const DECISIONS = [...document.querySelectorAll('fieldset.pick[data-decision]')].map((fs, i) => ({
+  name: fs.dataset.decision, title: fs.dataset.title, n: i + 1, section: fs.closest('section')
+}));
+const TEXT_FIELDS = ['as5_slug', 'as5_secret', 'notes'];
+const form = document.getElementById('mixform');
+const status = document.getElementById('status');
+const saveStatus = document.getElementById('save-status');
+const memoryDrafts = new Map();
+let currentWho = '';
+let sending = false;
+let saveTimer = 0;
+
+function val(name) {
+  const el = form.elements.namedItem(name);
+  return el ? (el.value || '') : '';
+}
+function radios(name) {
+  return [...form.querySelectorAll('input[type="radio"][name="' + name + '"]')];
+}
+function setChoice(name, value) {
+  const group = radios(name);
+  const accepted = group.some(radio => radio.value === value) ? value : '';
+  group.forEach(radio => { radio.checked = radio.value === accepted; });
+}
+function choiceLabel(name) {
+  const radio = radios(name).find(input => input.checked);
+  if (!radio) return 'Not decided';
+  const label = radio.closest('label');
+  const text = label.querySelector('.txt').textContent.trim();
+  if (radio.value === 'custom') return 'Write your own' + (val(name + '_notes').trim() ? ' (see notes)' : ' (notes empty)');
+  return label.querySelector('b').textContent.trim() + ' · ' + text;
+}
+function decidedCount() {
+  return DECISIONS.filter(d => val(d.name)).length;
+}
+function indent(text) {
+  return text.trim().replace(/\n/g, '\n  ');
+}
+function mixLine() {
+  const lines = ['Sweet · B19 synth fights · founder picks', 'Reviewer: ' + (val('who') || 'Not selected'),
+    'Decided: ' + decidedCount() + ' of ' + DECISIONS.length, ''];
+  DECISIONS.forEach(d => {
+    lines.push(d.n + ' · ' + d.title + ': ' + choiceLabel(d.name) + ' [' + (val(d.name) || 'UNDECIDED') + ']');
+    if (d.name === 'as5') {
+      if (val('as5_slug').trim()) lines.push('  Exact slug: ' + val('as5_slug').trim());
+      if (val('as5_secret').trim()) lines.push('  Secret gate: ' + val('as5_secret').trim());
+    }
+    if (val(d.name + '_notes').trim()) lines.push('  Notes: ' + indent(val(d.name + '_notes')));
+  });
+  if (val('notes').trim()) lines.push('', 'Overall notes:', val('notes').trim());
+  return lines.join('\n');
+}
+function collectDraft() {
+  const data = {who: val('who')};
+  DECISIONS.forEach(d => {
+    data[d.name] = val(d.name);
+    data[d.name + '_notes'] = val(d.name + '_notes');
+  });
+  TEXT_FIELDS.forEach(name => { data[name] = val(name); });
+  return data;
+}
+function renderSummary() {
+  const count = decidedCount();
+  const progress = count + ' of ' + DECISIONS.length + ' decided';
+  document.getElementById('progress').textContent = progress;
+  document.getElementById('count').textContent = progress;
+  document.getElementById('answer-reviewer').textContent = val('who')
+    ? 'Answers from ' + val('who') + ' · ' + progress + '. Partial answers can be sent.'
+    : 'Choose Salim or Ranya in Reviewer before sending.';
+  const summary = document.getElementById('answer-summary');
+  summary.replaceChildren();
+  DECISIONS.forEach(d => {
+    const row = document.createElement('div');
+    row.className = 'answer-row';
+    const title = document.createElement('strong');
+    title.textContent = d.n + ' · ' + d.title;
+    const answer = document.createElement('span');
+    answer.className = 'val' + (val(d.name) ? '' : ' undecided');
+    answer.textContent = choiceLabel(d.name);
+    const edit = document.createElement('a');
+    edit.href = '#' + d.section.id;
+    edit.textContent = val(d.name) ? 'Change' : 'Decide';
+    row.append(title, answer, edit);
+    const extra = [];
+    if (d.name === 'as5') {
+      if (val('as5_slug').trim()) extra.push('Exact slug: ' + val('as5_slug').trim());
+      if (val('as5_secret').trim()) extra.push('Secret gate: ' + val('as5_secret').trim());
+    }
+    if (val(d.name + '_notes').trim()) extra.push(val(d.name + '_notes').trim());
+    if (extra.length) {
+      const notes = document.createElement('p');
+      notes.textContent = extra.join('\n');
+      row.append(notes);
+    }
+    summary.append(row);
+    const nav = document.querySelector('.toc a[href="#' + d.section.id + '"]');
+    if (nav) {
+      nav.classList.toggle('decided', Boolean(val(d.name)));
+      nav.setAttribute('aria-label', d.title + (val(d.name) ? ' — ' + choiceLabel(d.name) : ' — not decided'));
+    }
+  });
+  if (val('notes').trim()) {
+    const row = document.createElement('div');
+    row.className = 'answer-row';
+    const label = document.createElement('strong');
+    label.textContent = 'Overall notes';
+    const notes = document.createElement('p');
+    notes.textContent = val('notes').trim();
+    row.append(label, notes);
+    summary.append(row);
+  }
+  document.getElementById('mix_line').value = mixLine();
+}
+function storeDraft(who, data) {
+  const snapshot = {...data, who};
+  memoryDrafts.set(who, snapshot);
+  localStorage.setItem(DRAFT_PREFIX + (who || 'unassigned'), JSON.stringify({savedAt: Date.now(), data: snapshot}));
+}
+function readDraft(who) {
+  if (memoryDrafts.has(who)) return memoryDrafts.get(who);
+  const raw = localStorage.getItem(DRAFT_PREFIX + (who || 'unassigned'));
+  const data = raw ? JSON.parse(raw).data : null;
+  if (data) memoryDrafts.set(who, data);
+  return data;
+}
+function applyDraft(data = {}) {
+  DECISIONS.forEach(d => {
+    setChoice(d.name, typeof data[d.name] === 'string' ? data[d.name] : '');
+    form.elements.namedItem(d.name + '_notes').value = typeof data[d.name + '_notes'] === 'string' ? data[d.name + '_notes'] : '';
+  });
+  TEXT_FIELDS.forEach(name => {
+    form.elements.namedItem(name).value = typeof data[name] === 'string' ? data[name] : '';
+  });
+}
+function saveDraft() {
+  clearTimeout(saveTimer);
+  renderSummary();
+  try {
+    storeDraft(currentWho, collectDraft());
+    localStorage.setItem(REVIEWER_KEY, currentWho);
+    saveStatus.textContent = (currentWho ? currentWho + '’s draft saved' : 'Draft saved') + ' on this device.';
+  } catch (error) {
+    saveStatus.textContent = 'Autosave unavailable. Download answers to keep a copy.';
+  }
+}
+function scheduleSave() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(saveDraft, 250);
+}
+function loadDraft() {
+  try {
+    const who = localStorage.getItem(REVIEWER_KEY) || '';
+    currentWho = who;
+    const data = readDraft(currentWho) || {};
+    form.querySelectorAll('[name="who"]').forEach(radio => { radio.checked = radio.value === currentWho; });
+    applyDraft(data);
+  } catch (error) {
+    saveStatus.textContent = 'Could not restore the draft. Download answers to keep a copy.';
+  }
+}
+function switchWho() {
+  const nextWho = val('who');
+  const previous = collectDraft();
+  let next = memoryDrafts.get(nextWho) || null;
+  try {
+    storeDraft(currentWho, previous);
+    next = readDraft(nextWho);
+  } catch (error) { /* keep answers for export */ }
+  applyDraft(next || (currentWho ? {} : previous));
+  currentWho = nextWho;
+  saveDraft();
+}
+form.addEventListener('change', event => {
+  const input = event.target;
+  if (input.name === 'who') { switchWho(); return; }
+  if (input.type === 'radio' && input.value === 'custom') {
+    form.elements.namedItem(input.name + '_notes')?.focus({preventScroll: true});
+  }
+  saveDraft();
+});
+form.addEventListener('input', event => {
+  if (event.target.name === 'who' || event.target.type === 'radio') return;
+  scheduleSave();
+});
+form.addEventListener('invalid', () => {
+  status.className = 'status bad';
+  status.textContent = 'Choose Salim or Ranya in Reviewer before sending.';
+}, true);
+window.addEventListener('beforeunload', saveDraft);
+window.addEventListener('pagehide', saveDraft);
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') saveDraft(); });
+loadDraft();
+saveDraft();
+
+function downloadMix() {
+  const url = URL.createObjectURL(new Blob([mixLine()], {type: 'text/plain;charset=utf-8'}));
+  const anchor = document.createElement('a');
+  anchor.href = url;
+  anchor.download = 'sweet-b19-synth-fights-' + (val('who') || 'draft').toLowerCase() + '-answers.txt';
+  document.body.append(anchor);
+  anchor.click();
+  anchor.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+  if (sending || !val('who')) return;
+  saveDraft();
+  const reviewer = val('who');
+  const submitted = mixLine();
+  downloadMix();
+  const body = new FormData();
+  Object.entries(collectDraft()).forEach(([name, value]) => body.append(name, value));
+  body.append('mix_line', submitted);
+  body.append('_subject', 'Sweet B19 synth fights from ' + reviewer);
+  body.append('_captcha', 'false');
+  sending = true;
+  document.getElementById('submitBtn').disabled = true;
+  status.className = 'status';
+  status.textContent = 'Sending ' + reviewer + '’s answers…';
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 20000);
+  try {
+    const response = await fetch(ENDPOINT, {
+      method: 'POST', headers: {Accept: 'application/json'}, body, signal: controller.signal
+    });
+    const payload = await response.json();
+    if (!response.ok || (payload.success !== true && payload.success !== 'true')) throw new Error('Send not confirmed');
+    status.className = 'status ok';
+    status.textContent = 'Emailed ' + reviewer + '’s answers to the packet inbox. Text backup downloaded. Draft kept on this device.';
+  } catch (error) {
+    status.className = 'status bad';
+    status.textContent = 'Answers were not confirmed emailed. The text backup downloaded; retry Send answers, or copy them.';
+  } finally {
+    clearTimeout(timer);
+    sending = false;
+    document.getElementById('submitBtn').disabled = false;
+  }
+});
+document.getElementById('copyBtn').addEventListener('click', async () => {
+  saveDraft();
+  try { await navigator.clipboard.writeText(mixLine()); status.className = 'status ok'; status.textContent = 'Answers copied.'; }
+  catch (error) { status.className = 'status bad'; status.textContent = 'Copy unavailable. Use Download answers.'; }
+});
+document.getElementById('dlBtn').addEventListener('click', () => {
+  saveDraft(); downloadMix(); status.className = 'status ok'; status.textContent = 'Answers downloaded.';
+});
+</script>
 </body>
 </html>
