@@ -1,0 +1,1184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sweet · Build 19 · follow-on fights</title>
+<meta name="description" content="Seven fights left after Salim's 2026-09-16 synth picks: the places where Fable and Astra read the picks differently. Phones per option in the shipped card language. Salim picks and sends.">
+<style>
+:root{color-scheme:light;--cream:#FBF8F3;--magenta:#AD315B;--ink:#302C35;--muted:#736B73;--line:#E8E1DC;--white:#FFFFFF;--teal:#0F766E;--caution:#865515;--neutral:#736B73;--blue:#456687;--green:#21804D;--red:#C73347;--mint:#E4F0E5;--lilac:#EEE8FC;--peach:#FAEDDA;--rose:#FAE3E7;--note:#F0E9E2;--bench:#EEE9E2;--sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",system-ui,"Segoe UI",Helvetica,Arial,sans-serif;--serif:Georgia,"Times New Roman",serif}
+*{box-sizing:border-box}html,body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--magenta);text-underline-offset:3px}svg{display:block}
+.wrap{max-width:1420px;margin:auto;padding:0 28px 48px}
+.mast{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}
+.mast .wm{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-size:30px;letter-spacing:-1.6px}
+.spiral{width:28px;height:28px;border-radius:14px;background:conic-gradient(from 90deg,var(--magenta),#E9A0B8,var(--magenta));position:relative;flex:none}
+.spiral:after{content:"";position:absolute;inset:8px;border-radius:50%;background:var(--cream)}
+.ed{font-size:12px;color:var(--muted);text-align:right;line-height:1.4}
+.intro{padding:36px 0 18px;max-width:880px}
+.eyebrow{font-size:11px;font-weight:650;letter-spacing:1.6px;text-transform:uppercase;color:var(--magenta);margin:0 0 10px}
+h1{font-size:clamp(32px,4.5vw,52px);line-height:1.08;letter-spacing:-1.8px;font-weight:620;margin:0 0 14px}
+h1 em{font-style:normal;color:var(--magenta)}
+.lede{color:var(--muted);margin:0 0 10px;max-width:760px}
+.law{margin:18px 0 0;padding:12px 14px;border:1px dashed var(--line);border-radius:12px;font-size:13px;color:var(--muted);background:#fff}
+.law b{color:var(--ink)}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.toc a{font-size:12px;font-weight:600;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:999px;padding:6px 11px}
+.toc a b{color:var(--magenta);font-weight:700;margin-right:4px}
+.fight{margin-top:44px;padding-top:28px;border-top:1px solid var(--line)}
+.fight>header{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;margin-bottom:6px}
+.fight h2{font-size:24px;letter-spacing:-.5px;font-weight:620;margin:0}
+.fight h2 b{color:var(--magenta);font-weight:700;margin-right:8px}
+.ids{font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+.ctx{color:var(--muted);margin:0 0 18px;max-width:880px;font-size:15px}
+.ctx code,.rec code,.pc code{font:12px/1 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--white);border:1px solid var(--line);border-radius:6px;padding:1px 5px;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr));gap:18px}
+.opt-card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:18px 18px 16px;display:flex;flex-direction:column;min-width:0}
+.opt-card h3{font-size:16px;margin:0 0 8px;font-weight:600;letter-spacing:-.2px}
+.opt-card h3 b{color:var(--magenta);font-weight:700;margin-right:6px}
+.src{font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin:0 0 6px;min-height:15px}
+.src .f{color:var(--magenta)}.src .a{color:var(--blue)}
+.shot{width:402px;max-width:100%;margin:12px auto 6px}
+.cap{font-size:13px;color:#4A4550;line-height:1.45;margin:10px 0 0}
+.cap b{color:var(--ink)}
+.pc{margin:10px 0 0;padding:0;list-style:none;font-size:13px}
+.pc li{padding-left:18px;position:relative;margin:4px 0}
+.pc li::before{position:absolute;left:0;top:0;font-weight:700}
+.pc li.p::before{content:"+";color:var(--teal)}
+.pc li.c::before{content:"–";color:var(--magenta)}
+.rec{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 0}
+.rec div{font-size:13px;padding:10px 12px;border-radius:12px;background:var(--white);border:1px solid var(--line)}
+.rec div span{display:block;font-size:10px;letter-spacing:.8px;text-transform:uppercase;font-weight:700;margin-bottom:3px}
+.rec .f span{color:var(--magenta)}.rec .a span{color:var(--blue)}
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:44px;padding:18px 0 8px;font-size:11px;color:var(--muted)}
+@media(max-width:640px){.rec{grid-template-columns:1fr}.wrap{padding:0 18px 40px}}
+
+/* ---- the phone: shipped metrics, 402 by 874, scoped ---- */
+.phone{width:402px;height:874px;background:var(--cream);border-radius:44px;overflow:hidden;position:relative;box-shadow:0 12px 40px rgba(48,44,53,.14);border:1px solid #E1DAD3;color:var(--ink);font-family:var(--sans);line-height:1.3;font-size:14px;text-align:left;margin:0 auto}
+@media(max-width:480px){.phone{zoom:.8}}
+.phone .sbar{height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-weight:600;font-size:15px}
+.phone .island{width:118px;height:34px;background:#000;border-radius:20px}
+.phone .nav{height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;position:relative}
+.phone .nav .t{position:absolute;left:78px;right:78px;text-align:center;font-size:17px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;top:0;line-height:48px}
+.phone .hit{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:var(--ink);flex:none}
+.phone .hit.ask{color:var(--magenta)}
+.phone .hit svg{width:22px;height:22px}
+.phone .hit.blank{visibility:hidden}
+.phone .content{padding:0 24px 24px}
+.phone .eye{font-size:10px;font-weight:800;letter-spacing:1.7px;text-transform:uppercase;color:var(--muted)}
+.phone .rt{padding:14px 0 20px}
+.phone .rt .eye{margin-bottom:10px}
+.phone .rt .h{font-size:35px;font-weight:600;letter-spacing:-1.3px;line-height:1.05}
+.phone .rt .em{font-family:var(--serif);font-size:35px;letter-spacing:-1.3px;line-height:1.05;font-weight:400}
+.phone .rt .sub{font-size:14px;color:var(--muted);margin-top:11px}
+.phone .rt.tight{padding-bottom:12px}
+.phone .tiles{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.phone .tile{border-radius:23px;padding:14px;min-height:111px;background:#fff;border:1px solid transparent;display:flex;flex-direction:column;align-items:flex-start}
+.phone .tile.neutral{border-color:#EEE6DF}
+.phone .tile.within{background:var(--mint)}.phone .tile.outside{background:var(--peach)}
+.phone .tile.kind-lilac{background:var(--lilac)}.phone .tile.kind-mint{background:var(--mint)}.phone .tile.kind-peach{background:var(--peach)}.phone .tile.kind-rose{background:var(--rose)}
+.phone .tile .sym{width:26px;height:26px;margin-bottom:7px;color:var(--teal)}
+.phone .tile.outside .sym{color:var(--caution)}.phone .tile.neutral .sym{color:var(--neutral)}
+.phone .tile.kind-lilac .sym{color:#695681}.phone .tile.kind-peach .sym{color:#865515}.phone .tile.kind-rose .sym{color:#AD315B}.phone .tile.kind-mint .sym{color:#276547}
+.phone .tile .n{font-size:11px;color:var(--muted)}
+.phone .tile .s{font-size:18px;font-weight:600;margin-top:5px;line-height:1.15}
+.phone .tile .v{font-size:13px;color:var(--muted);margin-top:6px}
+.phone .chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500}
+.phone .chip i{width:8px;height:8px;border-radius:50%;display:inline-block;flex:none}
+.phone .teal{color:var(--teal)}.phone .amber{color:var(--caution)}.phone .mag{color:var(--magenta)}.phone .grey{color:var(--neutral)}
+.phone .bg-teal{background:var(--teal)}.phone .bg-amber{background:var(--caution)}.phone .bg-mag{background:var(--magenta)}.phone .bg-grey{background:var(--neutral)}
+.phone .tert{display:flex;align-items:center;justify-content:space-between;min-height:48px;color:var(--magenta);font-size:13px;font-weight:600}
+.phone .tert svg{width:17px;height:17px}
+.phone .btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:51px;border-radius:18px;font-size:14px;font-weight:600;padding:0 16px;margin-top:12px}
+.phone .btn.primary{background:var(--ink);color:#fff}
+.phone .btn.secondary{border:1px solid var(--line);color:var(--ink)}
+.phone .btn.compact{display:inline-flex;min-height:44px;margin-top:0}
+.phone .prov{font-size:11px;color:var(--muted);line-height:1.45;padding-top:13px}
+.phone .honest{font-size:10px;color:var(--muted);text-align:center;padding-top:13px}
+.phone .pcard{background:#fff;border:1px solid var(--line);border-radius:21px;padding:16px}
+.phone .pcard.fill{border-color:transparent}
+.phone .pcard .eye{margin-bottom:8px}
+.phone .g22{font-family:var(--serif);font-size:22px;line-height:1.15}
+.phone .g27{font-family:var(--serif);font-size:27px;line-height:1.15}
+.phone .line13{font-size:13px}.phone .line12{font-size:12px;color:var(--muted)}.phone .line14{font-size:14px}.phone .line11{font-size:11px;color:var(--muted)}
+.phone .mt6{margin-top:6px}.phone .mt8{margin-top:8px}.phone .mt10{margin-top:10px}.phone .mt12{margin-top:12px}.phone .mt16{margin-top:16px}.phone .mt18{margin-top:18px}.phone .mt22{margin-top:22px}
+.phone .grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.phone .h17{font-size:17px;font-weight:600}.phone .h15{font-size:15px;font-weight:600}
+.phone .tabbar{position:absolute;left:22px;right:22px;bottom:22px;height:60px;border-radius:30px;background:rgba(251,248,243,.97);border:1px solid var(--line);display:flex;align-items:center;padding:5px}
+.phone .tab{flex:1;height:50px;border-radius:25px;display:flex;align-items:center;justify-content:center;color:var(--ink)}
+.phone .tab.on{background:var(--lilac)}
+.phone .tab svg{width:22px;height:22px}
+.phone .homebar{position:absolute;left:0;right:0;bottom:8px;height:5px;display:flex;justify-content:center}
+.phone .homebar i{width:134px;height:5px;border-radius:3px;background:#000}
+.phone .seg{display:flex;background:#EEE8E2;border-radius:12px;padding:3px}
+.phone .seg span{flex:1;text-align:center;font-size:13px;font-weight:600;padding:7px 0;border-radius:9px;color:var(--muted)}
+.phone .seg span.on{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.phone .switch{width:51px;height:31px;border-radius:16px;background:var(--magenta);position:relative;flex:none}
+.phone .switch:after{content:"";position:absolute;top:2px;right:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.phone .switch.off{background:#D9D2CB}.phone .switch.off:after{right:auto;left:2px}
+.phone .setrow{display:flex;align-items:center;gap:12px;min-height:57px;font-size:14px;border-bottom:1px solid var(--line)}
+.phone .setrow:last-child{border-bottom:none}
+.phone .setrow .v{margin-left:auto;font-size:13px;color:var(--muted);text-align:right}
+.phone .setrow .v.ink{color:var(--ink);font-weight:500}
+.phone .setrow .chev{width:12px;height:12px;color:var(--muted);flex:none}
+.phone .setgroup{background:#fff;border:1px solid var(--line);border-radius:21px;padding:0 16px}
+.phone .sheet{position:absolute;left:0;right:0;bottom:0;background:var(--cream);border-radius:28px 28px 0 0;box-shadow:0 -10px 40px rgba(48,44,53,.18);padding:14px 24px 34px}
+.phone .sheet .grab{width:36px;height:5px;border-radius:3px;background:#D9D2CB;margin:0 auto 14px}
+.phone .scrim{position:absolute;inset:0;background:rgba(48,44,53,.28)}
+.phone .dots{display:flex;gap:14px;justify-content:center;margin:22px 0 6px}
+.phone .dots i{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--ink)}
+.phone .dots i.on{background:var(--ink)}
+.phone .wordmark{display:flex;align-items:center;gap:8px;height:58px;padding:0 22px;font-family:var(--serif);font-size:32px;letter-spacing:-1.8px}
+/* Ask */
+.phone .bubble{max-width:82%;padding:12px 15px;border-radius:20px;font-size:16px;line-height:1.35;margin:6px 0;width:fit-content}
+.phone .bubble.them{background:#fff;border:1px solid var(--line);border-bottom-left-radius:6px}
+.phone .bubble.me{background:var(--lilac);margin-left:auto;border-bottom-right-radius:6px}
+.phone .composer{position:absolute;left:0;right:0;bottom:0;background:var(--cream);padding:8px 16px 0}
+.phone .field{min-height:52px;border-radius:17px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;padding:0 9px 0 16px;font-size:17px;color:#9B949B}
+.phone .field.typed{color:var(--ink)}
+.phone .field .send{margin-left:auto;width:34px;height:34px;border-radius:17px;color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.phone .field .send.blue{background:var(--blue)}.phone .field .send.mag{background:var(--magenta)}
+.phone .field .send svg{width:16px;height:16px}
+.phone .field .stop{margin-left:auto;width:34px;height:34px;border-radius:9px;background:var(--magenta);display:flex;align-items:center;justify-content:center;flex:none}
+.phone .field .stop i{width:14px;height:14px;background:#fff;border-radius:2px}
+.phone .kbd{height:226px;background:#D1D3D9;margin:8px -16px 0;padding:10px 6px 0;display:grid;grid-template-rows:repeat(4,42px);gap:10px}
+.phone .kbd div{display:flex;gap:6px;justify-content:center}
+.phone .kbd span{width:32px;background:#fff;border-radius:6px;box-shadow:0 1px 0 rgba(0,0,0,.25)}
+.phone .kbd span.wide{width:52px;background:#ABB0BA}.phone .kbd span.space{width:180px}
+.phone .actx{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted);padding:6px 0 2px}
+.phone .swatchrow{display:flex;gap:10px;align-items:center;margin-top:10px;font-size:12px;color:var(--muted)}
+.phone .swatchrow i{width:34px;height:34px;border-radius:17px;display:inline-flex;align-items:center;justify-content:center;color:#fff;flex:none}
+.phone .swatchrow i.sq{border-radius:9px}
+.phone .swatchrow i svg{width:16px;height:16px}
+.phone .swatchrow i b{width:14px;height:14px;background:#fff;border-radius:2px;display:block}
+/* consent */
+.phone .crow{display:flex;gap:16px;padding:16px 0}
+.phone .crow .ic{width:40px;height:40px;border-radius:20px;background:var(--lilac);color:var(--magenta);display:flex;align-items:center;justify-content:center;flex:none}
+.phone .crow .ic svg{width:20px;height:20px}
+.phone .crow .ct{font-size:17px;font-weight:600}
+.phone .crow .cd{font-size:14px;color:var(--muted);margin-top:4px;line-height:1.4}
+.phone .hold{display:block;border:1.5px dashed #C9BFB8;border-radius:10px;padding:8px 10px;color:var(--muted);font-size:13px;line-height:1.4;background:rgba(255,255,255,.6);margin-top:6px}
+/* annotations on a phone: not UI */
+.phone .annobadge{margin:12px auto 0;width:max-content;max-width:100%;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--magenta);background:#fff;border:1.5px dashed var(--magenta);border-radius:999px;padding:5px 12px}
+.phone .annobadge i{width:22px;height:22px;border-radius:50%;background:var(--magenta);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:11px;flex:none}
+
+/* ---- decide form (round4 / b19-synth workflow) ---- */
+button,input,textarea{font:inherit}
+:focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
+input[type=radio]{width:17px;height:17px;margin:0;accent-color:var(--magenta);flex-shrink:0}
+.fight,.answers{scroll-margin-top:72px}
+.bar-in{max-width:1420px;margin:auto;padding:0 28px}
+.topbar{position:sticky;top:0;z-index:30;background:rgba(251,248,243,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .bar-in{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;min-height:56px;padding-top:6px;padding-bottom:6px}
+.who{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0;padding:0;border:0;min-width:0}
+.who legend{float:left;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--magenta);padding:0;margin-right:10px}
+.who label{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:var(--white);cursor:pointer;font-weight:600;font-size:14px}
+.who label:has(input:checked){border-color:var(--magenta);background:#F7E4EA}
+.topbar .progress{margin:0 0 0 auto;font-weight:700;font-size:14px}
+.topbar .jump{font-size:13px;font-weight:600}
+.pick{margin-top:18px;background:var(--white);border:1.5px dashed var(--magenta);border-radius:14px;padding:6px 16px 16px;min-width:0}
+.pick legend{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--magenta);padding:0 6px}
+.options{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+label.opt{display:inline-flex;align-items:center;gap:9px;min-height:44px;border:1px solid var(--line);border-radius:12px;padding:6px 14px 6px 12px;font-size:13px;cursor:pointer;background:var(--cream);max-width:100%}
+label.opt b{color:var(--magenta);font-weight:700;font-size:14px}
+label.opt:hover{border-color:#D9A9B9}
+label.opt:has(input:checked){border-color:var(--magenta);background:#F7E4EA;font-weight:600;box-shadow:inset 0 0 0 1px var(--magenta)}
+.rec-pill{font-size:10px;letter-spacing:.6px;text-transform:uppercase;font-weight:700;border-radius:5px;padding:2px 6px;border:1px solid;white-space:nowrap}
+.rec-pill.f{color:var(--magenta);border-color:#E8BFCD;background:var(--white)}
+.rec-pill.a{color:var(--blue);border-color:#C5D2DE;background:var(--white)}
+.rec-pill.n{color:var(--muted);border-color:var(--line);background:var(--white)}
+.steer{margin-top:14px}
+.steer label{display:block;font-size:12px;font-weight:650;margin-bottom:6px;color:var(--ink)}
+textarea{display:block;width:100%;padding:9px 12px;border:1px solid #C9BFB8;border-radius:10px;background:var(--white);font-size:14px;color:var(--ink);min-height:64px;resize:vertical}
+textarea::placeholder{color:#8A7F84}
+.overall textarea{min-height:96px}
+.answers .lede{margin-bottom:10px}
+#answer-summary{margin:12px 0 0}
+.answer-row{display:grid;grid-template-columns:300px 1fr auto;gap:4px 16px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;align-items:baseline}
+.answer-row strong{font-weight:650}
+.answer-row .val{min-width:0}
+.answer-row .undecided{color:var(--muted);font-style:italic}
+.answer-row p{grid-column:2/-1;white-space:pre-wrap;margin:0;color:var(--muted);font-size:13px}
+.answer-row a{font-size:13px;white-space:nowrap}
+.settled{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:8px 18px;font-size:13px;color:var(--muted)}
+.settled li{padding:8px 12px;background:var(--white);border:1px solid var(--line);border-radius:10px}
+.settled li b{color:var(--ink);font-weight:650}
+.sendbar{position:sticky;bottom:0;z-index:30;background:rgba(251,248,243,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 0 max(10px,env(safe-area-inset-bottom))}
+.sendbar .bar-in{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+.sendbar .lbl{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--magenta)}
+.sendbar .lbl a{color:inherit;text-decoration:none}
+.sendbar .lbl a:hover{text-decoration:underline}
+.sendbar .count{font-weight:700;font-size:14px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto}
+.actions button{min-height:40px;padding:8px 16px;border:1px solid #C9BFB8;border-radius:999px;background:var(--white);color:var(--ink);font-weight:650;font-size:13px;cursor:pointer}
+.actions button:hover{border-color:var(--magenta)}
+.actions .send-btn{background:var(--magenta);color:#fff;border-color:var(--magenta)}
+.actions button:disabled{cursor:wait;opacity:.6}
+.sendbar .lines{flex-basis:100%;display:flex;flex-wrap:wrap;gap:4px 18px;font-size:13px;min-height:20px}
+.sendbar .status{margin:0;font-weight:600}
+.sendbar .status.ok{color:var(--green)}
+.sendbar .status.bad{color:var(--red)}
+.sendbar .save-status{margin:0;color:var(--muted)}
+.toc a.decided::after{content:" ✓";color:var(--green)}
+@media(max-width:640px){.answer-row{grid-template-columns:1fr auto}.answer-row .val{grid-column:1/-1}.bar-in{padding:0 18px}.topbar .progress{margin-left:0}.fight,.answers{scroll-margin-top:96px}.sendbar{padding-top:8px}.sendbar .lbl,.sendbar .count{display:none}.sendbar .bar-in{gap:6px 12px}.actions{margin-left:0;width:100%;gap:6px}.actions button{flex:1 1 auto;padding:8px 10px;font-size:12px;min-height:38px}.sendbar .lines{font-size:12px;gap:2px 12px;min-height:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg aria-hidden="true" width="0" height="0" style="position:absolute">
+<defs>
+<symbol id="x" viewBox="0 0 64 64"><path d="M18 18L46 46M46 18L18 46" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></symbol>
+<symbol id="chev" viewBox="0 0 64 64"><path d="M40 12L20 32L40 52" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="fwd" viewBox="0 0 64 64"><path d="M24 12L44 32L24 52" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s24" viewBox="0 0 64 64"><circle cx="27" cy="38" r="18.6" fill="none" stroke="currentColor" stroke-width="7"/><path d="M46.97 7.18C46.97 13.30 50.77 17.38 56.47 17.38C50.77 17.38 46.97 21.46 46.97 27.58C46.97 21.46 43.17 17.38 37.47 17.38C43.17 17.38 46.97 13.30 46.97 7.18Z" fill="currentColor"/></symbol>
+<symbol id="sync" viewBox="0 0 64 64"><path d="M48 28a17 17 0 0 0-30-8M16 36a17 17 0 0 0 30 8" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="M18 12v10h10M46 52V42H36" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="arrow" viewBox="0 0 64 64"><path d="M10 32H52M36 16L52 32L36 48" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="up" viewBox="0 0 64 64"><path d="M32 52V14M16 30L32 14L48 30" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="down" viewBox="0 0 64 64"><path d="M16 26L32 42L48 26" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="home" viewBox="0 0 64 64"><path d="M12 30L32 12L52 30V52H38V38H26V52H12Z" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linejoin="round"/></symbol>
+<symbol id="heart" viewBox="0 0 64 64"><path d="M32 54S8 40 8 22a12 12 0 0 1 24-4 12 12 0 0 1 24 4c0 18-24 32-24 32Z" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linejoin="round"/></symbol>
+<symbol id="clock" viewBox="0 0 64 64"><circle cx="32" cy="32" r="20" fill="none" stroke="currentColor" stroke-width="4.5"/><path d="M32 18V32L42 38" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></symbol>
+<symbol id="gear" viewBox="0 0 64 64"><circle cx="32" cy="32" r="8" fill="none" stroke="currentColor" stroke-width="4.5"/><path d="M32 8v8M32 48v8M8 32h8M48 32h8M15 15l6 6M43 43l6 6M15 49l6-6M43 21l6-6" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></symbol>
+<symbol id="play" viewBox="0 0 64 64"><path d="M22 14L48 32L22 50Z" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linejoin="round"/></symbol>
+<symbol id="check" viewBox="0 0 64 64"><path d="M14 34L27 46L50 18" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="dot" viewBox="0 0 64 64"><circle cx="32" cy="32" r="18" fill="currentColor"/></symbol>
+<symbol id="info" viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="5"/><path d="M32 28v16M32 20v2" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></symbol>
+<symbol id="ecg" viewBox="0 0 64 64"><path d="M6 34h12l6-16 8 30 8-22 4 8h14" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="wave" viewBox="0 0 64 64"><path d="M6 32c6-14 10-14 16 0s10 14 16 0 10-14 16 0" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></symbol>
+<symbol id="wind" viewBox="0 0 64 64"><path d="M8 24h30a6 6 0 1 0-6-6M8 34h40a6 6 0 1 1-6 6M8 44h22a5 5 0 1 1-5 5" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></symbol>
+<symbol id="sun" viewBox="0 0 64 64"><path d="M14 44a18 18 0 0 1 36 0M8 52h48M32 12v6M14 20l4 4M50 20l-4 4" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></symbol>
+<symbol id="moon" viewBox="0 0 64 64"><path d="M40 10a22 22 0 1 0 14 34A18 18 0 0 1 40 10Z" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linejoin="round"/></symbol>
+<symbol id="figure" viewBox="0 0 64 64"><circle cx="32" cy="14" r="7" fill="none" stroke="currentColor" stroke-width="4.5"/><path d="M20 30h24l-4 28M20 30l4 28M32 36v22" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="drop" viewBox="0 0 64 64"><path d="M32 8s-18 20-18 32a18 18 0 0 0 36 0C50 28 32 8 32 8Z" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linejoin="round"/></symbol>
+<symbol id="camera" viewBox="0 0 64 64"><rect x="8" y="18" width="48" height="34" rx="6" fill="none" stroke="currentColor" stroke-width="4.5"/><circle cx="32" cy="35" r="9" fill="none" stroke="currentColor" stroke-width="4.5"/><path d="M22 18l4-6h12l4 6" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linejoin="round"/></symbol>
+<symbol id="lock" viewBox="0 0 64 64"><rect x="14" y="28" width="36" height="26" rx="6" fill="none" stroke="currentColor" stroke-width="4.5"/><path d="M22 28v-8a10 10 0 0 1 20 0v8" fill="none" stroke="currentColor" stroke-width="4.5"/></symbol>
+<symbol id="xcircle" viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="4.5"/><path d="M24 24l16 16M40 24L24 40" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></symbol>
+<symbol id="art-face" viewBox="0 0 86 88"><path d="M15 18C27 1 61 3 73 27C85 51 72 76 51 81C30 86 3 51 15 18Z" fill="#E4D9F1"/><path d="M45 15C60 15 69 26 69 42C69 50 61 53 61 59C61 74 29 76 29 57L29 33C29 21 35 15 45 15Z" fill="#B7A1D0"/><path d="M44 23C54 19 62 30 59 40L54 47L59 47C59 60 50 65 42 57Z" fill="#EDE4F9"/><path d="M40 38L47 37M51 49L57 49M48 57L55 58" fill="none" stroke="#685478" stroke-width="2" stroke-linecap="round"/><circle cx="70" cy="17" r="3" fill="#B66588"/></symbol>
+<symbol id="art-skin" viewBox="0 0 86 88"><path d="M12 32C14 12 45 2 66 15C87 28 85 62 65 76C45 90 0 58 12 32Z" fill="#F5DCE2"/><path d="M46 12C44 29 22 39 22 54C22 69 33 78 46 78C59 78 70 68 70 54C70 40 48 27 46 12Z" fill="#D18FA3"/><path d="M45 21C42 33 31 43 31 53C31 63 37 70 43 71C31 53 58 43 45 21Z" fill="#F4C4D1"/><path d="M60 22L60 35M54 29L66 29" fill="none" stroke="#934B66" stroke-width="2" stroke-linecap="round"/><circle cx="27" cy="62" r="3" fill="#F9DFE4"/></symbol>
+<symbol id="art-gut" viewBox="0 0 86 88"><path d="M8 39C9 12 41 5 65 13C89 21 85 60 67 74C49 88 4 66 8 39Z" fill="#F1DFBC"/><path d="M27 30C22 27 15 31 16 38C17 45 25 46 30 44C40 39 43 44 38 52C30 65 43 78 58 71C68 67 76 54 71 48C67 43 59 44 56 49C52 56 44 55 48 47C54 38 40 32 27 30Z" fill="#B58A5C"/><circle cx="62" cy="26" r="3" fill="#D9B27A"/></symbol>
+</defs>
+</svg>
+<form id="mixform" autocomplete="off">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="mix_line" id="mix_line" value="">
+<div class="topbar"><div class="bar-in">
+  <fieldset class="who"><legend>Reviewer</legend>
+    <label><input type="radio" name="who" value="Salim" required> Salim</label>
+    <label><input type="radio" name="who" value="Ranya"> Ranya</label>
+  </fieldset>
+  <p class="progress" id="progress">0 of 7 decided</p>
+  <a class="jump" href="#answers">Review &amp; send ↓</a>
+</div></div>
+<div class="wrap">
+<header class="mast">
+  <div class="wm"><span class="spiral"></span>sweet</div>
+  <div class="ed">Build 19 · follow-on · after the September 16 picks<br>Seven fights · Fable vs Astra · pick and send</div>
+</header>
+
+<section class="intro">
+  <p class="eyebrow">Founder picks · follow-on · open</p>
+  <h1>Seven fights left.<br><em>Salim picks. Everything else is already being built.</em></h1>
+  <p class="lede">Salim answered the twelve-fight board on September 16 (FormSubmit <code style="font:12px ui-monospace,Menlo,monospace">1a0ab588bfab25aa</code>). Fable and Astra each read those picks independently and drew the intended screens. They agree on nearly all of it, and the factory ships that agreed interpretation now. This board holds only the places where the two reads still differ: one fight per fork, the options as 402 by 874 phones in the card language that shipped in TestFlight 19 and 20, what Fable recommends, what Astra recommends, and the trade. Nothing is pre-checked.</p>
+  <p class="law"><b>Not votes.</b> A recommendation is not a pick. These seven stay unshipped until Salim picks a letter under each one and sends this page. Everything he already picked on the twelve-fight board is settled, is not re-asked here, and is listed at the bottom so nothing looks lost. If a letter is not enough, write it in the notes; “Write your own” is a real option on every fight.</p>
+  <nav class="toc" aria-label="Fights">
+    <a href="#f01"><b>1</b>Ask default model</a>
+    <a href="#f02"><b>2</b>Developer door</a>
+    <a href="#f03"><b>3</b>Who can switch</a>
+    <a href="#f04"><b>4</b>VG tile tint</a>
+    <a href="#f05"><b>5</b>HRV hero tint</a>
+    <a href="#f06"><b>6</b>Send colour</a>
+    <a href="#f07"><b>7</b>Consent copy</a>
+  </nav>
+</section>
+
+<!-- ============ FIGHT 1 · as5_default ============ -->
+<section class="fight" id="f01">
+  <header><h2><b>1</b>Which model answers Ask when nobody has touched the Developer screen</h2><span class="ids">AS-5 · AS-7 · Fable question 1 · Astra “Ask default”</span></header>
+  <p class="ctx">Salim's AS-5 note: “most likely Claude Sonnet 5 at Medium Reasoning and Fast Speed.” His synth pick was B+C: hide sign-in until sync, plus a TestFlight-only Developer screen that really changes the Worker. Both Fable and Astra ship that Developer screen and the build-time default flag (AS-7). What they do not agree on is what the flag holds, which is what every phone sends until a tester overrides it. Fable checked the Claude API reference: Fast mode is a Claude Opus 5 and Opus 4.8 mode, and Priority Tier excludes both Claude Opus 5 and Claude Sonnet 5, so “Sonnet 5, medium, fast” cannot be configured as written. Astra keeps the September 15 receipt, <code>grok-4.6 / low / priority</code>, as the default until a tester changes it, and does not certify that any slug is live.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="f">Fable recommends</span></p>
+      <h3><b>A</b> Claude Sonnet 5 · medium · standard speed</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:52</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#chev"/></svg></span><span class="t">Developer</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="eye">TestFlight only · 0.1.0 (21)</div><div class="h">Ask model.</div><div class="sub">This device only. App Store builds never show this screen.</div></div>
+          <div class="h17">This device</div>
+          <div class="setgroup mt8">
+            <div class="setrow">Override<span class="v">None · using the build default</span><svg class="chev"><use href="#fwd"/></svg></div>
+          </div>
+          <div class="h17 mt16">Build default</div>
+          <div class="setgroup mt8">
+            <div class="setrow">Model<span class="v ink">claude-sonnet-5</span></div>
+            <div class="setrow">Reasoning<span class="v ink">Medium</span></div>
+            <div class="setrow">Speed<span class="v">Standard · Fast is not offered for this model</span></div>
+            <div class="setrow">Source<span class="v">Archive-time flag</span></div>
+          </div>
+          <div class="line12 mt8">SWEET_ASK_DEFAULT_MODEL in the xcconfig; what every phone sends until a tester overrides it here.</div>
+          <div class="h17 mt16">Last answer</div>
+          <div class="pcard mt8"><div class="g22">No answer timed yet.</div><div class="line12 mt6">Send one Ask from this phone and the opener and answer timings land here.</div></div>
+          <div class="prov">Overrides ride on each Ask request; the Worker validates them against its allowlist.</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>The build default, as the Developer screen reads it back.</b> Sonnet 5 at medium; the speed row says Fast is not offered for this model. List price $2 in, $10 out per million tokens.</p>
+      <ul class="pc">
+        <li class="p">The model Salim named, minus the one mode that does not exist for it.</li>
+        <li class="p">One change on the Worker. Timed on the Developer screen, which is how AS-3 gets measured.</li>
+        <li class="c">Standard speed only. If the wait is too long, the next move is C.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src"><span class="a">Astra’s default</span></p>
+      <h3><b>B</b> Keep grok-4.6 · low · priority until a tester changes it</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:52</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#chev"/></svg></span><span class="t">Developer</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="eye">TestFlight only · 0.1.0 (21)</div><div class="h">Ask model.</div><div class="sub">This device only. App Store builds never show this screen.</div></div>
+          <div class="h17">This device</div>
+          <div class="setgroup mt8">
+            <div class="setrow">Override<span class="v">None · using the build default</span><svg class="chev"><use href="#fwd"/></svg></div>
+          </div>
+          <div class="h17 mt16">Build default</div>
+          <div class="setgroup mt8">
+            <div class="setrow">Model<span class="v ink">grok-4.6</span></div>
+            <div class="setrow">Reasoning<span class="v ink">Low</span></div>
+            <div class="setrow">Speed<span class="v ink">Priority tier</span></div>
+            <div class="setrow">Source<span class="v">As shipped in 0.1.0 (20)</span></div>
+          </div>
+          <div class="line12 mt8">The September 15 receipt, unchanged. A tester moves off it here, one phone at a time.</div>
+          <div class="h17 mt16">Last answer</div>
+          <div class="pcard mt8"><div class="g22">No answer timed yet.</div><div class="line12 mt6">Send one Ask from this phone and the opener and answer timings land here.</div></div>
+          <div class="prov">Overrides ride on each Ask request; the Worker validates them against its allowlist.</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>As shipped.</b> The receipt's configuration stays the build default. The Developer screen is where a tester leaves it, and nothing moves for everyone else until that is verified.</p>
+      <ul class="pc">
+        <li class="p">Nothing changes for anyone until a live model and its controls are verified on the Developer screen.</li>
+        <li class="p">The earlier explicit receipt stands. No new slug is assumed live.</li>
+        <li class="c">Salim's own note: Grok “is not doing a very good job.” Every tester keeps getting it until each phone is switched by hand.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src"><span class="f">Fable alternative</span></p>
+      <h3><b>C</b> Claude Opus 5 · medium · Fast</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:52</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#chev"/></svg></span><span class="t">Developer</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="eye">TestFlight only · 0.1.0 (21)</div><div class="h">Ask model.</div><div class="sub">This device only. App Store builds never show this screen.</div></div>
+          <div class="h17">This device</div>
+          <div class="setgroup mt8">
+            <div class="setrow">Override<span class="v">None · using the build default</span><svg class="chev"><use href="#fwd"/></svg></div>
+          </div>
+          <div class="h17 mt16">Build default</div>
+          <div class="setgroup mt8">
+            <div class="setrow">Model<span class="v ink">claude-opus-5</span></div>
+            <div class="setrow">Reasoning<span class="v ink">Medium</span></div>
+            <div class="setrow">Speed<span class="v ink">Fast · on</span></div>
+            <div class="setrow">Source<span class="v">Archive-time flag</span></div>
+          </div>
+          <div class="line12 mt8">SWEET_ASK_DEFAULT_MODEL in the xcconfig, with Fast on. Fast has its own rate limit.</div>
+          <div class="h17 mt16">Last answer</div>
+          <div class="pcard mt8"><div class="g22">No answer timed yet.</div><div class="line12 mt6">Send one Ask from this phone and the opener and answer timings land here.</div></div>
+          <div class="prov">Overrides ride on each Ask request; the Worker validates them against its allowlist.</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>The fastest Claude answer.</b> Opus 5 is where Fast exists, so the speed row shows it on. List price $5 in, $25 out per million tokens at standard speed; $10 in, $50 out in Fast mode.</p>
+      <ul class="pc">
+        <li class="p">Fast is a real mode here: up to about 2.5 times the output speed of standard Opus 5.</li>
+        <li class="p">The deepest model, for the same one-line change on the Worker.</li>
+        <li class="c">Premium price per answer and a separate rate limit. More than a one-line opener needs.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>(A) Start on Sonnet 5 at medium, standard speed, and time it on the Developer screen. If the answers are good and the wait is not, try Opus 5 with Fast for a day. Both are one change on the Worker.</div>
+    <div class="a"><span>Astra</span>Retain the previously explicit grok-4.6 / low / priority direction. This packet does not certify that deployed providers currently accept those strings. The earlier catalog's Sonnet discussion does not override the later explicit decision. Build defaults and live capabilities must be verified by the implementer.</div>
+  </div>
+  <fieldset class="pick" data-decision="as5_default" data-title="AS-5 · Production Ask default model"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="as5_default" value="A"><b>A</b><span class="txt">Claude Sonnet 5 · medium · standard speed</span><span class="rec-pill f">Fable rec</span></label>
+      <label class="opt"><input type="radio" name="as5_default" value="B"><b>B</b><span class="txt">Keep grok-4.6 · low · priority until a tester changes it</span><span class="rec-pill a">Astra default</span></label>
+      <label class="opt"><input type="radio" name="as5_default" value="C"><b>C</b><span class="txt">Claude Opus 5 · medium · Fast</span><span class="rec-pill n">Fable alternative</span></label>
+      <label class="opt"><input type="radio" name="as5_default" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="as5_default_notes">AS-5 default notes (optional) · a blend, a condition, or your own pick</label><textarea id="as5_default_notes" name="as5_default_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 2 · as5_door ============ -->
+<section class="fight" id="f02">
+  <header><h2><b>2</b>How many taps on the version line open Developer Settings</h2><span class="ids">AS-6 · Fable question 2 · Astra “Hidden entry”</span></header>
+  <p class="ctx">Both lanes hide Developer Settings behind the version line at the bottom of About, in TestFlight builds only, with no row and no hint anywhere in ordinary Settings. In an App Store build the taps do nothing because the route is never composed. The gesture is discoverability for the people Salim tells, not security; fight 3 is the security question. Fable asked Salim to confirm five taps. Astra drew seven. Same screen, same line, one number.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="f">Fable recommends</span></p>
+      <h3><b>A</b> Five taps on the version line</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:52</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#chev"/></svg></span><span class="t">About Sweet</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="h">About Sweet.</div></div>
+          <div class="line14" style="line-height:1.6">Sweet offers short checks for a few wellness estimates. Estimates describe one check with its source and time. They can be incomplete or unavailable.</div>
+          <div class="mt18"><div class="h17">Your saved checks</div><div class="line14 mt6" style="color:var(--muted);line-height:1.6">Completed checks can be kept on this iPhone. Your saved checks in Settings lets you review, export or delete them.</div></div>
+          <div class="mt18"><div class="h17">Your photos</div><div class="line14 mt6" style="color:var(--muted);line-height:1.6">A Skin selfie or Gut photo goes to Sweet, then to the partner that reads it, for that check only. Sweet keeps it on this iPhone with the result.</div></div>
+          <div class="mt18"><div class="h17">Ask Sweet AI</div><div class="line14 mt6" style="color:var(--muted);line-height:1.6">Your question and one check's result go to Sweet's answer service. Nothing else from your phone is sent.</div></div>
+          <div class="tert mt8"><span>Privacy policy</span><svg><use href="#arrow"/></svg></div>
+          <div class="tert"><span>Terms</span><svg><use href="#arrow"/></svg></div>
+          <div class="honest">Wellness estimates, not a diagnosis or lab test.</div>
+          <div class="line11 mt16" style="text-align:center">Sweet 0.1.0 (21) · TestFlight</div>
+          <div class="annobadge"><i>5</i>Tap the version line five times</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>About, where the leftover legal lives.</b> The dashed badge is an annotation, not UI: nothing on the screen hints at the door. Five taps opens Developer in a TestFlight build.</p>
+      <ul class="pc">
+        <li class="p">The count people already know from other apps' hidden menus.</li>
+        <li class="p">Fewer taps to explain to a tester over the phone.</li>
+        <li class="c">Slightly easier to trip by accident; still nothing happens in an App Store build.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src"><span class="a">Astra’s default</span></p>
+      <h3><b>B</b> Seven taps on the version line</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:52</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#chev"/></svg></span><span class="t">About Sweet</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="h">About Sweet.</div></div>
+          <div class="line14" style="line-height:1.6">Sweet offers short checks for a few wellness estimates. Estimates describe one check with its source and time. They can be incomplete or unavailable.</div>
+          <div class="mt18"><div class="h17">Your saved checks</div><div class="line14 mt6" style="color:var(--muted);line-height:1.6">Completed checks can be kept on this iPhone. Your saved checks in Settings lets you review, export or delete them.</div></div>
+          <div class="mt18"><div class="h17">Your photos</div><div class="line14 mt6" style="color:var(--muted);line-height:1.6">A Skin selfie or Gut photo goes to Sweet, then to the partner that reads it, for that check only. Sweet keeps it on this iPhone with the result.</div></div>
+          <div class="mt18"><div class="h17">Ask Sweet AI</div><div class="line14 mt6" style="color:var(--muted);line-height:1.6">Your question and one check's result go to Sweet's answer service. Nothing else from your phone is sent.</div></div>
+          <div class="tert mt8"><span>Privacy policy</span><svg><use href="#arrow"/></svg></div>
+          <div class="tert"><span>Terms</span><svg><use href="#arrow"/></svg></div>
+          <div class="honest">Wellness estimates, not a diagnosis or lab test.</div>
+          <div class="line11 mt16" style="text-align:center">Sweet 0.1.0 (21) · TestFlight</div>
+          <div class="annobadge"><i>7</i>Tap the version line seven times</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>The same About screen.</b> The dashed badge is an annotation, not UI. Seven taps opens Developer in a TestFlight build; Astra's mock counts to seven and resets.</p>
+      <ul class="pc">
+        <li class="p">The count Android uses for its own developer options; harder to hit by accident.</li>
+        <li class="c">Two more taps to remember, and nothing else changes.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>(A) Five. It is the pattern people already know, and it is invisible to anyone who is not told.</div>
+    <div class="a"><span>Astra</span>Seven taps on the version in Settings/About. That is discoverability for testers, not security. No founder-provided secret or arbitrary model slug is needed to draw this flow.</div>
+  </div>
+  <fieldset class="pick" data-decision="as5_door" data-title="AS-6 · Hidden door into Developer Settings"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="as5_door" value="A"><b>A</b><span class="txt">Five taps on the About version line</span><span class="rec-pill f">Fable rec</span></label>
+      <label class="opt"><input type="radio" name="as5_door" value="B"><b>B</b><span class="txt">Seven taps on the About version line</span><span class="rec-pill a">Astra default</span></label>
+      <label class="opt"><input type="radio" name="as5_door" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="as5_door_notes">Developer door notes (optional) · a blend, a condition, or your own pick</label><textarea id="as5_door_notes" name="as5_door_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 3 · as5_who ============ -->
+<section class="fight" id="f03">
+  <header><h2><b>3</b>Who may actually switch the Ask worker</h2><span class="ids">AS-5 · AS-6 · Fable question 3 · Astra “Authorization”</span></header>
+  <p class="ctx">Salim's note: the Developer screen must actually change the Ask worker, enforced not in production, with a standard TestFlight-only gate. Both lanes gate the screen on StoreKit's AppTransaction environment (sandbox for TestFlight) and keep the route out of App Store builds. They differ on what authorizes the override once the screen is open. Fable: the request carries a developer key that exists only in TestFlight archives; the Worker validates the override against its own allowlist; anyone who knows the gesture on a TestFlight phone may switch that phone. Astra: a gesture or a client flag is not authorization; the Worker verifies an expiring, revocable per-tester beta capability server-side, shows the requested and the effective configuration separately, and only the acknowledged one is used.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="f">Fable recommends</span></p>
+      <h3><b>A</b> Any TestFlight tester who knows the gesture</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:52</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#chev"/></svg></span><span class="t">Developer</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="eye">TestFlight only · 0.1.0 (21)</div><div class="h">Ask model.</div><div class="sub">Opened from About. This device only; App Store builds never show this screen.</div></div>
+          <div class="h17">This device</div>
+          <div class="setgroup mt8">
+            <div class="setrow">Model<span class="v">From the Worker's list</span><svg class="chev"><use href="#fwd"/></svg></div>
+            <div class="setrow">Reasoning<span class="v">Build default</span><svg class="chev"><use href="#fwd"/></svg></div>
+            <div class="setrow">Fast<span class="v">Only where the model has it</span><svg class="chev"><use href="#fwd"/></svg></div>
+          </div>
+          <div class="line12 mt8">Models and controls come from the Worker's list. A change is sent with the next Ask request and applies to this phone only.</div>
+          <div class="h17 mt16">Build default</div>
+          <div class="setgroup mt8">
+            <div class="setrow">Model<span class="v">From the archive-time flag</span></div>
+            <div class="setrow">Source<span class="v">SWEET_ASK_DEFAULT_MODEL</span></div>
+          </div>
+          <div class="btn secondary compact mt12">Use the build default</div>
+          <div class="prov">Overrides ride on each Ask request with the TestFlight developer key. The Worker refuses overrides without it, and refuses anything off its allowlist. An App Store archive carries no key.</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>The gesture is the door and the key.</b> Whoever opens this on a TestFlight phone can switch that phone. The archive-time developer key and the Worker's allowlist are the only other checks.</p>
+      <ul class="pc">
+        <li class="p">Nothing to provision. The override changes only that phone; the Worker still refuses anything off its allowlist.</li>
+        <li class="p">The developer key lives only in TestFlight archives, so an App Store build has nothing to send.</li>
+        <li class="c">Any tester told the gesture can run the priciest model on Sweet's bill.</li>
+        <li class="c">One key for every tester. Revoking it means a new TestFlight build.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src"><span class="f">Fable alternative</span></p>
+      <h3><b>B</b> Gesture plus a passcode</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:52</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#chev"/></svg></span><span class="t">About Sweet</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="h">About Sweet.</div></div>
+          <div class="line14" style="line-height:1.6">Sweet offers short checks for a few wellness estimates. Estimates describe one check with its source and time. They can be incomplete or unavailable.</div>
+          <div class="mt18"><div class="h17">Your saved checks</div><div class="line14 mt6" style="color:var(--muted);line-height:1.6">Completed checks can be kept on this iPhone. Your saved checks in Settings lets you review, export or delete them.</div></div>
+          <div class="mt18"><div class="h17">Your photos</div><div class="line14 mt6" style="color:var(--muted);line-height:1.6">A Skin selfie or Gut photo goes to Sweet, then to the partner that reads it, for that check only.</div></div>
+        </div>
+        <div class="scrim"></div>
+        <div class="sheet">
+          <div class="grab"></div>
+          <div class="eye">TestFlight only</div>
+          <div class="h17 mt8">Developer passcode.</div>
+          <div class="line13 mt6" style="color:var(--muted)">Ask Salim for it. Nothing here exists in an App Store build.</div>
+          <div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div>
+          <div class="btn primary">Continue</div>
+          <div class="tert" style="justify-content:center"><span>Cancel</span></div>
+        </div>
+      </div></div>
+      <p class="cap"><b>The gesture opens a passcode sheet.</b> One shared code, set by Salim, in front of the same Developer screen as A. Everything else about A stays.</p>
+      <ul class="pc">
+        <li class="p">Keeps the screen to the people Salim gives the code to, with no server work.</li>
+        <li class="c">A shared passcode leaks the same way a gesture does, and it is one more thing to remember.</li>
+        <li class="c">Still one developer key for all testers; revoking it still needs a new build.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src"><span class="a">Astra recommends</span></p>
+      <h3><b>C</b> Server-side beta capability; the gesture is not authorization</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:52</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#chev"/></svg></span><span class="t">Developer</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="eye">TestFlight only · 0.1.0 (21)</div><div class="h">Ask model.</div><div class="sub">Changes this device's next Ask request once the Worker agrees.</div></div>
+          <div class="h17">Beta access</div>
+          <div class="setgroup mt8">
+            <div class="setrow">Beta tester<span class="v ink">Verified by the Worker</span></div>
+            <div class="setrow">Expires<span class="v">Oct 16, 2026 · revocable</span></div>
+          </div>
+          <div class="h17 mt16">Requested</div>
+          <div class="setgroup mt8">
+            <div class="setrow">Model<span class="v">From the Worker's catalog</span><svg class="chev"><use href="#fwd"/></svg></div>
+            <div class="setrow">Reasoning<span class="v">From the catalog</span><svg class="chev"><use href="#fwd"/></svg></div>
+            <div class="setrow">Speed<span class="v">Only where the model has it</span></div>
+          </div>
+          <div class="btn primary compact mt12">Apply &amp; verify</div>
+          <div class="h17 mt16">Effective now</div>
+          <div class="pcard mt8"><div class="g22">Build default.</div><div class="line12 mt6">Revision 1. Pending until the Worker acknowledges; a rejected or offline request keeps this.</div></div>
+          <div class="prov">A gesture opens this screen; only a valid beta capability lets the Worker honour a change. The production Worker rejects overrides.</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>Requested and effective are two different things.</b> The Worker holds a per-tester capability that expires and can be revoked without a build. A change is pending until the Worker says what it will actually use.</p>
+      <ul class="pc">
+        <li class="p">The Worker decides per tester; access expires and is revocable without a new build.</li>
+        <li class="p">A forged override is rejected even from a TestFlight build; the screen never pretends a change took effect.</li>
+        <li class="c">A provisioning channel and a capability store to build before the screen changes anything.</li>
+        <li class="c">Slower to land, with more moving parts, for a tester list that is still friends and family.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>(A) Acceptable for now: the switch only affects that phone and the Worker still refuses anything off its allowlist. Add a passcode (B) only if the tester list grows past friends.</div>
+    <div class="a"><span>Astra</span>Provision an expiring, revocable beta tester capability through the existing authenticated test provisioning channel. Do not ship a universal secret or provider API key. The beta worker verifies that capability server-side; a gesture or client Boolean cannot grant it. “Saved in UserDefaults” is not acceptance.</div>
+  </div>
+  <fieldset class="pick" data-decision="as5_who" data-title="AS-5 · Who may switch the Ask worker"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="as5_who" value="A"><b>A</b><span class="txt">Any TestFlight tester who knows the gesture</span><span class="rec-pill f">Fable rec</span></label>
+      <label class="opt"><input type="radio" name="as5_who" value="B"><b>B</b><span class="txt">Gesture plus a passcode</span><span class="rec-pill n">Fable alternative</span></label>
+      <label class="opt"><input type="radio" name="as5_who" value="C"><b>C</b><span class="txt">Server-side beta capability; the gesture is not authorization</span><span class="rec-pill a">Astra rec</span></label>
+      <label class="opt"><input type="radio" name="as5_who" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="as5_who_notes">Who-can-switch notes (optional) · a blend, a condition, or your own pick</label><textarea id="as5_who_notes" name="as5_who_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 4 · vg_tint ============ -->
+<section class="fight" id="f04">
+  <header><h2><b>4</b>Vital Glimpse tiles: tint by band, or keep the shipped kind pastels</h2><span class="ids">Cards · pool A-20 · Fable question 6 · Astra “existing card shell”</span></header>
+  <p class="ctx">Salim's cards note: keep the prior-build Skin and Vital Glimpse result card language, band words yes, one design language app-wide. The shipped Vital Glimpse tile (23-point radius, symbol, name, band word, value) is tinted by reading kind: mint for heart rate, lilac for HRV, peach for stress signal, rose for rest response, white for the rest, whatever the band says. Fable keeps the tile and takes its fill from the band instead, so mint means within your usual on a Vital Glimpse tile the same as doing well on a Skin tile; it flags this as the one visible change to a screen Salim praised. Astra's contract is to reuse the shipped card, its shell and its existing semantic tokens; its own mock colours, it says, do not authorize replacing native tokens, and it never asks to retint the praised screen. Same readings and bands in both phones; only the fills differ.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="f">Fable recommends</span></p>
+      <h3><b>A</b> Tint by band tone, so mint means one thing everywhere</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:41</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Vital Glimpse</span><span class="hit ask"><svg><use href="#s24"/></svg></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="eye">Your Vital Glimpse · Today, 9:41 AM</div><div class="h">Mostly familiar.</div><div class="em">One change.</div><div class="sub">Your stress signal is above your recent range.</div></div>
+          <div class="tiles">
+            <div class="tile within"><svg class="sym"><use href="#ecg"/></svg><div class="n">Heart rate</div><div class="s">Within your usual</div><div class="v">68 bpm</div></div>
+            <div class="tile within"><svg class="sym"><use href="#wave"/></svg><div class="n">HRV · SDNN</div><div class="s">Within your usual</div><div class="v">52 ms</div></div>
+            <div class="tile neutral"><svg class="sym"><use href="#wind"/></svg><div class="n">Breathing</div><div class="s">14 /min</div><div class="v">Getting to know your usual</div></div>
+            <div class="tile outside"><svg class="sym"><use href="#sun"/></svg><div class="n">Stress signal</div><div class="s">Above your usual</div><div class="v">5.1</div></div>
+            <div class="tile within"><svg class="sym"><use href="#ecg"/></svg><div class="n">Blood pressure</div><div class="s">Within your usual</div><div class="v">126 / 80 mmHg</div></div>
+            <div class="tile within"><svg class="sym"><use href="#moon"/></svg><div class="n">Rest response</div><div class="s">Within your usual</div><div class="v">58 %</div></div>
+          </div>
+          <div class="tert mt8"><span>All readings &amp; details</span><svg><use href="#arrow"/></svg></div>
+          <div class="prov">From your camera · kept on this iPhone.</div>
+          <div class="honest">Wellness estimates, not a diagnosis or lab test.</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>Shipped anatomy, one change.</b> Fill and symbol follow the band: mint within, peach above or below, white with the hairline before a usual exists. The tile shape, symbols, word and number are untouched.</p>
+      <ul class="pc">
+        <li class="p">One meaning per colour, app-wide: the same mint on a Skin tile and a Vital Glimpse tile.</li>
+        <li class="p">The band is visible before the word is read; the one change on the screen is the peach tile.</li>
+        <li class="c">Changes a screen Salim called done right.</li>
+        <li class="c">A mostly-within result is a wall of mint; the readings lose their own colour.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src"><span class="a">Astra’s contract</span> · as shipped</p>
+      <h3><b>B</b> Keep the shipped kind pastels; band in the word only</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:41</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Vital Glimpse</span><span class="hit ask"><svg><use href="#s24"/></svg></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="eye">Your Vital Glimpse · Today, 9:41 AM</div><div class="h">Mostly familiar.</div><div class="em">One change.</div><div class="sub">Your stress signal is above your recent range.</div></div>
+          <div class="tiles">
+            <div class="tile kind-mint"><svg class="sym"><use href="#ecg"/></svg><div class="n">Heart rate</div><div class="s">Within your usual</div><div class="v">68 bpm</div></div>
+            <div class="tile kind-lilac"><svg class="sym"><use href="#wave"/></svg><div class="n">HRV · SDNN</div><div class="s">Within your usual</div><div class="v">52 ms</div></div>
+            <div class="tile neutral"><svg class="sym"><use href="#wind"/></svg><div class="n">Breathing</div><div class="s">14 /min</div><div class="v">Getting to know your usual</div></div>
+            <div class="tile kind-peach"><svg class="sym"><use href="#sun"/></svg><div class="n">Stress signal</div><div class="s">Above your usual</div><div class="v">5.1</div></div>
+            <div class="tile neutral" style="border-color:transparent"><svg class="sym" style="color:#276547"><use href="#ecg"/></svg><div class="n">Blood pressure</div><div class="s">Within your usual</div><div class="v">126 / 80 mmHg</div></div>
+            <div class="tile kind-rose"><svg class="sym"><use href="#moon"/></svg><div class="n">Rest response</div><div class="s">Within your usual</div><div class="v">58 %</div></div>
+          </div>
+          <div class="tert mt8"><span>All readings &amp; details</span><svg><use href="#arrow"/></svg></div>
+          <div class="prov">From your camera · kept on this iPhone.</div>
+          <div class="honest">Wellness estimates, not a diagnosis or lab test.</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>As shipped in TestFlight 19 and 20.</b> Each reading keeps its own pastel: mint heart, lilac HRV, peach stress, rose rest, white for the others. Peach here means stress signal, not above your usual; it would be peach when within, too.</p>
+      <ul class="pc">
+        <li class="p">The praised screen stays exactly as shipped; a reading is recognisable by colour at a glance.</li>
+        <li class="p">No native token changes; Astra's reuse-the-shipped-card contract is met as is.</li>
+        <li class="c">Peach on a stress tile means stress; peach on a Skin tile means worth attention. Two meanings for one colour.</li>
+        <li class="c">The band is carried by the word alone; the one change in this result does not stand out.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>(A) Yes: it is the only way mint means one thing on a Skin tile and a Vital Glimpse tile. The tile shape, symbols, word and number are untouched.</div>
+    <div class="a"><span>Astra</span>Keep the existing substantial Skin/VG cards; existing card shell, spacing, radius and hierarchy survive. Reuse the existing semantic tokens; colour is accompanied by a readable band word and never stands alone. The mock's colour pairs do not authorize replacing the native tokens.</div>
+  </div>
+  <fieldset class="pick" data-decision="vg_tint" data-title="Cards · Vital Glimpse tile tint"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="vg_tint" value="A"><b>A</b><span class="txt">Tint Vital Glimpse tiles by band tone</span><span class="rec-pill f">Fable rec</span></label>
+      <label class="opt"><input type="radio" name="vg_tint" value="B"><b>B</b><span class="txt">Keep the shipped kind pastels</span><span class="rec-pill a">Astra contract</span></label>
+      <label class="opt"><input type="radio" name="vg_tint" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="vg_tint_notes">VG tint notes (optional) · a blend, a condition, or your own pick</label><textarea id="vg_tint_notes" name="vg_tint_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 5 · hl4_hrv ============ -->
+<section class="fight" id="f05">
+  <header><h2><b>5</b>Health tab: the HRV hero card, mint by band or lilac as shipped</h2><span class="ids">HL-4 A · Fable question 7 · Astra “existing result cards”</span></header>
+  <p class="ctx">HL-4 is settled: floor only, one headline, the existing cards, no extra Health-tab trends. The tab's hero card (heart rate variability with its one small chart) shipped in lilac at a 26-point radius. Fable's read gives it the same tone tint as every other result card, mint when within your usual, so the tab follows one rule, and offers the lilac as a one-line revert. Astra's floor keeps the existing result cards as they are. This follows fight 4: if Vital Glimpse tiles keep their kind pastels, the lilac hero is the consistent answer; if they tint by band, mint is.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="f">Fable recommends</span></p>
+      <h3><b>A</b> Mint, the same band tint as every other card</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:49</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit blank"></span><span class="t">Health</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="eye">Your bigger picture</div><div class="h">Mostly familiar.</div><div class="em">One change.</div><div class="sub">From your latest Vital Glimpse · Today, 9:41 AM</div></div>
+          <div class="pcard fill" style="background:var(--mint);border-radius:26px;padding:22px"><div class="eye">Your heart rate variability · SDNN</div><span class="chip teal"><i class="bg-teal"></i>Within your usual</span><div class="g27 mt8">Right around your usual.</div><div class="line13 mt6">52 ms · Today, 9:41 AM</div>
+            <svg width="310" height="70" viewBox="0 0 310 70" style="margin-top:10px;display:block"><rect x="0" y="18" width="310" height="30" rx="8" fill="rgba(255,255,255,.6)"/><polyline points="6,40 48,30 92,44 136,26 180,34 224,30 268,40 304,32" fill="none" stroke="#AD315B" stroke-width="2"/><g fill="#AD315B"><circle cx="6" cy="40" r="3"/><circle cx="48" cy="30" r="3"/><circle cx="92" cy="44" r="3"/><circle cx="136" cy="26" r="3"/><circle cx="180" cy="34" r="3"/><circle cx="224" cy="30" r="3"/><circle cx="268" cy="40" r="3"/></g><circle cx="304" cy="32" r="5" fill="#AD315B" stroke="#fff" stroke-width="2"/></svg></div>
+          <div class="grid2 mt12">
+            <div class="pcard" style="background:var(--rose);border-color:transparent"><div class="eye">Skin</div><span class="chip mag"><i class="bg-mag"></i>Needs care</span><div class="g22 mt8">Oiliness</div><div class="line12 mt10">Today, 9:44 AM</div></div>
+            <div class="pcard"><div class="eye">Gut</div><div class="g22" style="margin-top:22px">Soft. Well formed.</div><div class="line12 mt10">Sep 12, 8:10 AM</div></div>
+          </div>
+          <div class="pcard mt12" style="display:flex;align-items:center;gap:12px"><svg style="width:22px;height:22px;color:var(--magenta)"><use href="#heart"/></svg><div style="flex:1"><div class="h15">Apple Health · Connected</div><div class="line13 mt6" style="color:var(--muted)">Your heart rate at rest reads beside your checks.</div></div><svg style="width:13px;height:13px;color:var(--muted)"><use href="#fwd"/></svg></div>
+        </div>
+        <div class="tabbar"><div class="tab"><svg><use href="#home"/></svg></div><div class="tab on"><svg><use href="#heart"/></svg></div><div class="tab"><svg><use href="#clock"/></svg></div><div class="tab"><svg><use href="#gear"/></svg></div></div>
+      </div></div>
+      <p class="cap"><b>Health tab, floor only, one rule.</b> The hero takes mint because the reading is within your usual; it would take the caution peach if it were not. Everything else is the shipped card with its chip.</p>
+      <ul class="pc">
+        <li class="p">The tab reads with the same rule as a result: colour means the band, on every card.</li>
+        <li class="p">Hue changes ride on the shared band mapping; no new component.</li>
+        <li class="c">Changes the one card on the tab that had its own colour; a within-usual tab is mostly mint.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src"><span class="a">Astra’s floor</span> · Fable revert</p>
+      <h3><b>B</b> Keep the lilac hero as it shipped</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:49</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit blank"></span><span class="t">Health</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="eye">Your bigger picture</div><div class="h">Mostly familiar.</div><div class="em">One change.</div><div class="sub">From your latest Vital Glimpse · Today, 9:41 AM</div></div>
+          <div class="pcard fill" style="background:var(--lilac);border-radius:26px;padding:22px"><div class="eye">Your heart rate variability · SDNN</div><span class="chip teal"><i class="bg-teal"></i>Within your usual</span><div class="g27 mt8">Right around your usual.</div><div class="line13 mt6">52 ms · Today, 9:41 AM</div>
+            <svg width="310" height="70" viewBox="0 0 310 70" style="margin-top:10px;display:block"><rect x="0" y="18" width="310" height="30" rx="8" fill="rgba(255,255,255,.6)"/><polyline points="6,40 48,30 92,44 136,26 180,34 224,30 268,40 304,32" fill="none" stroke="#AD315B" stroke-width="2"/><g fill="#AD315B"><circle cx="6" cy="40" r="3"/><circle cx="48" cy="30" r="3"/><circle cx="92" cy="44" r="3"/><circle cx="136" cy="26" r="3"/><circle cx="180" cy="34" r="3"/><circle cx="224" cy="30" r="3"/><circle cx="268" cy="40" r="3"/></g><circle cx="304" cy="32" r="5" fill="#AD315B" stroke="#fff" stroke-width="2"/></svg></div>
+          <div class="grid2 mt12">
+            <div class="pcard" style="background:var(--rose);border-color:transparent"><div class="eye">Skin</div><span class="chip mag"><i class="bg-mag"></i>Needs care</span><div class="g22 mt8">Oiliness</div><div class="line12 mt10">Today, 9:44 AM</div></div>
+            <div class="pcard"><div class="eye">Gut</div><div class="g22" style="margin-top:22px">Soft. Well formed.</div><div class="line12 mt10">Sep 12, 8:10 AM</div></div>
+          </div>
+          <div class="pcard mt12" style="display:flex;align-items:center;gap:12px"><svg style="width:22px;height:22px;color:var(--magenta)"><use href="#heart"/></svg><div style="flex:1"><div class="h15">Apple Health · Connected</div><div class="line13 mt6" style="color:var(--muted)">Your heart rate at rest reads beside your checks.</div></div><svg style="width:13px;height:13px;color:var(--muted)"><use href="#fwd"/></svg></div>
+        </div>
+        <div class="tabbar"><div class="tab"><svg><use href="#home"/></svg></div><div class="tab on"><svg><use href="#heart"/></svg></div><div class="tab"><svg><use href="#clock"/></svg></div><div class="tab"><svg><use href="#gear"/></svg></div></div>
+      </div></div>
+      <p class="cap"><b>As shipped.</b> The lilac hero stays; the band lives in the chip and the sentence, not the fill. Nothing else on the tab changes.</p>
+      <ul class="pc">
+        <li class="p">The screen that shipped, untouched. Lilac marks the hero as the tab's one headline card.</li>
+        <li class="p">Consistent with keeping the kind pastels on Vital Glimpse tiles (fight 4 B).</li>
+        <li class="c">Lilac means "hero" here and "HRV" on a Vital Glimpse tile; the band is carried by the chip only.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>(A) Same rule everywhere. A one-line revert if you prefer the lilac hero.</div>
+    <div class="a"><span>Astra</span>Health's floor: one truthful headline and the existing result cards. No added Health-tab graphs or new in/out-of-range judgments. “Getting to know your usual” and per-reading readiness cannot contradict one another.</div>
+  </div>
+  <fieldset class="pick" data-decision="hl4_hrv" data-title="HL-4 · Health HRV hero card tint"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="hl4_hrv" value="A"><b>A</b><span class="txt">Mint, the same band tint as every other card</span><span class="rec-pill f">Fable rec</span></label>
+      <label class="opt"><input type="radio" name="hl4_hrv" value="B"><b>B</b><span class="txt">Keep the lilac hero as it shipped</span><span class="rec-pill a">Astra floor</span></label>
+      <label class="opt"><input type="radio" name="hl4_hrv" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="hl4_hrv_notes">HRV hero notes (optional) · a blend, a condition, or your own pick</label><textarea id="hl4_hrv_notes" name="hl4_hrv_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 6 · send_color ============ -->
+<section class="fight" id="f06">
+  <header><h2><b>6</b>Ask Send: the palette's blue-purple, or magenta</h2><span class="ids">AS-4 · ask_composer (Sep 15) · Astra “Send color”</span></header>
+  <p class="ctx">Two founder notes, one day apart. The September 15 receipt (<code>ask_composer</code>) says Send is iOS-style, a filled circular arrow, Sweet magenta #AD315B. The September 16 packet (AS-4) says: instead of magenta, make Send “that kind of bluish-purplish color that's part of the Sweet palette”, keep the arrow, and while an answer is on its way replace it with a magenta square Stop. Stop as a magenta square in the same spot is agreed by both lanes and is not on the table. Fable draws AS-4 as the newer word, with Send in the palette's signal blue #456687 (the same blue as the Vital Glimpse completion oval). Astra keeps Send magenta, reading the receipt as the explicit instruction and the blue proposal as the older dictation.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="f">Fable recommends</span> · packet AS-4</p>
+      <h3><b>A</b> Send in Sweet blue-purple; Stop a magenta square</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:49</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Ask Sweet AI</span><span class="hit blank"></span></div>
+        <div class="content" style="padding-bottom:0">
+          <div class="eye" style="padding:14px 0 10px">About your skin check</div>
+          <div class="bubble them">Hi! Want to ask about your pores? They read worth attention in this check. How can I help?</div>
+          <div class="bubble them">Pores that read a little more visible usually come down to light, angle and how oily the skin was that morning. One photo is a snapshot, not a trend.</div>
+          <div class="actx">Skin check · Today, 9:44 AM · <span class="mag" style="font-weight:600">Details</span></div>
+        </div>
+        <div class="composer"><div class="field typed">Is that bad?<span class="send blue"><svg><use href="#up"/></svg></span></div>
+          <div class="kbd"><div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span class="wide"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="wide"></span></div><div><span class="wide"></span><span class="space"></span><span class="wide"></span></div></div>
+        </div>
+      </div></div>
+      <p class="cap"><b>Typed, ready to send.</b> The arrow Salim liked, in the palette's blue; while the answer is on its way the same spot holds the magenta Stop square, so the two states are two colours. The exact hue is look's to match from the palette.</p>
+      <ul class="pc">
+        <li class="p">Send and Stop read as two different actions before you read the shape.</li>
+        <li class="p">The blue is already in the palette (signal blue, the completion oval); no new colour.</li>
+        <li class="c">A second accent on a screen that otherwise has one; the September 15 receipt said magenta.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src"><span class="a">Astra’s default</span> · ask_composer receipt</p>
+      <h3><b>B</b> Send stays magenta; Stop a magenta square</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:49</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Ask Sweet AI</span><span class="hit blank"></span></div>
+        <div class="content" style="padding-bottom:0">
+          <div class="eye" style="padding:14px 0 10px">About your skin check</div>
+          <div class="bubble them">Hi! Want to ask about your pores? They read worth attention in this check. How can I help?</div>
+          <div class="bubble them">Pores that read a little more visible usually come down to light, angle and how oily the skin was that morning. One photo is a snapshot, not a trend.</div>
+          <div class="actx">Skin check · Today, 9:44 AM · <span class="mag" style="font-weight:600">Details</span></div>
+        </div>
+        <div class="composer"><div class="field typed">Is that bad?<span class="send mag"><svg><use href="#up"/></svg></span></div>
+          <div class="kbd"><div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span class="wide"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="wide"></span></div><div><span class="wide"></span><span class="space"></span><span class="wide"></span></div></div>
+        </div>
+      </div></div>
+      <p class="cap"><b>The same composer, Send in magenta.</b> The receipt as written: iOS-style filled circular arrow, brand magenta. Stop is the magenta square in the same spot, so only the shape changes between the two states.</p>
+      <ul class="pc">
+        <li class="p">One accent colour on the screen, and the September 15 receipt exactly as written.</li>
+        <li class="p">Nothing to re-tune: it is what the code draws today.</li>
+        <li class="c">Send and Stop are the same colour; only circle versus square tells them apart. The September 16 dictation asked for the change.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>(A) The packet is the newer word, and Send and Stop read as two actions instead of one shape change. The blue is already in the palette; look matches the exact hue.</div>
+    <div class="a"><span>Astra</span>Preserve magenta from the earlier explicit B19 ask_composer instruction. The newer synth note does not change it. The older dictation's blue Send proposal is not reinstated. Stop is a magenta square in the same position, with a 44 pt target.</div>
+  </div>
+  <fieldset class="pick" data-decision="send_color" data-title="AS-4 · Ask Send colour (Stop is a magenta square either way)"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="send_color" value="A"><b>A</b><span class="txt">Send Sweet blue-purple; Stop magenta square</span><span class="rec-pill f">Fable rec · packet AS-4</span></label>
+      <label class="opt"><input type="radio" name="send_color" value="B"><b>B</b><span class="txt">Send stays magenta; Stop magenta square</span><span class="rec-pill a">Astra default · Sep 15 receipt</span></label>
+      <label class="opt"><input type="radio" name="send_color" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="send_color_notes">Send colour notes (optional) · a blend, a condition, or your own pick</label><textarea id="send_color_notes" name="send_color_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 7 · consent_copy ============ -->
+<section class="fight" id="f07">
+  <header><h2><b>7</b>First-launch consent: ship the wording now, or hold it for Look's data inventory</h2><span class="ids">consent_global · AS-3 · Fable questions 4 and 5 · Astra Q1</span></header>
+  <p class="ctx">Settled: one Muse-shaped first-launch screen replaces Orientation, no in-journey walls after it, leftover legal in About and the privacy policy. Both lanes draw the same shape: a title, three rows with an icon each, one legal line, one button. Fable writes the copy now from the truths the capture cards already carried (one photo to Sweet, then to Perfect Corp or StoolAnalyzer, for that check only; a question and one check's result to Sweet's answer service; estimates, not a diagnosis) with “By continuing, you agree” above one Get started button and no checkbox. Astra ships the layout but holds the wording until Look lists exactly which photos, check context and messages leave the phone, to which processors, with what retention, then brings the final copy back to Salim once. Astra's own mock says “may be sent”, which it calls the placeholder to replace.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="f">Fable recommends</span></p>
+      <h3><b>A</b> Ship the Muse copy now; leftover legal in About</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>1:00</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="wordmark" style="justify-content:center;margin-top:8px"><span class="spiral"></span>sweet</div>
+        <div class="content">
+          <div class="rt" style="padding-top:26px"><div class="h">A few things</div><div class="em">to know.</div></div>
+          <div class="crow"><div class="ic"><svg><use href="#camera"/></svg></div><div><div class="ct">Checks use your camera</div><div class="cd">Vital Glimpse watches your face for about a minute. A Skin or Gut check sends one photo to Sweet, then to Perfect Corp or StoolAnalyzer, for that check only. Sweet keeps it on this iPhone with the result.</div></div></div>
+          <div class="crow"><div class="ic"><svg><use href="#s24"/></svg></div><div><div class="ct">Ask Sweet AI sends one check</div><div class="cd">Your question and that check's result go to Sweet's answer service. Nothing else from your phone.</div></div></div>
+          <div class="crow"><div class="ic"><svg><use href="#heart"/></svg></div><div><div class="ct">Estimates, not a diagnosis</div><div class="cd">Sweet is not a lab. If something worries you, talk to a clinician. Your checks stay on this iPhone; delete them in Settings.</div></div></div>
+        </div>
+        <div style="position:absolute;left:24px;right:24px;bottom:44px"><div class="line12" style="margin-bottom:12px">By continuing, you agree to the <span class="mag" style="font-weight:600">Sweet Terms</span> and <span class="mag" style="font-weight:600">Privacy Policy</span>.</div><div class="btn primary">Get started</div></div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>First launch, once, with the words in.</b> Partner names, use limit, kept on this iPhone: the same truths the capture cards carried, now said once. The app stores the version acknowledged so a material wording change asks again.</p>
+      <ul class="pc">
+        <li class="p">Ships with the build; testers lose the in-journey walls on day one.</li>
+        <li class="p">Every consent truth from the capture cards is kept, so the tests move with the copy.</li>
+        <li class="c">Names partners and flows nobody re-verified this week. If Look's inventory differs, the screen re-asks after the fix.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src"><span class="a">Astra recommends</span> · Q1</p>
+      <h3><b>B</b> Layout ships; wording waits for Look's inventory, then one founder sign-off</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>1:00</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="wordmark" style="justify-content:center;margin-top:8px"><span class="spiral"></span>sweet</div>
+        <div class="content">
+          <div class="rt" style="padding-top:26px"><div class="h">A few things</div><div class="em">to know.</div></div>
+          <div class="crow"><div class="ic"><svg><use href="#camera"/></svg></div><div><div class="ct">Checks use your camera</div><span class="hold">Wording held. Look lists which photos leave the phone, to which processor, and how long each keeps them; the verified sentence goes here.</span></div></div>
+          <div class="crow"><div class="ic"><svg><use href="#s24"/></svg></div><div><div class="ct">Ask Sweet AI sends one check</div><span class="hold">Wording held. Look lists what context and messages go to the answer service, and what is warmed before Send; the verified sentence goes here.</span></div></div>
+          <div class="crow"><div class="ic"><svg><use href="#heart"/></svg></div><div><div class="ct">Estimates, not a diagnosis</div><div class="cd">Sweet is not a lab. If something worries you, talk to a clinician. Your checks stay on this iPhone; delete them in Settings.</div></div></div>
+        </div>
+        <div style="position:absolute;left:24px;right:24px;bottom:44px"><div class="line12" style="margin-bottom:12px">By continuing, you agree to the <span class="mag" style="font-weight:600">Sweet Terms</span> and <span class="mag" style="font-weight:600">Privacy Policy</span>.</div><div class="btn primary">Get started</div></div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>The same screen with the two data-flow rows held.</b> The dashed boxes are placeholders, not UI. Look builds the layout, the card work and the routing now; the two sentences land after the inventory and one sign-off.</p>
+      <ul class="pc">
+        <li class="p">The disclosure is verified, not inferred; no partner is named until the flow is confirmed.</li>
+        <li class="p">One more founder round, not two: the layout does not come back.</li>
+        <li class="c">The first screen of the build waits on the inventory, or ships with placeholder sentences.</li>
+        <li class="c">Testers keep seeing the old walls until it lands.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>(A) Yes, the Muse pattern: “By continuing, you agree” on one Get started button is the consent, with no checkbox. Store the version acknowledged so a material wording change asks again.</div>
+    <div class="a"><span>Astra</span>Keep the Muse structure shown here. Replace generic “may be sent” with the verified, concrete disclosure after Look lists photos, context, messages, processors and retention. Cover authorized context warming in that first consent; never add a later Ask wall. Only the final consent-copy sign-off is blocked.</div>
+  </div>
+  <fieldset class="pick" data-decision="consent_copy" data-title="Consent · First-launch Muse copy"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="consent_copy" value="A"><b>A</b><span class="txt">Ship the Muse copy now; leftover legal in About</span><span class="rec-pill f">Fable rec</span></label>
+      <label class="opt"><input type="radio" name="consent_copy" value="B"><b>B</b><span class="txt">Layout ships; wording waits for Look's inventory</span><span class="rec-pill a">Astra Q1</span></label>
+      <label class="opt"><input type="radio" name="consent_copy" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="consent_copy_notes">Consent copy notes (optional) · a blend, a condition, or your own pick</label><textarea id="consent_copy_notes" name="consent_copy_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<section class="fight" id="not-on-board">
+  <header><h2><b>·</b>Settled on September 16, not asked again</h2></header>
+  <p class="ctx">Salim's picks from the twelve-fight board. Fable and Astra read them the same way, and look implements that reading now. Listed so nothing looks lost, not to be re-litigated.</p>
+  <ul class="settled">
+    <li><b>SK-2 A</b> · band word on the tile, the score one tap in, in the prior-build cards, not mockup pills</li>
+    <li><b>SK-8 custom</b> · iOS default front-camera framing, no added zoom or flip; preview equals capture (SK-7)</li>
+    <li><b>TR-3 B</b> · BMI 24.3, no unit, same card language</li>
+    <li><b>AS-3 C</b> · local first line, then the model; context prefetched while typing</li>
+    <li><b>HL-4 A</b> · floor only: one headline, existing cards, no extra Health trends</li>
+    <li><b>F-6 custom</b> · four to eight tiles by rule; all observations prominent; details show numbers with band words</li>
+    <li><b>F-7 B</b> · Skin adopts teal, caution amber and magenta through the shared band mapping</li>
+    <li><b>F-8 custom</b> · one Profile editor for height and weight; Apple Health prefills, still editable</li>
+    <li><b>HL-3 B</b> · Disconnect in brand magenta, last on the page, copy beneath</li>
+    <li><b>AS-5 B+C</b> · sign-in hidden until sync; TestFlight-only Developer Settings that really change the Worker, never in production</li>
+    <li><b>Saved Gut B</b> · current Gut result plus “Learn about each type”, right-justified, a point smaller</li>
+    <li><b>Home demos A</b> · demos stay on Home behind a real button, as rich mock journeys titled like “Metabolic (demo)”</li>
+    <li><b>Consent</b> · one first-launch Muse-shaped screen, then no in-journey walls; the live-stage capture card goes with them; leftover legal in About</li>
+    <li><b>F01 A</b> · Ask mark trailing top-right, drawn on every result above</li>
+  </ul>
+  <p class="ctx" style="margin-top:14px">Fable's questions 4, 8, 9 and 10 (retire the capture card, the Camera app's 1× framing, rename “Account &amp; details” to Profile, three assumed defaults) match Astra's read and are not fights. The 32 AGREE_TO_SHIP items both source catalogs endorsed are on PR 192.</p>
+</section>
+
+<section class="fight overall" id="overall">
+  <header><h2><b>·</b>Overall notes</h2></header>
+  <p class="ctx">Anything for the factory to obey that a letter above does not carry: wording you want exact, a condition on a pick, or a fight this board missed.</p>
+  <label for="notes" style="display:block;font-size:12px;font-weight:650;margin-bottom:6px">Overall notes (optional)</label>
+  <textarea id="notes" name="notes" rows="4" placeholder="Exceptions, exact wording, or a fight we missed"></textarea>
+</section>
+
+<section class="fight answers" id="answers" aria-labelledby="answers-title">
+  <header><h2 id="answers-title"><b>·</b>Review &amp; send</h2></header>
+  <p class="ctx" id="answer-reviewer">Choose Salim or Ranya in Reviewer before sending.</p>
+  <p class="ctx">Send emails the packet inbox through FormSubmit. A text backup downloads with every send. Partial answers can be sent; anything unpicked stays unshipped.</p>
+  <div id="answer-summary"></div>
+</section>
+
+<footer>
+  <div>habassa5.github.io/sweet-ux-packet/b19-followon/ · Cream #FBF8F3 · Magenta #AD315B · September 16, 2026</div>
+  <div><a href="../b19-intent/fable/">Fable's intent read</a> · <a href="../b19-synth/">The twelve fights (answered)</a> · <a href="../">Packet hub</a></div>
+</footer>
+</div>
+<div class="sendbar"><div class="bar-in">
+  <span class="lbl"><a href="#answers">Review &amp; send</a></span>
+  <span class="count" id="count">0 of 7 decided</span>
+  <div class="actions">
+    <button class="send-btn" id="submitBtn" type="submit">Send answers</button>
+    <button id="copyBtn" type="button">Copy answers</button>
+    <button id="dlBtn" type="button">Download answers</button>
+  </div>
+  <div class="lines">
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <p class="save-status" id="save-status" role="status">Drafts save on this device.</p>
+  </div>
+</div></div>
+</form>
+<script>
+const DRAFT_PREFIX = 'sweet-b19-followon-draft-v1-';
+const REVIEWER_KEY = 'sweet-b19-followon-reviewer-v1';
+const ENDPOINT = 'https://formsubmit.co/ajax/23322cc0514fb928fe0d089afa12512a';
+const DECISIONS = [...document.querySelectorAll('fieldset.pick[data-decision]')].map((fs, i) => ({
+  name: fs.dataset.decision, title: fs.dataset.title, n: i + 1, section: fs.closest('section')
+}));
+const TEXT_FIELDS = ['notes'];
+const form = document.getElementById('mixform');
+const status = document.getElementById('status');
+const saveStatus = document.getElementById('save-status');
+const memoryDrafts = new Map();
+let currentWho = '';
+let sending = false;
+let saveTimer = 0;
+
+function val(name) {
+  const el = form.elements.namedItem(name);
+  return el ? (el.value || '') : '';
+}
+function radios(name) {
+  return [...form.querySelectorAll('input[type="radio"][name="' + name + '"]')];
+}
+function setChoice(name, value) {
+  const group = radios(name);
+  const accepted = group.some(radio => radio.value === value) ? value : '';
+  group.forEach(radio => { radio.checked = radio.value === accepted; });
+}
+function choiceLabel(name) {
+  const radio = radios(name).find(input => input.checked);
+  if (!radio) return 'Not decided';
+  const label = radio.closest('label');
+  const text = label.querySelector('.txt').textContent.trim();
+  if (radio.value === 'custom') return 'Write your own' + (val(name + '_notes').trim() ? ' (see notes)' : ' (notes empty)');
+  return label.querySelector('b').textContent.trim() + ' · ' + text;
+}
+function decidedCount() {
+  return DECISIONS.filter(d => val(d.name)).length;
+}
+function indent(text) {
+  return text.trim().replace(/\n/g, '\n  ');
+}
+function mixLine() {
+  const lines = ['Sweet · B19 follow-on fights · founder picks', 'Reviewer: ' + (val('who') || 'Not selected'),
+    'Decided: ' + decidedCount() + ' of ' + DECISIONS.length, ''];
+  DECISIONS.forEach(d => {
+    lines.push(d.n + ' · ' + d.title + ': ' + choiceLabel(d.name) + ' [' + (val(d.name) || 'UNDECIDED') + ']');
+    if (val(d.name + '_notes').trim()) lines.push('  Notes: ' + indent(val(d.name + '_notes')));
+  });
+  if (val('notes').trim()) lines.push('', 'Overall notes:', val('notes').trim());
+  return lines.join('\n');
+}
+function collectDraft() {
+  const data = {who: val('who')};
+  DECISIONS.forEach(d => {
+    data[d.name] = val(d.name);
+    data[d.name + '_notes'] = val(d.name + '_notes');
+  });
+  TEXT_FIELDS.forEach(name => { data[name] = val(name); });
+  return data;
+}
+function renderSummary() {
+  const count = decidedCount();
+  const progress = count + ' of ' + DECISIONS.length + ' decided';
+  document.getElementById('progress').textContent = progress;
+  document.getElementById('count').textContent = progress;
+  document.getElementById('answer-reviewer').textContent = val('who')
+    ? 'Answers from ' + val('who') + ' · ' + progress + '. Partial answers can be sent.'
+    : 'Choose Salim or Ranya in Reviewer before sending.';
+  const summary = document.getElementById('answer-summary');
+  summary.replaceChildren();
+  DECISIONS.forEach(d => {
+    const row = document.createElement('div');
+    row.className = 'answer-row';
+    const title = document.createElement('strong');
+    title.textContent = d.n + ' · ' + d.title;
+    const answer = document.createElement('span');
+    answer.className = 'val' + (val(d.name) ? '' : ' undecided');
+    answer.textContent = choiceLabel(d.name);
+    const edit = document.createElement('a');
+    edit.href = '#' + d.section.id;
+    edit.textContent = val(d.name) ? 'Change' : 'Decide';
+    row.append(title, answer, edit);
+    if (val(d.name + '_notes').trim()) {
+      const notes = document.createElement('p');
+      notes.textContent = val(d.name + '_notes').trim();
+      row.append(notes);
+    }
+    summary.append(row);
+    const nav = document.querySelector('.toc a[href="#' + d.section.id + '"]');
+    if (nav) {
+      nav.classList.toggle('decided', Boolean(val(d.name)));
+      nav.setAttribute('aria-label', d.title + (val(d.name) ? ' — ' + choiceLabel(d.name) : ' — not decided'));
+    }
+  });
+  if (val('notes').trim()) {
+    const row = document.createElement('div');
+    row.className = 'answer-row';
+    const label = document.createElement('strong');
+    label.textContent = 'Overall notes';
+    const notes = document.createElement('p');
+    notes.textContent = val('notes').trim();
+    row.append(label, notes);
+    summary.append(row);
+  }
+  document.getElementById('mix_line').value = mixLine();
+}
+function storeDraft(who, data) {
+  const snapshot = {...data, who};
+  memoryDrafts.set(who, snapshot);
+  localStorage.setItem(DRAFT_PREFIX + (who || 'unassigned'), JSON.stringify({savedAt: Date.now(), data: snapshot}));
+}
+function readDraft(who) {
+  if (memoryDrafts.has(who)) return memoryDrafts.get(who);
+  const raw = localStorage.getItem(DRAFT_PREFIX + (who || 'unassigned'));
+  const data = raw ? JSON.parse(raw).data : null;
+  if (data) memoryDrafts.set(who, data);
+  return data;
+}
+function applyDraft(data = {}) {
+  DECISIONS.forEach(d => {
+    setChoice(d.name, typeof data[d.name] === 'string' ? data[d.name] : '');
+    form.elements.namedItem(d.name + '_notes').value = typeof data[d.name + '_notes'] === 'string' ? data[d.name + '_notes'] : '';
+  });
+  TEXT_FIELDS.forEach(name => {
+    form.elements.namedItem(name).value = typeof data[name] === 'string' ? data[name] : '';
+  });
+}
+function saveDraft() {
+  clearTimeout(saveTimer);
+  renderSummary();
+  try {
+    storeDraft(currentWho, collectDraft());
+    localStorage.setItem(REVIEWER_KEY, currentWho);
+    saveStatus.textContent = (currentWho ? currentWho + '’s draft saved' : 'Draft saved') + ' on this device.';
+  } catch (error) {
+    saveStatus.textContent = 'Autosave unavailable. Download answers to keep a copy.';
+  }
+}
+function scheduleSave() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(saveDraft, 250);
+}
+function loadDraft() {
+  try {
+    const who = localStorage.getItem(REVIEWER_KEY) || '';
+    currentWho = who;
+    const data = readDraft(currentWho) || {};
+    form.querySelectorAll('[name="who"]').forEach(radio => { radio.checked = radio.value === currentWho; });
+    applyDraft(data);
+  } catch (error) {
+    saveStatus.textContent = 'Could not restore the draft. Download answers to keep a copy.';
+  }
+}
+function switchWho() {
+  const nextWho = val('who');
+  const previous = collectDraft();
+  let next = memoryDrafts.get(nextWho) || null;
+  try {
+    storeDraft(currentWho, previous);
+    next = readDraft(nextWho);
+  } catch (error) { /* keep answers for export */ }
+  applyDraft(next || (currentWho ? {} : previous));
+  currentWho = nextWho;
+  saveDraft();
+}
+form.addEventListener('change', event => {
+  const input = event.target;
+  if (input.name === 'who') { switchWho(); return; }
+  if (input.type === 'radio' && input.value === 'custom') {
+    form.elements.namedItem(input.name + '_notes')?.focus({preventScroll: true});
+  }
+  saveDraft();
+});
+form.addEventListener('input', event => {
+  if (event.target.name === 'who' || event.target.type === 'radio') return;
+  scheduleSave();
+});
+form.addEventListener('invalid', () => {
+  status.className = 'status bad';
+  status.textContent = 'Choose Salim or Ranya in Reviewer before sending.';
+}, true);
+window.addEventListener('beforeunload', saveDraft);
+window.addEventListener('pagehide', saveDraft);
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') saveDraft(); });
+loadDraft();
+saveDraft();
+
+function downloadMix() {
+  const url = URL.createObjectURL(new Blob([mixLine()], {type: 'text/plain;charset=utf-8'}));
+  const anchor = document.createElement('a');
+  anchor.href = url;
+  anchor.download = 'sweet-b19-followon-fights-' + (val('who') || 'draft').toLowerCase() + '-answers.txt';
+  document.body.append(anchor);
+  anchor.click();
+  anchor.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+  if (sending || !val('who')) return;
+  saveDraft();
+  const reviewer = val('who');
+  const submitted = mixLine();
+  downloadMix();
+  const body = new FormData();
+  Object.entries(collectDraft()).forEach(([name, value]) => body.append(name, value));
+  body.append('mix_line', submitted);
+  body.append('_subject', 'Sweet B19 follow-on fights from ' + reviewer);
+  body.append('_captcha', 'false');
+  sending = true;
+  document.getElementById('submitBtn').disabled = true;
+  status.className = 'status';
+  status.textContent = 'Sending ' + reviewer + '’s answers…';
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 20000);
+  try {
+    const response = await fetch(ENDPOINT, {
+      method: 'POST', headers: {Accept: 'application/json'}, body, signal: controller.signal
+    });
+    const payload = await response.json();
+    if (!response.ok || (payload.success !== true && payload.success !== 'true')) throw new Error('Send not confirmed');
+    status.className = 'status ok';
+    status.textContent = 'Emailed ' + reviewer + '’s answers to the packet inbox. Text backup downloaded. Draft kept on this device.';
+  } catch (error) {
+    status.className = 'status bad';
+    status.textContent = 'Answers were not confirmed emailed. The text backup downloaded; retry Send answers, or copy them.';
+  } finally {
+    clearTimeout(timer);
+    sending = false;
+    document.getElementById('submitBtn').disabled = false;
+  }
+});
+document.getElementById('copyBtn').addEventListener('click', async () => {
+  saveDraft();
+  try { await navigator.clipboard.writeText(mixLine()); status.className = 'status ok'; status.textContent = 'Answers copied.'; }
+  catch (error) { status.className = 'status bad'; status.textContent = 'Copy unavailable. Use Download answers.'; }
+});
+document.getElementById('dlBtn').addEventListener('click', () => {
+  saveDraft(); downloadMix(); status.className = 'status ok'; status.textContent = 'Answers downloaded.';
+});
+</script>
+</body>
+</html>
