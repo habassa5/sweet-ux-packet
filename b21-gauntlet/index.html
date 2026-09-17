@@ -1,0 +1,1764 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light only">
+<title>Sweet · Build 21 · gauntlet fights</title>
+<meta name="description" content="Fourteen fights left after the TF21 whole-app gauntlets: the places Fable and Astra flagged as founder decisions. Phones per option in the shipped card language. Salim picks and sends.">
+<style>
+:root{color-scheme:light;--cream:#FBF8F3;--magenta:#AD315B;--ink:#302C35;--muted:#736B73;--line:#E8E1DC;--white:#FFFFFF;--teal:#0F766E;--caution:#865515;--neutral:#736B73;--blue:#456687;--green:#21804D;--red:#C73347;--mint:#E4F0E5;--lilac:#EEE8FC;--peach:#FAEDDA;--rose:#FAE3E7;--note:#F0E9E2;--bench:#EEE9E2;--gut:#E8EDDF;--sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",system-ui,"Segoe UI",Helvetica,Arial,sans-serif;--serif:Georgia,"Times New Roman",serif}
+*{box-sizing:border-box}html,body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--magenta);text-underline-offset:3px}svg{display:block}
+.wrap{max-width:1420px;margin:auto;padding:0 28px 48px}
+.mast{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}
+.mast .wm{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-size:30px;letter-spacing:-1.6px}
+.spiral{width:28px;height:28px;border-radius:14px;background:conic-gradient(from 90deg,var(--magenta),#E9A0B8,var(--magenta));position:relative;flex:none}
+.spiral:after{content:"";position:absolute;inset:8px;border-radius:50%;background:var(--cream)}
+.ed{font-size:12px;color:var(--muted);text-align:right;line-height:1.4}
+.intro{padding:36px 0 18px;max-width:880px}
+.eyebrow{font-size:11px;font-weight:650;letter-spacing:1.6px;text-transform:uppercase;color:var(--magenta);margin:0 0 10px}
+h1{font-size:clamp(32px,4.5vw,52px);line-height:1.08;letter-spacing:-1.8px;font-weight:620;margin:0 0 14px}
+h1 em{font-style:normal;color:var(--magenta)}
+.lede{color:var(--muted);margin:0 0 10px;max-width:760px}
+.law{margin:18px 0 0;padding:12px 14px;border:1px dashed var(--line);border-radius:12px;font-size:13px;color:var(--muted);background:#fff}
+.law b{color:var(--ink)}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.toc a{font-size:12px;font-weight:600;text-decoration:none;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:999px;padding:6px 11px}
+.toc a b{color:var(--magenta);font-weight:700;margin-right:4px}
+.fight{margin-top:44px;padding-top:28px;border-top:1px solid var(--line)}
+.fight>header{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;margin-bottom:6px}
+.fight h2{font-size:24px;letter-spacing:-.5px;font-weight:620;margin:0}
+.fight h2 b{color:var(--magenta);font-weight:700;margin-right:8px}
+.ids{font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+.ctx{color:var(--muted);margin:0 0 18px;max-width:880px;font-size:15px}
+.ctx code,.rec code,.pc code{font:12px/1 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--white);border:1px solid var(--line);border-radius:6px;padding:1px 5px;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr));gap:18px}
+.opt-card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:18px 18px 16px;display:flex;flex-direction:column;min-width:0}
+.opt-card h3{font-size:16px;margin:0 0 8px;font-weight:600;letter-spacing:-.2px}
+.opt-card h3 b{color:var(--magenta);font-weight:700;margin-right:6px}
+.src{font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin:0 0 6px;min-height:15px}
+.src .f{color:var(--magenta)}.src .a{color:var(--blue)}
+.shot{width:402px;max-width:100%;margin:12px auto 6px}
+.cap{font-size:13px;color:#4A4550;line-height:1.45;margin:10px 0 0}
+.cap b{color:var(--ink)}
+.pc{margin:10px 0 0;padding:0;list-style:none;font-size:13px}
+.pc li{padding-left:18px;position:relative;margin:4px 0}
+.pc li::before{position:absolute;left:0;top:0;font-weight:700}
+.pc li.p::before{content:"+";color:var(--teal)}
+.pc li.c::before{content:"–";color:var(--magenta)}
+.rec{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0 0}
+.rec div{font-size:13px;padding:10px 12px;border-radius:12px;background:var(--white);border:1px solid var(--line)}
+.rec div span{display:block;font-size:10px;letter-spacing:.8px;text-transform:uppercase;font-weight:700;margin-bottom:3px}
+.rec .f span{color:var(--magenta)}.rec .a span{color:var(--blue)}
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:44px;padding:18px 0 8px;font-size:11px;color:var(--muted)}
+@media(max-width:640px){.rec{grid-template-columns:1fr}.wrap{padding:0 18px 40px}}
+
+/* ---- the phone: shipped metrics, 402 by 874, scoped ---- */
+.phone{width:402px;height:874px;background:var(--cream);border-radius:44px;overflow:hidden;position:relative;box-shadow:0 12px 40px rgba(48,44,53,.14);border:1px solid #E1DAD3;color:var(--ink);font-family:var(--sans);line-height:1.3;font-size:14px;text-align:left;margin:0 auto}
+@media(max-width:480px){.phone{zoom:.8}}
+.phone .sbar{height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-weight:600;font-size:15px}
+.phone .island{width:118px;height:34px;background:#000;border-radius:20px}
+.phone .nav{height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;position:relative}
+.phone .nav .t{position:absolute;left:78px;right:78px;text-align:center;font-size:17px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;top:0;line-height:48px}
+.phone .hit{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:var(--ink);flex:none}
+.phone .hit.ask{color:var(--magenta)}
+.phone .hit svg{width:22px;height:22px}
+.phone .hit.blank{visibility:hidden}
+.phone .content{padding:0 24px 24px}
+.phone .eye{font-size:10px;font-weight:800;letter-spacing:1.7px;text-transform:uppercase;color:var(--muted)}
+.phone .rt{padding:14px 0 20px}
+.phone .rt .eye{margin-bottom:10px}
+.phone .rt .h{font-size:35px;font-weight:600;letter-spacing:-1.3px;line-height:1.05}
+.phone .rt .em{font-family:var(--serif);font-size:35px;letter-spacing:-1.3px;line-height:1.05;font-weight:400}
+.phone .rt .sub{font-size:14px;color:var(--muted);margin-top:11px}
+.phone .rt.tight{padding-bottom:12px}
+.phone .tiles{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.phone .tile{border-radius:23px;padding:14px;min-height:111px;background:#fff;border:1px solid transparent;display:flex;flex-direction:column;align-items:flex-start}
+.phone .tile.neutral{border-color:#EEE6DF}
+.phone .tile.within{background:var(--mint)}.phone .tile.outside{background:var(--peach)}
+.phone .tile .sym{width:26px;height:26px;margin-bottom:7px;color:var(--teal)}
+.phone .tile.outside .sym{color:var(--caution)}.phone .tile.neutral .sym{color:var(--neutral)}
+.phone .tile .n{font-size:11px;color:var(--muted)}
+.phone .tile .s{font-size:18px;font-weight:600;margin-top:5px;line-height:1.15}
+.phone .tile .v{font-size:13px;color:var(--muted);margin-top:6px}
+.phone .chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500}
+.phone .chip.s12{font-size:12px}
+.phone .chip i{width:8px;height:8px;border-radius:50%;display:inline-block;flex:none}
+.phone .teal{color:var(--teal)}.phone .amber{color:var(--caution)}.phone .mag{color:var(--magenta)}.phone .grey{color:var(--neutral)}
+.phone .bg-teal{background:var(--teal)}.phone .bg-amber{background:var(--caution)}.phone .bg-mag{background:var(--magenta)}.phone .bg-grey{background:var(--neutral)}
+.phone .tert{display:flex;align-items:center;justify-content:space-between;min-height:48px;color:var(--magenta);font-size:13px;font-weight:600}
+.phone .tert svg{width:17px;height:17px}
+.phone .btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:51px;border-radius:18px;font-size:14px;font-weight:600;padding:0 16px;margin-top:12px}
+.phone .btn.primary{background:var(--ink);color:#fff}
+.phone .btn.secondary{border:1px solid var(--line);color:var(--ink)}
+.phone .btn.light{background:#fff;color:var(--ink)}
+.phone .btn.ghost{border:1px solid rgba(255,255,255,.55);color:#fff}
+.phone .prov{font-size:11px;color:var(--muted);line-height:1.45;padding-top:13px}
+.phone .honest{font-size:10px;color:var(--muted);text-align:center;padding-top:13px}
+.phone .pcard{background:#fff;border:1px solid var(--line);border-radius:21px;padding:16px}
+.phone .pcard.fill{border-color:transparent}
+.phone .pcard .eye{margin-bottom:8px}
+.phone .g22{font-family:var(--serif);font-size:22px;line-height:1.15}
+.phone .g27{font-family:var(--serif);font-size:27px;line-height:1.15}
+.phone .g36{font-family:var(--serif);font-size:36px;line-height:1.05}
+.phone .g44{font-family:var(--serif);font-size:44px;line-height:1;letter-spacing:-1px}
+.phone .line13{font-size:13px}.phone .line12{font-size:12px;color:var(--muted)}.phone .line14{font-size:14px}.phone .line11{font-size:11px;color:var(--muted)}
+.phone .mt6{margin-top:6px}.phone .mt8{margin-top:8px}.phone .mt10{margin-top:10px}.phone .mt12{margin-top:12px}.phone .mt16{margin-top:16px}.phone .mt18{margin-top:18px}.phone .mt22{margin-top:22px}
+.phone .grid2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.phone .h17{font-size:17px;font-weight:600}.phone .h15{font-size:15px;font-weight:600}
+.phone .tabbar{position:absolute;left:22px;right:22px;bottom:22px;height:60px;border-radius:30px;background:rgba(251,248,243,.97);border:1px solid var(--line);display:flex;align-items:center;padding:5px}
+.phone .tab{flex:1;height:50px;border-radius:25px;display:flex;align-items:center;justify-content:center;color:var(--ink)}
+.phone .tab.on{background:var(--lilac)}
+.phone .tab svg{width:22px;height:22px}
+.phone .homebar{position:absolute;left:0;right:0;bottom:8px;height:5px;display:flex;justify-content:center;z-index:5}
+.phone .homebar i{width:134px;height:5px;border-radius:3px;background:#000}
+.phone.dark .homebar i{background:#fff}
+.phone .seg{display:flex;background:#EEE8E2;border-radius:12px;padding:3px}
+.phone .seg span{flex:1;text-align:center;font-size:13px;font-weight:600;padding:7px 0;border-radius:9px;color:var(--muted)}
+.phone .seg span.on{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.phone .switch{width:51px;height:31px;border-radius:16px;background:var(--magenta);position:relative;flex:none}
+.phone .switch:after{content:"";position:absolute;top:2px;right:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.phone .switch.off{background:#D9D2CB}.phone .switch.off:after{right:auto;left:2px}
+.phone .setrow{display:flex;align-items:center;gap:12px;min-height:57px;font-size:14px;border-bottom:1px solid var(--line)}
+.phone .setrow:last-child{border-bottom:none}
+.phone .setrow .v{margin-left:auto;font-size:13px;color:var(--muted);text-align:right}
+.phone .setrow .v.ink{color:var(--ink);font-weight:500}
+.phone .setrow .chev{width:12px;height:12px;color:var(--muted);flex:none}
+.phone .setrow .sub{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.phone .setrow.mag{color:var(--magenta);font-weight:600}
+.phone .setgroup{background:#fff;border:1px solid var(--line);border-radius:21px;padding:0 16px}
+.phone .sheet{position:absolute;left:0;right:0;bottom:0;background:var(--cream);border-radius:28px 28px 0 0;box-shadow:0 -10px 40px rgba(48,44,53,.18);padding:14px 24px 34px;z-index:4}
+.phone .sheet .grab{width:36px;height:5px;border-radius:3px;background:#D9D2CB;margin:0 auto 14px}
+.phone .scrim{position:absolute;inset:0;background:rgba(48,44,53,.28);z-index:3}
+.phone .wordmark{display:flex;align-items:center;gap:8px;height:58px;padding:0 22px;font-family:var(--serif);font-size:32px;letter-spacing:-1.8px}
+/* Skin cards, shipped */
+.phone .grp{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:600;margin:14px 0 9px}
+.phone .grp i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.phone .grp small{font-size:14px;color:var(--muted);font-weight:400}
+.phone .skcard{border-radius:23px;padding:14px 14px 18px;min-height:112px;display:flex;flex-direction:column;align-items:flex-start}
+.phone .skcard.care{background:#F5E3E8;border:1px solid #EBCBD4}.phone .skcard.attn{background:#F1E6DC;border:1px solid #E3D5C7}.phone .skcard.well{background:#E3EEE9;border:1px solid #C9DDD3}
+.phone .skcard .band{font-size:12px;font-weight:600;display:flex;gap:6px;align-items:center}
+.phone .skcard.care .band{color:var(--magenta)}.phone .skcard.attn .band{color:var(--caution)}.phone .skcard.well .band{color:var(--teal)}
+.phone .skcard .band i{width:9px;height:9px;border-radius:50%;background:currentColor;display:inline-block}
+.phone .skcard .t{font-size:18px;font-weight:600;margin-top:6px}
+.phone .skcard .d{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.3}
+.phone .allobs{background:#fff;border:1px solid var(--line);border-radius:21px;padding:16px}
+.phone .allobs .h{display:flex;justify-content:space-between;align-items:center;font-size:19px;font-weight:600}
+.phone .allobs .bar{height:8px;border-radius:4px;background:#E8E1DC;margin-top:12px;display:flex;overflow:hidden}
+.phone .allobs .bar i{display:block;height:100%}
+.phone .allobs .cnt{display:flex;gap:14px;margin-top:8px;font-size:12px;color:var(--muted)}
+.phone .panel{border-radius:23px;padding:18px;background:#F5E3E8;border:1px solid #EBCBD4}
+.phone .panel .band{font-size:14px;font-weight:600;color:var(--magenta);display:flex;gap:8px;align-items:center}
+.phone .panel .band svg{width:16px;height:16px}
+.phone .selfie{height:118px;border-radius:18px;background:radial-gradient(ellipse at 50% 42%,#E8CDB9 0,#D9B49B 30%,#8A6C59 33%,#6C5445 55%,#B7C3CC 56%,#D8E2E8 100%)}
+/* History, shipped rows */
+.phone .chips{display:flex;gap:8px;margin:12px 0 6px;align-items:center}
+.phone .chips span{font-size:14px;font-weight:600;padding:9px 14px;border-radius:999px;background:#EEE8E2;color:var(--ink)}
+.phone .chips span.on{background:var(--ink);color:#fff}
+.phone .chips .range{margin-left:auto;background:#fff;border:1px solid var(--line);font-size:13px;display:inline-flex;align-items:center;gap:6px;padding:8px 12px}
+.phone .chips .range svg{width:12px;height:12px}
+.phone .dayhead{font-size:11px;font-weight:500;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);padding:20px 0 5px}
+.phone .dayhead.first{padding-top:6px}
+.phone .hisrow{display:flex;align-items:center;gap:12px;min-height:91px;border-bottom:1px solid var(--line)}
+.phone .hisrow .art{width:45px;height:57px;flex:none}
+.phone .hisrow .mid{display:flex;flex-direction:column;gap:4px}
+.phone .hisrow .t{font-size:15px;font-weight:600}
+.phone .hisrow .m{font-size:12px;color:var(--muted)}
+.phone .hisrow .time{margin-left:auto;font-size:11px;color:var(--muted);align-self:center;flex:none}
+.phone .hisrow.dim{opacity:.35}
+/* Gut, shipped */
+.phone .bristol{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.phone .bristol .m{display:flex;flex-direction:column;align-items:center;gap:7px}
+.phone .bristol .you{font-size:11px;font-weight:800;color:var(--teal);height:14px}
+.phone .bristol .box{width:100%;height:68px;border-radius:15px;display:flex;align-items:center;justify-content:center}
+.phone .bristol .box.cur{outline:2px solid var(--teal);outline-offset:3px;border-radius:17px}
+.phone .bristol .box i{display:block;background:#8E6B48;border-radius:10px}
+.phone .hl{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:10px}
+.phone .gutphoto{height:120px;border-radius:18px;background:radial-gradient(circle at 50% 55%,#8E6B48,#5E4630 65%,#E7E3DC 66%)}
+.phone .stripbtn{border:1px solid var(--line);border-radius:21px;padding:12px 12px 10px;background:#fff;position:relative}
+.phone .stripbtn .chev{position:absolute;right:12px;top:12px;width:14px;height:14px;color:var(--muted)}
+/* Profile groups */
+.phone .fieldrow{display:flex;align-items:center;min-height:52px;font-size:14px;border-bottom:1px solid var(--line)}
+.phone .fieldrow:last-child{border-bottom:none}
+.phone .fieldrow .v{margin-left:auto;color:var(--muted);font-size:13px}
+/* Ask */
+.phone .bubble{max-width:82%;padding:12px 15px;border-radius:20px;font-size:16px;line-height:1.35;margin:6px 0;width:fit-content}
+.phone .bubble.them{background:#fff;border:1px solid var(--line);border-bottom-left-radius:6px}
+.phone .bubble.me{background:var(--lilac);margin-left:auto;border-bottom-right-radius:6px}
+.phone .composer{position:absolute;left:0;right:0;bottom:0;background:var(--cream);padding:8px 16px 30px}
+.phone .field{min-height:52px;border-radius:17px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;padding:0 9px 0 16px;font-size:17px;color:#9B949B}
+.phone .field.typed{color:var(--ink)}
+.phone .field .send{margin-left:auto;width:34px;height:34px;border-radius:17px;color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.phone .field .send.blue{background:var(--blue)}.phone .field .send.mag{background:var(--magenta)}
+.phone .field .send svg{width:16px;height:16px}
+.phone .actx{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted);padding:6px 0 2px}
+.phone .anchor{display:flex;justify-content:space-between;font-size:15px;padding:10px 0 0}
+.phone .anchor small{display:block;font-size:13px;color:var(--muted);margin-top:3px}
+.phone .qa{border-top:1px solid var(--line);padding:14px 0}
+.phone .qa .q{font-size:16px;font-weight:600}
+.phone .qa .a{font-size:15px;color:#4A4550;margin-top:8px;line-height:1.4}
+.phone .disc{font-size:11px;color:var(--muted);text-align:center;padding:8px 8px 0;line-height:1.4}
+/* consent */
+.phone .crow{display:flex;gap:16px;padding:16px 0}
+.phone .crow .ic{width:40px;height:40px;border-radius:20px;background:var(--lilac);color:var(--magenta);display:flex;align-items:center;justify-content:center;flex:none}
+.phone .crow .ic svg{width:20px;height:20px}
+.phone .crow .ct{font-size:17px;font-weight:600}
+.phone .crow .cd{font-size:14px;color:var(--muted);margin-top:4px;line-height:1.4}
+.phone .hold{display:block;border:1.5px dashed #C9BFB8;border-radius:10px;padding:8px 10px;color:var(--muted);font-size:13px;line-height:1.4;background:rgba(255,255,255,.6);margin-top:6px}
+/* capture stage: full-bleed camera under a 48pt title row, oval 250 by 346 at 56pt into the window */
+.phone.dark{background:#0B0B0C;color:#fff}
+.phone .cam{position:absolute;left:0;right:0;top:102px;bottom:0;overflow:hidden;background:#3B4048}
+.phone .scene{position:absolute;inset:0}
+.phone .scene .win{position:absolute;top:0;bottom:0;background:linear-gradient(180deg,#C6D6E3 0,#9FB4C6 55%,#7E93A6 100%)}
+.phone .scene .win.l{left:0;width:96px}.phone .scene .win.r{right:0;width:120px}
+.phone .scene .mullion{position:absolute;top:0;bottom:0;width:6px;background:#2E343B}
+.phone .scene .wall{position:absolute;left:96px;right:120px;top:0;bottom:0;background:linear-gradient(180deg,#8C8078 0,#6E625A 100%)}
+.phone .scene .sofa{position:absolute;right:-20px;bottom:120px;width:190px;height:110px;border-radius:26px 26px 0 0;background:#C7B9A8}
+.phone .scene .shirt{position:absolute;left:50%;transform:translateX(-50%);bottom:-40px;width:420px;height:330px;border-radius:200px 200px 0 0;background:#2B2F45}
+.phone .scene .neck{position:absolute;left:50%;transform:translateX(-50%);top:392px;width:92px;height:120px;background:#C9A088}
+.phone .scene .hair{position:absolute;left:50%;transform:translateX(-50%);top:36px;width:262px;height:250px;border-radius:50%;background:#2A2320}
+.phone .scene .head{position:absolute;left:50%;transform:translateX(-50%);top:78px;width:206px;height:296px;border-radius:50% 50% 46% 46%/44% 44% 56% 56%;background:radial-gradient(ellipse at 50% 38%,#DDB79E 0,#CDA48A 60%,#B88C74 100%)}
+.phone .scene .brow{position:absolute;top:186px;width:44px;height:8px;border-radius:4px;background:#3A2E28}
+.phone .scene .brow.l{left:139px}.phone .scene .brow.r{left:219px}
+.phone .scene .eye{position:absolute;top:206px;width:30px;height:14px;border-radius:50%;background:#F4EEE7}
+.phone .scene .eye.l{left:146px}.phone .scene .eye.r{left:226px}
+.phone .scene .eye:after{content:"";position:absolute;left:9px;top:2px;width:12px;height:11px;border-radius:50%;background:#3A2E28}
+.phone .scene .nose{position:absolute;left:194px;top:238px;width:14px;height:36px;border-radius:7px;background:#B88C74}
+.phone .scene .mouth{position:absolute;left:171px;top:298px;width:60px;height:10px;border-radius:0 0 30px 30px;background:#A86C6C}
+.phone .scene.blur{filter:blur(7px);transform:scale(1.04)}
+.phone .veil{position:absolute;inset:0;background:#000}
+.phone .scene.sharp{clip-path:ellipse(125px 173px at 201px 229px)}
+.phone .oval{position:absolute;left:76px;top:56px;width:250px;height:346px}
+.phone .cam .xhit{position:absolute;left:22px;top:-46px}
+.phone .stagebar{position:absolute;left:0;right:0;top:0;height:102px;background:rgba(11,11,12,.92);z-index:2}
+.phone .stagebar .sbar{color:#fff}
+.phone .stagebar .nav .t{color:#fff}
+.phone .stagebar .hit{color:#fff;background:rgba(255,255,255,.16);border-radius:22px}
+.phone .stagebar .hit.blank{background:none}
+.phone .stagebar .tip{position:absolute;left:0;right:0;top:102px;text-align:center;font-size:13px;color:rgba(255,255,255,.85);padding:10px}
+.phone .fade{position:absolute;left:0;right:0;bottom:0;height:150px;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.55))}
+.phone .stagebtns{position:absolute;left:24px;right:24px;bottom:60px;z-index:3}
+.phone .stagetitle{position:absolute;left:0;right:0;top:112px;text-align:center;color:#fff;font-size:22px;font-weight:600;z-index:3}
+.phone .reviewphoto{position:absolute;inset:0;background:radial-gradient(circle at 50% 52%,#8E6B48 0,#6A4E36 26%,#5E4630 34%,#E7E3DC 35%,#DAD5CC 70%,#B9B3AA 100%)}
+/* photo picker */
+.phone .picker{position:absolute;left:0;right:0;bottom:0;top:58px;background:#fff;border-radius:28px 28px 0 0;z-index:4;overflow:hidden}
+.phone .picker .ph{display:flex;justify-content:space-between;align-items:center;padding:16px 18px 10px;font-size:16px}
+.phone .picker .ph b{font-weight:600}
+.phone .picker .ph span{color:#007AFF}
+.phone .picker .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:0 2px}
+.phone .picker .pgrid i{display:block;aspect-ratio:1;background:#C8C2BA;position:relative}
+.phone .picker .pgrid i.sel{outline:3px solid #007AFF;outline-offset:-3px}
+.phone .picker .pgrid i.sel:after{content:"✓";position:absolute;right:6px;bottom:6px;width:22px;height:22px;border-radius:50%;background:#007AFF;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;font-style:normal}
+/* annotations on a phone: not UI */
+.phone .annobadge{margin:12px auto 0;width:max-content;max-width:100%;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--magenta);background:#fff;border:1.5px dashed var(--magenta);border-radius:999px;padding:5px 12px;position:relative;z-index:6}
+.phone .annobadge i{width:22px;height:22px;border-radius:50%;background:var(--magenta);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:11px;flex:none}
+.phone .annobadge.abs{position:absolute;left:50%;transform:translateX(-50%);margin:0}
+
+/* ---- decide form (round4 / b19-followon workflow) ---- */
+button,input,textarea{font:inherit}
+:focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
+input[type=radio]{width:17px;height:17px;margin:0;accent-color:var(--magenta);flex-shrink:0}
+.fight,.answers{scroll-margin-top:72px}
+.bar-in{max-width:1420px;margin:auto;padding:0 28px}
+.topbar{position:sticky;top:0;z-index:30;background:rgba(251,248,243,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .bar-in{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;min-height:56px;padding-top:6px;padding-bottom:6px}
+.who{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0;padding:0;border:0;min-width:0}
+.who legend{float:left;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--magenta);padding:0;margin-right:10px}
+.who label{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:var(--white);cursor:pointer;font-weight:600;font-size:14px}
+.who label:has(input:checked){border-color:var(--magenta);background:#F7E4EA}
+.topbar .progress{margin:0 0 0 auto;font-weight:700;font-size:14px}
+.topbar .jump{font-size:13px;font-weight:600}
+.pick{margin-top:18px;background:var(--white);border:1.5px dashed var(--magenta);border-radius:14px;padding:6px 16px 16px;min-width:0}
+.pick legend{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--magenta);padding:0 6px}
+.options{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+label.opt{display:inline-flex;align-items:center;gap:9px;min-height:44px;border:1px solid var(--line);border-radius:12px;padding:6px 14px 6px 12px;font-size:13px;cursor:pointer;background:var(--cream);max-width:100%}
+label.opt b{color:var(--magenta);font-weight:700;font-size:14px}
+label.opt:hover{border-color:#D9A9B9}
+label.opt:has(input:checked){border-color:var(--magenta);background:#F7E4EA;font-weight:600;box-shadow:inset 0 0 0 1px var(--magenta)}
+.rec-pill{font-size:10px;letter-spacing:.6px;text-transform:uppercase;font-weight:700;border-radius:5px;padding:2px 6px;border:1px solid;white-space:nowrap}
+.rec-pill.f{color:var(--magenta);border-color:#E8BFCD;background:var(--white)}
+.rec-pill.a{color:var(--blue);border-color:#C5D2DE;background:var(--white)}
+.rec-pill.n{color:var(--muted);border-color:var(--line);background:var(--white)}
+.steer{margin-top:14px}
+.steer label{display:block;font-size:12px;font-weight:650;margin-bottom:6px;color:var(--ink)}
+textarea{display:block;width:100%;padding:9px 12px;border:1px solid #C9BFB8;border-radius:10px;background:var(--white);font-size:14px;color:var(--ink);min-height:64px;resize:vertical}
+textarea::placeholder{color:#8A7F84}
+.overall textarea{min-height:96px}
+.answers .lede{margin-bottom:10px}
+#answer-summary{margin:12px 0 0}
+.answer-row{display:grid;grid-template-columns:300px 1fr auto;gap:4px 16px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;align-items:baseline}
+.answer-row strong{font-weight:650}
+.answer-row .val{min-width:0}
+.answer-row .undecided{color:var(--muted);font-style:italic}
+.answer-row p{grid-column:2/-1;white-space:pre-wrap;margin:0;color:var(--muted);font-size:13px}
+.answer-row a{font-size:13px;white-space:nowrap}
+.settled{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:8px 18px;font-size:13px;color:var(--muted)}
+.settled li{padding:8px 12px;background:var(--white);border:1px solid var(--line);border-radius:10px}
+.settled li b{color:var(--ink);font-weight:650}
+.sendbar{position:sticky;bottom:0;z-index:30;background:rgba(251,248,243,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px 0 max(10px,env(safe-area-inset-bottom))}
+.sendbar .bar-in{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+.sendbar .lbl{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--magenta)}
+.sendbar .lbl a{color:inherit;text-decoration:none}
+.sendbar .lbl a:hover{text-decoration:underline}
+.sendbar .count{font-weight:700;font-size:14px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto}
+.actions button{min-height:40px;padding:8px 16px;border:1px solid #C9BFB8;border-radius:999px;background:var(--white);color:var(--ink);font-weight:650;font-size:13px;cursor:pointer}
+.actions button:hover{border-color:var(--magenta)}
+.actions .send-btn{background:var(--magenta);color:#fff;border-color:var(--magenta)}
+.actions button:disabled{cursor:wait;opacity:.6}
+.sendbar .lines{flex-basis:100%;display:flex;flex-wrap:wrap;gap:4px 18px;font-size:13px;min-height:20px}
+.sendbar .status{margin:0;font-weight:600}
+.sendbar .status.ok{color:var(--green)}
+.sendbar .status.bad{color:var(--red)}
+.sendbar .save-status{margin:0;color:var(--muted)}
+.toc a.decided::after{content:" ✓";color:var(--green)}
+@media(max-width:640px){.answer-row{grid-template-columns:1fr auto}.answer-row .val{grid-column:1/-1}.bar-in{padding:0 18px}.topbar .progress{margin-left:0}.fight,.answers{scroll-margin-top:96px}.sendbar{padding-top:8px}.sendbar .lbl,.sendbar .count{display:none}.sendbar .bar-in{gap:6px 12px}.actions{margin-left:0;width:100%;gap:6px}.actions button{flex:1 1 auto;padding:8px 10px;font-size:12px;min-height:38px}.sendbar .lines{font-size:12px;gap:2px 12px;min-height:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg aria-hidden="true" width="0" height="0" style="position:absolute">
+<defs>
+<symbol id="x" viewBox="0 0 64 64"><path d="M18 18L46 46M46 18L18 46" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></symbol>
+<symbol id="chev" viewBox="0 0 64 64"><path d="M40 12L20 32L40 52" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="fwd" viewBox="0 0 64 64"><path d="M24 12L44 32L24 52" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="s24" viewBox="0 0 64 64"><circle cx="27" cy="38" r="18.6" fill="none" stroke="currentColor" stroke-width="7"/><path d="M46.97 7.18C46.97 13.30 50.77 17.38 56.47 17.38C50.77 17.38 46.97 21.46 46.97 27.58C46.97 21.46 43.17 17.38 37.47 17.38C43.17 17.38 46.97 13.30 46.97 7.18Z" fill="currentColor"/></symbol>
+<symbol id="arrow" viewBox="0 0 64 64"><path d="M10 32H52M36 16L52 32L36 48" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="up" viewBox="0 0 64 64"><path d="M32 52V14M16 30L32 14L48 30" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="down" viewBox="0 0 64 64"><path d="M16 26L32 42L48 26" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="home" viewBox="0 0 64 64"><path d="M12 30L32 12L52 30V52H38V38H26V52H12Z" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linejoin="round"/></symbol>
+<symbol id="heart" viewBox="0 0 64 64"><path d="M32 54S8 40 8 22a12 12 0 0 1 24-4 12 12 0 0 1 24 4c0 18-24 32-24 32Z" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linejoin="round"/></symbol>
+<symbol id="clock" viewBox="0 0 64 64"><circle cx="32" cy="32" r="20" fill="none" stroke="currentColor" stroke-width="4.5"/><path d="M32 18V32L42 38" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></symbol>
+<symbol id="gear" viewBox="0 0 64 64"><circle cx="32" cy="32" r="8" fill="none" stroke="currentColor" stroke-width="4.5"/><path d="M32 8v8M32 48v8M8 32h8M48 32h8M15 15l6 6M43 43l6 6M15 49l6-6M43 21l6-6" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></symbol>
+<symbol id="check" viewBox="0 0 64 64"><path d="M14 34L27 46L50 18" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="info" viewBox="0 0 64 64"><circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="5"/><path d="M32 28v16M32 20v2" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></symbol>
+<symbol id="ecg" viewBox="0 0 64 64"><path d="M6 34h12l6-16 8 30 8-22 4 8h14" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="wave" viewBox="0 0 64 64"><path d="M6 32c6-14 10-14 16 0s10 14 16 0 10-14 16 0" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></symbol>
+<symbol id="wind" viewBox="0 0 64 64"><path d="M8 24h30a6 6 0 1 0-6-6M8 34h40a6 6 0 1 1-6 6M8 44h22a5 5 0 1 1-5 5" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></symbol>
+<symbol id="sun" viewBox="0 0 64 64"><path d="M14 44a18 18 0 0 1 36 0M8 52h48M32 12v6M14 20l4 4M50 20l-4 4" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></symbol>
+<symbol id="moon" viewBox="0 0 64 64"><path d="M40 10a22 22 0 1 0 14 34A18 18 0 0 1 40 10Z" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linejoin="round"/></symbol>
+<symbol id="camera" viewBox="0 0 64 64"><rect x="8" y="18" width="48" height="34" rx="6" fill="none" stroke="currentColor" stroke-width="4.5"/><circle cx="32" cy="35" r="9" fill="none" stroke="currentColor" stroke-width="4.5"/><path d="M22 18l4-6h12l4 6" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linejoin="round"/></symbol>
+<symbol id="lock" viewBox="0 0 64 64"><rect x="14" y="28" width="36" height="26" rx="6" fill="none" stroke="currentColor" stroke-width="4.5"/><path d="M22 28v-8a10 10 0 0 1 20 0v8" fill="none" stroke="currentColor" stroke-width="4.5"/></symbol>
+<symbol id="dots" viewBox="0 0 64 64"><circle cx="16" cy="32" r="5" fill="currentColor"/><circle cx="32" cy="32" r="5" fill="currentColor"/><circle cx="48" cy="32" r="5" fill="currentColor"/></symbol>
+<symbol id="art-face" viewBox="0 0 86 88"><path d="M15 18C27 1 61 3 73 27C85 51 72 76 51 81C30 86 3 51 15 18Z" fill="#E4D9F1"/><path d="M45 15C60 15 69 26 69 42C69 50 61 53 61 59C61 74 29 76 29 57L29 33C29 21 35 15 45 15Z" fill="#B7A1D0"/><path d="M44 23C54 19 62 30 59 40L54 47L59 47C59 60 50 65 42 57Z" fill="#EDE4F9"/><path d="M40 38L47 37M51 49L57 49M48 57L55 58" fill="none" stroke="#685478" stroke-width="2" stroke-linecap="round"/><circle cx="70" cy="17" r="3" fill="#B66588"/></symbol>
+<symbol id="art-skin" viewBox="0 0 86 88"><path d="M12 32C14 12 45 2 66 15C87 28 85 62 65 76C45 90 0 58 12 32Z" fill="#F5DCE2"/><path d="M46 12C44 29 22 39 22 54C22 69 33 78 46 78C59 78 70 68 70 54C70 40 48 27 46 12Z" fill="#D18FA3"/><path d="M45 21C42 33 31 43 31 53C31 63 37 70 43 71C31 53 58 43 45 21Z" fill="#F4C4D1"/><path d="M60 22L60 35M54 29L66 29" fill="none" stroke="#934B66" stroke-width="2" stroke-linecap="round"/><circle cx="27" cy="62" r="3" fill="#F9DFE4"/></symbol>
+<symbol id="art-gut" viewBox="0 0 86 88"><path d="M8 39C9 12 41 5 65 13C89 21 85 60 67 74C49 88 4 66 8 39Z" fill="#F1DFBC"/><path d="M27 30C22 27 15 31 16 38C17 45 25 46 30 44C40 39 43 44 38 52C30 65 43 78 58 71C68 67 76 54 71 48C67 43 59 44 56 49C52 56 44 55 48 47C54 38 40 32 27 30Z" fill="#B58A5C"/><circle cx="62" cy="26" r="3" fill="#D9B27A"/></symbol>
+</defs>
+</svg>
+<form id="mixform" autocomplete="off">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="mix_line" id="mix_line" value="">
+<div class="topbar"><div class="bar-in">
+  <fieldset class="who"><legend>Reviewer</legend>
+    <label><input type="radio" name="who" value="Salim" required> Salim</label>
+    <label><input type="radio" name="who" value="Ranya"> Ranya</label>
+  </fieldset>
+  <p class="progress" id="progress">0 of 14 decided</p>
+  <a class="jump" href="#answers">Review &amp; send ↓</a>
+</div></div>
+<div class="wrap">
+<header class="mast">
+  <div class="wm"><span class="spiral"></span>sweet</div>
+  <div class="ed">Build 21 · gauntlet · after the TF21 whole-app walks<br>Fourteen fights · Fable vs Astra · pick and send</div>
+</header>
+
+<section class="intro">
+  <p class="eyebrow">Founder picks · gauntlet · open</p>
+  <h1>Fourteen fights left.<br><em>Salim picks. Everything else is already agreed or being built.</em></h1>
+  <p class="lede">After Salim's thirteen TestFlight 21 comments, Fable 5.1 and Astra 6 each walked the whole app from source <code style="font:12px ui-monospace,Menlo,monospace">67b3904</code>, independently and without reading each other. Both confirmed the thirteen are in flight on PR 192. Both listed the defects they would fix without asking; those are not here. This board holds only what each lane said it could not decide alone: five from Fable, eleven from Astra, two of them the same question, so fourteen. Each fight shows the options as 402 by 874 phones in the card language that shipped in TestFlight 19 to 21, what Fable recommends, what Astra recommends, and the trade. Nothing is pre-checked.</p>
+  <p class="law"><b>Not votes.</b> A recommendation is not a pick. These fourteen stay unshipped until Salim picks a letter under each one and sends this page. The thirteen TF21 items, the AGREE_TO_SHIP lists, and every radio already answered on the B19 and follow-on boards are settled and are not re-asked; the last section lists them so nothing looks lost. If a letter is not enough, write it in the notes; “Write your own” is a real option on every fight.</p>
+  <nav class="toc" aria-label="Fights">
+    <a href="#f01"><b>1</b>Terms</a>
+    <a href="#f02"><b>2</b>Profile extras</a>
+    <a href="#f03"><b>3</b>HRV label</a>
+    <a href="#f04"><b>4</b>Capture veil</a>
+    <a href="#f05"><b>5</b>Gut strip</a>
+    <a href="#f06"><b>6</b>Ask thread</a>
+    <a href="#f07"><b>7</b>Ask reopen</a>
+    <a href="#f08"><b>8</b>Manage saved</a>
+    <a href="#f09"><b>9</b>History range</a>
+    <a href="#f10"><b>10</b>Not mine undo</a>
+    <a href="#f11"><b>11</b>Skin one-liner</a>
+    <a href="#f12"><b>12</b>Gut library review</a>
+    <a href="#f13"><b>13</b>Skin 45 boundary</a>
+    <a href="#f14"><b>14</b>Ask scope</a>
+  </nav>
+</section>
+
+<!-- ============ FIGHT 1 · terms ============ -->
+<section class="fight" id="f01">
+  <header><h2><b>1</b>The consent line names a Terms and a Privacy Policy that do not exist</h2><span class="ids">Fable F1 · Astra F08 · FirstLaunchConsent.swift:40-45 · AboutView.swift:35-42</span></header>
+  <p class="ctx">The first-launch screen is the one Salim picked: lollipop mark, “A few things to know”, three points, one Get started. Its legal caption says “By continuing, you agree to the Sweet Terms and Privacy Policy. More in Settings › About Sweet.” The source comment beside it says Sweet publishes no policy page, and About has neither heading: it carries the “Your photos” paragraph and the estimates statements, nothing titled Terms or Privacy. So the caption points at nothing, and she can only reach About after agreeing. Fable and Astra both flag it; they part on the remedy. Fable says reword the sentence for this beta so it promises only what About holds, and write real Terms and Privacy before any public build. Astra says keep the screen exactly as shaped and make the named documents readable inline, before the button, with the founder supplying and approving their text. Astra's A01 (the age and weight sentence in point two) is a separate factual fix already agreed and not on this board.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="f">Fable recommends</span> · for this beta</p>
+      <h3><b>A</b> Reword the consent for the beta; leftover legal stays in About</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>1:00</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="wordmark" style="justify-content:center;margin-top:8px"><span class="spiral"></span>sweet</div>
+        <div class="content">
+          <div class="rt" style="padding-top:26px"><div class="h">A few things</div><div class="em">to know.</div></div>
+          <div class="crow"><div class="ic"><svg><use href="#camera"/></svg></div><div><div class="ct">Checks use your camera</div><div class="cd">Vital Glimpse watches your face for about a minute. A Skin or Gut check sends one photo to Sweet, then to the partner that reads it, for that check only. Sweet keeps it on this iPhone with the result.</div></div></div>
+          <div class="crow"><div class="ic"><svg><use href="#s24"/></svg></div><div><div class="ct">Ask Sweet AI sends one check</div><div class="cd">Your question and that check's result go to Sweet's answer service. Nothing else from your phone.</div></div></div>
+          <div class="crow"><div class="ic"><svg><use href="#heart"/></svg></div><div><div class="ct">Estimates, not a diagnosis</div><div class="cd">Sweet is not a lab. If something worries you, talk to a clinician. Your checks stay on this iPhone; delete them in Settings.</div></div></div>
+        </div>
+        <div style="position:absolute;left:24px;right:24px;bottom:44px"><div class="line12" style="margin-bottom:12px">By continuing, you agree to how Sweet handles your checks and photos, explained in <span class="mag" style="font-weight:600">Settings › About Sweet</span>.</div><div class="btn primary">Get started</div></div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>The same screen; only the caption changes.</b> It now promises what About actually holds: the photo paragraph, the Ask sentence, the estimates statements. No document is named that nobody can open. Before a public build, real Terms and a real Privacy Policy go into About and the caption names them again.</p>
+      <ul class="pc">
+        <li class="p">True today. Nothing is promised that a tester cannot find.</li>
+        <li class="p">One sentence in Muse copy; the screen Salim picked is otherwise untouched.</li>
+        <li class="c">A beta-only sentence: it has to change again before the store, and it asks again then (the stored consent version).</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src"><span class="a">Astra recommends</span></p>
+      <h3><b>B</b> Keep the three-point screen; real Terms and Privacy readable before Get started</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>1:00</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="wordmark" style="justify-content:center;margin-top:8px"><span class="spiral"></span>sweet</div>
+        <div class="content">
+          <div class="rt" style="padding-top:26px"><div class="h">A few things</div><div class="em">to know.</div></div>
+          <div class="crow"><div class="ic"><svg><use href="#camera"/></svg></div><div><div class="ct">Checks use your camera</div><div class="cd">Vital Glimpse watches your face for about a minute. A Skin or Gut check sends one photo to Sweet, then to the partner that reads it, for that check only.</div></div></div>
+          <div class="crow"><div class="ic"><svg><use href="#s24"/></svg></div><div><div class="ct">Ask Sweet AI sends one check</div><div class="cd">Your question and that check's result go to Sweet's answer service.</div></div></div>
+        </div>
+        <div style="position:absolute;left:24px;right:24px;bottom:44px"><div class="line12" style="margin-bottom:12px">By continuing, you agree to the <span class="mag" style="font-weight:600;text-decoration:underline">Sweet Terms</span> and <span class="mag" style="font-weight:600;text-decoration:underline">Privacy Policy</span>.</div><div class="btn primary">Get started</div></div>
+        <div class="scrim"></div>
+        <div class="sheet" style="top:214px;border-radius:28px 28px 44px 44px">
+          <div class="grab"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center"><div class="h17">Privacy Policy</div><span class="mag" style="font-weight:600;font-size:15px">Done</span></div>
+          <div class="line12 mt6">Updated September 2026 · Sweet Health, Inc.</div>
+          <div class="h15 mt16">What stays on this iPhone</div>
+          <div class="line13 mt6" style="color:var(--muted);line-height:1.45">Your checks, your photos and your details are kept on this phone. Sweet does not keep a copy on its servers.</div>
+          <div class="h15 mt12">What leaves your phone</div>
+          <div class="line13 mt6" style="color:var(--muted);line-height:1.45">One photo per Skin or Gut check goes to the partner that reads it, for that check only. One question and one result go to Sweet's answer service.</div>
+          <span class="hold">Placeholder, not copy. The founder supplies and approves the full Terms and Privacy Policy text and where it is hosted.</span>
+          <div class="h15 mt12">What Sweet never does</div>
+          <div class="line13 mt6" style="color:var(--muted);line-height:1.45">Sweet does not sell or share your data for advertising.</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>The caption stays; the words become doors.</b> “Sweet Terms” and “Privacy Policy” open the document in a sheet, readable before Get started, with Done returning to the consent. The dashed box is a placeholder, not UI: the founder writes or approves both documents.</p>
+      <ul class="pc">
+        <li class="p">What the sentence promises is true the moment it ships, and the screen Salim picked keeps its shape.</li>
+        <li class="p">No second consent round before the store; the documents and the caption are done once.</li>
+        <li class="c">Blocked on legal text nobody has written. Until it exists the caption keeps pointing at nothing.</li>
+        <li class="c">Two tappable words at 12 points, under the one button she is looking for.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>(A) now, and the real documents before any public build. It is a legal sentence in Muse copy the founder picked, so the wording is not mine to change silently; but a beta should not name documents that do not exist.</div>
+    <div class="a"><span>Astra</span>Keep the three-point, one-button screen and make the named, approved Terms and Privacy documents readable inline before acceptance. Founder supplies and approves the content and its destination. A discoverability and trust finding, not a claim about legal compliance. A01's factual sharing correction stays required either way.</div>
+  </div>
+  <fieldset class="pick" data-decision="terms" data-title="Terms · consent names documents that do not exist"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="terms" value="A"><b>A</b><span class="txt">Reword the consent for the beta; leftover legal in About</span><span class="rec-pill f">Fable rec</span></label>
+      <label class="opt"><input type="radio" name="terms" value="B"><b>B</b><span class="txt">Keep the screen; founder supplies real Terms and Privacy, readable before accept</span><span class="rec-pill a">Astra rec</span></label>
+      <label class="opt"><input type="radio" name="terms" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="terms_notes">Terms notes (optional) · a blend, a condition, or your own pick</label><textarea id="terms_notes" name="terms_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 2 · profile_inert ============ -->
+<section class="fight" id="f02">
+  <header><h2><b>2</b>Profile carries three things that nothing reads</h2><span class="ids">Fable F2 · Astra F03 · SelfReportSection.swift:78-91 · ProfileScreen.swift:119-131 · ProfileGoal.swift:75-78</span></header>
+  <p class="ctx">Profile holds Personal details (name, date of birth, sex, height, weight, ethnicity) and, under them, Health history (five free-text fields with the line “Sweet shows what you wrote. It does not interpret your health history.”), a Learning focus choice, and a Wellness goal. Since TF21-ASK-4, age and weight feed Ask. The other three are stored and shown back and feed no check, no Ask, and no Home. The goal's own copy still promises to order Home, which the fixed founder Home does not do; Astra's A30 corrects that sentence regardless, and saving a goal is gated on picking a learning focus first. Fable's B19 read already asked to hide health history until something reads it. Both lanes say a control that does nothing fails the 40-second test; they differ on how far to go. Fable hides all three until a reader exists. Astra retires only the goal-order control and keeps the stored values; keeping the others as a notebook stays on the table.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="f">Fable recommends</span> · Astra F03 retires the goal</p>
+      <h3><b>A</b> Hide them until something reads them</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:58</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#chev"/></svg></span><span class="t">Profile</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="eye">Your recorded details</div><div class="h">About you.</div><div class="sub">Ask uses your age and weight. Nothing here is required.</div></div>
+          <div class="h17">Personal details</div>
+          <div class="setgroup mt8">
+            <div class="fieldrow">Name<span class="v">Salim</span></div>
+            <div class="fieldrow">Date of birth<span class="v">March 14, 1977</span></div>
+            <div class="fieldrow">Sex<span class="v">Male</span></div>
+            <div class="fieldrow">Height<span class="v">5 ft 8 in</span></div>
+            <div class="fieldrow">Weight<span class="v">164 lb</span></div>
+            <div class="fieldrow">Ethnicity<span class="v">Not recorded</span></div>
+          </div>
+          <div class="prov">Height and weight can come from Apple Health and stay editable here. Your details never leave this iPhone except with the one check you ask about.</div>
+          <div class="annobadge"><i>–</i>Health history, Learning focus and Wellness goal: not drawn until a check, Ask or Home reads them</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>Profile is the six facts something uses.</b> Stored values for history, focus and goal are kept, not deleted; the sections return the day a reader exists. Account appears here when sync exists. The badge is a note, not UI.</p>
+      <ul class="pc">
+        <li class="p">Every row on the page does something; nothing invites her to type into a drawer.</li>
+        <li class="p">Shorter page, one editor, the B19 one-Profile radio kept.</li>
+        <li class="c">Anyone who already wrote a history loses sight of it until the reader ships.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src">On the table · as shipped, goal promise corrected</p>
+      <h3><b>B</b> Keep them as a notebook</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:58</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#chev"/></svg></span><span class="t">Profile</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="setgroup" style="border-top:0;border-radius:0 0 21px 21px;margin-top:-1px">
+            <div class="fieldrow">Weight<span class="v">164 lb</span></div>
+            <div class="fieldrow">Ethnicity<span class="v">Not recorded</span></div>
+          </div>
+          <div class="h17 mt16">Health history</div>
+          <div class="setgroup mt8">
+            <div class="fieldrow">Conditions<span class="v">Not recorded</span></div>
+            <div class="fieldrow">Medications<span class="v">Not recorded</span></div>
+            <div class="fieldrow">Allergies<span class="v">Not recorded</span></div>
+            <div class="fieldrow">Family history<span class="v">Not recorded</span></div>
+            <div class="fieldrow">Notes<span class="v">Not recorded</span></div>
+          </div>
+          <div class="line12 mt8">Sweet shows what you wrote. It does not interpret your health history.</div>
+          <div class="h17 mt16">Learning focus</div>
+          <div class="seg mt8"><span class="on">Heart</span><span>Skin</span><span>Gut</span><span>All</span></div>
+          <div class="h17 mt16">Wellness goal</div>
+          <div class="setgroup mt8"><div class="setrow">Goal<span class="v">Sleep better</span><svg class="chev"><use href="#fwd"/></svg></div></div>
+          <div class="line12 mt8">Kept with your details. Sweet does not act on it yet.</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>As shipped, told honestly; the page scrolled past Personal details.</b> The three sections stay as a private notebook under the six facts. The goal's false promise about Home is gone (A30, agreed), replaced by the truth: kept, not acted on. Saving a goal no longer waits on a learning focus.</p>
+      <ul class="pc">
+        <li class="p">Nothing anyone wrote disappears; the page keeps its full shape for later.</li>
+        <li class="p">No hiding rule to explain when the reader lands.</li>
+        <li class="c">A long page of drawers that do nothing, each needing a sentence to say so. If a screen needs a caption, it is wrong.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>(A) Hide them until something reads them. Profile becomes name, date of birth, sex, height, weight, ethnicity, then Account when sync exists. B19 already asked for this on health history; the goal was authorised separately, so the scope is the founder's.</div>
+    <div class="a"><span>Astra</span>Retire the obsolete goal-order control from the shipped Profile until it has an agreed real use, preserving stored values. A30 corrects its false promise now. This does not silently delete preferences or alter Home; the fate of history and focus is the founder's call.</div>
+  </div>
+  <fieldset class="pick" data-decision="profile_inert" data-title="Profile · health history, learning focus, wellness goal"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="profile_inert" value="A"><b>A</b><span class="txt">Hide until something reads them</span><span class="rec-pill f">Fable rec</span><span class="rec-pill a">Astra: retire goal</span></label>
+      <label class="opt"><input type="radio" name="profile_inert" value="B"><b>B</b><span class="txt">Keep as a notebook</span><span class="rec-pill n">As shipped</span></label>
+      <label class="opt"><input type="radio" name="profile_inert" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="profile_inert_notes">Profile notes (optional) · a blend, a condition, or your own pick</label><textarea id="profile_inert_notes" name="profile_inert_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 3 · hrv_label ============ -->
+<section class="fight" id="f03">
+  <header><h2><b>3</b>What the HRV reading is called on a tile</h2><span class="ids">Fable F3 · VitalGlimpseReading.swift:31 · HealthSnapshotOverview.swift:159</span></header>
+  <p class="ctx">Salim picked SDNN as the hero HRV reading, and the follow-on board settled the tile fill (band tone, mint when within your usual). The label is the open part: the tile, the Health hero eyebrow and the Ask opener all say “HRV · SDNN”, which is our wording, not his. SDNN is the right reading and an engineering word for a 40-second glance. Fable draws three labels on the same tile. Astra did not raise the label; its A15 and A23 items touch the Health hero's copy for other reasons and are already agreed.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="f">Fable recommends</span></p>
+      <h3><b>A</b> “HRV” on tiles and cards; “HRV (SDNN)” in All readings and the detail</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:41</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Vital Glimpse</span><span class="hit ask"><svg><use href="#s24"/></svg></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="eye">Your Vital Glimpse · Today, 9:41 AM</div><div class="h">Mostly familiar.</div><div class="em">One change.</div><div class="sub">Your stress signal is above your recent range.</div></div>
+          <div class="tiles">
+            <div class="tile within"><svg class="sym"><use href="#ecg"/></svg><div class="n">Heart rate</div><div class="s">Within your usual</div><div class="v">68 bpm</div></div>
+            <div class="tile within" style="outline:2px dashed var(--magenta);outline-offset:3px"><svg class="sym"><use href="#wave"/></svg><div class="n">HRV</div><div class="s">Within your usual</div><div class="v">52 ms</div></div>
+            <div class="tile neutral"><svg class="sym"><use href="#wind"/></svg><div class="n">Breathing</div><div class="s">14 /min</div><div class="v">Getting to know your usual</div></div>
+            <div class="tile outside"><svg class="sym"><use href="#sun"/></svg><div class="n">Stress signal</div><div class="s">Above your usual</div><div class="v">5.1</div></div>
+            <div class="tile within"><svg class="sym"><use href="#ecg"/></svg><div class="n">Blood pressure</div><div class="s">Within your usual</div><div class="v">126 / 80 mmHg</div></div>
+            <div class="tile within"><svg class="sym"><use href="#moon"/></svg><div class="n">Rest response</div><div class="s">Within your usual</div><div class="v">58 %</div></div>
+          </div>
+          <div class="tert mt8"><span>All readings &amp; details</span><svg><use href="#arrow"/></svg></div>
+          <span class="hold" style="margin-top:8px">Note, not UI: All readings and the detail page read <b>HRV (SDNN)</b> · 52 ms</span>
+          <div class="prov">From your camera · kept on this iPhone.</div>
+          <div class="honest">Wellness estimates, not a diagnosis or lab test.</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>Three letters on the tile; the method one tap in.</b> The tile, the Health hero and the Ask opener say HRV. All readings and the detail page say HRV (SDNN), where the number is explained. The dashed outline marks the tile in question; it is not UI.</p>
+      <ul class="pc">
+        <li class="p">The glance reads as a word people have heard; the precise name is where precision lives.</li>
+        <li class="p">Nothing about the reading changes; SDNN stays the hero value.</li>
+        <li class="c">Anyone who knows the difference between SDNN and RMSSD has to tap once to be sure.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src">As shipped</p>
+      <h3><b>B</b> Keep “HRV · SDNN” everywhere</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:41</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Vital Glimpse</span><span class="hit ask"><svg><use href="#s24"/></svg></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="eye">Your Vital Glimpse · Today, 9:41 AM</div><div class="h">Mostly familiar.</div><div class="em">One change.</div><div class="sub">Your stress signal is above your recent range.</div></div>
+          <div class="tiles">
+            <div class="tile within"><svg class="sym"><use href="#ecg"/></svg><div class="n">Heart rate</div><div class="s">Within your usual</div><div class="v">68 bpm</div></div>
+            <div class="tile within" style="outline:2px dashed var(--magenta);outline-offset:3px"><svg class="sym"><use href="#wave"/></svg><div class="n">HRV · SDNN</div><div class="s">Within your usual</div><div class="v">52 ms</div></div>
+            <div class="tile neutral"><svg class="sym"><use href="#wind"/></svg><div class="n">Breathing</div><div class="s">14 /min</div><div class="v">Getting to know your usual</div></div>
+            <div class="tile outside"><svg class="sym"><use href="#sun"/></svg><div class="n">Stress signal</div><div class="s">Above your usual</div><div class="v">5.1</div></div>
+            <div class="tile within"><svg class="sym"><use href="#ecg"/></svg><div class="n">Blood pressure</div><div class="s">Within your usual</div><div class="v">126 / 80 mmHg</div></div>
+            <div class="tile within"><svg class="sym"><use href="#moon"/></svg><div class="n">Rest response</div><div class="s">Within your usual</div><div class="v">58 %</div></div>
+          </div>
+          <div class="tert mt8"><span>All readings &amp; details</span><svg><use href="#arrow"/></svg></div>
+          <span class="hold" style="margin-top:8px">Note, not UI: All readings and the detail page read <b>HRV · SDNN</b> · 52 ms</span>
+          <div class="prov">From your camera · kept on this iPhone.</div>
+          <div class="honest">Wellness estimates, not a diagnosis or lab test.</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>As shipped in TestFlight 19 to 21.</b> The same label on the tile, the Health hero, All readings, the detail and the Ask opener.</p>
+      <ul class="pc">
+        <li class="p">One string everywhere; the pick that named SDNN is visible at every level.</li>
+        <li class="p">Nothing to change.</li>
+        <li class="c">An acronym and a method name on a tile meant to be read in a glance; the only tile with a middle dot.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src">On the table</p>
+      <h3><b>C</b> “Heart rate variability” spelled out on tiles</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:41</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Vital Glimpse</span><span class="hit ask"><svg><use href="#s24"/></svg></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="eye">Your Vital Glimpse · Today, 9:41 AM</div><div class="h">Mostly familiar.</div><div class="em">One change.</div><div class="sub">Your stress signal is above your recent range.</div></div>
+          <div class="tiles">
+            <div class="tile within"><svg class="sym"><use href="#ecg"/></svg><div class="n">Heart rate</div><div class="s">Within your usual</div><div class="v">68 bpm</div></div>
+            <div class="tile within" style="outline:2px dashed var(--magenta);outline-offset:3px"><svg class="sym"><use href="#wave"/></svg><div class="n">Heart rate variability</div><div class="s">Within your usual</div><div class="v">52 ms</div></div>
+            <div class="tile neutral"><svg class="sym"><use href="#wind"/></svg><div class="n">Breathing</div><div class="s">14 /min</div><div class="v">Getting to know your usual</div></div>
+            <div class="tile outside"><svg class="sym"><use href="#sun"/></svg><div class="n">Stress signal</div><div class="s">Above your usual</div><div class="v">5.1</div></div>
+            <div class="tile within"><svg class="sym"><use href="#ecg"/></svg><div class="n">Blood pressure</div><div class="s">Within your usual</div><div class="v">126 / 80 mmHg</div></div>
+            <div class="tile within"><svg class="sym"><use href="#moon"/></svg><div class="n">Rest response</div><div class="s">Within your usual</div><div class="v">58 %</div></div>
+          </div>
+          <div class="tert mt8"><span>All readings &amp; details</span><svg><use href="#arrow"/></svg></div>
+          <span class="hold" style="margin-top:8px">Note, not UI: All readings and the detail page read <b>Heart rate variability (SDNN)</b> · 52 ms</span>
+          <div class="prov">From your camera · kept on this iPhone.</div>
+          <div class="honest">Wellness estimates, not a diagnosis or lab test.</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>The full name on the tile.</b> Three words at 11 points on a 170-point tile; on a 375-wide phone the name wraps. The detail says Heart rate variability (SDNN).</p>
+      <ul class="pc">
+        <li class="p">No acronym at all; her mom reads it without asking.</li>
+        <li class="c">The longest tile name by far, beside “Heart rate”; the two names look like one thing said twice.</li>
+        <li class="c">Wraps on smaller phones and in the Health hero eyebrow.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>(A) “HRV” on tiles and cards, “HRV (SDNN)” only in All readings and the detail page. The pick named the reading; the label is open.</div>
+    <div class="a"><span>Astra</span>Not raised as a fight in Astra's catalog. Its Health items (A15, A23) fix the hero's empty and “comparable” copy and are already agreed; they do not choose the label.</div>
+  </div>
+  <fieldset class="pick" data-decision="hrv_label" data-title="HRV · the reading's label on tiles"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="hrv_label" value="A"><b>A</b><span class="txt">“HRV” on tiles, “HRV (SDNN)” in the detail</span><span class="rec-pill f">Fable rec</span></label>
+      <label class="opt"><input type="radio" name="hrv_label" value="B"><b>B</b><span class="txt">Keep “HRV · SDNN” everywhere</span><span class="rec-pill n">As shipped</span></label>
+      <label class="opt"><input type="radio" name="hrv_label" value="C"><b>C</b><span class="txt">“Heart rate variability” spelled out</span></label>
+      <label class="opt"><input type="radio" name="hrv_label" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="hrv_label_notes">HRV label notes (optional) · a blend, a condition, or your own pick</label><textarea id="hrv_label_notes" name="hrv_label_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 4 · veil ============ -->
+<section class="fight" id="f04">
+  <header><h2><b>4</b>How heavy the veil outside the oval should be</h2><span class="ids">Fable F4 · SweetCaptureStage.swift:137-143 · TF21-CAM-2 · Sep 15 radio “blur should be full screen”</span></header>
+  <p class="ctx">TF21-CAM-1/2/3 are in flight: the camera fills the screen under a 48-point title row, the coach line lives in that row, the oval sits 56 points into the window, and the unused area is the same picture blurred instead of black bars. The code veils that surround at alpha 0.28, and its own comment records the September 15 radio as a founder decision not to be made silently. In the TF21 shots a bright apartment and a window compete with the face. The fight is one number: how dark the blur is. Same stage, same oval, same coach line in both phones; only the surround differs. Astra checked the same stage and left the device look Unknown until a real capture is seen.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="f">Fable recommends</span></p>
+      <h3><b>A</b> Heavier veil, about 0.55: the oval is the one sharp thing</h3>
+      <div class="shot"><div class="phone dark">
+        <div class="cam">
+          <div class="scene blur"><div class="win l"></div><div class="wall"></div><div class="win r"></div><div class="mullion" style="left:44px"></div><div class="mullion" style="right:56px"></div><div class="sofa"></div><div class="shirt"></div><div class="neck"></div><div class="hair"></div><div class="head"></div><div class="brow l"></div><div class="brow r"></div><div class="eye l"></div><div class="eye r"></div><div class="nose"></div><div class="mouth"></div></div>
+          <div class="veil" style="opacity:.55"></div>
+          <div class="scene sharp"><div class="win l"></div><div class="wall"></div><div class="win r"></div><div class="mullion" style="left:44px"></div><div class="mullion" style="right:56px"></div><div class="sofa"></div><div class="shirt"></div><div class="neck"></div><div class="hair"></div><div class="head"></div><div class="brow l"></div><div class="brow r"></div><div class="eye l"></div><div class="eye r"></div><div class="nose"></div><div class="mouth"></div></div>
+          <svg class="oval" viewBox="0 0 250 346"><ellipse cx="125" cy="173" rx="122" ry="170" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"/><ellipse cx="125" cy="173" rx="122" ry="170" fill="none" stroke="#2BB673" stroke-width="7" stroke-linecap="round" pathLength="100" stroke-dasharray="60 40" stroke-dashoffset="25"/></svg>
+        </div>
+        <div class="stagebar">
+          <div class="sbar"><span>7:27</span><span class="island"></span><span>▮▮▮</span></div>
+          <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Hold still.</span><span class="hit blank"></span></div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>Blur and a 55 percent veil.</b> The room is still there, still the camera, but dimmed enough that the face inside the ring is the only bright thing on the screen. The arc runs green when the reading is good, as shipped.</p>
+      <ul class="pc">
+        <li class="p">The instrument holds the eye on the oval; window light no longer competes with the face.</li>
+        <li class="p">The white ring and the coach line keep their contrast in a bright room without a shade behind them.</li>
+        <li class="c">Feels less like a live camera; a glance no longer tells her what is behind her.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src">As shipped on PR 192</p>
+      <h3><b>B</b> Keep 0.28: the surround stays a visible camera</h3>
+      <div class="shot"><div class="phone dark">
+        <div class="cam">
+          <div class="scene blur"><div class="win l"></div><div class="wall"></div><div class="win r"></div><div class="mullion" style="left:44px"></div><div class="mullion" style="right:56px"></div><div class="sofa"></div><div class="shirt"></div><div class="neck"></div><div class="hair"></div><div class="head"></div><div class="brow l"></div><div class="brow r"></div><div class="eye l"></div><div class="eye r"></div><div class="nose"></div><div class="mouth"></div></div>
+          <div class="veil" style="opacity:.28"></div>
+          <div class="scene sharp"><div class="win l"></div><div class="wall"></div><div class="win r"></div><div class="mullion" style="left:44px"></div><div class="mullion" style="right:56px"></div><div class="sofa"></div><div class="shirt"></div><div class="neck"></div><div class="hair"></div><div class="head"></div><div class="brow l"></div><div class="brow r"></div><div class="eye l"></div><div class="eye r"></div><div class="nose"></div><div class="mouth"></div></div>
+          <svg class="oval" viewBox="0 0 250 346"><ellipse cx="125" cy="173" rx="122" ry="170" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2"/><ellipse cx="125" cy="173" rx="122" ry="170" fill="none" stroke="#2BB673" stroke-width="7" stroke-linecap="round" pathLength="100" stroke-dasharray="60 40" stroke-dashoffset="25"/></svg>
+        </div>
+        <div class="stagebar">
+          <div class="sbar"><span>7:27</span><span class="island"></span><span>▮▮▮</span></div>
+          <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Hold still.</span><span class="hit blank"></span></div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>Blur and a 28 percent veil, as the code draws it.</b> The surround reads as the room, softened. In a bright apartment the window stays nearly as bright as the face.</p>
+      <ul class="pc">
+        <li class="p">Closest to the September 15 radio as written: the blur is full screen and still clearly a camera.</li>
+        <li class="p">Nothing to change; whatever the device shows today is what this is.</li>
+        <li class="c">In the TF21 shots the bright room competes with the face; the ring and the coach line need their own shade to stay legible.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>(A) about 0.55. The instrument should hold the eye on the oval. Founder decision by the code's own record; Look tunes the exact number on the device.</div>
+    <div class="a"><span>Astra</span>Not raised as a fight. Astra marks the whole stage's device verdict Unknown: face fit, the sharp-to-blur seam, the preview texture and rotation all need a real capture before anyone calls the look done.</div>
+  </div>
+  <fieldset class="pick" data-decision="veil" data-title="Capture · veil outside the oval"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="veil" value="A"><b>A</b><span class="txt">About 0.55, so the oval is the one sharp thing</span><span class="rec-pill f">Fable rec</span></label>
+      <label class="opt"><input type="radio" name="veil" value="B"><b>B</b><span class="txt">Keep 0.28</span><span class="rec-pill n">As shipped</span></label>
+      <label class="opt"><input type="radio" name="veil" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="veil_notes">Veil notes (optional) · a blend, a condition, or your own pick</label><textarea id="veil_notes" name="veil_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 5 · gut_strip ============ -->
+<section class="fight" id="f05">
+  <header><h2><b>5</b>Two doors to the seven types on the live Gut result</h2><span class="ids">Fable F5 · GutResultView.swift:229-249, :266-285 · Saved Gut B (Sep 16)</span></header>
+  <p class="ctx">On the live Gut result the seven-type strip is a button that opens the seven-types page, and under it “Learn about each type” opens the same page. Two founder rules meet here. The founder selection said no redundant full-scale button beside a visible strip; the September 16 pick (Saved Gut B) added the right-justified link, one point smaller, to the saved result, and Fable's intent read put it on the live result too so the two never differ. The saved result already draws its strip inert. The fight is whether the live strip stays tappable as well. Astra did not raise it.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="f">Fable recommends</span> · matches saved</p>
+      <h3><b>A</b> Strip inert on live too; the link is the one door</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:53</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Gut check</span><span class="hit ask"><svg><use href="#s24"/></svg></span></div>
+        <div class="content">
+          <div class="eye" style="padding:14px 0 15px">Your gut check · Today, 8:10 AM</div>
+          <div class="pcard fill" style="background:var(--gut);padding:20px"><div class="g36">Soft.</div><div class="g36">Well formed.</div><div class="line13 mt10" style="color:var(--muted)">A type 4 is commonly expected and easy to pass.</div><div style="margin-top:14px;height:56px;border-radius:28px;background:#8E6B48;width:200px"></div></div>
+          <div class="mt16">
+            <div class="bristol">
+              <div class="m"><span class="you"> </span><div class="box" style="background:#F1DFBC"><i style="width:26px;height:26px;border-radius:50%"></i></div></div>
+              <div class="m"><span class="you"> </span><div class="box" style="background:#F1DFBC"><i style="width:22px;height:34px"></i></div></div>
+              <div class="m"><span class="you"> </span><div class="box" style="background:#E4F0E5"><i style="width:18px;height:40px"></i></div></div>
+              <div class="m"><span class="you">You</span><div class="box cur" style="background:#E4F0E5"><i style="width:16px;height:44px;border-radius:8px"></i></div></div>
+              <div class="m"><span class="you"> </span><div class="box" style="background:#FAEDDA"><i style="width:28px;height:22px"></i></div></div>
+              <div class="m"><span class="you"> </span><div class="box" style="background:#FAE3E7"><i style="width:30px;height:18px;border-radius:9px"></i></div></div>
+              <div class="m"><span class="you"> </span><div class="box" style="background:#FAE3E7"><i style="width:32px;height:12px;border-radius:6px"></i></div></div>
+            </div>
+            <div class="hl"><span>Harder</span><span>Looser</span></div>
+            <div style="display:flex;justify-content:flex-end;margin-top:6px"><span class="tert" style="font-size:12px;min-height:34px;gap:6px"><span>Learn about each type</span><svg style="width:15px;height:15px"><use href="#arrow"/></svg></span></div>
+          </div>
+          <div class="pcard mt8"><div class="h15">What this means</div><div class="line14 mt6" style="color:var(--muted)">Soft and well formed is one of the most common shapes. On its own it does not point to a problem.</div></div>
+          <div class="pcard mt12"><div class="h15">What may help</div><div class="line14 mt6" style="color:var(--muted)">Keep fluids steady. Fibre from whole foods. Notice changes over a few weeks, not one day.</div></div>
+          <div class="prov">From your photo · kept on this iPhone.</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>Live result drawn like the saved one.</b> The strip shows where you are and is not a button. The one door is the 12-point link under it, right-justified, as Salim specified for saved.</p>
+      <ul class="pc">
+        <li class="p">Live and saved behave the same; one door, discoverable, in the place he chose.</li>
+        <li class="p">Honours the selection: no redundant button beside a visible strip.</li>
+        <li class="c">Anyone who taps the strip out of habit gets nothing; the link is a point smaller than body text.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src">As shipped on PR 192</p>
+      <h3><b>B</b> Keep both: tappable strip and the link</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:53</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Gut check</span><span class="hit ask"><svg><use href="#s24"/></svg></span></div>
+        <div class="content">
+          <div class="eye" style="padding:14px 0 15px">Your gut check · Today, 8:10 AM</div>
+          <div class="pcard fill" style="background:var(--gut);padding:20px"><div class="g36">Soft.</div><div class="g36">Well formed.</div><div class="line13 mt10" style="color:var(--muted)">A type 4 is commonly expected and easy to pass.</div><div style="margin-top:14px;height:56px;border-radius:28px;background:#8E6B48;width:200px"></div></div>
+          <div class="stripbtn mt16">
+            <svg class="chev"><use href="#fwd"/></svg>
+            <div class="bristol">
+              <div class="m"><span class="you"> </span><div class="box" style="background:#F1DFBC"><i style="width:26px;height:26px;border-radius:50%"></i></div></div>
+              <div class="m"><span class="you"> </span><div class="box" style="background:#F1DFBC"><i style="width:22px;height:34px"></i></div></div>
+              <div class="m"><span class="you"> </span><div class="box" style="background:#E4F0E5"><i style="width:18px;height:40px"></i></div></div>
+              <div class="m"><span class="you">You</span><div class="box cur" style="background:#E4F0E5"><i style="width:16px;height:44px;border-radius:8px"></i></div></div>
+              <div class="m"><span class="you"> </span><div class="box" style="background:#FAEDDA"><i style="width:28px;height:22px"></i></div></div>
+              <div class="m"><span class="you"> </span><div class="box" style="background:#FAE3E7"><i style="width:30px;height:18px;border-radius:9px"></i></div></div>
+              <div class="m"><span class="you"> </span><div class="box" style="background:#FAE3E7"><i style="width:32px;height:12px;border-radius:6px"></i></div></div>
+            </div>
+            <div class="hl"><span>Harder</span><span>Looser</span></div>
+          </div>
+          <div style="display:flex;justify-content:flex-end;margin-top:6px"><span class="tert" style="font-size:12px;min-height:34px;gap:6px"><span>Learn about each type</span><svg style="width:15px;height:15px"><use href="#arrow"/></svg></span></div>
+          <div class="pcard mt8"><div class="h15">What this means</div><div class="line14 mt6" style="color:var(--muted)">Soft and well formed is one of the most common shapes. On its own it does not point to a problem.</div></div>
+          <div class="pcard mt12"><div class="h15">What may help</div><div class="line14 mt6" style="color:var(--muted)">Keep fluids steady. Fibre from whole foods. Notice changes over a few weeks, not one day.</div></div>
+          <div class="prov">From your photo · kept on this iPhone.</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>The strip is a card you can tap, and the link is under it.</b> Shown with the chevron a tappable card would carry; today the strip is a button with no affordance at all, which is the quieter version of the same thing.</p>
+      <ul class="pc">
+        <li class="p">Tapping the thing you are looking at works; the link is still there for anyone who reads.</li>
+        <li class="p">Nothing to change on live.</li>
+        <li class="c">Two doors to one page a hand's width apart, and a strip that is a button on live and a picture on saved.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>(A) Strip inert on the live result too; the link is the one door, matching the saved result. Both rules are founder rules; only the founder can say which wins.</div>
+    <div class="a"><span>Astra</span>Not raised in Astra's catalog. Its Gut items are the waiting screen's first Close (A07) and the shared capture instrument (A22), both agreed and off this board.</div>
+  </div>
+  <fieldset class="pick" data-decision="gut_strip" data-title="Gut · live strip button plus link"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="gut_strip" value="A"><b>A</b><span class="txt">Strip inert, link only, matches saved</span><span class="rec-pill f">Fable rec</span></label>
+      <label class="opt"><input type="radio" name="gut_strip" value="B"><b>B</b><span class="txt">Keep both</span><span class="rec-pill n">As shipped</span></label>
+      <label class="opt"><input type="radio" name="gut_strip" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="gut_strip_notes">Gut strip notes (optional) · a blend, a condition, or your own pick</label><textarea id="gut_strip_notes" name="gut_strip_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 6 · ask_thread ============ -->
+<section class="fight" id="f06">
+  <header><h2><b>6</b>Ask looks like a conversation; the wire sends only the current question</h2><span class="ids">Astra F01 · AskScreen.swift:44, :406 · AskJourney.swift:155 · AskRequestBuilder.swift:15 · upstream.mjs:67</span></header>
+  <p class="ctx">The Ask screen shows earlier questions and answers as bubbles, like Messages. Each send carries only the current question and the fixed result context; the worker builds a single user message. So “What do you mean by that?” arrives without the answer it visibly refers to, and the model answers blind. The bubbles promise continuity the wire does not have. Astra names this as a product and data-boundary choice: widening what is transmitted is not a bug fix. Fable's catalog did not raise it; its Ask items (A27 to A33) are copy, colour and keyboard fixes already agreed. Either way the first-launch consent sentence about what Ask sends must say what is true.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="a">Astra recommends</span></p>
+      <h3><b>A</b> A bounded conversation about this one result</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>7:22</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Ask Sweet AI</span><span class="hit blank"></span></div>
+        <div class="content" style="padding-bottom:0">
+          <div class="eye" style="padding:14px 0 10px">About your Vital Glimpse</div>
+          <div class="bubble them">Hi! Want to ask about your Vital Glimpse? Your heart rate read 62 bpm. How can I help?</div>
+          <div class="anchor"><span>Heart rate<small>Captured Sep 16, 2026 at 8:42 AM</small></span><span>62 bpm</span></div>
+          <div class="bubble me">Is that in my usual range?</div>
+          <div class="bubble them">Yes. 62 bpm sits inside the range from your last few Vital Glimpses, so this check looks like your usual.</div>
+          <div class="bubble me">What do you mean by usual?</div>
+          <div class="bubble them">Your usual is the range Sweet has seen across your recent checks. Today's 62 is inside it, which is why I said it looks familiar.</div>
+          <div class="disc">This conversation and this check's result go to Sweet's answer service. Nothing else from your phone.</div>
+        </div>
+        <div class="composer"><div class="field">Ask about your check<span class="send blue"><svg><use href="#up"/></svg></span></div></div>
+      </div></div>
+      <p class="cap"><b>The follow-up lands.</b> The second answer knows what “usual” referred to because this session's earlier turns about this result ride with the question. Only this result and this conversation; no other saved checks, photos or history. The line under the thread says so.</p>
+      <ul class="pc">
+        <li class="p">The screen keeps its promise: a follow-up means what it says.</li>
+        <li class="p">Bounded: one result, this session, the facts already authorised. The disclosure is updated to match.</li>
+        <li class="c">More text leaves the phone per question; the consent sentence and the worker prompt both change.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src">On the table</p>
+      <h3><b>B</b> Independent questions, and stop looking like a thread</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>7:22</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Ask Sweet AI</span><span class="hit blank"></span></div>
+        <div class="content" style="padding-bottom:0">
+          <div class="rt tight"><div class="eye">About your Vital Glimpse</div><div class="h">Ask about</div><div class="em">this check.</div><div class="sub">Each question is answered on its own, from this result.</div></div>
+          <div class="anchor" style="padding-top:0"><span>Heart rate<small>Captured Sep 16, 2026 at 8:42 AM</small></span><span>62 bpm</span></div>
+          <div class="qa mt16"><div class="q">Is that in my usual range?</div><div class="a">Yes. 62 bpm sits inside the range from your last few Vital Glimpses, so this check looks like your usual.</div></div>
+          <div class="qa"><div class="q">What do you mean by usual?</div><div class="a">Your usual is the range Sweet has seen across your recent Vital Glimpses. This check's 62 bpm is inside it.</div></div>
+          <div class="disc">Each question and this check's result go to Sweet's answer service. Earlier questions are not sent.</div>
+        </div>
+        <div class="composer"><div class="field">Ask a question about this check<span class="send blue"><svg><use href="#up"/></svg></span></div></div>
+      </div></div>
+      <p class="cap"><b>Questions and answers, not a chat.</b> No left and right bubbles. Each question is a heading with its answer under it, and the field says what it is. The wire stays as it is: one question, one result.</p>
+      <ul class="pc">
+        <li class="p">Nothing new leaves the phone; the consent sentence is already true.</li>
+        <li class="p">The screen no longer implies memory it does not have.</li>
+        <li class="c">A follow-up like “what do you mean?” still cannot work; she has to restate every question in full.</li>
+        <li class="c">Retires the Messages-like Ask that TF21-ASK-1 and ASK-2 were just tuned for.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>Not raised as a fight in Fable's catalog. Board read: the Messages shape Salim asked to tune implies continuity, so (A) bounded to this result is the honest match; (B) is the honest match only if the shape changes too.</div>
+    <div class="a"><span>Astra</span>Bounded conversation about this one result, carrying only this session's necessary prior turns and the currently authorised facts. Update the precise disclosure. Exclude unrelated saved checks, photos and broader history. Do not silently add conversation memory or pretend the existing UI test proves contextual follow-up.</div>
+  </div>
+  <fieldset class="pick" data-decision="ask_thread" data-title="Ask · conversation or independent questions"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="ask_thread" value="A"><b>A</b><span class="txt">Bounded session turns about this result</span><span class="rec-pill a">Astra rec</span></label>
+      <label class="opt"><input type="radio" name="ask_thread" value="B"><b>B</b><span class="txt">Keep independent questions; stop looking like a thread</span></label>
+      <label class="opt"><input type="radio" name="ask_thread" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="ask_thread_notes">Ask thread notes (optional) · a blend, a condition, or your own pick</label><textarea id="ask_thread_notes" name="ask_thread_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 7 · ask_dismiss ============ -->
+<section class="fight" id="f07">
+  <header><h2><b>7</b>How long a closed Ask conversation lives</h2><span class="ids">Astra F02 · AskResultEntry.swift:54 · AskScreen.swift:44, :155</span></header>
+  <p class="ctx">Every time Ask opens it builds a new journey; the exchanges and the half-typed draft are view state. Closing with X cancels the request in flight, and opening Ask again from the same result starts with an empty conversation. Someone who closes Ask to look at a number on the result, then comes back to keep going, finds their explanation gone. There is no authorised chat-history feature and nobody is proposing one; the question is only the lifetime of the thread while the same result is still open. This is separate from TF21-ASK-3 (backgrounding must not kill an in-flight Ask, in flight on PR 192) and from any global Ask tab. Fable did not raise it.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="a">Astra recommends</span></p>
+      <h3><b>A</b> Keep the thread in memory for the open result only</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>7:24</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Ask Sweet AI</span><span class="hit blank"></span></div>
+        <div class="content" style="padding-bottom:0">
+          <div class="eye" style="padding:14px 0 10px">About your Vital Glimpse</div>
+          <div class="bubble them">Hi! Want to ask about your Vital Glimpse? Your heart rate read 62 bpm. How can I help?</div>
+          <div class="anchor"><span>Heart rate<small>Captured Sep 16, 2026 at 8:42 AM</small></span><span>62 bpm</span></div>
+          <div class="bubble me">Is that in my usual range?</div>
+          <div class="bubble them">Yes. 62 bpm sits inside the range from your last few Vital Glimpses, so this check looks like your usual.</div>
+          <div class="annobadge"><i>2</i>Closed with X, reopened from the same result: still here</div>
+        </div>
+        <div class="composer"><div class="field typed">And my blood pres<span class="send blue"><svg><use href="#up"/></svg></span></div></div>
+      </div></div>
+      <p class="cap"><b>Back where she left it.</b> The exchange and the half-typed draft are kept while that result is open. Leaving the result, deleting it, or relaunching the app clears them; a crash does not revive in-flight work. The badge is a note, not UI.</p>
+      <ul class="pc">
+        <li class="p">A glance at the result costs nothing; the explanation is still there on return.</li>
+        <li class="p">Still nothing stored: memory only, cleared with the result. No history product implied.</li>
+        <li class="c">Two lifetimes to explain: a result and its thread. An unfinished draft can surprise her when she returns.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src">As shipped on PR 192</p>
+      <h3><b>B</b> Empty on every open</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>7:24</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Ask Sweet AI</span><span class="hit blank"></span></div>
+        <div class="content" style="padding-bottom:0">
+          <div class="eye" style="padding:14px 0 10px">About your Vital Glimpse</div>
+          <div class="bubble them">Hi! Want to ask about your Vital Glimpse? Your heart rate read 62 bpm. How can I help?</div>
+          <div class="anchor"><span>Heart rate<small>Captured Sep 16, 2026 at 8:42 AM</small></span><span>62 bpm</span></div>
+          <div class="annobadge"><i>2</i>Closed with X, reopened from the same result: fresh</div>
+        </div>
+        <div class="composer"><div class="field">Ask about your check<span class="send blue"><svg><use href="#up"/></svg></span></div></div>
+      </div></div>
+      <p class="cap"><b>Every open starts clean.</b> The opener and the anchor, nothing else. The question she asked a minute ago is gone, along with anything she was typing.</p>
+      <ul class="pc">
+        <li class="p">Simplest rule: Ask is a sheet, and a sheet forgets. Nothing to clear, nothing to explain.</li>
+        <li class="p">Nothing to change.</li>
+        <li class="c">Closing to check a number loses the conversation; the X becomes a thing to fear.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>Not raised as a fight in Fable's catalog. Board read: (A). Messages does not forget when you glance at something else, and the Ask screen was just asked to behave like Messages.</div>
+    <div class="a"><span>Astra</span>Keep the thread and draft in memory for the lifetime of the same open result, with explicit clearing when that result is removed. Do not persist across relaunch or revive in-flight work after a crash. Distinct from ASK-3 background continuity and from a global Ask tab.</div>
+  </div>
+  <fieldset class="pick" data-decision="ask_dismiss" data-title="Ask · thread lifetime after close"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="ask_dismiss" value="A"><b>A</b><span class="txt">Keep the thread in memory for the open result only</span><span class="rec-pill a">Astra rec</span></label>
+      <label class="opt"><input type="radio" name="ask_dismiss" value="B"><b>B</b><span class="txt">Empty on every open</span><span class="rec-pill n">As shipped</span></label>
+      <label class="opt"><input type="radio" name="ask_dismiss" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="ask_dismiss_notes">Ask reopen notes (optional) · a blend, a condition, or your own pick</label><textarea id="ask_dismiss_notes" name="ask_dismiss_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 8 · saved_manage ============ -->
+<section class="fight" id="f08">
+  <header><h2><b>8</b>Managing the saved check she is already looking at</h2><span class="ids">Astra F04 · SweetSettingsScreen.swift:59, :116 · HistoryDataControlsSheet.swift:212 · HistorySavedResultScreen.swift:27</span></header>
+  <p class="ctx">Delete, export, add a note, change the time and “not mine” all live in Settings › Your saved checks: a job picker, then a record picker, then the action. From a saved result there is no way to do any of it; she leaves the result, opens Settings, picks the job, and finds the same record again in a list. Astra says one subordinate Manage entry on the saved result should open the existing management action with that record already selected, keeping Back and Ask in their established roles and adding no pill row; where exactly it sits is the founder's. Bulk work and export stay in Settings either way. Fable's catalog did not raise it.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="a">Astra recommends</span> · placement is the founder's</p>
+      <h3><b>A</b> One Manage entry on the saved result</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>7:11</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#chev"/></svg></span><span class="t">Saved Skin check</span><span class="hit ask"><svg><use href="#s24"/></svg></span></div>
+        <div class="content">
+          <div class="allobs mt12"><div class="h"><span>All 15 observations</span><svg style="width:16px;height:16px;color:var(--muted)"><use href="#fwd"/></svg></div><div class="bar"><i style="width:67%;background:var(--teal)"></i><i style="width:20%;background:var(--caution)"></i><i style="width:13%;background:var(--magenta)"></i></div><div class="cnt"><span class="chip teal s12"><i class="bg-teal"></i>10 doing well</span><span class="chip amber s12"><i class="bg-amber"></i>3 worth attention</span><span class="chip mag s12"><i class="bg-mag"></i>2 need care</span></div></div>
+          <div class="selfie mt12"></div>
+          <div class="prov">Saved result. Opening it runs no new check. From your selfie · Sep 16, 2026 at 12:49 PM · kept on this iPhone.</div>
+          <div class="tert" style="justify-content:flex-end;gap:6px;font-size:12px;min-height:40px"><span>Manage this check</span><svg style="width:15px;height:15px"><use href="#arrow"/></svg></div>
+          <div class="honest">Wellness estimates, not a diagnosis or lab test.</div>
+        </div>
+        <div class="scrim"></div>
+        <div class="sheet">
+          <div class="grab"></div>
+          <div class="h17">This Skin check</div>
+          <div class="line12 mt6">Sep 16, 2026 at 12:49 PM · the same tools as Settings › Your saved checks</div>
+          <div class="setgroup mt12">
+            <div class="setrow">Add a note<svg class="chev" style="margin-left:auto"><use href="#fwd"/></svg></div>
+            <div class="setrow">Change the time<svg class="chev" style="margin-left:auto"><use href="#fwd"/></svg></div>
+            <div class="setrow">Not mine<svg class="chev" style="margin-left:auto"><use href="#fwd"/></svg></div>
+            <div class="setrow mag">Delete this check</div>
+          </div>
+          <div class="btn secondary" style="background:#fff">Cancel</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>The end of the saved result, with one quiet door.</b> “Manage this check”, a 12-point tertiary under the provenance, opens the existing correction and delete actions with this record already chosen. Back and Ask stay where they are. Export and delete-all stay in Settings.</p>
+      <ul class="pc">
+        <li class="p">Delete or correct the thing you are looking at, in one tap, without hunting for it in a list.</li>
+        <li class="p">Reuses the shipped sheet and its confirmations; no new pill row near Back and Ask.</li>
+        <li class="c">A second place to manage data; the same job now has two doors (Settings keeps its own).</li>
+        <li class="c">Where the door goes is still a choice: the page end, the bar, or a long-press.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src">As shipped on PR 192</p>
+      <h3><b>B</b> Keep management only in Settings</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>7:12</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit blank"></span><span class="t">Settings</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="h">Make yourself</div><div class="em">at home.</div></div>
+          <div class="setgroup">
+            <div class="setrow">Units<span class="v"><span class="seg" style="display:inline-flex;width:150px"><span class="on">Imperial</span><span>Metric</span></span></span></div>
+            <div class="setrow">Check reminders<span class="v">Off</span><span class="switch off"></span></div>
+          </div>
+          <div class="setgroup mt12">
+            <div class="setrow">Profile<span class="sub"></span><span class="v">Height, weight &amp; details</span><svg class="chev"><use href="#fwd"/></svg></div>
+            <div class="setrow">Apple Health<span class="v">Connected</span><svg class="chev"><use href="#fwd"/></svg></div>
+            <div class="setrow" style="color:var(--magenta);font-weight:600">Your saved checks<span class="v">Delete, export, correct</span><svg class="chev"><use href="#fwd"/></svg></div>
+            <div class="setrow">About Sweet<svg class="chev" style="margin-left:auto"><use href="#fwd"/></svg></div>
+          </div>
+        </div>
+        <div class="scrim"></div>
+        <div class="sheet">
+          <div class="grab"></div>
+          <div class="h17">Your saved checks</div>
+          <div class="line12 mt6">Choose what to do, then choose the check.</div>
+          <div class="setgroup mt12">
+            <div class="setrow">Correct a check<span class="sub"></span><svg class="chev" style="margin-left:auto"><use href="#fwd"/></svg></div>
+            <div class="setrow">Export your checks<svg class="chev" style="margin-left:auto"><use href="#fwd"/></svg></div>
+            <div class="setrow">Delete a check<svg class="chev" style="margin-left:auto"><use href="#fwd"/></svg></div>
+            <div class="setrow mag">Delete all checks</div>
+          </div>
+          <div class="btn secondary" style="background:#fff">Cancel</div>
+        </div>
+        <div class="tabbar"><div class="tab"><svg><use href="#home"/></svg></div><div class="tab"><svg><use href="#heart"/></svg></div><div class="tab"><svg><use href="#clock"/></svg></div><div class="tab on"><svg><use href="#gear"/></svg></div></div>
+      </div></div>
+      <p class="cap"><b>The shipped path.</b> Leave the result, Settings tab, Your saved checks, pick the job, then pick the record from a list by date. Four screens from the check she was reading to the action on it.</p>
+      <ul class="pc">
+        <li class="p">One place for everything that changes stored data; the saved result stays a pure record.</li>
+        <li class="p">Nothing to change.</li>
+        <li class="c">Deleting the check on screen means finding it again by its timestamp in a list.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>Not raised as a fight in Fable's catalog. Board read: (A), the door at the end of the page as drawn, under the provenance and away from Back and Ask; a long-press is invisible and a bar button crowds the mark.</div>
+    <div class="a"><span>Astra</span>One subordinate Manage/overflow entry on the saved result opens the existing management action with that record selected; bulk work and export stay in Settings. Keep Ask and Back in their established roles. Exact placement needs the founder's choice; no new pill row.</div>
+  </div>
+  <fieldset class="pick" data-decision="saved_manage" data-title="Saved result · Manage entry"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="saved_manage" value="A"><b>A</b><span class="txt">One Manage/overflow on the saved result</span><span class="rec-pill a">Astra rec</span></label>
+      <label class="opt"><input type="radio" name="saved_manage" value="B"><b>B</b><span class="txt">Keep management only in Settings</span><span class="rec-pill n">As shipped</span></label>
+      <label class="opt"><input type="radio" name="saved_manage" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="saved_manage_notes">Manage saved notes (optional) · where the door goes, a blend, or your own pick</label><textarea id="saved_manage_notes" name="saved_manage_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 9 · history_range ============ -->
+<section class="fight" id="f09">
+  <header><h2><b>9</b>Finding an old check in a large History</h2><span class="ids">Astra F05 · SweetHistoryScreen.swift:143, :260</span></header>
+  <p class="ctx">History has the filter chips (All, Vital Glimpse, Skin, Gut) and dated groups, and it renders every dated row at once in a plain vertical stack. Date-range controls exist in the code and are deliberately unmounted “until requested”, which is a product choice, not a forgotten toggle. With two checks a day for a few months the list is hundreds of rows and one long scroll. Astra proposes a compact range menu in the existing filter area with rows that load as she scrolls; it will not mount a withheld control on its own. Its A16 fix to the misleading hidden-range empty copy is agreed regardless. Fable's History items (no Voice chip until Voice can be saved, Compare after the list) are agreed and not here.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="a">Astra recommends</span></p>
+      <h3><b>A</b> Compact date range in the filter row, rows load as you scroll</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:56</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit blank"></span><span class="t">History</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="chips"><span class="on">All</span><span>Vital Glimpse</span><span>Skin</span><span>Gut</span></div>
+          <div style="display:flex;justify-content:flex-end"><span class="range" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--magenta);padding:4px 0">Last 30 days<svg style="width:12px;height:12px"><use href="#down"/></svg></span></div>
+          <div class="dayhead first">Wednesday · Sep 16</div>
+          <div class="hisrow"><svg class="art"><use href="#art-skin"/></svg><div class="mid"><div class="t">Skin check</div><div class="m">Lower eyelids</div><span class="chip mag s12"><i class="bg-mag"></i>Needs care</span></div><span class="time">12:49 PM</span></div>
+          <div class="hisrow"><svg class="art"><use href="#art-face"/></svg><div class="mid"><div class="t">Vital Glimpse</div><span class="chip teal s12"><i class="bg-teal"></i>Around your usual</span></div><span class="time">8:42 AM</span></div>
+          <div class="dayhead">Tuesday · Sep 15</div>
+          <div class="hisrow"><svg class="art"><use href="#art-face"/></svg><div class="mid"><div class="t">Vital Glimpse</div><span class="chip amber s12"><i class="bg-amber"></i>Mostly familiar · one change</span></div><span class="time">9:40 AM</span></div>
+          <div class="dayhead">Saturday · Sep 12</div>
+          <div class="hisrow"><svg class="art"><use href="#art-gut"/></svg><div class="mid"><div class="t">Gut check</div><div class="m">Soft. Well formed.</div></div><span class="time">8:10 AM</span></div>
+          <div class="hisrow"><svg class="art"><use href="#art-face"/></svg><div class="mid"><div class="t">Vital Glimpse</div><span class="chip grey s12"><i class="bg-grey"></i>Getting to know your usual</span></div><span class="time">8:02 AM</span></div>
+          <div class="line12 mt16" style="text-align:center">Showing the last 30 days · 5 checks. Older checks: change the range.</div>
+        </div>
+        <div class="tabbar"><div class="tab"><svg><use href="#home"/></svg></div><div class="tab"><svg><use href="#heart"/></svg></div><div class="tab on"><svg><use href="#clock"/></svg></div><div class="tab"><svg><use href="#gear"/></svg></div></div>
+      </div></div>
+      <p class="cap"><b>The shipped rows, plus one small menu.</b> “Last 30 days” sits under the chips, right-aligned in the filter area, and offers 30 days, 90 days, this year, all. The list under it is lazy, so a year of checks costs nothing until she scrolls to it, and the footer says what the range is hiding.</p>
+      <ul class="pc">
+        <li class="p">Yesterday is at the top and March is three taps away, not three hundred rows.</li>
+        <li class="p">Uses the range code that already exists; the default keeps today's semantics.</li>
+        <li class="c">One more control on a tab that is already a list with a filter; a tester with nine checks never needs it.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src">As shipped on PR 192</p>
+      <h3><b>B</b> Every row, no range control</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:56</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit blank"></span><span class="t">History</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="chips"><span class="on">All</span><span>Vital Glimpse</span><span>Skin</span><span>Gut</span></div>
+          <div class="dayhead first">Wednesday · Sep 16</div>
+          <div class="hisrow"><svg class="art"><use href="#art-skin"/></svg><div class="mid"><div class="t">Skin check</div><div class="m">Lower eyelids</div><span class="chip mag s12"><i class="bg-mag"></i>Needs care</span></div><span class="time">12:49 PM</span></div>
+          <div class="hisrow"><svg class="art"><use href="#art-face"/></svg><div class="mid"><div class="t">Vital Glimpse</div><span class="chip teal s12"><i class="bg-teal"></i>Around your usual</span></div><span class="time">8:42 AM</span></div>
+          <div class="dayhead">Tuesday · Sep 15</div>
+          <div class="hisrow"><svg class="art"><use href="#art-face"/></svg><div class="mid"><div class="t">Vital Glimpse</div><span class="chip amber s12"><i class="bg-amber"></i>Mostly familiar · one change</span></div><span class="time">9:40 AM</span></div>
+          <div class="dayhead">Saturday · Sep 12</div>
+          <div class="hisrow"><svg class="art"><use href="#art-gut"/></svg><div class="mid"><div class="t">Gut check</div><div class="m">Soft. Well formed.</div></div><span class="time">8:10 AM</span></div>
+          <div class="hisrow"><svg class="art"><use href="#art-face"/></svg><div class="mid"><div class="t">Vital Glimpse</div><span class="chip grey s12"><i class="bg-grey"></i>Getting to know your usual</span></div><span class="time">8:02 AM</span></div>
+          <div class="dayhead">Friday · Sep 11</div>
+          <div class="hisrow dim"><svg class="art"><use href="#art-face"/></svg><div class="mid"><div class="t">Vital Glimpse</div><span class="chip grey s12"><i class="bg-grey"></i>Getting to know your usual</span></div><span class="time">7:58 AM</span></div>
+        </div>
+        <div class="tabbar"><div class="tab"><svg><use href="#home"/></svg></div><div class="tab"><svg><use href="#heart"/></svg></div><div class="tab on"><svg><use href="#clock"/></svg></div><div class="tab"><svg><use href="#gear"/></svg></div></div>
+      </div></div>
+      <p class="cap"><b>As shipped.</b> Chips, dated groups, every row drawn at once, no end in sight. Fine at nine checks; the fight is about the phone that has two hundred.</p>
+      <ul class="pc">
+        <li class="p">Nothing to learn: one list, one filter, scroll.</li>
+        <li class="p">Nothing to change; the withheld control stays withheld until asked for.</li>
+        <li class="c">Every row renders on open; a long history is slow to build and slower to search by thumb.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>Not raised as a fight in Fable's catalog. Board read: (A) when a tester's history is long enough to need it; the menu as drawn, in the chip row, not a second row.</div>
+    <div class="a"><span>Astra</span>A compact date-range menu in the existing filter area, with lazy dated rows and the existing default history semantics. Do not silently mount a withheld control. Correct the misleading hidden-range empty copy under A16 regardless.</div>
+  </div>
+  <fieldset class="pick" data-decision="history_range" data-title="History · date range and lazy rows"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="history_range" value="A"><b>A</b><span class="txt">Compact date range plus lazy rows</span><span class="rec-pill a">Astra rec</span></label>
+      <label class="opt"><input type="radio" name="history_range" value="B"><b>B</b><span class="txt">Keep all rows, no range control</span><span class="rec-pill n">As shipped</span></label>
+      <label class="opt"><input type="radio" name="history_range" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="history_range_notes">History range notes (optional) · a blend, a condition, or your own pick</label><textarea id="history_range_notes" name="history_range_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 10 · not_mine_undo ============ -->
+<section class="fight" id="f10">
+  <header><h2><b>10</b>Can “not mine” be taken back?</h2><span class="ids">Astra F06 · SavedCheckCorrection.swift:58, :257 · SavedHistoryRead.swift:25</span></header>
+  <p class="ctx">Corrections are append-only: a note, a new time, or “not mine”. Marking a check not mine keeps the record but drops it out of her patterns and her usual for good; there is explicitly no reversal, and a later note cannot undo the exclusion. One mistaken tap on the wrong record is permanent. Astra proposes a reinstatement correction, “Include in my patterns”, that appends to the same history and leaves the original record untouched; until that exists, the sheet should say plainly what exclusion does before Save. Fable's catalog did not raise it.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="a">Astra recommends</span></p>
+      <h3><b>A</b> A reinstatement correction: “Include in my patterns”</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>7:14</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#chev"/></svg></span><span class="t">Correct a check</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="eye">Vital Glimpse · Sep 14, 2026 at 7:58 AM</div><div class="h">This check.</div><div class="sub">Corrections are added, never overwritten. The original stays as it was.</div></div>
+          <div class="pcard" style="background:var(--peach);border-color:transparent"><span class="chip amber"><i class="bg-amber"></i>Not in your patterns</span><div class="line14 mt8">Marked not mine on Sep 14. It is kept, but it does not count toward your usual.</div></div>
+          <div class="btn primary">Include in my patterns</div>
+          <div class="line12 mt8" style="text-align:center">Adds a correction. The check counts toward your usual again from now on.</div>
+          <div class="h17 mt22">Also</div>
+          <div class="setgroup mt8">
+            <div class="setrow">Add a note<svg class="chev" style="margin-left:auto"><use href="#fwd"/></svg></div>
+            <div class="setrow">Change the time<span class="v">7:58 AM</span><svg class="chev"><use href="#fwd"/></svg></div>
+          </div>
+          <div class="h17 mt22">Corrections so far</div>
+          <div class="setgroup mt8">
+            <div class="setrow" style="min-height:52px">Not mine<span class="v">Sep 14, 8:05 AM</span></div>
+          </div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>The correction sheet for a check already marked not mine.</b> One primary puts it back in her patterns by appending a reinstatement, not by editing the past; the list at the end shows both entries afterwards. Nothing is called “undo”.</p>
+      <ul class="pc">
+        <li class="p">A wrong tap is recoverable; the record and every correction stay in the history.</li>
+        <li class="p">Matches the append-only rule instead of bending it; the usual recomputes from the truth.</li>
+        <li class="c">A new correction kind, a new read rule, and tests for exclude, include, exclude again.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src">On the table · as shipped, said plainly</p>
+      <h3><b>B</b> Keep it irreversible, and say so before Save</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>7:14</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#chev"/></svg></span><span class="t">Correct a check</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="rt tight"><div class="eye">Vital Glimpse · Sep 14, 2026 at 7:58 AM</div><div class="h">This check.</div><div class="sub">Corrections are added, never overwritten. The original stays as it was.</div></div>
+          <div class="setgroup">
+            <div class="setrow">Add a note<svg class="chev" style="margin-left:auto"><use href="#fwd"/></svg></div>
+            <div class="setrow">Change the time<span class="v">7:58 AM</span><svg class="chev"><use href="#fwd"/></svg></div>
+            <div class="setrow">Not mine<span class="switch" style="margin-left:auto"></span></div>
+          </div>
+          <div class="pcard mt12" style="background:var(--rose);border-color:transparent"><span class="chip mag"><i class="bg-mag"></i>This cannot be undone</span><div class="line14 mt8">Saving keeps the check but removes it from your patterns and your usual for good. Sweet has no way to put it back.</div></div>
+          <div class="btn primary">Save</div>
+          <div class="btn secondary">Cancel</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>The shipped sheet, with the truth above Save.</b> The switch does what it does today; the card tells her it is permanent before she confirms.</p>
+      <ul class="pc">
+        <li class="p">No new data rule; the append-only semantics stay exactly as designed.</li>
+        <li class="p">Honest: nobody discovers the permanence afterwards.</li>
+        <li class="c">A warning card is the caption that says the screen is wrong; one slip still costs a check forever.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>Not raised as a fight in Fable's catalog. Board read: (A). Easy, obvious, delightful includes forgiving; a permanent switch with a red card is neither.</div>
+    <div class="a"><span>Astra</span>Append a reinstatement correction and expose “Include in my patterns”, preserving the original record and full correction history. Until a decision, clearly say what exclusion does before Save. Do not call a later note an undo or mutate the original check.</div>
+  </div>
+  <fieldset class="pick" data-decision="not_mine_undo" data-title="Not mine · reinstatement"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="not_mine_undo" value="A"><b>A</b><span class="txt">Reinstatement correction: “Include in my patterns”</span><span class="rec-pill a">Astra rec</span></label>
+      <label class="opt"><input type="radio" name="not_mine_undo" value="B"><b>B</b><span class="txt">Keep irreversible; say so before Save</span></label>
+      <label class="opt"><input type="radio" name="not_mine_undo" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="not_mine_undo_notes">Not mine notes (optional) · a blend, a condition, or your own pick</label><textarea id="not_mine_undo_notes" name="not_mine_undo_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 11 · skin_one_line ============ -->
+<section class="fight" id="f11">
+  <header><h2><b>11</b>Does “good news first” also rewrite the one-line Skin summary?</h2><span class="ids">Astra F07 · HistoryRowBand.swift:3, :24 · SkinPresentationBand.swift:48 · TF21-SORT-1</span></header>
+  <p class="ctx">TF21-SORT-1 is in flight: everywhere a Skin result shows groups of cards, the order is Doing well, then Needs care, then Worth attention. A History row and the Health tab's Skin card have room for one line, and that line is chosen by an earlier binding: the lowest-scored concern and its band, the most informative single fact. A single line cannot show a sequence, so it is unclear whether the new order supersedes that rule. Astra keeps the informative one-liner and applies good-first to the expanded groups, and asks for an explicit call before touching the line. Fable's catalog describes the same row (“lead with the lowest concern and its band”) and did not raise it. The Trends grouping miss under SORT-1 is a separate, agreed fix.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="a">Astra recommends</span> · as shipped</p>
+      <h3><b>A</b> Keep the single-concern summary; groups stay good-first</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:56</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit blank"></span><span class="t">History</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="chips"><span class="on">All</span><span>Vital Glimpse</span><span>Skin</span><span>Gut</span></div>
+          <div class="dayhead first">Wednesday · Sep 16</div>
+          <div class="hisrow" style="outline:2px dashed var(--magenta);outline-offset:4px;border-radius:8px"><svg class="art"><use href="#art-skin"/></svg><div class="mid"><div class="t">Skin check</div><div class="m">Lower eyelids</div><span class="chip mag s12"><i class="bg-mag"></i>Needs care</span></div><span class="time">12:49 PM</span></div>
+          <div class="hisrow"><svg class="art"><use href="#art-face"/></svg><div class="mid"><div class="t">Vital Glimpse</div><span class="chip teal s12"><i class="bg-teal"></i>Around your usual</span></div><span class="time">8:42 AM</span></div>
+          <div class="dayhead">Saturday · Sep 12</div>
+          <div class="hisrow"><svg class="art"><use href="#art-skin"/></svg><div class="mid"><div class="t">Skin check</div><div class="m">Texture</div><span class="chip teal s12"><i class="bg-teal"></i>Doing well</span></div><span class="time">7:31 AM</span></div>
+          <div class="hisrow"><svg class="art"><use href="#art-gut"/></svg><div class="mid"><div class="t">Gut check</div><div class="m">Soft. Well formed.</div></div><span class="time">8:10 AM</span></div>
+          <div class="pcard mt18"><div class="eye">Inside the Sep 16 check · groups good-first</div><div class="grp" style="font-size:14px;margin:8px 0 4px"><i class="bg-teal"></i>Doing well <small>10</small></div><div class="grp" style="font-size:14px;margin:4px 0"><i class="bg-mag"></i>Needs care <small>2</small></div><div class="grp" style="font-size:14px;margin:4px 0 0"><i class="bg-amber"></i>Worth attention <small>3</small></div></div>
+        </div>
+        <div class="tabbar"><div class="tab"><svg><use href="#home"/></svg></div><div class="tab"><svg><use href="#heart"/></svg></div><div class="tab on"><svg><use href="#clock"/></svg></div><div class="tab"><svg><use href="#gear"/></svg></div></div>
+      </div></div>
+      <p class="cap"><b>The row names the thing that most needs her.</b> Sep 16 reads “Lower eyelids · Needs care” because that is the lowest score in the check; a check with nothing to care for reads “Texture · Doing well”. Open it and the groups are in the good-first order. The dashed outline marks the row in question; the card under the list shows the opened order and is a note, not UI.</p>
+      <ul class="pc">
+        <li class="p">One line carries the one fact worth a tap; a row full of good news never hides a Needs care.</li>
+        <li class="p">Nothing to change; the earlier binding and SORT-1 both hold, each where it applies.</li>
+        <li class="c">The list can look like bad news first, which is the feeling Salim asked to remove from the cards.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src">On the table</p>
+      <h3><b>B</b> Change the one-line summary too: lead with the good news</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>9:56</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit blank"></span><span class="t">History</span><span class="hit blank"></span></div>
+        <div class="content">
+          <div class="chips"><span class="on">All</span><span>Vital Glimpse</span><span>Skin</span><span>Gut</span></div>
+          <div class="dayhead first">Wednesday · Sep 16</div>
+          <div class="hisrow" style="outline:2px dashed var(--magenta);outline-offset:4px;border-radius:8px"><svg class="art"><use href="#art-skin"/></svg><div class="mid"><div class="t">Skin check</div><div class="m">Texture</div><span class="chip teal s12"><i class="bg-teal"></i>Doing well</span></div><span class="time">12:49 PM</span></div>
+          <div class="hisrow"><svg class="art"><use href="#art-face"/></svg><div class="mid"><div class="t">Vital Glimpse</div><span class="chip teal s12"><i class="bg-teal"></i>Around your usual</span></div><span class="time">8:42 AM</span></div>
+          <div class="dayhead">Saturday · Sep 12</div>
+          <div class="hisrow"><svg class="art"><use href="#art-skin"/></svg><div class="mid"><div class="t">Skin check</div><div class="m">Texture</div><span class="chip teal s12"><i class="bg-teal"></i>Doing well</span></div><span class="time">7:31 AM</span></div>
+          <div class="hisrow"><svg class="art"><use href="#art-gut"/></svg><div class="mid"><div class="t">Gut check</div><div class="m">Soft. Well formed.</div></div><span class="time">8:10 AM</span></div>
+          <div class="pcard mt18"><div class="eye">Inside the Sep 16 check · same groups</div><div class="grp" style="font-size:14px;margin:8px 0 4px"><i class="bg-teal"></i>Doing well <small>10</small></div><div class="grp" style="font-size:14px;margin:4px 0"><i class="bg-mag"></i>Needs care <small>2</small></div><div class="grp" style="font-size:14px;margin:4px 0 0"><i class="bg-amber"></i>Worth attention <small>3</small></div></div>
+        </div>
+        <div class="tabbar"><div class="tab"><svg><use href="#home"/></svg></div><div class="tab"><svg><use href="#heart"/></svg></div><div class="tab on"><svg><use href="#clock"/></svg></div><div class="tab"><svg><use href="#gear"/></svg></div></div>
+      </div></div>
+      <p class="cap"><b>The row follows the card order: the first Doing well.</b> Sep 16, the check with two Needs care cards, now reads “Texture · Doing well”, the same line as the Sep 12 check with nothing to care for. The Health tab's Skin card would change the same way.</p>
+      <ul class="pc">
+        <li class="p">One rule everywhere, rows included: good news first, always.</li>
+        <li class="c">Two very different checks get the same line; the one fact worth a tap is hidden until she opens it.</li>
+        <li class="c">Changes the Health tab's Skin card and every History row, against the earlier binding that chose the informative concern.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>Not raised as a fight in Fable's catalog; the walk records the shipped rule without objection. Board read: (A). Good-first orders a group; a one-line summary is a different job, and its job is to tell her whether to open the check.</div>
+    <div class="a"><span>Astra</span>Keep that single-concern summary informative and apply Doing well first to expanded groups. Ask for explicit founder resolution before changing the single-line selection. This ambiguity does not excuse the concrete Trends grouping miss under SORT-1.</div>
+  </div>
+  <fieldset class="pick" data-decision="skin_one_line" data-title="Skin · one-line summary vs good-first"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="skin_one_line" value="A"><b>A</b><span class="txt">Keep the single-concern summary; groups stay good-first</span><span class="rec-pill a">Astra rec</span></label>
+      <label class="opt"><input type="radio" name="skin_one_line" value="B"><b>B</b><span class="txt">Change the one-line summary too</span></label>
+      <label class="opt"><input type="radio" name="skin_one_line" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="skin_one_line_notes">Skin one-liner notes (optional) · a blend, a condition, or your own pick</label><textarea id="skin_one_line_notes" name="skin_one_line_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 12 · gut_library_review ============ -->
+<section class="fight" id="f12">
+  <header><h2><b>12</b>Does picking a Gut photo from the library also confirm sending it?</h2><span class="ids">Astra F09 · StoolAnalyzerGutSystemPhotoPresenter.swift:146, :159, :533</span></header>
+  <p class="ctx">With the camera, the Gut check shows the still first (“Use this photo?”, Retake or Use this photo) before anything leaves the phone. From the library, the picked image is decoded and sent straight on; there is no review stage. The first-launch consent already covers the transport, so this is not an unconsented send; it is the wrong recent photo going out with no chance to catch it. Astra proposes reusing the same review station after a library pick, and says not to add a new confirmation policy quietly under an appearance fix. Fable's catalog did not raise it.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="a">Astra recommends</span></p>
+      <h3><b>A</b> The same Review and Use photo after a library pick</h3>
+      <div class="shot"><div class="phone dark">
+        <div class="reviewphoto"></div>
+        <div class="fade"></div>
+        <div class="stagebar">
+          <div class="sbar"><span>7:40</span><span class="island"></span><span>▮▮▮</span></div>
+          <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Use this photo?</span><span class="hit blank"></span></div>
+        </div>
+        <div class="stagebtns">
+          <div style="text-align:center;margin-bottom:10px"><span style="display:inline-block;font-size:12px;color:#fff;background:rgba(0,0,0,.55);border-radius:999px;padding:6px 12px">From your library · Sep 16, 7:38 AM · nothing is sent until you choose</span></div>
+          <div class="btn light">Use this photo</div>
+          <div class="btn ghost">Choose another</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>The camera's review station, reused.</b> The picked image fills the stage under the same “Use this photo?” title; Retake becomes Choose another. One extra tap, and the wrong picture never leaves the phone.</p>
+      <ul class="pc">
+        <li class="p">Camera and library end the same way: look, then send. One instrument.</li>
+        <li class="p">A mis-tap in the picker is recoverable before anything is sent.</li>
+        <li class="c">One more tap on the path Salim asked to be short; the picker already showed her the photo.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src">As shipped on PR 192</p>
+      <h3><b>B</b> Library sends on pick, no extra tap</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>7:40</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Gut check</span><span class="hit blank"></span></div>
+        <div class="scrim"></div>
+        <div class="picker">
+          <div class="ph"><span>Cancel</span><b>Recents</b><span style="visibility:hidden">Add</span></div>
+          <div class="pgrid">
+            <i style="background:#B8A48F"></i><i style="background:#9AA7B4"></i><i style="background:#C9B7A6"></i>
+            <i class="sel" style="background:radial-gradient(circle at 50% 55%,#8E6B48,#5E4630 45%,#E7E3DC 46%)"></i><i style="background:#A6B39C"></i><i style="background:#D1C4B6"></i>
+            <i style="background:#8F9BA8"></i><i style="background:#C4B29F"></i><i style="background:#B3BFC9"></i>
+            <i style="background:#CDBBA9"></i><i style="background:#9DA894"></i><i style="background:#BFB2A3"></i>
+            <i style="background:#A9B6C2"></i><i style="background:#C8B6A5"></i><i style="background:#98A5B1"></i>
+          </div>
+          <div class="annobadge abs" style="bottom:120px"><i>1</i>One tap: this photo is on its way</div>
+        </div>
+        <div class="homebar"><i></i></div>
+      </div></div>
+      <p class="cap"><b>The iOS picker, and that is the whole path.</b> Tapping a photo returns it and the check starts; the next thing she sees is the waiting screen. The badge is a note, not UI.</p>
+      <ul class="pc">
+        <li class="p">The shortest path to a result; the picker is itself a big preview.</li>
+        <li class="p">Nothing to change.</li>
+        <li class="c">A slip of the thumb sends the wrong photo, and the only way back is a failed or wrong result.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>Not raised as a fight in Fable's catalog. Board read: (A). The camera already earns the review tap; a photo of last night's dinner leaving the phone by mistake is the worse surprise.</div>
+    <div class="a"><span>Astra</span>Reuse the same existing review/Use photo station after library selection. Make picking the wrong image recoverable before submission. Do not silently add a new confirmation policy during an appearance fix.</div>
+  </div>
+  <fieldset class="pick" data-decision="gut_library_review" data-title="Gut · review after library pick"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="gut_library_review" value="A"><b>A</b><span class="txt">Same Review/Use after a library pick</span><span class="rec-pill a">Astra rec</span></label>
+      <label class="opt"><input type="radio" name="gut_library_review" value="B"><b>B</b><span class="txt">Keep library send without the extra tap</span><span class="rec-pill n">As shipped</span></label>
+      <label class="opt"><input type="radio" name="gut_library_review" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="gut_library_review_notes">Gut library notes (optional) · a blend, a condition, or your own pick</label><textarea id="gut_library_review_notes" name="gut_library_review_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 13 · skin_boundary ============ -->
+<section class="fight" id="f13">
+  <header><h2><b>13</b>A rounded 45 in the below-45 band</h2><span class="ids">Astra F10 · SkinPresentationBand.swift:21 · SweetReadingNumber.swift:31 · LiveSkinJourneyMapping.swift:49</span></header>
+  <p class="ctx">Skin bands are cut on the raw score: below 45 is Needs care, 45 to 70 is Worth attention, above 70 is Doing well. The visible number is rounded to a whole. A raw 44.84 is classified Needs care and displayed as 45, so the detail page reads “Needs care · 45 out of 100” beside a rule that says Needs care ends below 45. The same happens at 70. Both the raw cut and the whole-number display are established choices, so changing either, or adding decimals, would pick a side silently. Astra proposes boundary-aware wording only where the rounding crosses the line. Fable's catalog did not raise it.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src"><span class="a">Astra recommends</span></p>
+      <h3><b>A</b> Boundary-aware wording: “Under 45”</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>7:09</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#chev"/></svg></span><span class="t">Moisture</span><span class="hit ask"><svg><use href="#s24"/></svg></span></div>
+        <div class="content">
+          <div class="rt"><div class="eye">Skin check · Sep 16, 2026 at 12:49 PM</div><div class="h">Moisture</div><div class="sub">Needs care</div></div>
+          <div class="line14" style="margin-bottom:14px">How hydrated the skin surface looks.</div>
+          <div class="panel"><div class="band"><svg><use href="#info"/></svg>Needs care</div><div class="mt12"><span class="g44" style="font-size:34px">Under 45</span> <span class="line14" style="color:var(--muted)">out of 100</span></div><div class="line13 mt8" style="color:var(--muted)">Higher is better. Just below the Worth attention line.</div></div>
+          <div class="h17 mt22">Why this needs care</div>
+          <div class="line14 mt6" style="color:var(--muted);line-height:1.5">The score sits just under the line between Needs care and Worth attention. Bands describe this photo, not urgency.</div>
+          <div class="h17 mt16">What a photo can tell us</div>
+          <div class="line14 mt6" style="color:var(--muted);line-height:1.5">Lighting and framing change results. This is how your skin looks in one photo, not how it feels.</div>
+        </div>
+        <div class="tabbar"><div class="tab"><svg><use href="#home"/></svg></div><div class="tab"><svg><use href="#heart"/></svg></div><div class="tab on"><svg><use href="#clock"/></svg></div><div class="tab"><svg><use href="#gear"/></svg></div></div>
+      </div></div>
+      <p class="cap"><b>The shipped detail page; only the number line changes, and only here.</b> When rounding would print the boundary number, the panel says “Under 45” (or “Under 70”). Every other score prints its whole number as before. The raw value and the band rule are untouched.</p>
+      <ul class="pc">
+        <li class="p">The page never contradicts itself; band and number agree at a glance.</li>
+        <li class="p">No decimals, no new thresholds; one wording rule at two numbers.</li>
+        <li class="c">A number that is sometimes a phrase; the tile and All readings need the same rule or they disagree with the detail.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src">As shipped on PR 192</p>
+      <h3><b>B</b> Keep raw classification and rounded display</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>7:09</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#chev"/></svg></span><span class="t">Moisture</span><span class="hit ask"><svg><use href="#s24"/></svg></span></div>
+        <div class="content">
+          <div class="rt"><div class="eye">Skin check · Sep 16, 2026 at 12:49 PM</div><div class="h">Moisture</div><div class="sub">Needs care</div></div>
+          <div class="line14" style="margin-bottom:14px">How hydrated the skin surface looks.</div>
+          <div class="panel"><div class="band"><svg><use href="#info"/></svg>Needs care</div><div class="mt12"><span class="g44">45</span> <span class="line14" style="color:var(--muted)">out of 100</span></div><div class="line13 mt8" style="color:var(--muted)">Higher is better.</div></div>
+          <div class="h17 mt22">Why this needs care</div>
+          <div class="line14 mt6" style="color:var(--muted);line-height:1.5">Bands describe this photo, not urgency. How your skin feels matters, too.</div>
+          <div class="h17 mt16">What a photo can tell us</div>
+          <div class="line14 mt6" style="color:var(--muted);line-height:1.5">Lighting and framing change results. This is how your skin looks in one photo, not how it feels.</div>
+          <div class="annobadge"><i>!</i>Raw 44.84 · Needs care ends below 45</div>
+        </div>
+        <div class="tabbar"><div class="tab"><svg><use href="#home"/></svg></div><div class="tab"><svg><use href="#heart"/></svg></div><div class="tab on"><svg><use href="#clock"/></svg></div><div class="tab"><svg><use href="#gear"/></svg></div></div>
+      </div></div>
+      <p class="cap"><b>As shipped.</b> The raw 44.84 is Needs care and prints as 45; the page says 45 and Needs care in the same panel. The badge is a note, not UI.</p>
+      <ul class="pc">
+        <li class="p">Whole numbers everywhere and the exact raw cut; nothing to explain in the ordinary case.</li>
+        <li class="p">Nothing to change.</li>
+        <li class="c">Two or three scores in a hundred will read as a contradiction to anyone who knows where the bands cut.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>Not raised as a fight in Fable's catalog. Board read: (A), applied wherever the number prints (tile value, All readings, detail) so the three never disagree.</div>
+    <div class="a"><span>Astra</span>Boundary-aware whole-number wording only where rounding crosses the displayed boundary, such as “under 45”, preserving the raw value and current band rule. Founder chooses the final display convention; the catalog does not change thresholds.</div>
+  </div>
+  <fieldset class="pick" data-decision="skin_boundary" data-title="Skin · rounded number at a band boundary"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="skin_boundary" value="A"><b>A</b><span class="txt">Boundary-aware wording “under 45”</span><span class="rec-pill a">Astra rec</span></label>
+      <label class="opt"><input type="radio" name="skin_boundary" value="B"><b>B</b><span class="txt">Keep raw classification vs rounded display</span><span class="rec-pill n">As shipped</span></label>
+      <label class="opt"><input type="radio" name="skin_boundary" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="skin_boundary_notes">Skin boundary notes (optional) · a blend, a condition, or your own pick</label><textarea id="skin_boundary_notes" name="skin_boundary_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<!-- ============ FIGHT 14 · ask_scope ============ -->
+<section class="fight" id="f14">
+  <header><h2><b>14</b>How much Ask may explain beyond repeating the result</h2><span class="ids">Astra F11 · upstream.mjs:19, :30 · FaceEstimateEducation.swift:72 · TF21-ASK-4</span></header>
+  <p class="ctx">The worker prompt tells the model to stay inside the supplied readings and notes and to refuse facts that are not in the result. TF21-ASK-4 is in flight: age and weight come from Profile, never from the camera's estimate, and if a fact is unknown the model says so. That leaves the question the shot shows, “What's a good heart rate for somebody my age?”, with two honest answers: a paraphrase of the result, or short general education tied to that reading, kept apart from personal facts and with no invented measurements, demographics, clinical ranges or vendor claims. Widening the scope moves the product's knowledge boundary, so it is the founder's. Whatever is chosen, the prompt then needs live-model evaluation. Fable's A32 (no disclaimer wall in every answer) is agreed and drawn here as done.</p>
+  <div class="grid">
+    <article class="opt-card">
+      <p class="src">Current prompt · as shipped</p>
+      <h3><b>A</b> Stay inside the supplied readings</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>7:22</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Ask Sweet AI</span><span class="hit blank"></span></div>
+        <div class="content" style="padding-bottom:0">
+          <div class="eye" style="padding:14px 0 10px">About your Vital Glimpse</div>
+          <div class="bubble them">Hi! Want to ask about your Vital Glimpse? Your heart rate read 62 bpm. How can I help?</div>
+          <div class="anchor"><span>Heart rate<small>Captured Sep 16, 2026 at 8:42 AM</small></span><span>62 bpm</span></div>
+          <div class="bubble me">What's a good heart rate for somebody my age?</div>
+          <div class="bubble them">This result does not say what a good heart rate is for someone who is 49. It gives one estimate: 62 bpm from this check. For what is good for you, ask your clinician.</div>
+        </div>
+        <div class="composer"><div class="field">Ask about your check<span class="send blue"><svg><use href="#up"/></svg></span></div></div>
+      </div></div>
+      <p class="cap"><b>The paraphrase.</b> Age 49 comes from Profile (ASK-4). The answer states what the result contains and what it does not, and points to a clinician. No disclaimer wall (A32).</p>
+      <ul class="pc">
+        <li class="p">Cannot invent anything; every sentence traces to the result or to Profile.</li>
+        <li class="p">The prompt as it is today; only the wall comes off.</li>
+        <li class="c">The screen is called Ask and the honest answer to most questions is “this result does not say”.</li>
+      </ul>
+    </article>
+    <article class="opt-card">
+      <p class="src"><span class="a">Astra recommends</span> · needs founder</p>
+      <h3><b>B</b> Short meaning and next-step education, no new medical facts</h3>
+      <div class="shot"><div class="phone">
+        <div class="sbar"><span>7:22</span><span class="island"></span><span>▮▮▮</span></div>
+        <div class="nav"><span class="hit"><svg><use href="#x"/></svg></span><span class="t">Ask Sweet AI</span><span class="hit blank"></span></div>
+        <div class="content" style="padding-bottom:0">
+          <div class="eye" style="padding:14px 0 10px">About your Vital Glimpse</div>
+          <div class="bubble them">Hi! Want to ask about your Vital Glimpse? Your heart rate read 62 bpm. How can I help?</div>
+          <div class="anchor"><span>Heart rate<small>Captured Sep 16, 2026 at 8:42 AM</small></span><span>62 bpm</span></div>
+          <div class="bubble me">What's a good heart rate for somebody my age?</div>
+          <div class="bubble them">Sweet can't say what is right for you at 49; your clinician can. In general, a resting heart rate is lower when you are rested and fit, and higher after coffee, stairs or stress. This check read 62 bpm, and one camera check is a snapshot, not a trend. If it looks different from your usual over a few checks, that is worth a conversation.</div>
+        </div>
+        <div class="composer"><div class="field">Ask about your check<span class="send blue"><svg><use href="#up"/></svg></span></div></div>
+      </div></div>
+      <p class="cap"><b>Meaning and a next step, in high-school words.</b> General education about the reading she asked about, kept apart from her own facts: no number range, no “normal for 49”, no diagnosis. The personal fact is still only the 62 and the age from Profile.</p>
+      <ul class="pc">
+        <li class="p">Answers the question a person actually asks; Ask earns its name.</li>
+        <li class="p">The lines are explicit: no invented measurements, demographics, clinical ranges or vendor claims.</li>
+        <li class="c">A wider door for the model to walk through; needs live evaluation and a clear line for “broad health advice”, which stays out.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="rec">
+    <div class="f"><span>Fable</span>Not raised as a fight in Fable's catalog; A32 asked only for the disclaimer wall to go. Board read: (B) drawn as above, with Salim's own three-place disclaimer law kept and “broad health advice” still refused.</div>
+    <div class="a"><span>Astra</span>Approved, concise general education tied to the selected reading, explicitly separated from personal facts and personalised conclusions. Never invent measurements, demographic facts, clinical ranges or current-vendor capabilities. Keep broad history and overall-health advice outside this decision. Actual prompt acceptance requires live-model evaluation after scope is chosen.</div>
+  </div>
+  <fieldset class="pick" data-decision="ask_scope" data-title="Ask · explanation scope beyond the result"><legend>Founder pick</legend>
+    <div class="options">
+      <label class="opt"><input type="radio" name="ask_scope" value="A"><b>A</b><span class="txt">Stay inside supplied readings (current prompt)</span><span class="rec-pill n">As shipped</span></label>
+      <label class="opt"><input type="radio" name="ask_scope" value="B"><b>B</b><span class="txt">Short meaning/next-step education without new medical facts</span><span class="rec-pill a">Astra rec · needs founder</span></label>
+      <label class="opt"><input type="radio" name="ask_scope" value="custom"><b>✎</b><span class="txt">Write your own</span></label>
+    </div>
+    <div class="steer"><label for="ask_scope_notes">Ask scope notes (optional) · a blend, a condition, or your own pick</label><textarea id="ask_scope_notes" name="ask_scope_notes" rows="2" placeholder="What to keep, combine, or change"></textarea></div>
+  </fieldset>
+</section>
+
+<section class="fight" id="not-on-board">
+  <header><h2><b>·</b>Not on this board</h2></header>
+  <p class="ctx">Already agreed, already in flight, or already answered. Listed so nothing looks lost, not to be re-litigated.</p>
+  <ul class="settled">
+    <li><b>The thirteen TF21 items</b> · NAV-1, SORT-1, ASK-1 to ASK-4, HOME-1, CAM-1 to CAM-3, FAIL-1, WAIT-1: present on <code style="font:11px ui-monospace,Menlo,monospace">67b3904</code> and <code style="font:11px ui-monospace,Menlo,monospace">18d2da2</code>, PR 192, not merged</li>
+    <li><b>Astra A01, A02, A05</b> · the consent's Ask sharing sentence matches what Ask sends (Profile age and weight); Skin never says “nothing needs care” without graded scores; editing height never invents a default. Factual fixes, founder law, not choices</li>
+    <li><b>Fable A14, A17, A18</b> · no deletion footer on the Skin failure screen (FAIL-1 sibling); the Gut wait is the Skin wait; Gut “unavailable” offers the photo its headline asks for</li>
+    <li><b>The rest of AGREE_TO_SHIP</b> · Fable's 36 and Astra's 33: one title per page, plain failure copy, no “(risk model)”, the type floor, the living wait everywhere, the iOS switch in magenta, a real date picker, Ask opener and bubble fixes, the disclaimer wall, haptics, and the others in the two catalogs. Look may implement; none needs a pick</li>
+    <li><b>B19 twelve-fight picks</b> · SK-2 A, SK-8 custom, TR-3 B, AS-3 C, HL-4 A, F-6 custom, F-7 B, F-8 custom, HL-3 B, AS-5 B+C, Saved Gut B, Home demos A</li>
+    <li><b>Follow-on seven</b> · Sonnet 5 medium standard, seven-tap door, any TestFlight tester, band-tone Vital Glimpse tiles, mint HRV hero, blue-purple Send with magenta Stop, Muse first-launch copy now</li>
+    <li><b>Earlier law</b> · F01 A Ask mark trailing top-right, F02 C consent, SK-7 preview equals capture, G-6, WN-1, light only, demos stay, one Profile editor, no Ask-icon reopen</li>
+    <li><b>Test gaps</b> · Fable's 30 and Astra's named tests are Look's to add; nothing here waits on them</li>
+  </ul>
+</section>
+
+<section class="fight overall" id="overall">
+  <header><h2><b>·</b>Overall notes</h2></header>
+  <p class="ctx">Anything for the factory to obey that a letter above does not carry: wording you want exact, a condition on a pick, or a fight this board missed.</p>
+  <label for="notes" style="display:block;font-size:12px;font-weight:650;margin-bottom:6px">Overall notes (optional)</label>
+  <textarea id="notes" name="notes" rows="4" placeholder="Exceptions, exact wording, or a fight we missed"></textarea>
+</section>
+
+<section class="fight answers" id="answers" aria-labelledby="answers-title">
+  <header><h2 id="answers-title"><b>·</b>Review &amp; send</h2></header>
+  <p class="ctx" id="answer-reviewer">Choose Salim or Ranya in Reviewer before sending.</p>
+  <p class="ctx">Send emails the packet inbox through FormSubmit. A text backup downloads with every send. Partial answers can be sent; anything unpicked stays unshipped.</p>
+  <div id="answer-summary"></div>
+</section>
+
+<footer>
+  <div>habassa5.github.io/sweet-ux-packet/b21-gauntlet/ · Cream #FBF8F3 · Magenta #AD315B · September 17, 2026</div>
+  <div><a href="../b19-followon/">The follow-on seven (answered)</a> · <a href="../b19-synth/">The twelve fights (answered)</a> · <a href="../">Packet hub</a></div>
+</footer>
+</div>
+<div class="sendbar"><div class="bar-in">
+  <span class="lbl"><a href="#answers">Review &amp; send</a></span>
+  <span class="count" id="count">0 of 14 decided</span>
+  <div class="actions">
+    <button class="send-btn" id="submitBtn" type="submit">Send answers</button>
+    <button id="copyBtn" type="button">Copy answers</button>
+    <button id="dlBtn" type="button">Download answers</button>
+  </div>
+  <div class="lines">
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <p class="save-status" id="save-status" role="status">Drafts save on this device.</p>
+  </div>
+</div></div>
+</form>
+<script>
+const DRAFT_PREFIX = 'sweet-b21-gauntlet-draft-v1-';
+const REVIEWER_KEY = 'sweet-b21-gauntlet-reviewer-v1';
+const ENDPOINT = 'https://formsubmit.co/ajax/23322cc0514fb928fe0d089afa12512a';
+const DECISIONS = [...document.querySelectorAll('fieldset.pick[data-decision]')].map((fs, i) => ({
+  name: fs.dataset.decision, title: fs.dataset.title, n: i + 1, section: fs.closest('section')
+}));
+const TEXT_FIELDS = ['notes'];
+const form = document.getElementById('mixform');
+const status = document.getElementById('status');
+const saveStatus = document.getElementById('save-status');
+const memoryDrafts = new Map();
+let currentWho = '';
+let sending = false;
+let saveTimer = 0;
+
+function val(name) {
+  const el = form.elements.namedItem(name);
+  return el ? (el.value || '') : '';
+}
+function radios(name) {
+  return [...form.querySelectorAll('input[type="radio"][name="' + name + '"]')];
+}
+function setChoice(name, value) {
+  const group = radios(name);
+  const accepted = group.some(radio => radio.value === value) ? value : '';
+  group.forEach(radio => { radio.checked = radio.value === accepted; });
+}
+function choiceLabel(name) {
+  const radio = radios(name).find(input => input.checked);
+  if (!radio) return 'Not decided';
+  const label = radio.closest('label');
+  const text = label.querySelector('.txt').textContent.trim();
+  if (radio.value === 'custom') return 'Write your own' + (val(name + '_notes').trim() ? ' (see notes)' : ' (notes empty)');
+  return label.querySelector('b').textContent.trim() + ' · ' + text;
+}
+function decidedCount() {
+  return DECISIONS.filter(d => val(d.name)).length;
+}
+function indent(text) {
+  return text.trim().replace(/\n/g, '\n  ');
+}
+function mixLine() {
+  const lines = ['Sweet · B21 gauntlet fights · founder picks', 'Reviewer: ' + (val('who') || 'Not selected'),
+    'Decided: ' + decidedCount() + ' of ' + DECISIONS.length, ''];
+  DECISIONS.forEach(d => {
+    lines.push(d.n + ' · ' + d.title + ': ' + choiceLabel(d.name) + ' [' + (val(d.name) || 'UNDECIDED') + ']');
+    if (val(d.name + '_notes').trim()) lines.push('  Notes: ' + indent(val(d.name + '_notes')));
+  });
+  if (val('notes').trim()) lines.push('', 'Overall notes:', val('notes').trim());
+  return lines.join('\n');
+}
+function collectDraft() {
+  const data = {who: val('who')};
+  DECISIONS.forEach(d => {
+    data[d.name] = val(d.name);
+    data[d.name + '_notes'] = val(d.name + '_notes');
+  });
+  TEXT_FIELDS.forEach(name => { data[name] = val(name); });
+  return data;
+}
+function renderSummary() {
+  const count = decidedCount();
+  const progress = count + ' of ' + DECISIONS.length + ' decided';
+  document.getElementById('progress').textContent = progress;
+  document.getElementById('count').textContent = progress;
+  document.getElementById('answer-reviewer').textContent = val('who')
+    ? 'Answers from ' + val('who') + ' · ' + progress + '. Partial answers can be sent.'
+    : 'Choose Salim or Ranya in Reviewer before sending.';
+  const summary = document.getElementById('answer-summary');
+  summary.replaceChildren();
+  DECISIONS.forEach(d => {
+    const row = document.createElement('div');
+    row.className = 'answer-row';
+    const title = document.createElement('strong');
+    title.textContent = d.n + ' · ' + d.title;
+    const answer = document.createElement('span');
+    answer.className = 'val' + (val(d.name) ? '' : ' undecided');
+    answer.textContent = choiceLabel(d.name);
+    const edit = document.createElement('a');
+    edit.href = '#' + d.section.id;
+    edit.textContent = val(d.name) ? 'Change' : 'Decide';
+    row.append(title, answer, edit);
+    if (val(d.name + '_notes').trim()) {
+      const notes = document.createElement('p');
+      notes.textContent = val(d.name + '_notes').trim();
+      row.append(notes);
+    }
+    summary.append(row);
+    const nav = document.querySelector('.toc a[href="#' + d.section.id + '"]');
+    if (nav) {
+      nav.classList.toggle('decided', Boolean(val(d.name)));
+      nav.setAttribute('aria-label', d.title + (val(d.name) ? ' — ' + choiceLabel(d.name) : ' — not decided'));
+    }
+  });
+  if (val('notes').trim()) {
+    const row = document.createElement('div');
+    row.className = 'answer-row';
+    const label = document.createElement('strong');
+    label.textContent = 'Overall notes';
+    const notes = document.createElement('p');
+    notes.textContent = val('notes').trim();
+    row.append(label, notes);
+    summary.append(row);
+  }
+  document.getElementById('mix_line').value = mixLine();
+}
+function storeDraft(who, data) {
+  const snapshot = {...data, who};
+  memoryDrafts.set(who, snapshot);
+  localStorage.setItem(DRAFT_PREFIX + (who || 'unassigned'), JSON.stringify({savedAt: Date.now(), data: snapshot}));
+}
+function readDraft(who) {
+  if (memoryDrafts.has(who)) return memoryDrafts.get(who);
+  const raw = localStorage.getItem(DRAFT_PREFIX + (who || 'unassigned'));
+  const data = raw ? JSON.parse(raw).data : null;
+  if (data) memoryDrafts.set(who, data);
+  return data;
+}
+function applyDraft(data = {}) {
+  DECISIONS.forEach(d => {
+    setChoice(d.name, typeof data[d.name] === 'string' ? data[d.name] : '');
+    form.elements.namedItem(d.name + '_notes').value = typeof data[d.name + '_notes'] === 'string' ? data[d.name + '_notes'] : '';
+  });
+  TEXT_FIELDS.forEach(name => {
+    form.elements.namedItem(name).value = typeof data[name] === 'string' ? data[name] : '';
+  });
+}
+function saveDraft() {
+  clearTimeout(saveTimer);
+  renderSummary();
+  try {
+    storeDraft(currentWho, collectDraft());
+    localStorage.setItem(REVIEWER_KEY, currentWho);
+    saveStatus.textContent = (currentWho ? currentWho + '’s draft saved' : 'Draft saved') + ' on this device.';
+  } catch (error) {
+    saveStatus.textContent = 'Autosave unavailable. Download answers to keep a copy.';
+  }
+}
+function scheduleSave() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(saveDraft, 250);
+}
+function loadDraft() {
+  try {
+    const who = localStorage.getItem(REVIEWER_KEY) || '';
+    currentWho = who;
+    const data = readDraft(currentWho) || {};
+    form.querySelectorAll('[name="who"]').forEach(radio => { radio.checked = radio.value === currentWho; });
+    applyDraft(data);
+  } catch (error) {
+    saveStatus.textContent = 'Could not restore the draft. Download answers to keep a copy.';
+  }
+}
+function switchWho() {
+  const nextWho = val('who');
+  const previous = collectDraft();
+  let next = memoryDrafts.get(nextWho) || null;
+  try {
+    storeDraft(currentWho, previous);
+    next = readDraft(nextWho);
+  } catch (error) { /* keep answers for export */ }
+  applyDraft(next || (currentWho ? {} : previous));
+  currentWho = nextWho;
+  saveDraft();
+}
+form.addEventListener('change', event => {
+  const input = event.target;
+  if (input.name === 'who') { switchWho(); return; }
+  if (input.type === 'radio' && input.value === 'custom') {
+    form.elements.namedItem(input.name + '_notes')?.focus({preventScroll: true});
+  }
+  saveDraft();
+});
+form.addEventListener('input', event => {
+  if (event.target.name === 'who' || event.target.type === 'radio') return;
+  scheduleSave();
+});
+form.addEventListener('invalid', () => {
+  status.className = 'status bad';
+  status.textContent = 'Choose Salim or Ranya in Reviewer before sending.';
+}, true);
+window.addEventListener('beforeunload', saveDraft);
+window.addEventListener('pagehide', saveDraft);
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') saveDraft(); });
+loadDraft();
+saveDraft();
+
+function downloadMix() {
+  const url = URL.createObjectURL(new Blob([mixLine()], {type: 'text/plain;charset=utf-8'}));
+  const anchor = document.createElement('a');
+  anchor.href = url;
+  anchor.download = 'sweet-b21-gauntlet-fights-' + (val('who') || 'draft').toLowerCase() + '-answers.txt';
+  document.body.append(anchor);
+  anchor.click();
+  anchor.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+  if (sending || !val('who')) return;
+  saveDraft();
+  const reviewer = val('who');
+  const submitted = mixLine();
+  downloadMix();
+  const body = new FormData();
+  Object.entries(collectDraft()).forEach(([name, value]) => body.append(name, value));
+  body.append('mix_line', submitted);
+  body.append('_subject', 'Sweet B21 gauntlet fights from ' + reviewer);
+  body.append('_captcha', 'false');
+  sending = true;
+  document.getElementById('submitBtn').disabled = true;
+  status.className = 'status';
+  status.textContent = 'Sending ' + reviewer + '’s answers…';
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 20000);
+  try {
+    const response = await fetch(ENDPOINT, {
+      method: 'POST', headers: {Accept: 'application/json'}, body, signal: controller.signal
+    });
+    const payload = await response.json();
+    if (!response.ok || (payload.success !== true && payload.success !== 'true')) throw new Error('Send not confirmed');
+    status.className = 'status ok';
+    status.textContent = 'Emailed ' + reviewer + '’s answers to the packet inbox. Text backup downloaded. Draft kept on this device.';
+  } catch (error) {
+    status.className = 'status bad';
+    status.textContent = 'Answers were not confirmed emailed. The text backup downloaded; retry Send answers, or copy them.';
+  } finally {
+    clearTimeout(timer);
+    sending = false;
+    document.getElementById('submitBtn').disabled = false;
+  }
+});
+document.getElementById('copyBtn').addEventListener('click', async () => {
+  saveDraft();
+  try { await navigator.clipboard.writeText(mixLine()); status.className = 'status ok'; status.textContent = 'Answers copied.'; }
+  catch (error) { status.className = 'status bad'; status.textContent = 'Copy unavailable. Use Download answers.'; }
+});
+document.getElementById('dlBtn').addEventListener('click', () => {
+  saveDraft(); downloadMix(); status.className = 'status ok'; status.textContent = 'Answers downloaded.';
+});
+</script>
+</body>
+</html>
