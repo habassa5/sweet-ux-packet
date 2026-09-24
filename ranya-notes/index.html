@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ranya · in-app notes</title>
+<style>
+:root {--cream:#FBF8F3;--white:#fff;--ink:#1A2021;--muted:#5C534E;--line:#E4DCD4;--magenta:#AD315B;--green:#1F7A4D;--red:#9B2C2C}
+* {box-sizing:border-box}
+body {margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.45}
+h1,h2,p {margin:0}
+.wrap {max-width:920px;margin:auto;padding:28px 22px 140px}
+header.page h1 {font-size:32px;letter-spacing:-.6px;font-weight:650}
+header.page h1 em {font-family:Georgia,serif;font-weight:400;color:var(--magenta)}
+.lede {margin-top:10px;color:var(--muted);max-width:68ch}
+.card {margin-top:28px;padding-top:22px;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(280px,420px) 1fr;gap:22px;align-items:start}
+.card header {grid-column:1 / -1;display:flex;gap:12px;align-items:baseline}
+.num {font-weight:700;color:var(--magenta);min-width:1.6em}
+.card h2 {font-size:18px;letter-spacing:-.2px}
+.meta {color:var(--muted);font-size:13px;margin-top:2px}
+.shots {display:flex;flex-direction:column;gap:12px}
+.shots img {width:100%;border:1px solid var(--line);border-radius:18px;background:var(--white);display:block}
+.words {min-width:0}
+.said {font-size:11px;letter-spacing:1.1px;text-transform:uppercase;font-weight:700;color:var(--magenta);margin-bottom:6px}
+blockquote {margin:0 0 16px;padding:12px 14px;background:var(--white);border-radius:12px;border:1px solid var(--line);font-size:15px}
+label {display:block;font-size:12px;font-weight:650;margin-bottom:6px}
+textarea {display:block;width:100%;min-height:72px;padding:9px 12px;border:1px solid #C9BFB8;border-radius:10px;background:var(--white);font:inherit;font-size:14px;resize:vertical}
+textarea::placeholder {color:#8A7F84}
+.missing {color:var(--muted)}
+.sendbar {position:sticky;bottom:0;background:rgba(251,248,243,.96);border-top:1px solid var(--line);padding:10px 0}
+.sendbar .bar {max-width:920px;margin:auto;padding:0 22px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.actions {display:flex;gap:8px;margin-left:auto}
+button {min-height:40px;padding:8px 16px;border:1px solid #C9BFB8;border-radius:999px;background:var(--white);cursor:pointer;font:inherit;font-weight:650}
+.send-btn {background:var(--magenta);color:#fff;border-color:var(--magenta)}
+.status {flex-basis:100%;margin:0;font-weight:600}
+.status.ok {color:var(--green)}
+.status.bad {color:var(--red)}
+.save-status {margin:0;color:var(--muted);font-size:13px}
+:focus-visible {outline:3px solid var(--magenta);outline-offset:3px}
+@media (max-width:800px) {.card {grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<form id="board">
+<div class="wrap">
+<header class="page">
+  <h1>Ranya's notes. <em>As sent.</em></h1>
+  <p class="lede">The picture is on the left. What you already wrote is on the right, in the white box. The empty field under that is for anything you want to add or change. Eighteen notes from September 24, then ten older ones.</p>
+</header>
+
+<article class="card" id="n1">
+  <header>
+    <span class="num">1</span>
+    <div>
+      <h2>Sep 24, 11:01 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/ALXLySW8D9OIUgqyuNo92XI_0.jpg" alt="Screenshot 1 for note 1"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>Not sure if the screen came out before, but need to put highest priority tests at the top. <br>1) Put BP card at top right beside HR. <br>2) Put HRV where index is <br>3) Fix logo at top right -should be swirl</blockquote>
+    <label for="note_1">Add a revision, a color, or a correction</label>
+    <textarea id="note_1" name="note_1" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n2">
+  <header>
+    <span class="num">2</span>
+    <div>
+      <h2>Sep 24, 9:05 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AH2hGZQ8GxpeeMo2K_8jTyc_0.jpg" alt="Screenshot 1 for note 2">
+<img src="shots/AH2hGZQ8GxpeeMo2K_8jTyc_1.jpg" alt="Screenshot 2 for note 2">
+<img src="shots/AH2hGZQ8GxpeeMo2K_8jTyc_2.jpg" alt="Screenshot 3 for note 2"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>Here are phrases to use throughout. We balance out by using the more professional colors/fonts/styles you showed me before (attached). Btw I didn’t see “Sweet Spot” anywhere: <br><br>Your Sweet Spot<br>Short ‘n sweet <br>Sweet Heart<br>Piece of cake <br>Easy as pie <br>Treat yourself <br>What a treat! <br>We take your sugar, seriously</blockquote>
+    <label for="note_2">Add a revision, a color, or a correction</label>
+    <textarea id="note_2" name="note_2" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n3">
+  <header>
+    <span class="num">3</span>
+    <div>
+      <h2>Sep 24, 7:46 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AEU5QhAFZZ14RjiY08rEMqI_0.jpg" alt="Screenshot 1 for note 3">
+<img src="shots/AEU5QhAFZZ14RjiY08rEMqI_1.jpg" alt="Screenshot 2 for note 3"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>1) Explanation + what may help are great. <br>2) I don’t like the stool images here. Can’t appreciate diff in types 2-4. See screenshot for reference. <br>3) We should indicate the normal ranges for Bristol types. See screenshot reference</blockquote>
+    <label for="note_3">Add a revision, a color, or a correction</label>
+    <textarea id="note_3" name="note_3" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n4">
+  <header>
+    <span class="num">4</span>
+    <div>
+      <h2>Sep 24, 7:38 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AB6iWSh5UASnyYhmEQkOtsc_0.jpg" alt="Screenshot 1 for note 4"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>This picture was taken of the empty toilet. Nothing in there, not even toilet paper. </blockquote>
+    <label for="note_4">Add a revision, a color, or a correction</label>
+    <textarea id="note_4" name="note_4" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n5">
+  <header>
+    <span class="num">5</span>
+    <div>
+      <h2>Sep 24, 7:34 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AGtxt293vNRYyunI7mwngKo_0.jpg" alt="Screenshot 1 for note 5"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>1) Too much real estate taken up here. Should see doing good/needs care/worth attention all in one screen. <br>2) I don’t like “needs attention.” If it’s not doing good or needing care, why say worth attention? Should be more neutral, like “stable” or “keep it up” instead</blockquote>
+    <label for="note_5">Add a revision, a color, or a correction</label>
+    <textarea id="note_5" name="note_5" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n6">
+  <header>
+    <span class="num">6</span>
+    <div>
+      <h2>Sep 24, 7:26 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AHDcQTpnsTOg7rkvi6-KWCo_0.jpg" alt="Screenshot 1 for note 6"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>“All 15 observations” is the beauty of this skin check. It needs to be shown, not hidden like this. Should be displayed on main screen, not separated. </blockquote>
+    <label for="note_6">Add a revision, a color, or a correction</label>
+    <textarea id="note_6" name="note_6" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n7">
+  <header>
+    <span class="num">7</span>
+    <div>
+      <h2>Sep 24, 7:23 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/ABrAazj3jyPNLlMHFiz4_50_0.jpg" alt="Screenshot 1 for note 7"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>I don’t think anyone wants to see their picture here. Unless it has a bunch of grids showing analysis on top of it. But a raw photo is not great from a privacy perspective and also just not flattering for users.<br>Note: I noticed that older pictures are stored and shown. Again, that rubs users the wrong way. Can we delete the actual facial pictures? Or is that part of Perfect’s SDK?</blockquote>
+    <label for="note_7">Add a revision, a color, or a correction</label>
+    <textarea id="note_7" name="note_7" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n8">
+  <header>
+    <span class="num">8</span>
+    <div>
+      <h2>Sep 24, 7:20 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AFUs5jZuU16AxG5AghrCu-c_0.jpg" alt="Screenshot 1 for note 8"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>Why is score a 65 when the individual scores are higher? Needs better explanation of where this came from. <br><br>Also does makeup affect these numbers? Must explain to user if so. </blockquote>
+    <label for="note_8">Add a revision, a color, or a correction</label>
+    <textarea id="note_8" name="note_8" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n9">
+  <header>
+    <span class="num">9</span>
+    <div>
+      <h2>Sep 24, 7:16 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AAdGP9FegXheozdwga95MkI_0.jpg" alt="Screenshot 1 for note 9">
+<img src="shots/AAdGP9FegXheozdwga95MkI_1.jpg" alt="Screenshot 2 for note 9">
+<img src="shots/AAdGP9FegXheozdwga95MkI_2.jpg" alt="Screenshot 3 for note 9">
+<img src="shots/AAdGP9FegXheozdwga95MkI_3.jpg" alt="Screenshot 4 for note 9"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>Sorry here are the other style options and logo: <br><br>Also why does the app icon have a pink background behind the swirl? Did u want that? I like the start white behind the bold swirl, but lmk if u had diff reasoning. It *is* more noticeable on my Home Screen with the pink background, I guess, but lmk ur thoughts. </blockquote>
+    <label for="note_9">Add a revision, a color, or a correction</label>
+    <textarea id="note_9" name="note_9" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n10">
+  <header>
+    <span class="num">10</span>
+    <div>
+      <h2>Sep 24, 7:08 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AN-XUVx3-SHwvvpi_au54mM_0.jpg" alt="Screenshot 1 for note 10"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>1) Swirl logo is not aligned and not large enough. <br>2) Should say “Sweet Medical” not just sweet, esp on primary page. <br>3) Try a demo is cut off at bottom. Plenty of room for better alignment. Top pink part is too big. <br>4) I don’t like this oatmeal style and old-school feel. Recall I chose the other two styles ahead of this one, screenshots attached. The only thing I liked about this option was the more realistic body images, like the gut icon. Otherwise the colors, layout, and feel of the other two were much more modern and adult, esp if we’re gonna use cute puns.<br>5) What the heck is “Vital Glimpse?” Where did that come from? It should be “Vital Signs” or “Vital signs check” or “General health check” <br>6) Should we put a more obvious ‘start check’ link on each one? Right now “Start” is a bit small and may be missed. I may be underestimating them. Idk -thoughts?</blockquote>
+    <label for="note_10">Add a revision, a color, or a correction</label>
+    <textarea id="note_10" name="note_10" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n11">
+  <header>
+    <span class="num">11</span>
+    <div>
+      <h2>Sep 24, 6:58 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/ALQLZtrMvVW6lJjyyQwx3dw_0.jpg" alt="Screenshot 1 for note 11"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>“Your day. A little sweeter” is good but let’s keep that theme throughout: “1 min, short ‘n sweet” or “piece of cake!” or “sweet as pie” or “treat yourself” or “what a treat!” etc etc </blockquote>
+    <label for="note_11">Add a revision, a color, or a correction</label>
+    <textarea id="note_11" name="note_11" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n12">
+  <header>
+    <span class="num">12</span>
+    <div>
+      <h2>Sep 24, 6:43 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AAlhYbuqH1lvUTLovo0PYEI_0.jpg" alt="Screenshot 1 for note 12"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>VERY IMPORTANT: If a number improved and that’s better, user needs to know and be congratulated for it. Should not just flag if outside range -should also flag if trending better (or worse). BP, HR, HRV are the key metrics to flag for this important feedback. Btw candy-fy it when possible: it should be “Sweet! Your HRV is trending better!” (Or similar without being too childish). <br><br>Otherwise same feedback. Need ranges, context, friendly explanations throughout. <br></blockquote>
+    <label for="note_12">Add a revision, a color, or a correction</label>
+    <textarea id="note_12" name="note_12" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n13">
+  <header>
+    <span class="num">13</span>
+    <div>
+      <h2>Sep 24, 6:37 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AFWVz0e-NeDzFjzNp9_Mec4_0.jpg" alt="Screenshot 1 for note 13"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>Completely useless information. Please add all explanations and don’t worry about App Store. <br><br>Also the logo in top right is wrong throughout. Need Sweet logo there. </blockquote>
+    <label for="note_13">Add a revision, a color, or a correction</label>
+    <textarea id="note_13" name="note_13" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n14">
+  <header>
+    <span class="num">14</span>
+    <div>
+      <h2>Sep 24, 6:35 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/ADRSFhXFdm3uM5G1Fr7Vo1o_0.jpg" alt="Screenshot 1 for note 14"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>My weight is 112-114. Why is this so far off? I get that it’s just a camera estimate but maybe it should be accounting for Apple Health connection too, which has my smart scale data? Idk but this should be tweaked cuz it’s gonna piss users off. Maybe we add a note of what the Apple Health weight says as well? </blockquote>
+    <label for="note_14">Add a revision, a color, or a correction</label>
+    <textarea id="note_14" name="note_14" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n15">
+  <header>
+    <span class="num">15</span>
+    <div>
+      <h2>Sep 24, 6:31 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/ABh3pLJVlRDSPz3x5T9BcBw_0.jpg" alt="Screenshot 1 for note 15"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>This is great (obs) and needs a great explanation of where the number came from/how it was estimated, and why. This single number will promote better health habits and keep users testing/competing with themselves (and others). </blockquote>
+    <label for="note_15">Add a revision, a color, or a correction</label>
+    <textarea id="note_15" name="note_15" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n16">
+  <header>
+    <span class="num">16</span>
+    <div>
+      <h2>Sep 24, 6:29 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/ANmBFw0hz3MNmZYRWxtQCV8_0.jpg" alt="Screenshot 1 for note 16"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>As for all, needs a SIMPLE explanation about what HRV is and what the number means. “Usual HRV is between X-X.””Athletes may have an HRV around X.” “A higher HRV is usually considered healthy. It means that your heart is more flexible to the changing needs of your body.“<br><br>This is the type of explanation we need for every metric. Sweet is not a ‘dumb’ scale -it’s fused intelligence and personalized health education. </blockquote>
+    <label for="note_16">Add a revision, a color, or a correction</label>
+    <textarea id="note_16" name="note_16" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n17">
+  <header>
+    <span class="num">17</span>
+    <div>
+      <h2>Sep 24, 6:20 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/ACT49wrq8dS7XZJiFUQZkgY_0.jpg" alt="Screenshot 1 for note 17"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>1) All readings and details should be prominent. I think they should all be listed instead of hidden. This is the best part.<br>2) “Run again” is easy to tap by accident. This should never be so prominent. <br>3) Love how you combined systolic + diastolic BP. That is KEY. People know their numbers as a pair. <br>4) Move BP card to top right, where HRV currently is. Most important metrics should be at top. <br>5) Where is O2 saturation?? That’s a very important metric, even as estimate. <br>6) Fuck App Store. We need to be as aggressive as we want, so remove all dumb disclaimers and guardrails -we are not trying to get in App Store. This is POC. Can dial back and add disclaimers as we go, or go for CDS status (under a clinician)<br></blockquote>
+    <label for="note_17">Add a revision, a color, or a correction</label>
+    <textarea id="note_17" name="note_17" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n18">
+  <header>
+    <span class="num">18</span>
+    <div>
+      <h2>Sep 24, 6:09 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AJBaS4X4gbaQ8VgB1KryBTk_0.jpg" alt="Screenshot 1 for note 18"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>1) Why are edges and sides blurred? <br>2) Make lines on face more prominent to show its doing something (other than ROI map) <br>3) When started, no capture instructions and no ‘green’ for positioning. Just white. Needs to show capture with a thumbs up or some sign that it’s starting. I didn’t know until the white net came in view.<br>4) When moving during capture, positioning line goes white or yellow, but never goes red for a bad angle. Needs to clearly show if it’s not correct. </blockquote>
+    <label for="note_18">Add a revision, a color, or a correction</label>
+    <textarea id="note_18" name="note_18" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n19">
+  <header>
+    <span class="num">19</span>
+    <div>
+      <h2>Sep 11, 10:24 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AI4RQiNmTEQzJyDS7F_ZYNY_0.jpg" alt="Screenshot 1 for note 19"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>Why is “See Bristol Scale” so big?? And why is it before the actual check?? Also why is the logo a book??</blockquote>
+    <label for="note_19">Add a revision, a color, or a correction</label>
+    <textarea id="note_19" name="note_19" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n20">
+  <header>
+    <span class="num">20</span>
+    <div>
+      <h2>Sep 11, 10:22 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/APoGqdbVnq8IwXf9HGxtcbM_0.jpg" alt="Screenshot 1 for note 20"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>Ugh. </blockquote>
+    <label for="note_20">Add a revision, a color, or a correction</label>
+    <textarea id="note_20" name="note_20" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n21">
+  <header>
+    <span class="num">21</span>
+    <div>
+      <h2>Sep 11, 10:21 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AMhG0y_sSEi2MaRvH7xoeYY_0.jpg" alt="Screenshot 1 for note 21"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>Again, gives zero context. On the bottom it says “higher for the concern scores is better.” Horrible. (I know this is from Perfect). Useless test unless we can customize. </blockquote>
+    <label for="note_21">Add a revision, a color, or a correction</label>
+    <textarea id="note_21" name="note_21" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n22">
+  <header>
+    <span class="num">22</span>
+    <div>
+      <h2>Sep 11, 10:17 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AAl0nbij5dS_Q2Nj0gC6-NA_0.jpg" alt="Screenshot 1 for note 22"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>Horrible. Tells me nothing. Just disclaimer bullshit. (I know it’s Shen). <br>1) Must reference all standard ranges for every metric. Currently there are NONE. <br>2) Must explain results -and do so in simple terms. I know it says “ask about” at the bottom of the long list, but should be part of every result by default. Then “ask” if need further info. <br>3) Should cite AHA guidelines, etc as applicable.  <br>4) Remove ALL disclaimers from every screen if possible. It should show up as one simple statement after a check is completed/before retrieving the full results. Never on each test. <br>5) IF it’s required for some reason (shouldn’t be) then put disclaimer in small font at the very bottom of the screen. Anura does this. </blockquote>
+    <label for="note_22">Add a revision, a color, or a correction</label>
+    <textarea id="note_22" name="note_22" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n23">
+  <header>
+    <span class="num">23</span>
+    <div>
+      <h2>Sep 11, 10:10 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AM4hJWCagWO-UvixRMCo68I_0.jpg" alt="Screenshot 1 for note 23"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>Should be available in inches too. Same as kg/lbs comments</blockquote>
+    <label for="note_23">Add a revision, a color, or a correction</label>
+    <textarea id="note_23" name="note_23" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n24">
+  <header>
+    <span class="num">24</span>
+    <div>
+      <h2>Sep 11, 10:09 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AANJ4Kj8hXa2vZVxipVbN_Q_0.jpg" alt="Screenshot 1 for note 24"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>Make sure available in pounds (lbs) too. This logic and the correct units should automatically be taken into account during BMI &amp; BCI calculation too. </blockquote>
+    <label for="note_24">Add a revision, a color, or a correction</label>
+    <textarea id="note_24" name="note_24" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n25">
+  <header>
+    <span class="num">25</span>
+    <div>
+      <h2>Sep 11, 10:06 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AAcINxYbId19bzYx0mL24hw_0.jpg" alt="Screenshot 1 for note 25"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>Should explain the result and give context/range if applicable. <br><br>Use this: “a higher resting heart rate variability (HRV) is considered healthy. It means that your heart is more flexible to the changing needs of your body.”</blockquote>
+    <label for="note_25">Add a revision, a color, or a correction</label>
+    <textarea id="note_25" name="note_25" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n26">
+  <header>
+    <span class="num">26</span>
+    <div>
+      <h2>Sep 11, 10:01 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AI4zF419MyvVuf7HOWKWwgk_0.jpg" alt="Screenshot 1 for note 26"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>Check “timed out” despite optimal capture conditions. See screenshot. <br>Also make progress line around circle green -it’s colored grey right now. </blockquote>
+    <label for="note_26">Add a revision, a color, or a correction</label>
+    <textarea id="note_26" name="note_26" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n27">
+  <header>
+    <span class="num">27</span>
+    <div>
+      <h2>Sep 10, 6:01 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AMgYi2pWOIidmFEusoVEirU_0.jpg" alt="Screenshot 1 for note 27"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>Did not finish check. Repeatedly. </blockquote>
+    <label for="note_27">Add a revision, a color, or a correction</label>
+    <textarea id="note_27" name="note_27" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+
+<article class="card" id="n28">
+  <header>
+    <span class="num">28</span>
+    <div>
+      <h2>Sep 9, 8:03 AM</h2>
+      <p class="meta">17 Pro · rgh21@icloud.com</p>
+    </div>
+  </header>
+  <div class="shots"><img src="shots/AM8rN3HQVo57fObyldFXeO0_0.jpg" alt="Screenshot 1 for note 28"></div>
+  <div class="words">
+    <p class="said">What you already wrote</p>
+    <blockquote>Not analyzing</blockquote>
+    <label for="note_28">Add a revision, a color, or a correction</label>
+    <textarea id="note_28" name="note_28" placeholder="Anything to add or change"></textarea>
+  </div>
+</article>
+</div>
+<div class="sendbar"><div class="bar">
+  <span id="count">0 notes added</span>
+  <div class="actions">
+    <button class="send-btn" type="submit">Send notes</button>
+    <button id="copyBtn" type="button">Copy</button>
+    <button id="dlBtn" type="button">Download</button>
+  </div>
+  <p class="status" id="status" role="status"></p>
+  <p class="save-status" id="save-status">Drafts save in this browser.</p>
+</div></div>
+</form>
+<script>
+const KEY = "sweet-ranya-board-2026-09-24";
+const ENDPOINT = "https://formsubmit.co/ajax/23322cc0514fb928fe0d089afa12512a";
+const form = document.getElementById("board");
+const areas = [...form.querySelectorAll("textarea")];
+const status = document.getElementById("status");
+let sending = false;
+function pack() {
+  const lines = ["Ranya notes · revisions", ""];
+  areas.forEach((area) => {
+    const text = area.value.trim();
+    if (!text) return;
+    const card = area.closest("article");
+    const title = card.querySelector("h2").textContent;
+    lines.push(title);
+    lines.push(text);
+    lines.push("");
+  });
+  return lines.join("\n").trim() + "\n";
+}
+function count() {
+  const n = areas.filter((area) => area.value.trim()).length;
+  document.getElementById("count").textContent = n + (n === 1 ? " note added" : " notes added");
+}
+function save() {
+  const data = {};
+  areas.forEach((area) => { data[area.name] = area.value; });
+  localStorage.setItem(KEY, JSON.stringify(data));
+  document.getElementById("save-status").textContent = "Draft saved in this browser.";
+}
+function load() {
+  const raw = localStorage.getItem(KEY);
+  if (!raw) return;
+  let data = {};
+  try { data = JSON.parse(raw); } catch (e) { return; }
+  areas.forEach((area) => { if (data[area.name]) area.value = data[area.name]; });
+}
+function download() {
+  const blob = new Blob([pack()], {type: "text/plain"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "ranya-notes.txt";
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+form.addEventListener("input", () => {
+  count();
+  clearTimeout(form._t);
+  form._t = setTimeout(save, 250);
+});
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  if (sending) return;
+  sending = true;
+  status.className = "status";
+  status.textContent = "Sending…";
+  try {
+    const res = await fetch(ENDPOINT, {
+      method: "POST",
+      headers: {"Content-Type": "application/json", Accept: "application/json"},
+      body: JSON.stringify({_subject: "Ranya notes · revisions", _template: "table", message: pack()})
+    });
+    if (!res.ok) throw new Error("fail");
+    status.className = "status ok";
+    status.textContent = "Sent. A copy is also downloaded.";
+    download();
+  } catch (err) {
+    status.className = "status bad";
+    status.textContent = "Send failed. Use Download. The draft is still in this browser.";
+    download();
+  } finally {
+    sending = false;
+  }
+});
+document.getElementById("copyBtn").addEventListener("click", async () => {
+  await navigator.clipboard.writeText(pack());
+  document.getElementById("save-status").textContent = "Copied.";
+});
+document.getElementById("dlBtn").addEventListener("click", download);
+load();
+count();
+</script>
+</body>
+</html>
